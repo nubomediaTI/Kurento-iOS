@@ -1,0 +1,21 @@
+//
+//  Kurento-Prefix.pch
+//  Kurento-iOS
+//
+//  Created by Marco Rossi on 10/10/15.
+//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//
+
+#ifndef Kurento_Prefix_pch
+#define Kurento_Prefix_pch
+
+//
+// Prefix header for all source files of the 'Kurento-iOS' target in the 'Kurento-iOS' project
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import "NBMLog.h"
+#endif
+
+#endif /* Kurento_Prefix_pch */

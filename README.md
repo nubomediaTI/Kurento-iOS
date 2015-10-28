@@ -1,2 +1,1 @@
-# Kurento-iOS
-Kurento-iOS client
+Kurento-iOS
