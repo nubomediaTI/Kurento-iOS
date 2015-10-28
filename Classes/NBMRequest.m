@@ -8,7 +8,7 @@
 
 #import "NBMRequest+Private.h"
 
-#import "NBMJSONRCPConstants.h"
+#import "NBMJSONRPCConstants.h"
 
 @implementation NBMRequest
 

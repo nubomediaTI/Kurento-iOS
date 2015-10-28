@@ -8,7 +8,7 @@
 
 #import "NBMResponse+Private.h"
 #import "NBMResponseError.h"
-#import "NBMJSONRCPConstants.h"
+#import "NBMJSONRPCConstants.h"
 
 @implementation NBMResponse
 

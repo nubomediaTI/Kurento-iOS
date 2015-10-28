@@ -7,7 +7,7 @@
 //
 
 #import "NBMResponseError.h"
-#import "NBMJSONRCPConstants.h"
+#import "NBMJSONRPCConstants.h"
 
 //static NSString* const kCodeKey  = @"code";
 //static NSString* const kMessageKey  = @"message";

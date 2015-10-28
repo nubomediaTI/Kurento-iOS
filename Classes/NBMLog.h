@@ -6,14 +6,14 @@
 //  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
 //
 
-#import <CocoaLumberjack/DDLog.h>
+#import <CocoaLumberjack/DDLogMacros.h>
 
 #ifdef DEBUG
-    static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+    static const int ddLogLevel = DDLogLevelVerbose;
     //Simple log macro
     #define DLog(s,...) NSLog((@"[%s] " s),__func__,## __VA_ARGS__);
 #else
-    static const int ddLogLevel = LOG_LEVEL_WARN;
+    static const int ddLogLevel = DDLogLevelOff;
     //Log only in debug mode
     #define DLog(...)
 #endif

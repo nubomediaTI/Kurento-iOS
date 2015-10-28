@@ -12,7 +12,7 @@
 #import "NBMRequest+Private.h"
 #import "NBMResponse+Private.h"
 #import "NBMUtilities.h"
-#import "NBMJSONRCPConstants.h"
+#import "NBMJSONRPCConstants.h"
 #import "NBMTimeoutable.h"
 
 //NBMRequestPack
@@ -206,7 +206,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (void)cancelRequest:(NBMRequest *)request
 {
     __block NBMRequestPack *requestPackToCancel;
-    [_requestsSent enumerateObjectsUsingBlock:^(NBMRequestPack* _Nonnull requestPack, BOOL* _Nonnull stop) {
+    [_requestsSent enumerateObjectsUsingBlock:^(NBMRequestPack* requestPack, BOOL* stop) {
         if ([requestPack.request isEqual:request]) {
             requestPackToCancel = requestPack;
             *stop = YES;
@@ -405,7 +405,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (NBMRequestPack *)getRequestPackById:(NSNumber *)requestId
 {
     __block NBMRequestPack *requestPack;
-    [_requestsSent enumerateObjectsUsingBlock:^(NBMRequestPack*  _Nonnull aRequestPack, BOOL * _Nonnull stop) {
+    [_requestsSent enumerateObjectsUsingBlock:^(NBMRequestPack* aRequestPack, BOOL *stop) {
         if ([requestPack.request.requestId isEqualToNumber:requestId]) {
             requestPack = aRequestPack;
             *stop = YES;
@@ -424,7 +424,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (NBMProcessedResponse *)getProcessedResponseByAck:(NSNumber *)ack remove:(BOOL)remove
 {
     __block NBMProcessedResponse *processedResponse;
-    [_responsesReceived enumerateObjectsUsingBlock:^(NBMProcessedResponse*  _Nonnull aProcessedResponse, BOOL * _Nonnull stop) {
+    [_responsesReceived enumerateObjectsUsingBlock:^(NBMProcessedResponse *aProcessedResponse, BOOL *stop) {
         if ([aProcessedResponse.ack isEqualToNumber:ack]) {
             processedResponse = aProcessedResponse;
             *stop = YES;

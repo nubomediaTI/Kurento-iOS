@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		31FFA68A76E7F003D32D939B /* libPods-Kurento-iOS-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E600337AD13A76A76C2724ED /* libPods-Kurento-iOS-Static.a */; };
-		4A0C9E8B1BD8DFCE00F4F7F0 /* NBMJSONRCPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRCPConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A0C9E8B1BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A133A511BE130690095B168 /* Kurento.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A133A4F1BE1204A0095B168 /* Kurento.h */; };
 		4A48849C1BAC39A40093D90D /* Kurento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4884911BAC39A30093D90D /* Kurento.framework */; };
 		4A4884A11BAC39A40093D90D /* KurentoClient_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4884A01BAC39A40093D90D /* KurentoClient_iOSTests.m */; };
 		4A4D6F871BAC3EF9001DB874 /* Kurento.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4D6F851BAC3EF9001DB874 /* Kurento.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,13 +30,12 @@
 		4AA551821BDFE423002152AB /* NBMSessionDescriptionFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD6005B1BB58B3C003124FD /* NBMSessionDescriptionFactory.h */; };
 		4AA551831BDFE423002152AB /* NBMPeerConnection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */; };
 		4AA551841BDFE423002152AB /* NBMWebRTCPeer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD6003F1BB43E01003124FD /* NBMWebRTCPeer.h */; };
-		4AA551851BDFE423002152AB /* NBMJSONRCPConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRCPConstants.h */; };
+		4AA551851BDFE423002152AB /* NBMJSONRPCConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h */; };
 		4AA551861BDFE423002152AB /* NBMMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD6002E1BB3F54B003124FD /* NBMMessage.h */; };
 		4AA551871BDFE423002152AB /* NBMRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD600331BB3F79D003124FD /* NBMRequest.h */; };
 		4AA551881BDFE423002152AB /* NBMResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD600371BB3FDA6003124FD /* NBMResponse.h */; };
 		4AA551891BDFE423002152AB /* NBMResponseError.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD6003B1BB40523003124FD /* NBMResponseError.h */; };
 		4AA5518A1BDFE423002152AB /* NBMJSONRPCClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */; };
-		4AA5518B1BDFE438002152AB /* Kurento.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A4D6F851BAC3EF9001DB874 /* Kurento.h */; };
 		4AA5518C1BDFE48C002152AB /* NBMSessionDescriptionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6005C1BB58B3C003124FD /* NBMSessionDescriptionFactory.m */; };
 		4AA5518D1BDFE48E002152AB /* NBMPeerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */; };
 		4AA5518E1BDFE4A0002152AB /* NBMWebRTCPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD600401BB43E01003124FD /* NBMWebRTCPeer.m */; };
@@ -79,11 +79,11 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				4AA5518B1BDFE438002152AB /* Kurento.h in CopyFiles */,
+				4A133A511BE130690095B168 /* Kurento.h in CopyFiles */,
 				4AA551821BDFE423002152AB /* NBMSessionDescriptionFactory.h in CopyFiles */,
 				4AA551831BDFE423002152AB /* NBMPeerConnection.h in CopyFiles */,
 				4AA551841BDFE423002152AB /* NBMWebRTCPeer.h in CopyFiles */,
-				4AA551851BDFE423002152AB /* NBMJSONRCPConstants.h in CopyFiles */,
+				4AA551851BDFE423002152AB /* NBMJSONRPCConstants.h in CopyFiles */,
 				4AA551861BDFE423002152AB /* NBMMessage.h in CopyFiles */,
 				4AA551871BDFE423002152AB /* NBMRequest.h in CopyFiles */,
 				4AA551881BDFE423002152AB /* NBMResponse.h in CopyFiles */,
@@ -100,14 +100,15 @@
 		1FAFF815907732A6EB05351A /* Pods-Kurento-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurento-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kurento-iOS/Pods-Kurento-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		349593E56FB9A113FA665605 /* Pods-KurentoClient-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoClient-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoClient-iOS/Pods-KurentoClient-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3678BF875E16BE32F575767C /* Pods-Kurento-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurento-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kurento-iOS/Pods-Kurento-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRCPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRCPConstants.h; sourceTree = "<group>"; };
+		4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRPCConstants.h; sourceTree = "<group>"; };
+		4A133A4F1BE1204A0095B168 /* Kurento.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kurento.h; sourceTree = "<group>"; };
 		4A4884911BAC39A30093D90D /* Kurento.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kurento.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A48849B1BAC39A40093D90D /* Kurento-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kurento-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4884A01BAC39A40093D90D /* KurentoClient_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KurentoClient_iOSTests.m; sourceTree = "<group>"; };
 		4A4884A21BAC39A40093D90D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4D6F841BAC3EF9001DB874 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4D6F851BAC3EF9001DB874 /* Kurento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kurento.h; sourceTree = "<group>"; };
-		4A5AA5631BD640FB00FCA44D /* NBMLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMLog.h; path = ../Classes/NBMLog.h; sourceTree = "<group>"; };
+		4A5AA5631BD640FB00FCA44D /* NBMLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMLog.h; sourceTree = "<group>"; };
 		4A5AA56B1BD6536300FCA44D /* NBMResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NBMResponse+Private.h"; sourceTree = "<group>"; };
 		4A5AA56F1BD6659900FCA44D /* NBMRequest+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NBMRequest+Private.h"; sourceTree = "<group>"; };
 		4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRPCClient.h; sourceTree = "<group>"; };
@@ -182,6 +183,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4A133A4E1BE11CFB0095B168 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4A5AA5631BD640FB00FCA44D /* NBMLog.h */,
+				4A95CF361BB05A7500F46A0D /* NBMUtilities.h */,
+				4A95CF371BB05A7500F46A0D /* NBMUtilities.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		4A2E7BFA1BAC49FB00DBFED4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,15 +225,15 @@
 		4A4884931BAC39A30093D90D /* Kurento */ = {
 			isa = PBXGroup;
 			children = (
+				4A133A4F1BE1204A0095B168 /* Kurento.h */,
 				4AD6005B1BB58B3C003124FD /* NBMSessionDescriptionFactory.h */,
 				4AD6005C1BB58B3C003124FD /* NBMSessionDescriptionFactory.m */,
 				4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */,
 				4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */,
 				4AD6003F1BB43E01003124FD /* NBMWebRTCPeer.h */,
 				4AD600401BB43E01003124FD /* NBMWebRTCPeer.m */,
-				4A95CF361BB05A7500F46A0D /* NBMUtilities.h */,
-				4A95CF371BB05A7500F46A0D /* NBMUtilities.m */,
 				4AA5516E1BDF926C002152AB /* JSON-RPC */,
+				4A133A4E1BE11CFB0095B168 /* Utils */,
 				4A4D6F881BAC403A001DB874 /* Supporting Files */,
 			);
 			name = Kurento;
@@ -242,7 +253,6 @@
 		4A4D6F881BAC403A001DB874 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A5AA5631BD640FB00FCA44D /* NBMLog.h */,
 				4A4D6F851BAC3EF9001DB874 /* Kurento.h */,
 				4AA551731BDFD8E2002152AB /* Kurento-Prefix.pch */,
 				4A4D6F841BAC3EF9001DB874 /* Info.plist */,
@@ -268,7 +278,7 @@
 		4AD600321BB3F765003124FD /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRCPConstants.h */,
+				4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h */,
 				4AD6002E1BB3F54B003124FD /* NBMMessage.h */,
 				4AD6002F1BB3F54C003124FD /* NBMMessage.m */,
 				4A5AA56F1BD6659900FCA44D /* NBMRequest+Private.h */,
@@ -301,7 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4D6F871BAC3EF9001DB874 /* Kurento.h in Headers */,
-				4A0C9E8B1BD8DFCE00F4F7F0 /* NBMJSONRCPConstants.h in Headers */,
+				4A0C9E8B1BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h in Headers */,
 				4AA5516B1BDF7D0B002152AB /* NBMPeerConnection.h in Headers */,
 				4A71138D1BD51BEC003AEF5C /* NBMTransportChannel.h in Headers */,
 				4AD600351BB3F79D003124FD /* NBMRequest.h in Headers */,
@@ -686,7 +696,7 @@
 		4A4884A91BAC39A40093D90D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "KurentoClient-iOSTests/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mr.KurentoClient-iOSTests";
 				PRODUCT_NAME = "Kurento-iOSTests";
@@ -696,7 +706,7 @@
 		4A4884AA1BAC39A40093D90D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "KurentoClient-iOSTests/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mr.KurentoClient-iOSTests";
 				PRODUCT_NAME = "Kurento-iOSTests";
@@ -709,7 +719,6 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Framework/Kurento-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -725,7 +734,6 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Framework/Kurento-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

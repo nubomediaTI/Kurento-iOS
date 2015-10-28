@@ -7,7 +7,7 @@
 //
 
 #import "NBMMessage.h"
-#import "NBMJSONRCPConstants.h"
+#import "NBMJSONRPCConstants.h"
 
 @implementation NBMMessage {
 
