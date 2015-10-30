@@ -8,17 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXTERN NSString * const kNBMJSONRPCVersion;
+@protocol NBMMessage <NSObject>
 
-@interface NBMMessage : NSObject
-
-@property (nonatomic, copy) NSString *sessionId;
-
-+ (NSString *)version;
-- (NSDictionary *)toDictionary;
-- (NSString *)JSONString;
-
-// Disallow init and don't add to documentation
-//- (id)init __attribute__((unavailable("init is not a supported initializer for this class.")));
+- (NSDictionary *)toJSONDictionary;
+@optional
+- (NSString *)toJSONString;
 
 @end
+

@@ -10,7 +10,6 @@
 
 @interface NSDictionary (NBMUtilites)
 
-// Creates a dictionary with the keys and values in the JSON object.
 + (NSDictionary *)nbm_dictionaryWithJSONString:(NSString *)jsonString;
 + (NSDictionary *)nbm_dictionaryWithJSONData:(NSData *)jsonData;
 

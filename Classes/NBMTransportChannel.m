@@ -73,18 +73,22 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
     }
 }
 
+- (void)send:(NSString *)message {
+    if (message) {
+        if (self.channelState == NBMTransportChannelStateOpen) {
+            [self.socket send:message];
+        } else {
+            DDLogWarn(@"Socket is not ready to send a message!");
+        }
+    }
+}
+
 - (void)sendMessage:(NSDictionary *)messageDictionary
 {
     NSParameterAssert(messageDictionary);
     
     NSString *jsonString = [NSString nbm_stringFromJSONDictionary:messageDictionary];
-    if (jsonString) {
-        if (self.channelState == NBMTransportChannelStateOpen) {
-            [self.socket send:jsonString];
-        } else {
-            DDLogWarn(@"Socket is not ready to send a message!");
-        }
-    }
+    [self send:jsonString];
 }
 
 #pragma mark - Private

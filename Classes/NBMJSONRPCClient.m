@@ -386,8 +386,8 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 - (void)sendRequest:(NBMRequest *)request
 {
-    NSDictionary *requestDictonary = [request toDictionary];
-    [_transport sendMessage:requestDictonary];
+    NSString *requestString = [request toJSONString];
+    [_transport send:requestString];
 }
 
 - (void)cancelRequestPack:(NBMRequestPack *)requestPack

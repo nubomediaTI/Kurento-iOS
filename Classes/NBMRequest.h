@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NBMMessage.h"
 
-@interface NBMRequest : NBMMessage
+@interface NBMRequest : NSObject  <NBMMessage>
 
 @property (nonatomic, readonly) NSNumber *requestId;
 @property (nonatomic, copy, readonly) NSString *method;

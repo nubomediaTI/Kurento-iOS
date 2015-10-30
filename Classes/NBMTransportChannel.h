@@ -38,7 +38,7 @@ didReceiveMessage:(NSDictionary *)messageDictionary;
 
 - (void)open;
 - (void)close;
-//- (void)send:(NSString *)message;
+- (void)send:(NSString *)message;
 - (void)sendMessage:(NSDictionary *)messageDictionary;
 
 @end

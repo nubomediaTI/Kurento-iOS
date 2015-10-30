@@ -1,11 +1,11 @@
 PODS:
-  - CocoaLumberjack (2.0.1):
-    - CocoaLumberjack/Default (= 2.0.1)
-    - CocoaLumberjack/Extensions (= 2.0.1)
-  - CocoaLumberjack/Core (2.0.1)
-  - CocoaLumberjack/Default (2.0.1):
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.1):
+  - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
   - libjingle_peerconnection (9814.2.0)
   - SocketRocket (0.4.1)
@@ -16,7 +16,7 @@ DEPENDENCIES:
   - SocketRocket (~> 0.4.1)
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   libjingle_peerconnection: f03d6c0532595e8b9b233eccea68ad344e0395ac
   SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
 
