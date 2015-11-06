@@ -8,7 +8,7 @@ PODS:
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
   - libjingle_peerconnection (9814.2.0)
-  - SocketRocket (0.4.1)
+  - SocketRocket (0.4.2)
 
 DEPENDENCIES:
   - CocoaLumberjack
@@ -18,6 +18,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   libjingle_peerconnection: f03d6c0532595e8b9b233eccea68ad344e0395ac
-  SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
+  SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
 
 COCOAPODS: 0.39.0

@@ -1,0 +1,29 @@
+//
+//  Kurento-Library-Release.xcconfig
+//  Kurento-iOS
+//
+//  Created by Marco Rossi on 30/10/15.
+//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//
+#include "Kurento-Library.xcconfig"
+#include "../Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"
+
+ONLY_ACTIVE_ARCH = NO
+
+// Deployment
+COPY_PHASE_STRIP = NO
+//DEPLOYMENT_POSTPROCESSING = YES
+//STRIP_STYLE = debugging
+//STRIP_INSTALLED_PRODUCT = YES
+
+// Build Options
+VALIDATE_PRODUCT = YES
+
+// Code Generation
+GCC_OPTIMIZATION_LEVEL = s
+GCC_GENERATE_DEBUGGING_SYMBOLS = NO
+
+// Apple LLVM
+OTHER_CFLAGS = $(inherited) -DNS_BLOCK_ASSERTIONS=1
+
+OTHER_LIBTOOLFLAGS = $(inherited) -l"SocketRocket" -l"WebRTC"

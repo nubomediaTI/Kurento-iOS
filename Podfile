@@ -9,15 +9,12 @@ def common_target_pods
     pod 'SocketRocket', '~> 0.4.1'
 end
 
-target 'Kurento-iOS' do
+target 'KurentoToolbox' do
     common_target_pods
 end
 
-target 'Kurento-iOS-Static' do
+target 'KurentoToolboxTests' do
     common_target_pods
 end
 
-target 'Kurento-iOSTests' do
-
-end
 

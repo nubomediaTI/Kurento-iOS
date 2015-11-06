@@ -12,6 +12,7 @@
 @protocol NBMJSONRPCClientDelegate <NSObject>
 
 - (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request;
+- (void)client:(NBMJSONRPCClient *)client didFailWithError:(NSError *)error;
 
 @end
 
@@ -44,6 +45,6 @@
 - (void)cancelAllRequest;
 
 //Response (not implemented yet)
-- (void)sendResponse:(NBMResponse *)response;
+//- (void)sendResponse:(NBMResponse *)response;
 
 @end

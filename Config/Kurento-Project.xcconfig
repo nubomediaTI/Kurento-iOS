@@ -7,17 +7,20 @@
 //
 PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolbox
 
-ARCHS = armv7 armv7s arm64
+//Architectures
+ARCHS = $(ARCHS_STANDARD)
+//ARCHS[sdk=iphonesimulator] = $(ARCHS_STANDARD_32_BIT)
+//ARCHS[sdk=iphoneos] = $(ARCHS_STANDARD)
 IPHONEOS_DEPLOYMENT_TARGET = 8.0
 SDKROOT = iphoneos
 
 // Build Options
-CLANG_ENABLE_OBJC_ARC = YES
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
 // Deployment
 SKIP_INSTALL = YES
 TARGETED_DEVICE_FAMILY = 1,2 // iPhone, iPad
+DSTROOT = /tmp/$(PRODUCT_NAME).dst
 
 // Packaging
 PRODUCT_NAME = $(TARGET_NAME)
@@ -26,10 +29,12 @@ PRODUCT_NAME = $(TARGET_NAME)
 ALWAYS_SEARCH_USER_PATHS = NO
 HEADER_SEARCH_PATHS = $(inherited) "$(BUILT_PRODUCTS_DIR)" "$(DERIVED_FILE_DIR)"
 LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)" $(inherited)
-INFOPLIST_FILE = $(TARGET_NAME)/Info.plist
-MODULEMAP_FILE = $(TARGET_NAME)/module.modulemap
+INFOPLIST_FILE = $(SRCROOT)/Framework/Info.plist
+//MODULEMAP_FILE = $(TARGET_NAME)/module.modulemap
 
-// enable C++11 support
+// Language - C++
+CLANG_ENABLE_OBJC_ARC = YES
+GCC_PRECOMPILE_PREFIX_HEADER = YES
 CLANG_CXX_LANGUAGE_STANDARD = gnu+11
 CLANG_CXX_LIBRARY = libc++
 

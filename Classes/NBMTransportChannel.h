@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, NBMTransportChannelState) {
  didChangeState:(NBMTransportChannelState)channelState;
 
 - (void)channel:(NBMTransportChannel *)channel
+didEncounterError:(NSError *)error;
+
+- (void)channel:(NBMTransportChannel *)channel
 didReceiveMessage:(NSDictionary *)messageDictionary;
 
 @end

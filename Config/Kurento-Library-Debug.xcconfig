@@ -1,0 +1,27 @@
+//
+//  Kurento-Library-Debug.xcconfig
+//  Kurento-iOS
+//
+//  Created by Marco Rossi on 30/10/15.
+//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//
+#include "Kurento-Library.xcconfig"
+#include "../Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.debug.xcconfig"
+
+ONLY_ACTIVE_ARCH = YES
+
+GCC_OPTIMIZATION_LEVEL = 0
+
+GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
+
+ENABLE_TESTABILITY = YES
+
+SANITIZE_FLAGS = -fsanitize-undefined-trap-on-error -fsanitize=undefined-trap
+OTHER_CFLAGS = $(value) $(SANITIZE_FLAGS)
+OTHER_LDFLAGS = $(value) $(SANITIZE_FLAGS)
+
+STRIP_INSTALLED_PRODUCT = NO
+
+COPY_PHASE_STRIP = NO
+
+OTHER_LIBTOOLFLAGS = $(inherited) -l"CocoaLumberjack" -l"SocketRocket" -l"WebRTC"

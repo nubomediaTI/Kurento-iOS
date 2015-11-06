@@ -484,6 +484,10 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     [self decodeMessage:messageDictionary];
 }
 
+- (void)channel:(NBMTransportChannel *)channel didEncounterError:(NSError *)error {
+    [self.delegate client:self didFailWithError:error];
+}
+
 #pragma mark TimeoutableDelegate
 
 - (void)timeoutFired:(id)timeoutable

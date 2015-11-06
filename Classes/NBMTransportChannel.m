@@ -167,8 +167,8 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
     [self cleanupChannel];
+    [self.delegate channel:self didEncounterError:error];
     self.channelState = NBMTransportChannelStateError;
-    //Need error in delegate?
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
