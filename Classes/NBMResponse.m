@@ -7,8 +7,56 @@
 //
 
 #import "NBMResponse+Private.h"
-#import "NBMResponseError.h"
+
 #import "NBMJSONRPCConstants.h"
+#import "NBMUtilities.h"
+
+static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
+    switch(code) {
+        case NBMResponseErrorParseErrorCode:
+            return @"Parse Error";
+        case NBMResponseErrorInvalidRequestCode:
+            return @"Invalid Request";
+        case NBMResponseErrorMethodNotFoundCode:
+            return @"Method Not Found";
+        case NBMResponseErrorInvalidParamCode:
+            return @"Invalid Params";
+        case NBMResponseErrorInternalErrorCode:
+            return @"Internal Error";
+        default:
+            return @"Server Error";
+    }
+}
+
+@implementation NBMResponseError
+
++ (instancetype)responseErrorWithCode:(NBMResponseErrorCode)code
+                              message:(NSString *)message
+                                 data:(id)data
+{
+    NBMResponseError *responseError = [[NBMResponseError alloc] init];
+    responseError.code = code;
+    if (!message || message.length == 0) {
+        message = JSONRPCLocalizedErrorMessageForCode(code);
+    }
+    responseError.message = message;
+    responseError.data = data;
+    
+    return responseError;
+}
+
+- (NSDictionary *)errorDictionary
+{
+    NSMutableDictionary *errorDict = [NSMutableDictionary dictionaryWithCapacity:3];
+    [errorDict setObject:@(self.code) forKey:kCodeKey];
+    [errorDict setObject:self.message forKey:kMessageKey];
+    if (self.data) {
+        [errorDict setObject:self.data forKey:kDataKey];
+    }
+    return errorDict;
+}
+
+@end
 
 @implementation NBMResponse
 
@@ -77,7 +125,7 @@
 
 #pragma mark - Message
 
-- (NSDictionary *)toDictionary
+- (NSDictionary *)toJSONDictionary
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
     [json setObject:kJsonRpcVersion forKey:kJsonRpcKey];
@@ -89,6 +137,10 @@
     [json setObject:self.responseId forKey:kIdKey];
     
     return [json copy];
+}
+
+- (NSString *)toJSONString {
+    return [NSString nbm_stringFromJSONDictionary:[self toJSONDictionary]];
 }
 
 @end

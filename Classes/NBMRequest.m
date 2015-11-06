@@ -9,6 +9,7 @@
 #import "NBMRequest+Private.h"
 
 #import "NBMJSONRPCConstants.h"
+#import "NBMUtilities.h"
 
 @implementation NBMRequest
 
@@ -96,7 +97,7 @@
 
 #pragma mark - Message
 
-- (NSDictionary *)toDictionary
+- (NSDictionary *)toJSONDictionary
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
     [json setObject:kJsonRpcVersion forKey:kJsonRpcKey];
@@ -107,6 +108,10 @@
     }
     
     return [json copy];
+}
+
+- (NSString *)toJSONString {
+    return [NSString nbm_stringFromJSONDictionary:[self toJSONDictionary]];
 }
 
 @end

@@ -20,4 +20,3 @@
 #import "NBMMessage.h"
 #import "NBMRequest.h"
 #import "NBMResponse.h"
-#import "NBMResponseError.h"

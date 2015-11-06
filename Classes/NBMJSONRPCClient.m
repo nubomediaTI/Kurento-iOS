@@ -386,8 +386,8 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 - (void)sendRequest:(NBMRequest *)request
 {
-    NSDictionary *requestDictonary = [request toDictionary];
-    [_transport sendMessage:requestDictonary];
+    NSString *requestString = [request toJSONString];
+    [_transport send:requestString];
 }
 
 - (void)cancelRequestPack:(NBMRequestPack *)requestPack
@@ -482,6 +482,10 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (void)channel:(NBMTransportChannel *)channel didReceiveMessage:(NSDictionary *)messageDictionary
 {
     [self decodeMessage:messageDictionary];
+}
+
+- (void)channel:(NBMTransportChannel *)channel didEncounterError:(NSError *)error {
+    [self.delegate client:self didFailWithError:error];
 }
 
 #pragma mark TimeoutableDelegate

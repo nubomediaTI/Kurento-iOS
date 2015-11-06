@@ -1,0 +1,29 @@
+//
+//  Kurento-Project-Library.xcconfig
+//  Kurento-iOS
+//
+//  Created by Marco Rossi on 30/10/15.
+//  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
+//
+
+// Cocoa Touch Framework
+
+// Code Signing
+CODE_SIGN_IDENTITY =
+CODE_SIGNING_REQUIRED = NO
+
+// Deployment
+SKIP_INSTALL = YES
+
+// Linking
+MACH_O_TYPE = staticlib
+DEAD_CODE_STRIPPING = NO
+
+// Language
+CLANG_WARN_DOCUMENTATION_COMMENTS = YES
+CLANG_MODULES_AUTOLINK = NO
+CLANG_ENABLE_MODULES = NO
+
+// Packaging
+DEFINES_MODULE = YES
+
