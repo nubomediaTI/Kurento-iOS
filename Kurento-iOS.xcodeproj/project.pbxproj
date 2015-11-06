@@ -61,8 +61,9 @@
 		4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ACB2CD31BE92C2B00E8E017 /* NBMSessionDescriptionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB2CD01BE92C2B00E8E017 /* NBMSessionDescriptionFactory.m */; };
 		4ACB2CD51BE92C2B00E8E017 /* NBMSessionDescriptionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2CD11BE92C2B00E8E017 /* NBMSessionDescriptionFactory.h */; };
-		4AF48D471BEBC468004E4AD2 /* KurentoToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF48D461BEBC468004E4AD2 /* KurentoToolboxTests.m */; };
 		4AF48D491BEBC468004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
+		4AF48D511BECBE10004E4AD2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AF48D4F1BECBE10004E4AD2 /* Info.plist */; };
+		4AF48D521BECBE10004E4AD2 /* KurentoToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF48D501BECBE10004E4AD2 /* KurentoToolboxTests.m */; };
 		DD1B525D285C89CA84A72449 /* libPods-KurentoToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC62D5BF0803F25CA18D647 /* libPods-KurentoToolbox.a */; };
 /* End PBXBuildFile section */
 
@@ -192,8 +193,8 @@
 		4AE20DE91BEA77C8005E5736 /* README.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rst; sourceTree = "<group>"; };
 		4AE20E281BEA7C3E005E5736 /* libWebRTC-8444-arm-intel-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libWebRTC-8444-arm-intel-Release.a"; path = "Vendor/libjingle_peerconnection/libWebRTC-8444-arm-intel-Release.a"; sourceTree = SOURCE_ROOT; };
 		4AF48D441BEBC467004E4AD2 /* KurentoToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurentoToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AF48D461BEBC468004E4AD2 /* KurentoToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KurentoToolboxTests.m; sourceTree = "<group>"; };
-		4AF48D481BEBC468004E4AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF48D4F1BECBE10004E4AD2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		4AF48D501BECBE10004E4AD2 /* KurentoToolboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KurentoToolboxTests.m; path = Tests/KurentoToolboxTests.m; sourceTree = SOURCE_ROOT; };
 		4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"; sourceTree = "<group>"; };
 		681A76F55A57A32C9616B23F /* Pods-KurentoToolbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.debug.xcconfig"; sourceTree = "<group>"; };
 		8F87FEFCFFC4293E6CE69FAF /* Pods-KurentoToolboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				4A4884931BAC39A30093D90D /* Kurento */,
-				4AF48D451BEBC467004E4AD2 /* KurentoToolboxTests */,
+				4AF48D451BEBC467004E4AD2 /* Tests */,
 				4A4884921BAC39A30093D90D /* Products */,
 				30405995BEC91363E1A2AB73 /* Pods */,
 				57E6D7257CD8864A20150082 /* Frameworks */,
@@ -494,12 +495,13 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		4AF48D451BEBC467004E4AD2 /* KurentoToolboxTests */ = {
+		4AF48D451BEBC467004E4AD2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4AF48D461BEBC468004E4AD2 /* KurentoToolboxTests.m */,
-				4AF48D481BEBC468004E4AD2 /* Info.plist */,
+				4AF48D4F1BECBE10004E4AD2 /* Info.plist */,
+				4AF48D501BECBE10004E4AD2 /* KurentoToolboxTests.m */,
 			);
+			name = Tests;
 			path = KurentoToolboxTests;
 			sourceTree = "<group>";
 		};
@@ -651,6 +653,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF48D511BECBE10004E4AD2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +757,7 @@
 				4A46BC4A1BE3E2D6009E0FBE /* NBMTimeoutable.m in Sources */,
 				4A46BC3C1BE3E2A5009E0FBE /* NBMPeerConnection.m in Sources */,
 				4A46BC461BE3E2CA009E0FBE /* NBMResponse.m in Sources */,
+				4AF48D521BECBE10004E4AD2 /* KurentoToolboxTests.m in Sources */,
 				4ACB2CD31BE92C2B00E8E017 /* NBMSessionDescriptionFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -762,7 +766,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF48D471BEBC468004E4AD2 /* KurentoToolboxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
