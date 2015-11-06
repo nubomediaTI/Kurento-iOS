@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150BC69D1F89499958CF1025 /* libPods-KurentoToolboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B1A4AC0FB19B9BB097CE73 /* libPods-KurentoToolboxTests.a */; };
 		4A46BC3B1BE3E2A1009E0FBE /* NBMPeerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A46BC3C1BE3E2A5009E0FBE /* NBMPeerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */; };
 		4A46BC3D1BE3E2A8009E0FBE /* NBMWebRTCPeer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD6003F1BB43E01003124FD /* NBMWebRTCPeer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,14 +60,13 @@
 		4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ACB2CD31BE92C2B00E8E017 /* NBMSessionDescriptionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB2CD01BE92C2B00E8E017 /* NBMSessionDescriptionFactory.m */; };
 		4ACB2CD51BE92C2B00E8E017 /* NBMSessionDescriptionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2CD11BE92C2B00E8E017 /* NBMSessionDescriptionFactory.h */; };
-		4AF48D491BEBC468004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
-		4AF48D511BECBE10004E4AD2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AF48D4F1BECBE10004E4AD2 /* Info.plist */; };
-		4AF48D521BECBE10004E4AD2 /* KurentoToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF48D501BECBE10004E4AD2 /* KurentoToolboxTests.m */; };
+		4AF48D5F1BECEFFA004E4AD2 /* KurentoToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF48D5E1BECEFFA004E4AD2 /* KurentoToolboxTests.m */; };
+		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
 		DD1B525D285C89CA84A72449 /* libPods-KurentoToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC62D5BF0803F25CA18D647 /* libPods-KurentoToolbox.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4AF48D4A1BEBC468004E4AD2 /* PBXContainerItemProxy */ = {
+		4AF48D621BECEFFA004E4AD2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4A4884881BAC39A30093D90D /* Project object */;
 			proxyType = 1;
@@ -192,9 +190,11 @@
 		4AE20DE81BEA77C8005E5736 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AE20DE91BEA77C8005E5736 /* README.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rst; sourceTree = "<group>"; };
 		4AE20E281BEA7C3E005E5736 /* libWebRTC-8444-arm-intel-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libWebRTC-8444-arm-intel-Release.a"; path = "Vendor/libjingle_peerconnection/libWebRTC-8444-arm-intel-Release.a"; sourceTree = SOURCE_ROOT; };
-		4AF48D441BEBC467004E4AD2 /* KurentoToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurentoToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF48D4F1BECBE10004E4AD2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
-		4AF48D501BECBE10004E4AD2 /* KurentoToolboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KurentoToolboxTests.m; path = Tests/KurentoToolboxTests.m; sourceTree = SOURCE_ROOT; };
+		4AF48D541BECE61D004E4AD2 /* KurentoToolboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KurentoToolboxTests.m; path = Tests/KurentoToolboxTests.m; sourceTree = "<group>"; };
+		4AF48D5C1BECEFFA004E4AD2 /* KurentoToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurentoToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF48D5E1BECEFFA004E4AD2 /* KurentoToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KurentoToolboxTests.m; sourceTree = "<group>"; };
+		4AF48D601BECEFFA004E4AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"; sourceTree = "<group>"; };
 		681A76F55A57A32C9616B23F /* Pods-KurentoToolbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.debug.xcconfig"; sourceTree = "<group>"; };
 		8F87FEFCFFC4293E6CE69FAF /* Pods-KurentoToolboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,12 +212,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AF48D411BEBC467004E4AD2 /* Frameworks */ = {
+		4AF48D591BECEFFA004E4AD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF48D491BEBC468004E4AD2 /* KurentoToolbox.framework in Frameworks */,
-				150BC69D1F89499958CF1025 /* libPods-KurentoToolboxTests.a in Frameworks */,
+				4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +261,7 @@
 			children = (
 				4A4884931BAC39A30093D90D /* Kurento */,
 				4AF48D451BEBC467004E4AD2 /* Tests */,
+				4AF48D5D1BECEFFA004E4AD2 /* KurentoToolboxTests */,
 				4A4884921BAC39A30093D90D /* Products */,
 				30405995BEC91363E1A2AB73 /* Pods */,
 				57E6D7257CD8864A20150082 /* Frameworks */,
@@ -274,7 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */,
-				4AF48D441BEBC467004E4AD2 /* KurentoToolboxTests.xctest */,
+				4AF48D5C1BECEFFA004E4AD2 /* KurentoToolboxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -498,10 +498,19 @@
 		4AF48D451BEBC467004E4AD2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4AF48D541BECE61D004E4AD2 /* KurentoToolboxTests.m */,
 				4AF48D4F1BECBE10004E4AD2 /* Info.plist */,
-				4AF48D501BECBE10004E4AD2 /* KurentoToolboxTests.m */,
 			);
 			name = Tests;
+			path = KurentoToolboxTests;
+			sourceTree = "<group>";
+		};
+		4AF48D5D1BECEFFA004E4AD2 /* KurentoToolboxTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AF48D5E1BECEFFA004E4AD2 /* KurentoToolboxTests.m */,
+				4AF48D601BECEFFA004E4AD2 /* Info.plist */,
+			);
 			path = KurentoToolboxTests;
 			sourceTree = "<group>";
 		};
@@ -591,25 +600,22 @@
 			productReference = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4AF48D431BEBC467004E4AD2 /* KurentoToolboxTests */ = {
+		4AF48D5B1BECEFFA004E4AD2 /* KurentoToolboxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AF48D4C1BEBC468004E4AD2 /* Build configuration list for PBXNativeTarget "KurentoToolboxTests" */;
+			buildConfigurationList = 4AF48D641BECEFFA004E4AD2 /* Build configuration list for PBXNativeTarget "KurentoToolboxTests" */;
 			buildPhases = (
-				58A8B1B9FF2946913240B52A /* Check Pods Manifest.lock */,
-				4AF48D401BEBC467004E4AD2 /* Sources */,
-				4AF48D411BEBC467004E4AD2 /* Frameworks */,
-				4AF48D421BEBC467004E4AD2 /* Resources */,
-				7791DE1E2DFCCD78F13AEAC5 /* Embed Pods Frameworks */,
-				C1F982EFD24FD79B5D61DDFB /* Copy Pods Resources */,
+				4AF48D581BECEFFA004E4AD2 /* Sources */,
+				4AF48D591BECEFFA004E4AD2 /* Frameworks */,
+				4AF48D5A1BECEFFA004E4AD2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4AF48D4B1BEBC468004E4AD2 /* PBXTargetDependency */,
+				4AF48D631BECEFFA004E4AD2 /* PBXTargetDependency */,
 			);
 			name = KurentoToolboxTests;
 			productName = KurentoToolboxTests;
-			productReference = 4AF48D441BEBC467004E4AD2 /* KurentoToolboxTests.xctest */;
+			productReference = 4AF48D5C1BECEFFA004E4AD2 /* KurentoToolboxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -625,7 +631,7 @@
 					4A46BC201BE3DF79009E0FBE = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
-					4AF48D431BEBC467004E4AD2 = {
+					4AF48D5B1BECEFFA004E4AD2 = {
 						CreatedOnToolsVersion = 7.1;
 					};
 				};
@@ -643,7 +649,7 @@
 			projectRoot = "";
 			targets = (
 				4A46BC201BE3DF79009E0FBE /* KurentoToolbox */,
-				4AF48D431BEBC467004E4AD2 /* KurentoToolboxTests */,
+				4AF48D5B1BECEFFA004E4AD2 /* KurentoToolboxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -653,11 +659,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF48D511BECBE10004E4AD2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AF48D421BEBC467004E4AD2 /* Resources */ = {
+		4AF48D5A1BECEFFA004E4AD2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -667,36 +672,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		58A8B1B9FF2946913240B52A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7791DE1E2DFCCD78F13AEAC5 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8C889D90ACB6138B8984F45A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -727,21 +702,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C1F982EFD24FD79B5D61DDFB /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -757,25 +717,25 @@
 				4A46BC4A1BE3E2D6009E0FBE /* NBMTimeoutable.m in Sources */,
 				4A46BC3C1BE3E2A5009E0FBE /* NBMPeerConnection.m in Sources */,
 				4A46BC461BE3E2CA009E0FBE /* NBMResponse.m in Sources */,
-				4AF48D521BECBE10004E4AD2 /* KurentoToolboxTests.m in Sources */,
 				4ACB2CD31BE92C2B00E8E017 /* NBMSessionDescriptionFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AF48D401BEBC467004E4AD2 /* Sources */ = {
+		4AF48D581BECEFFA004E4AD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF48D5F1BECEFFA004E4AD2 /* KurentoToolboxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4AF48D4B1BEBC468004E4AD2 /* PBXTargetDependency */ = {
+		4AF48D631BECEFFA004E4AD2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4A46BC201BE3DF79009E0FBE /* KurentoToolbox */;
-			targetProxy = 4AF48D4A1BEBC468004E4AD2 /* PBXContainerItemProxy */;
+			targetProxy = 4AF48D621BECEFFA004E4AD2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -818,7 +778,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -841,7 +800,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -863,7 +821,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -880,32 +837,28 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
-		4AF48D4D1BEBC468004E4AD2 /* Debug */ = {
+		4AF48D651BECEFFA004E4AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D9E1E7060D742F7B991CD1A3 /* Pods-KurentoToolboxTests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = KurentoToolboxTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mr.KurentoToolboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		4AF48D4E1BEBC468004E4AD2 /* Release */ = {
+		4AF48D661BECEFFA004E4AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F87FEFCFFC4293E6CE69FAF /* Pods-KurentoToolboxTests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = KurentoToolboxTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mr.KurentoToolboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -933,14 +886,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AF48D4C1BEBC468004E4AD2 /* Build configuration list for PBXNativeTarget "KurentoToolboxTests" */ = {
+		4AF48D641BECEFFA004E4AD2 /* Build configuration list for PBXNativeTarget "KurentoToolboxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4AF48D4D1BEBC468004E4AD2 /* Debug */,
-				4AF48D4E1BEBC468004E4AD2 /* Release */,
+				4AF48D651BECEFFA004E4AD2 /* Debug */,
+				4AF48D661BECEFFA004E4AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
