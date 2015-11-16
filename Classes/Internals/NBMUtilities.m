@@ -7,6 +7,7 @@
 //
 
 #import "NBMUtilities.h"
+#import "SBJson4.h"
 
 @implementation NSDictionary (NBMUtilites)
 
@@ -39,13 +40,16 @@
 @implementation NSString (NBMUtilites)
 
 + (NSString *)nbm_stringFromJSONDictionary:(NSDictionary *)jsonDictionary {
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:NSJSONWritingPrettyPrinted error:&error];
-    if (error) {
-        NSLog(@"Error parsing Data: %@", error.localizedDescription);
-        return nil;
-    }
-    return [self nbm_stringFromJSONData:data];
+    SBJson4Writer *writer = [[SBJson4Writer alloc] init];
+    NSString *json = [writer stringWithObject:jsonDictionary];
+    return json;
+//    NSError *error = nil;
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:NSJSONWritingPrettyPrinted error:&error];
+//    if (error) {
+//        NSLog(@"Error parsing Data: %@", error.localizedDescription);
+//        return nil;
+//    }
+//    return [self nbm_stringFromJSONData:data];
 }
 
 + (NSString *)nbm_stringFromJSONData:(NSData *)jsonData

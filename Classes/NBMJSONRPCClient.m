@@ -88,7 +88,6 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 @interface NBMProcessedResponse : NBMTimeoutable
 
-//@property (nonatomic) NSDictionary *responseDictionary;
 @property (nonatomic) NSNumber *ack;
 
 - (instancetype)initWithAck:(NSNumber *)ack timeoutDelegate:(id<NBMTimeoutableDelegate>)timeoutDelegate;
@@ -151,6 +150,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 @property (nonatomic) NSMutableSet *responsesSent;
 @property (nonatomic) NSMutableSet *responsesReceived;
 
+@property (nonatomic) NSTimeInterval responseTimeout;
 @property (nonatomic) NSTimeInterval duplicatesResponseTimeout;
 
 @property (nonatomic, getter=isConnected) BOOL connected;
@@ -161,11 +161,12 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 #pragma mark - Public
 
-- (instancetype)initWithURL:(NSURL *)url
+- (instancetype)initWithURL:(NSURL *)url delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 {
     self = [super init];
     if (self) {
         _url = url;
+        _delegate = delegate;
         [self setupTransport];
         [self setupMessageLogic];
     }
@@ -266,8 +267,8 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     _requestMaxRetries = 1;
     
     //Responses
-    _responseTimeout = 5;
-    _duplicatesResponseTimeout = 5;
+    _responseTimeout = _requestTimeout;
+    _duplicatesResponseTimeout = _responseTimeout;
 }
 
 - (void)decodeMessage:(NSDictionary *)messageDictionary
@@ -416,7 +417,9 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 }
 
 - (void)processRequest:(NBMRequest *)request {
-    [_delegate client:self didReceiveRequest:request];
+    if ([self.delegate respondsToSelector:@selector(client:didReceiveRequest:)]) {
+        [self.delegate client:self didReceiveRequest:request];
+    }
 }
 
 #pragma mark Response
@@ -467,6 +470,9 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
         }
         case NBMTransportChannelStateOpen: {
             _connected = YES;
+            if ([self.delegate respondsToSelector:@selector(clientDidBecomeReady:)]) {
+                [self.delegate clientDidBecomeReady:self];
+            }
             break;
         }
         case NBMTransportChannelStateError: {
@@ -485,7 +491,9 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 }
 
 - (void)channel:(NBMTransportChannel *)channel didEncounterError:(NSError *)error {
-    [self.delegate client:self didFailWithError:error];
+    if ([self.delegate respondsToSelector:@selector(client:didFailWithError:)]) {
+        [self.delegate client:self didFailWithError:error];
+    }
 }
 
 #pragma mark TimeoutableDelegate

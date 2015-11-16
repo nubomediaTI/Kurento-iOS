@@ -24,4 +24,4 @@ STRIP_INSTALLED_PRODUCT = NO
 
 COPY_PHASE_STRIP = NO
 
-OTHER_LIBTOOLFLAGS = $(inherited) -l"CocoaLumberjack" -l"SocketRocket" -l"WebRTC"
+OTHER_LIBTOOLFLAGS = $(inherited) -l"CocoaLumberjack" -l"SBJson" -l"SocketRocket" -l"WebRTC"

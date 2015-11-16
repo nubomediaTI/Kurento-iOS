@@ -178,6 +178,7 @@
 //    if (iceServers) {
 //        connection = [self peerConnectionWithServers:iceServers];
 //    }
+    connection = [self peerConnectionWithServers:iceServers];
     NBMPeerConnection *connectionWrapper = [[NBMPeerConnection alloc] initWithConnection:connection];
     connectionWrapper.connectionId = connectionId;
     

@@ -13,9 +13,18 @@
 @class RTCMediaStream;
 @class RTCSessionDescription;
 
+/**
+ *
+ */
 @interface NBMPeerConnection : NSObject
 
+/**
+ *
+ */
 @property (nonatomic, copy) NSString *connectionId;
+/**
+ *
+ */
 @property (nonatomic, strong) RTCPeerConnection *peerConnection;
 @property (nonatomic, assign) BOOL isInitiator;
 @property (nonatomic, strong, readonly) NSMutableArray *queuedRemoteCandidates;
@@ -24,7 +33,6 @@
 @property (nonatomic, assign) NSUInteger iceAttempts;
 
 - (instancetype)initWithConnection:(RTCPeerConnection *)connection;
-
 - (void)addIceCandidate:(RTCICECandidate *)candidate;
 - (void)drainRemoteCandidates;
 - (void)removeRemoteCandidates;

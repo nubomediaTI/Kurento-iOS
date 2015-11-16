@@ -5,7 +5,7 @@
 //  Created by Marco Rossi on 20/10/15.
 //  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
 //
-#import "DDLogMacros.h"
+#import "CocoaLumberjack.h"
 
 #ifdef DEBUG
     static const int ddLogLevel = DDLogLevelVerbose;
@@ -16,4 +16,6 @@
     //Log only in debug mode
     #define DLog(...)
 #endif
+
+
 

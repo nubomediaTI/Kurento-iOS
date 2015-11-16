@@ -35,8 +35,11 @@
 {
     // This line cause compiler warning
     // http://stackoverflow.com/a/20058585
-    // [self.realTarget performSelector:self.selector withObject:theTimer];
-    ((void (*)(id, SEL))[self.realTarget methodForSelector:self.selector])(self.realTarget, self.selector);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self.realTarget performSelector:self.selector withObject:theTimer];
+#pragma clang diagnostic pop
+    //((void (*)(id, SEL))[self.realTarget methodForSelector:self.selector])(self.realTarget, self.selector);
 }
 
 @end
@@ -54,7 +57,7 @@
     [self clearTimeout];
     _timeout = timeout;
     NBMTimerTarget *target = [[NBMTimerTarget alloc] initWithTarget:self selector:@selector(onTimeout:)];
-    NSTimer *timer = [NSTimer timerWithTimeInterval:timeout target:target selector:@selector(timeoutFired:) userInfo:nil repeats:NO];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:timeout target:target selector:@selector(timerFired:) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     _timeoutTimer = timer;
 }

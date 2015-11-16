@@ -9,7 +9,7 @@
 
 #import "NBMRequest.h"
 
-@interface NBMRequest (Private)
+@interface NBMRequest ()
 
 @property (nonatomic, readwrite) NSNumber *requestId;
 @property (nonatomic, copy, readwrite) NSString *method;

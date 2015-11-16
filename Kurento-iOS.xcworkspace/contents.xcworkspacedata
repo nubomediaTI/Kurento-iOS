@@ -5,6 +5,9 @@
       location = "group:Kurento-iOS.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:KurentoToolboxTestApp/KurentoToolboxTestApp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
