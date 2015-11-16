@@ -26,4 +26,4 @@ GCC_GENERATE_DEBUGGING_SYMBOLS = NO
 // Apple LLVM
 OTHER_CFLAGS = $(inherited) -DNS_BLOCK_ASSERTIONS=1
 
-OTHER_LIBTOOLFLAGS = $(inherited) -l"SocketRocket" -l"WebRTC"
+OTHER_LIBTOOLFLAGS = $(inherited) -l"SBJson" -l"SocketRocket" -l"WebRTC"

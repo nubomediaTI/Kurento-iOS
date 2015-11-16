@@ -9,7 +9,7 @@
 
 #import "NBMResponse.h"
 
-@interface NBMResponse (Private)
+@interface NBMResponse ()
 
 @property (nonatomic, readwrite) NSNumber *responseId;
 @property (nonatomic, readwrite) id result;

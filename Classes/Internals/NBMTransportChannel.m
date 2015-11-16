@@ -59,9 +59,9 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 {
     if (!_socket) { // && _channelState != NBMTransportChannelStateOpen
         SRWebSocket *socket = [[SRWebSocket alloc] initWithURL:_url];
-        [socket setDelegateDispatchQueue:self.processingQueue];
+//        [socket setDelegateDispatchQueue:self.processingQueue];
         socket.delegate = self;
-        _socket = socket;
+        self.socket = socket;
         [_socket open];
     }
 }
@@ -93,12 +93,12 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 #pragma mark - Private
 
-- (void)setState:(NBMTransportChannelState)state {
-    if (_channelState != state) {
+- (void)setChannelState:(NBMTransportChannelState)channelState {
+    if (_channelState != channelState) {
         [self willChangeValueForKey:@"channelState"];
-        _channelState = state;
+        _channelState = channelState;
         [self didChangeValueForKey:@"channelState"];
-        [_delegate channel:self didChangeState:state];
+        [_delegate channel:self didChangeState:channelState];
     }
 }
 

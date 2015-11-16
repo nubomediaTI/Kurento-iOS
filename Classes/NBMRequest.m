@@ -35,7 +35,7 @@
         parameters = @{};
     }
     
-    NSAssert([parameters isKindOfClass:[NSDictionary class]] || [parameters isKindOfClass:[NSArray class]], @"Expect NSArray or NSDictionary in JSONRPC parameters");
+    NSAssert([parameters isKindOfClass:[NSDictionary class]] || [parameters isKindOfClass:[NSArray class]], @"Expect NSArray or NSDictionary in JSON-RPC parameters");
     
     NBMRequest *request = [[NBMRequest alloc] init];
     request.method = method;
@@ -101,11 +101,13 @@
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
     [json setObject:kJsonRpcVersion forKey:kJsonRpcKey];
-    [json setObject:self.method forKey:kMethodKey];
-    [json setObject:self.parameters forKey:kParamsKey];
-    if (self.requestId) {
-        [json setObject:self.requestId forKey:kIdKey];
-    }
+    [json setObject:self.method forKey:@"id"];
+    NSString *sdpOffer = [self.parameters objectForKey:@"sdpOffer"];
+    [json setObject:sdpOffer forKey:@"sdpOffer"];
+//    [json setObject:self.parameters forKey:@"params"];
+//    if (self.requestId) {
+//        [json setObject:self.requestId forKey:kIdKey];
+//    }
     
     return [json copy];
 }

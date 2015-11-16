@@ -9,10 +9,6 @@
 #ifndef Kurento_Prefix_pch
 #define Kurento_Prefix_pch
 
-//
-// Prefix header for all source files of the 'Kurento-iOS' target in the 'Kurento-iOS' project
-//
-
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
 #import "NBMLog.h"
