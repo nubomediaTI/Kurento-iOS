@@ -89,18 +89,19 @@ Developers Guide
 ================
 
 
-Documentation (Apple style)
----------------------------
+Documentation
+-------------
 
-Link to API reference
+`Link <https://github.com/nubomediaTI/Kurento-iOS/blob/master/docs/html/index.html>`_ to API Reference (Apple style)
 
 
 Architecture
 ================
 
 + WebRTC
-	* NBMWebRTCPeer
-	* NBMPeerConnection
+
+    * NBMWebRTCPeer
+    * NBMPeerConnection
 
 + JSON-RPC 
 
