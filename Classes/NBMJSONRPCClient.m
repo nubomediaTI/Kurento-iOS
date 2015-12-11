@@ -1,4 +1,4 @@
-//
+ //
 //  NBMJSONRPCClient.m
 //  KurentoClient-iOS
 //
@@ -141,19 +141,53 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 @end
 
+// NBMJSONRPCClientConfiguration
+
+static NSTimeInterval kRequestTimeoutInterval = 5;
+static NSTimeInterval kRequestMaxRetries = 3;
+
+@interface NBMJSONRPCClientConfiguration ()
+
+@property (nonatomic) NSTimeInterval responseTimeout;
+@property (nonatomic) NSTimeInterval duplicatesResponseTimeout;
+
+@end
+
+@implementation NBMJSONRPCClientConfiguration
+
++ (instancetype)defaultConfiguration {
+    NBMJSONRPCClientConfiguration *config = [[NBMJSONRPCClientConfiguration alloc] init];
+    return config;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _requestTimeout = kRequestTimeoutInterval;
+        _requestMaxRetries = kRequestMaxRetries;
+        _autoConnect = YES;
+    }
+    return self;
+}
+
+- (void)setRequestTimeout:(NSTimeInterval)requestTimeout {
+    if (requestTimeout > 0) {
+        _requestTimeout = requestTimeout;
+    }
+}
+
+@end
+
 @interface NBMJSONRPCClient () <NBMTimeoutableDelegate, NBMTransportChannelDelegate>
 
 @property (nonatomic) NSUInteger requestId;
 @property (nonatomic) NBMTransportChannel *transport;
 
-@property (nonatomic) NSMutableSet *requestsSent;
-@property (nonatomic) NSMutableSet *responsesSent;
-@property (nonatomic) NSMutableSet *responsesReceived;
+@property (nonatomic) NSMutableOrderedSet *requestsSent;
+@property (nonatomic) NSMutableOrderedSet *responsesSent;
+@property (nonatomic) NSMutableOrderedSet *responsesReceived;
 
-@property (nonatomic) NSTimeInterval responseTimeout;
-@property (nonatomic) NSTimeInterval duplicatesResponseTimeout;
-
-@property (nonatomic, getter=isConnected) BOOL connected;
+//@property (nonatomic, getter=isConnected) BOOL connected;
 
 @end
 
@@ -163,19 +197,41 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 - (instancetype)initWithURL:(NSURL *)url delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 {
+    NBMJSONRPCClientConfiguration *defaultConfig = [NBMJSONRPCClientConfiguration defaultConfiguration];
+    return [self initWithURL:url configuration:defaultConfig delegate:delegate];
+}
+
+- (instancetype)initWithURL:(NSURL *)url configuration:(NBMJSONRPCClientConfiguration *)configuration delegate:(id<NBMJSONRPCClientDelegate>)delegate {
     self = [super init];
     if (self) {
         _url = url;
+        if (!configuration) {
+            configuration = [NBMJSONRPCClientConfiguration defaultConfiguration];
+        }
+        _configuration = configuration;
         _delegate = delegate;
-        [self setupTransport];
-        [self setupMessageLogic];
+        
+        //Setup message logic
+        _requestId = 0;
+        _requestsSent = [NSMutableOrderedSet orderedSet]; //Requests cache (sent)
+        _responsesSent = [NSMutableOrderedSet orderedSet]; //Response cache (sent)
+        _responsesReceived = [NSMutableOrderedSet orderedSet]; //Response cache (received)        
+        
+        //Setup transport
+        _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
+        //    _transport.timeoutInterval = _requestTimeout;
+        [_transport open];
     }
+    
     return self;
+}
+
+- (NBMRequest *)sendRequestWithMethod:(NSString *)method completion:(void (^)(NBMResponse *))responseBlock {
+    return [self sendRequestWithMethod:method parameters:nil completion:responseBlock];
 }
 
 - (NBMRequest *)sendRequestWithMethod:(NSString *)method parameters:(id)parameters completion:(void (^)(NBMResponse *))responseBlock
 {
-//    NBMResponseBlock responseBlock = completion;
     NBMRequest *request = [NBMRequest requestWithMethod:method parameters:parameters];
     [self sendRequest:request completion:responseBlock];
     
@@ -207,7 +263,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (void)cancelRequest:(NBMRequest *)request
 {
     __block NBMRequestPack *requestPackToCancel;
-    [_requestsSent enumerateObjectsUsingBlock:^(NBMRequestPack* requestPack, BOOL* stop) {
+    [_requestsSent.set enumerateObjectsUsingBlock:^(NBMRequestPack* requestPack, BOOL* stop) {
         if ([requestPack.request isEqual:request]) {
             requestPackToCancel = requestPack;
             *stop = YES;
@@ -226,15 +282,6 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     }
 }
 
-//Responses
-
-- (void)sendResponseWithError:(NBMResponseError *)responseError {
-}
-
-- (NBMResponse *)sendResponseWithResult:(id)result {
-    return nil;
-}
-
 - (void)dealloc
 {
     //secure transport closing, is needed?
@@ -246,29 +293,32 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 #pragma mark - Private
 
+//unused
 - (void)setupTransport
 {
     _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
+//    _transport.timeoutInterval = _requestTimeout;
     [_transport open];
 }
 
+//unused
 - (void)setupMessageLogic
 {
     //Requests cache (sent)
-    _requestsSent = [NSMutableSet set];
+    _requestsSent = [NSMutableOrderedSet orderedSet];
     //Response cache (sent)
-    _responsesSent = [NSMutableSet set];
+    _responsesSent = [NSMutableOrderedSet orderedSet];
     //Response cache (received)
-    _responsesReceived = [NSMutableSet set];
+    _responsesReceived = [NSMutableOrderedSet orderedSet];
     
     //Requests
     _requestId = 0;
-    _requestTimeout = 5;
-    _requestMaxRetries = 1;
+//    _requestTimeout = self.configuration.requestTimeout;
+//    _requestMaxRetries = self.configuration.requestMaxRetries;
     
     //Responses
-    _responseTimeout = _requestTimeout;
-    _duplicatesResponseTimeout = _responseTimeout;
+//    _responseTimeout = _requestTimeout;
+//    _duplicatesResponseTimeout = _responseTimeout;
 }
 
 - (void)decodeMessage:(NSDictionary *)messageDictionary
@@ -279,8 +329,8 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
         return;
     }
     
-    NSString *method = messageDictionary[kMethodKey];
-    NSNumber *ack = messageDictionary[kIdKey];
+    NSString *method = messageDictionary[NBMJSONRPCMethodKey];
+    NSNumber *ack = messageDictionary[NBMJSONRPCIdKey];
     NBMRequestPack *requestPack = [self getRequestPackById:ack];
     
     //Request or Response with own method
@@ -319,22 +369,22 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 - (NSDictionary *)validateMessage:(NSDictionary *)messageDictionary
 {
-    NSString *version = messageDictionary[kJsonRpcKey];
-    if (![version isEqualToString:kJsonRpcVersion]) {
+    NSString *version = messageDictionary[NBMJSONRPCKey];
+    if (![version isEqualToString:NBMJSONRPCVersion]) {
         DDLogWarn(@"Invalid JSON-RPC version: %@", version);
         return nil;
     }
     
     //Response
-    NSString *method = messageDictionary[kMethodKey];
+    NSString *method = messageDictionary[NBMJSONRPCMethodKey];
     if (!method) {
-        NSNumber *responseId = messageDictionary[kIdKey];
+        NSNumber *responseId = messageDictionary[NBMJSONRPCIdKey];
         if (!responseId) {
             DDLogWarn(@"No response id (ack) is defined: %@", messageDictionary);
             return nil;
         }
-        id result = messageDictionary[kResultKey];
-        id error = messageDictionary[kErrorKey];
+        id result = messageDictionary[NBMJSONRPCResultKey];
+        id error = messageDictionary[NBMJSONRPCErrorKey];
         if (result && error) {
             DDLogWarn(@"Both result and error are defined: %@", messageDictionary);
             return nil;
@@ -351,7 +401,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 
 - (BOOL)checkAndManageDuplicatedResponse:(NSDictionary *)responseDicitonary
 {
-    NSNumber *ack = responseDicitonary[kIdKey];
+    NSNumber *ack = responseDicitonary[NBMJSONRPCIdKey];
     NBMProcessedResponse *processedResponse = [self getProcessedResponseByAck:ack remove:NO];
     if (!processedResponse) {
         return NO;
@@ -376,8 +426,8 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
         [processedResponse clearTimeout];
     }
     
-    //Set timeout
-    NSTimeInterval timeout = _requestTimeout * pow(2, requestPack.retried);
+    //Set Request timeout
+    NSTimeInterval timeout = _configuration.requestTimeout * pow(2, requestPack.retried);
     requestPack.timeout = timeout;
     requestPack.retried += 1;
     [_requestsSent addObject:requestPack];
@@ -406,8 +456,8 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (NBMRequestPack *)getRequestPackById:(NSNumber *)requestId
 {
     __block NBMRequestPack *requestPack;
-    [_requestsSent enumerateObjectsUsingBlock:^(NBMRequestPack* aRequestPack, BOOL *stop) {
-        if ([requestPack.request.requestId isEqualToNumber:requestId]) {
+    [_requestsSent.set enumerateObjectsUsingBlock:^(NBMRequestPack* aRequestPack, BOOL *stop) {
+        if ([aRequestPack.request.requestId isEqualToNumber:requestId]) {
             requestPack = aRequestPack;
             *stop = YES;
         }
@@ -427,7 +477,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
 - (NBMProcessedResponse *)getProcessedResponseByAck:(NSNumber *)ack remove:(BOOL)remove
 {
     __block NBMProcessedResponse *processedResponse;
-    [_responsesReceived enumerateObjectsUsingBlock:^(NBMProcessedResponse *aProcessedResponse, BOOL *stop) {
+    [_responsesReceived.set enumerateObjectsUsingBlock:^(NBMProcessedResponse *aProcessedResponse, BOOL *stop) {
         if ([aProcessedResponse.ack isEqualToNumber:ack]) {
             processedResponse = aProcessedResponse;
             *stop = YES;
@@ -445,9 +495,11 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     [self processResponse:response requestPack:requestPack error:nil];
 }
 
-- (void)processResponse:(NBMResponse *)response requestPack:(NBMRequestPack *)requestPack error:(NSError *)error{
-    requestPack.responseBlock(response);
-    [self cancelRequestPack:requestPack];
+- (void)processResponse:(NBMResponse *)response requestPack:(NBMRequestPack *)requestPack error:(NSError *)error {
+    if (requestPack) {
+        requestPack.responseBlock(response);
+        [self cancelRequestPack:requestPack];
+    }
 }
 
 /**
@@ -455,7 +507,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
  */
 - (void)storeProcessedResponse:(NBMProcessedResponse *)processedResponse
 {
-    [processedResponse setTimeout:_duplicatesResponseTimeout];
+    [processedResponse setTimeout:_configuration.duplicatesResponseTimeout];
     [_responsesReceived addObject:processedResponse];
 }
 
@@ -466,17 +518,16 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     switch (channelState) {
         case NBMTransportChannelStateClosed: {
             _connected = NO;
+            if ([self.delegate respondsToSelector:@selector(clientDidDisconnect:)]) {
+                [self.delegate clientDidDisconnect:self];
+            }
             break;
         }
         case NBMTransportChannelStateOpen: {
             _connected = YES;
-            if ([self.delegate respondsToSelector:@selector(clientDidBecomeReady:)]) {
-                [self.delegate clientDidBecomeReady:self];
+            if ([self.delegate respondsToSelector:@selector(clientDidConnect:)]) {
+                [self.delegate clientDidConnect:self];
             }
-            break;
-        }
-        case NBMTransportChannelStateError: {
-            _connected = NO;
             break;
         }
         default: {
@@ -503,7 +554,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     //Timeout fired on RequestPack
     if ([timeoutable isKindOfClass:[NBMRequestPack class]]) {
         NBMRequestPack *requestPack = (NBMRequestPack *)timeoutable;
-        if (requestPack.retried < _requestMaxRetries) {
+        if (requestPack.retried < _configuration.requestMaxRetries) {
             [self sendRequestPack:requestPack retried:YES];
             return;
         }
@@ -515,6 +566,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     else if ([timeoutable isKindOfClass:[NBMProcessedResponse class]]) {
         NBMProcessedResponse *processedResponse = (NBMProcessedResponse *)timeoutable;
         //clear timeout is done in dealloc
+        DDLogWarn(@"Processed response removed from cache - ack:%@", processedResponse.ack);
         [_responsesReceived removeObject:processedResponse];
     }
 }

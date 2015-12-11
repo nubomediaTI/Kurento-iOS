@@ -20,12 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+//Room
+#import <KurentoToolbox/NBMRoom.h>
+#import <KurentoToolbox/NBMPeer.h>
+#import <KurentoToolbox/NBMRoomClient.h>
+#import <KurentoToolbox/NBMRoomClientDelegate.h>
+
 //Web RTC
 #import <KurentoToolbox/NBMWebRTCPeer.h>
 #import <KurentoToolbox/NBMPeerConnection.h>
 
 //JSON-RPC
-#import <KurentoToolbox/NBMJSONRPCConstants.h>
 #import <KurentoToolbox/NBMJSONRPCClient.h>
 
 //JSON-RPC Messages

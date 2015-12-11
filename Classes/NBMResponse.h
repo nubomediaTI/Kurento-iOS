@@ -57,12 +57,12 @@
 /**
  *  Creates a new JSON-RPC 2.0 response to a failed request.
  *
- *  @param error      An `NBMResponseError` instance indicating the cause of the failure.
+ *  @param error      The error value indicating the cause of the failure.
  *  @param responseId The request identifier echoed back to the caller. May be `nil` if the request identifier couldn't be determined (e.g. due to a parse error).
  *
  *  @return A JSON-RPC-encoded response.
  */
-+ (instancetype)responseWithError:(NBMResponseError *)error
++ (instancetype)responseWithError:(id)error
                        responseId:(NSNumber *)responseId;
 
 @end
@@ -128,5 +128,7 @@ typedef NS_ENUM(NSInteger, NBMResponseErrorCode) {
 + (instancetype)responseErrorWithCode:(NBMResponseErrorCode)code
                               message:(NSString *)message
                                  data:(id)data;
+
+- (NSError *)error;
 
 @end

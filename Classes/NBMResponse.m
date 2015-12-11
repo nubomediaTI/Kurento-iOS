@@ -10,6 +10,7 @@
 
 #import "NBMJSONRPCConstants.h"
 #import "NBMUtilities.h"
+#import "NBMJSONRPCError.h"
 
 static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
     switch(code) {
@@ -35,6 +36,9 @@ static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
                                  data:(id)data
 {
     NBMResponseError *responseError = [[NBMResponseError alloc] init];
+    if (code == 0) {
+        code = NBMResponseErrorParseErrorCode;
+    }
     responseError.code = code;
     if (!message || message.length == 0) {
         message = JSONRPCLocalizedErrorMessageForCode(code);
@@ -45,13 +49,17 @@ static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
     return responseError;
 }
 
+- (NSError *)error {
+    return [NBMJSONRPCError errorWithCode:self.code message:self.message userInfo:[self errorDictionary] underlyingError:nil];
+}
+
 - (NSDictionary *)errorDictionary
 {
     NSMutableDictionary *errorDict = [NSMutableDictionary dictionaryWithCapacity:3];
-    [errorDict setObject:@(self.code) forKey:kCodeKey];
-    [errorDict setObject:self.message forKey:kMessageKey];
+    [errorDict setObject:@(self.code) forKey:NBMJSONRPCCodeKey];
+    [errorDict setObject:self.message forKey:NBMJSONRPCMessageKey];
     if (self.data) {
-        [errorDict setObject:self.data forKey:kDataKey];
+        [errorDict setObject:self.data forKey:NBMJSONRPCDataKey];
     }
     return errorDict;
 }
@@ -67,8 +75,6 @@ static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
 + (instancetype)responseWithResult:(id)result
                         responseId:(NSNumber *)responseId
 {
-    NSParameterAssert(result);
-    
     if (!responseId) {
         responseId = @(0);
     }
@@ -80,17 +86,20 @@ static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
     return response;
 }
 
-+ (instancetype)responseWithError:(NBMResponseError *)error
++ (instancetype)responseWithError:(id)error
                        responseId:(NSNumber *)responseId
 {
-    NSParameterAssert(error);
-    
     if (!responseId) {
         responseId = @(0);
     }
     
     NBMResponse *response = [[NBMResponse alloc] init];
-    response.error = error;
+    NSDictionary *errorDict = (NSDictionary *)error;
+    NSNumber *errorCode = errorDict[NBMJSONRPCCodeKey];
+    NSString *errorMessage = errorDict[NBMJSONRPCMessageKey];
+    id errorData = errorDict[NBMJSONRPCDataKey];
+    NBMResponseError *responseError = [NBMResponseError responseErrorWithCode:errorCode.integerValue message:errorMessage data:errorData];
+    response.error = responseError;
     response.responseId = responseId;
     
     return response;
@@ -98,15 +107,15 @@ static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
 
 + (instancetype)responseWithJSONDictionary:(NSDictionary *)json
 {
-    id result = json[kResultKey];
-    id error = json[kErrorKey];
-    NSNumber *ack = json[kIdKey];
+    id result = json[NBMJSONRPCResultKey];
+    id error = json[NBMJSONRPCErrorKey];
+    NSNumber *ack = json[NBMJSONRPCIdKey];
     
     NBMResponse *response;
-    if (result) {
-        response = [NBMResponse responseWithResult:result responseId:ack];
-    } else {
+    if (error) {
         response = [NBMResponse responseWithError:error responseId:ack];
+    } else {
+        response = [NBMResponse responseWithResult:result responseId:ack];
     }
     
     return response;
@@ -128,13 +137,13 @@ static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {
 - (NSDictionary *)toJSONDictionary
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
-    [json setObject:kJsonRpcVersion forKey:kJsonRpcKey];
+    [json setObject:NBMJSONRPCVersion forKey:NBMJSONRPCKey];
     if (self.result) {
-        [json setObject:self.result forKey:kResultKey];
+        [json setObject:self.result forKey:NBMJSONRPCResultKey];
     } else if (self.error) {
-        [json setObject:[self.error errorDictionary] forKey:kErrorKey];
+        [json setObject:[self.error errorDictionary] forKey:NBMJSONRPCErrorKey];
     }
-    [json setObject:self.responseId forKey:kIdKey];
+    [json setObject:self.responseId forKey:NBMJSONRPCIdKey];
     
     return [json copy];
 }

@@ -28,7 +28,6 @@
 #import "NBMPeerConnection.h"
 
 //JSON-RPC
-#import "NBMJSONRPCConstants.h"
 #import "NBMJSONRPCClient.h"
 
 //JSON-RPC Messages

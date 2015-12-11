@@ -43,6 +43,15 @@
 
 
 /**
+ *  Creates and initializes a JSON-RPC 2.0 request with the specified method
+ *
+ *  @param method The name of the requested method. Must not be `nil`.
+ *
+ *  @return An initialized JSON-RPC request.
+ */
++ (instancetype)requestWithMethod:(NSString *)method;
+
+/**
  *  Creates and initializes a JSON-RPC 2.0 request with the specified method and parameters (named or positional).
  *
  *  @param method     The name of the requested method. Must not be `nil`.

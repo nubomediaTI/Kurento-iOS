@@ -23,12 +23,14 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, NBMTransportChannelState) {
-    // State when disconnected.
-    NBMTransportChannelStateClosed,
+    // State when connecting.
+    NBMTransportChannelStateOpening,
     // State when connection is established and ready for use.
     NBMTransportChannelStateOpen,
-    // State when connection encounters a fatal error.
-    NBMTransportChannelStateError
+    // State when disconnecting.
+    NBMTransportChannelStateClosing,
+    // State when disconnected.
+    NBMTransportChannelStateClosed
 };
 
 @class NBMTransportChannel;
@@ -49,6 +51,8 @@ didReceiveMessage:(NSDictionary *)messageDictionary;
 
 @property (nonatomic, readonly) NBMTransportChannelState channelState;
 @property (nonatomic, weak) id<NBMTransportChannelDelegate> delegate;
+@property (nonatomic, assign) NSTimeInterval openChannelTimeout;
+@property (nonatomic, assign) NSTimeInterval keepAliveInterval;
 
 - (instancetype)initWithURL:(NSURL *)url
                    delegate:(id<NBMTransportChannelDelegate>)delegate;

@@ -22,7 +22,7 @@
     [super setUp];
     NBMJSONRPCClient *client = [[NBMJSONRPCClient alloc] initWithURL:[NSURL URLWithString:@"http://"] delegate:self];
     self.client = client;
-    NBMWebRTCPeer *peer = [[NBMWebRTCPeer alloc] initWithDelegate:self cameraPosition:1];
+    NBMWebRTCPeer *peer = [[NBMWebRTCPeer alloc] initWithDelegate:self configuration:nil];
     self.peer = peer;
 }
 
@@ -55,7 +55,11 @@
     
 }
 
-- (void)clientDidBecomeReady:(NBMJSONRPCClient *)client {
+- (void)clientDidConnect:(NBMJSONRPCClient *)client {
+    
+}
+
+- (void)clientDidDisconnect:(NBMJSONRPCClient *)client {
     
 }
 

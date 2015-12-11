@@ -17,6 +17,10 @@
 
 #pragma mark - Public
 
++ (instancetype)requestWithMethod:(NSString *)method {
+    return [NBMRequest requestWithMethod:method parameters:nil];
+}
+
 + (instancetype)requestWithMethod:(NSString *)method
                        parameters:(id)parameters
 {
@@ -30,12 +34,9 @@
                         requestId:(NSNumber *)requestId
 {
     NSParameterAssert(method);
-    
-    if (!parameters) {
-        parameters = @{};
+    if (parameters) {
+        NSAssert([parameters isKindOfClass:[NSDictionary class]] || [parameters isKindOfClass:[NSArray class]], @"Expect NSArray or NSDictionary in JSON-RPC parameters");
     }
-    
-    NSAssert([parameters isKindOfClass:[NSDictionary class]] || [parameters isKindOfClass:[NSArray class]], @"Expect NSArray or NSDictionary in JSON-RPC parameters");
     
     NBMRequest *request = [[NBMRequest alloc] init];
     request.method = method;
@@ -47,9 +48,9 @@
 
 + (instancetype)requestWithJSONDicitonary:(NSDictionary *)json
 {
-    NSString *method = json[kMethodKey];
-    id params = json[kParamsKey];
-    NSNumber *requestId = json[kIdKey];
+    NSString *method = json[NBMJSONRPCMethodKey];
+    id params = json[NBMJSONRPCParamsKey];
+    NSNumber *requestId = json[NBMJSONRPCIdKey];
     
     return [NBMRequest requestWithMethod:method parameters:params requestId:requestId];
 }
@@ -100,14 +101,14 @@
 - (NSDictionary *)toJSONDictionary
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
-    [json setObject:kJsonRpcVersion forKey:kJsonRpcKey];
-    [json setObject:self.method forKey:@"id"];
-    NSString *sdpOffer = [self.parameters objectForKey:@"sdpOffer"];
-    [json setObject:sdpOffer forKey:@"sdpOffer"];
-//    [json setObject:self.parameters forKey:@"params"];
-//    if (self.requestId) {
-//        [json setObject:self.requestId forKey:kIdKey];
-//    }
+    [json setObject:NBMJSONRPCVersion forKey:NBMJSONRPCKey];
+    [json setObject:self.method forKey:NBMJSONRPCMethodKey];
+    if (self.parameters) {
+        [json setObject:self.parameters forKey:NBMJSONRPCParamsKey];
+    }
+    if (self.requestId) {
+        [json setObject:self.requestId forKey:NBMJSONRPCIdKey];
+    }
     
     return [json copy];
 }

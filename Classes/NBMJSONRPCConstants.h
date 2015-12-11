@@ -22,16 +22,18 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString* const kJsonRpcKey = @"jsonrpc";
-static NSString* const kJsonRpcVersion = @"2.0";
-static NSString* const kIdKey  = @"id";
+FOUNDATION_EXTERN NSString* const NBMJSONRPCErrorDomain;
 
-static NSString* const kMethodKey = @"method";
-static NSString* const kParamsKey  = @"params";
+FOUNDATION_EXTERN NSString* const NBMJSONRPCKey;
+FOUNDATION_EXTERN NSString* const NBMJSONRPCVersion;
+FOUNDATION_EXTERN NSString* const NBMJSONRPCIdKey;
 
-static NSString* const kResultKey  = @"result";
-static NSString* const kErrorKey  = @"error";
+FOUNDATION_EXTERN NSString* const NBMJSONRPCMethodKey;
+FOUNDATION_EXTERN NSString* const NBMJSONRPCParamsKey;
 
-static NSString* const kCodeKey  = @"code";
-static NSString* const kMessageKey  = @"message";
-static NSString* const kDataKey  = @"data";
+FOUNDATION_EXTERN NSString* const NBMJSONRPCResultKey;
+FOUNDATION_EXTERN NSString* const NBMJSONRPCErrorKey;
+
+FOUNDATION_EXTERN NSString* const NBMJSONRPCCodeKey;
+FOUNDATION_EXTERN NSString* const NBMJSONRPCMessageKey;
+FOUNDATION_EXTERN NSString* const NBMJSONRPCDataKey;

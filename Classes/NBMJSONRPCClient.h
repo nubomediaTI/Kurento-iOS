@@ -34,7 +34,9 @@
  *
  *  @param client The client sending the message.
  */
-- (void)clientDidBecomeReady:(NBMJSONRPCClient *)client;
+- (void)clientDidConnect:(NBMJSONRPCClient *)client;
+
+- (void)clientDidDisconnect:(NBMJSONRPCClient *)client;
 /**
  *  Sent when the client has received a request (usually notifications).
  *
@@ -52,6 +54,25 @@
 
 @end
 
+@interface NBMJSONRPCClientConfiguration : NSObject
+
+/**
+ *  The timeout interval for the new request, in seconds.
+ *  Default value is 5.
+ */
+@property (nonatomic) NSTimeInterval requestTimeout;
+/**
+ *  The retry number for requests gone in timeout (with no response back).
+ *  Default value is 1.
+ */
+@property (nonatomic) NSUInteger requestMaxRetries;
+
+@property (nonatomic, assign) BOOL autoConnect;
+
++ (instancetype)defaultConfiguration;
+
+@end
+
 /**
  *  NBMJSONRPCClient object communicates with web sockets using the JSON-RPC 2.0 protocol.
  *  @see http://www.jsonrpc.org/specification
@@ -62,20 +83,15 @@
  *  The URL for the websocket.
  */
 @property (nonatomic) NSURL *url;
-/**
- *  The timoeut interval for the new request, in seconds. 
- *  Default value is 5.
- */
-@property (nonatomic) NSTimeInterval requestTimeout;
-/**
- *  The retry number for requests gone in timeout (with no response back). 
- *  Default value is 1.
- */
-@property (nonatomic) NSUInteger requestMaxRetries;
+
+@property (nonatomic, readonly) NBMJSONRPCClientConfiguration *configuration;
+
 /**
  * The delegate object for the client.
  */
 @property (nonatomic, weak) id<NBMJSONRPCClientDelegate>delegate;
+
+@property (nonatomic, readonly, getter=isConnected) BOOL connected;
 
 /**
  *  Creates and initializes a JSON-RPC client with the specified endpoint.
@@ -86,6 +102,20 @@
  *  @return An initialized JSON-RPC client.
  */
 - (instancetype)initWithURL:(NSURL *)url delegate:(id<NBMJSONRPCClientDelegate>)delegate;
+
+- (instancetype)initWithURL:(NSURL *)url configuration:(NBMJSONRPCClientConfiguration *)configuration delegate:(id<NBMJSONRPCClientDelegate>)delegate;
+
+/**
+ *  Creates and sends a request with the specified method using websocket as transport channel.
+ *
+ *  @param method        The request method. Musto not be `nil`.
+ *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client response serializer.
+ *                       The response object may be `nil` if network (e.g timeout) or parsing error occurred.
+ *
+ *  @return The `NBMRequest` object that was sent.
+ */
+- (NBMRequest *)sendRequestWithMethod:(NSString *)method
+                           completion:(void (^)(NBMResponse *response))responseBlock;
 
 /**
  *  Creates and sends a request with the specified method and parameters using websocket as transport channel.

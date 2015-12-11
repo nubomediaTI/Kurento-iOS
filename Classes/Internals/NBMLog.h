@@ -22,15 +22,24 @@
 
 #import "CocoaLumberjack.h"
 
-#ifdef DEBUG
-    static const int ddLogLevel = DDLogLevelVerbose;
-    //Simple log macro
-    #define DLog(s,...) NSLog((@"[%s] " s),__func__,## __VA_ARGS__);
-#else
-    static const int ddLogLevel = 0;
-    //Log only in debug mode
-    #define DLog(...)
+#ifndef NBMLogsEnabled
+    #ifdef DEBUG
+        #define NBMLogsEnabled 1
+        //Simple log macro
+        #define DLog(s,...) NSLog((@"[%s] " s),__func__,## __VA_ARGS__);
+    #else
+        #define NBMLogsEnabled 0
+        //Log only in debug mode
+        #define DLog(...)
+    #endif
 #endif
 
+#ifndef NBMLogLevel
+    #define NBMLogLevel DDLogLevelVerbose
+#endif
 
-
+#if NBMLogsEnabled
+    static const int ddLogLevel = NBMLogLevel;
+#else   
+    static const int ddLogLevel = 0;
+#endif

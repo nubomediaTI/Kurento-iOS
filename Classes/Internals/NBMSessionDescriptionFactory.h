@@ -21,8 +21,9 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "NBMTypes.h"
 
-@class RTCMediaConstraints;
+@class RTCMediaConstraints, RTCSessionDescription;
 
 @interface NBMSessionDescriptionFactory : NSObject
 
@@ -31,5 +32,11 @@
 + (RTCMediaConstraints *)connectionConstraints;
 
 + (RTCMediaConstraints *)videoConstraints;
+
++ (RTCSessionDescription *)conditionedSessionDescription:(RTCSessionDescription *)sessionDescription
+                                              audioCodec:(NBMAudioCodec)audioCodec
+                                              videoCodec:(NBMVideoCodec)videoCodec
+                                            videoBandwidth:(NSUInteger)videoBandwidth
+                                            audioBandwidth:(NSUInteger)audioBandwidth;
 
 @end

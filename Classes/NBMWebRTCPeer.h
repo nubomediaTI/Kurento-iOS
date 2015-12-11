@@ -24,25 +24,8 @@
 
 #import "RTCTypes.h"
 
-/**
- *  Camera position types
- */
-typedef NS_ENUM(NSUInteger, NBMCameraPosition) {
-    /**
-     *  Any camera position available.
-     */
-    NBMCameraPositionAny = 0,
-    /**
-     *  Back camera position.
-     */
-    NBMCameraPositionBack = 1,
-    /**
-     *  Front camera position.
-     */
-    NBMCameraPositionFront = 2
-};
-
 @class NBMWebRTCPeer;
+@class NBMMediaConfiguration;
 @class NBMPeerConnection;
 @class RTCVideoTrack;
 @class RTCMediaStream;
@@ -116,6 +99,8 @@ typedef NS_ENUM(NSUInteger, NBMCameraPosition) {
  */
 @interface NBMWebRTCPeer : NSObject
 
+@property (nonatomic, strong, readonly) NBMMediaConfiguration *mediaConfiguration;
+
 /**
  *  The local stream.
  */
@@ -129,11 +114,11 @@ typedef NS_ENUM(NSUInteger, NBMCameraPosition) {
  *  Initializes a new Web RTC peer manager.
  *
  *  @param delegate The delegate object for the peer manager.
- *  @param position The camera position used to capture video stream.
+ *  @param configuration A media configuration
  *
  *  @return An initialized Web RTC peer manager.
  */
-- (instancetype)initWithDelegate:(id<NBMWebRTCPeerDelegate>)delegate cameraPosition:(NBMCameraPosition)position;
+- (instancetype)initWithDelegate:(id<NBMWebRTCPeerDelegate>)delegate configuration:(NBMMediaConfiguration *)configuration;
 
 /**
  *  Create a new offer for connection with specified identifier.

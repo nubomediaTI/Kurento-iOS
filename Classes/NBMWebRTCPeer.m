@@ -8,6 +8,7 @@
 
 #import "NBMWebRTCPeer.h"
 #import "NBMSessionDescriptionFactory.h"
+#import "NBMMediaConfiguration.h"
 #import "NBMPeerConnection.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -43,16 +44,17 @@
 
 #pragma mark - Public
 
-- (instancetype)initWithDelegate:(id<NBMWebRTCPeerDelegate>)delegate cameraPosition:(NBMCameraPosition)position
+- (instancetype)initWithDelegate:(id<NBMWebRTCPeerDelegate>)delegate configuration:(NBMMediaConfiguration *)configuration
 {
     self = [super init];
     
     if (self) {
         _delegate = delegate;
+        _mediaConfiguration = configuration;
         [RTCPeerConnectionFactory initializeSSL];
         _peerConnectionFactory = [[RTCPeerConnectionFactory alloc] init];
         _connectionMap = [NSMutableDictionary dictionary];
-        _cameraPosition = position;
+        
         [self setupLocalMedia];
     }
     
@@ -446,8 +448,20 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         DDLogVerbose(@"Peer connection did create %@", sdp.type);
         // Set the local description.
-        [peerConnection setLocalDescriptionWithDelegate:self
-                                      sessionDescription:sdp];
+        
+        //NBMVideoFormat videoFormat = self.mediaConfiguration.receiverVideoFormat;
+        NBMVideoCodec videoCodec = self.mediaConfiguration.videoCodec;
+        NSUInteger maxVideoBandwidth = self.mediaConfiguration.videoBandwidth;
+        NBMAudioCodec audioCodec = self.mediaConfiguration.audioCodec;
+        NSUInteger maxAudioBandwidth = self.mediaConfiguration.audioBandwidth;
+
+        RTCSessionDescription *conditionedSDP = [NBMSessionDescriptionFactory conditionedSessionDescription:sdp
+                                                                                                 audioCodec:audioCodec
+                                                                                                 videoCodec:videoCodec
+                                                                                             videoBandwidth:maxVideoBandwidth
+                                                                                             audioBandwidth:maxAudioBandwidth];
+
+        [peerConnection setLocalDescriptionWithDelegate:self sessionDescription:conditionedSDP];
     });
 }
 
