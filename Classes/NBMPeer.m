@@ -22,29 +22,32 @@
 
 #import "NBMPeer.h"
 
+@interface NBMPeer ()
+
+@property (nonatomic, strong) NSMutableSet *mutableStreams;
+
+@end
+
 @implementation NBMPeer
 
 - (instancetype)initWithId:(NSString *)peerId {
     self = [super init];
     if (self) {
         _identifier = peerId;
-        _streams = [NSSet setWithArray:@[]];
+        _mutableStreams = [NSMutableSet set];
     }
     return self;
 }
 
 - (void)addStream:(NSString *)streamId {
-    NSMutableSet *mutableStreams = [NSMutableSet set];
     if (streamId) {
-        [mutableStreams addObject:streamId];
+        [self.mutableStreams addObject:streamId];
     }
-    _streams = [mutableStreams copy];
 }
 
 - (void)removeStream:(NSString *)streamId {
-    NSMutableSet *mutableStreams = [NSMutableSet set];
     if (streamId) {
-        [mutableStreams removeObject:streamId];
+        [self.mutableStreams removeObject:streamId];
     }
 }
 
@@ -52,8 +55,14 @@
     if (!streamId) {
         return NO;
     }
-    return [self.streams containsObject:streamId];
+    return [self.mutableStreams containsObject:streamId];
 }
+
+- (NSSet *)streams {
+    return [self.mutableStreams copy];
+}
+
+#pragma mark - NSObject
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"[%@: %@]", NSStringFromClass([self class]), self.identifier];

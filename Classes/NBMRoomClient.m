@@ -23,6 +23,7 @@
 #import "NBMRoomClient.h"
 #import "NBMRoomClientDelegate.h"
 
+#import "NBMRequest.h"
 #import "NBMResponse.h"
 #import "NBMJSONRPCError.h"
 #import "NBMJSONRPCClient.h"
@@ -101,6 +102,10 @@ static NSString* const kPartecipantPublishedUserParam = @"id";
 static NSString* const kPartecipantPublishedStreamsParam = @"streams";
 static NSString* const kPartecipantPublishedStreamIdParam = @"id";
 
+//Partecipant Unpublished
+static NSString* const kPartecipantUnpublishedMethod = @"participantUnpublished";
+static NSString* const kPartecipantUnpublishedUserParam = @"name";
+
 //Partecipant Send Message
 static NSString* const kPartecipantSendMessageMethod = @"sendMessage";
 static NSString* const kPartecipantSendMessageUserParam = @"userroom";
@@ -109,18 +114,18 @@ static NSString* const kPartecipantSendMessageMessageParam = @"message";
 
 //Room Closed
 static NSString* const kRoomClosedMethod = @"roomClosed";
-static NSString* const kRoomClosedPAram = @"room";
+static NSString* const kRoomClosedParam = @"room";
 
 //Media Error
 static NSString* const kMediaErrorMethod = @"mediaError";
 static NSString* const kMediaErrorErrorParam = @"error";
 
 //ICE Candidate
-static NSString* const kICECandidateMethod = @"iceCandidate";
-static NSString* const kICECandidateEpnameParam = @"endpointName";
-static NSString* const kICECandidateCandidateParam = @"candidate";
-static NSString* const kICECandidateSdpMidParam = @"sdpMid";
-static NSString* const kICECandidateSdpMLineIndex = @"sdpMLineIndex";
+static NSString* const kIceCandidateMethod = @"iceCandidate";
+static NSString* const kIceCandidateEpnameParam = @"endpointName";
+static NSString* const kIceCandidateCandidateParam = @"candidate";
+static NSString* const kIceCandidateSdpMidParam = @"sdpMid";
+static NSString* const kIceCandidateSdpMLineIndex = @"sdpMLineIndex";
 
 typedef void(^JoinRoomBlock)(NSDictionary *peers, NSError *error);
 typedef void(^ErrorBlock)(NSError *error);
@@ -268,6 +273,34 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     [self nbm_sendICECandidate:candidate completion:block];
 }
 
+#pragma mark Send message
+
+- (void)sendMessage:(NSString *)message {
+    return [self sendMessage:message completion:^(NSError *error) {
+        if ([self.delegate respondsToSelector:@selector(client:didSentMessage:)]) {
+            [self.delegate client:self didSentMessage:error];
+        }
+    }];
+}
+
+- (void)sendMessage:(NSString *)message completion:(void (^)(NSError *))block {
+    [self nbm_sendMessage:message completion:block];
+}
+
+#pragma mark Send custom request
+
+- (void)sendCustomRequest:(NSDictionary *)params {
+    return [self sendCustomRequest:params completion:^(NSError *error) {
+        if ([self.delegate respondsToSelector:@selector(client:didSentCustomRequest:)]) {
+            [self.delegate client:self didSentCustomRequest:error];
+        }
+    }];
+}
+
+- (void)sendCustomRequest:(NSDictionary *)params completion:(void (^)(NSError *))block {
+    [self nbm_sendCustomRequest:params completion:block];
+}
+
 #pragma mark - Private
 
 - (void)connect {
@@ -320,26 +353,25 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
                         break;
                     }
                     NSString *peerId = [NBMRoomClient element:jsonPeer getPropertyWithName:kJoinRoomPeerIdParam ofClass:[NSString class] error:error];
-                    NSMutableArray *streams = [NSMutableArray array];
-                    NSArray *jsonStreams = [NBMRoomClient element:jsonPeer getPropertyWithName:kJoinRoomPeerStreamsParam ofClass:[NSArray class] error:error];
-                    for (NSDictionary *jsonStream in jsonStreams) {
-                        NSString *streamId = [NBMRoomClient element:jsonStream getPropertyWithName:kJoinRoomPeerStramIdParam ofClass:[NSString class] error:error];
-                        if (streamId) {
-                            [streams addObject:streamId];
-                        }
-                    }
                     if (peerId) {
-                        [peers setObject:streams forKey:peerId];
+                        NBMPeer *peer = [[NBMPeer alloc] initWithId:peerId];
+                        NSArray *jsonStreams = [NBMRoomClient element:jsonPeer getPropertyWithName:kJoinRoomPeerStreamsParam ofClass:[NSArray class] error:error];
+                        for (NSDictionary *jsonStream in jsonStreams) {
+                            NSString *streamId = [NBMRoomClient element:jsonStream getPropertyWithName:kJoinRoomPeerStramIdParam ofClass:[NSString class] error:error];
+                            [peer addStream:streamId];
+                        }
+                        [peers setObject:peer forKey:peerId];
                     }
                 }
             }
+            self.mutableRoomPeers = peers;
         }
     }
     else {
         *error = [NBMRoomClient errorFromResponse:response];
     }
 
-    return peers;
+    return [peers copy];
 }
 
 #pragma mark Leave room
@@ -483,13 +515,165 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     }];
 }
 
+#pragma mark Send message
+
+- (void)nbm_sendMessage:(NSString *)message completion:(void (^)(NSError *error))block {
+    NSDictionary *params = @{kSendMessageRoomParam: self.room.name,
+                             kSendMessageUserParam: self.room.localPeer.identifier,
+                             kSendMessageMessageParam: message ?: @""};
+    [self.jsonRpcClient sendRequestWithMethod:kSendMessageRoomMethod
+                                   parameters:params
+                                   completion:^(NBMResponse *response) {
+                                       NSError *error = [NBMRoomClient errorFromResponse:response];
+                                       if (block) {
+                                           block(error);
+                                       }
+                                   }];
+}
+
+#pragma mark Send custom request
+
+- (void)nbm_sendCustomRequest:(id)params completion:(void (^)(NSError *error))block {
+    if (!params) {
+        params = @{};
+    }
+    [self.jsonRpcClient sendRequestWithMethod:kCustomRequestMethod
+                                   parameters:params
+                                   completion:^(NBMResponse *response) {
+                                       NSError *error = [NBMRoomClient errorFromResponse:response];
+                                       if (block) {
+                                           block(error);
+                                       }
+                                   }];
+}
+
 - (NBMPeer *)peerWithIdentifier:(NSString *)identifier {
-    NBMPeer *peer = [_mutableRoomPeers objectForKey:identifier];
+    if (!identifier) {
+        return nil;
+    }
+    NBMPeer *peer = [self.mutableRoomPeers objectForKey:identifier];
+    
     return peer;
 }
 
 - (NSDictionary *)peers {
     return [self.mutableRoomPeers copy];
+}
+
+#pragma mark Room events
+
+- (void)handleRequestEvent:(NBMRequest *)event {
+    ((void (^)())
+     @{kPartecipantJoinedMethod : ^{
+        [self partecipantJoined:event.parameters];
+    }, kPartecipantLeftMethod : ^ {
+        [self partecipantLeft:event.parameters];
+    },
+       kPartecipantPublishedMethod : ^{
+        [self partecipantPublished:event.parameters];
+    },
+       kPartecipantUnpublishedMethod : ^{
+        [self partecipantUnpublished:event.parameters];
+    },
+       kIceCandidateMethod : ^{
+        [self iceCandidateReceived:event.parameters];
+    },
+       kMediaErrorMethod : ^{
+        [self mediaErrorReceived:event.parameters];
+    },
+       kPartecipantEvictedMethod : ^{
+        [self partecipantEvicted];
+    },
+       kRoomClosedMethod : ^{
+        [self roomWasClosed];
+    }
+    
+    
+    }[event.method] ?:^{
+        DDLogWarn(@"Unable to handle event with method: %@", event.method);
+    })();
+}
+
+- (void)partecipantJoined:(id)params {
+    NSError *error;
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantJoinedUserParam error:&error];
+    NBMPeer *peer = [self peerWithIdentifier:peerId];
+    if ([self.delegate respondsToSelector:@selector(client:partecipantJoined:)]) {
+        [self.delegate client:self partecipantJoined:peer];
+    }
+}
+
+- (void)partecipantLeft:(id)params {
+    NSError *error;
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantLeftNameParam error:&error];
+    NBMPeer *peer = [self peerWithIdentifier:peerId];
+    if ([self.delegate respondsToSelector:@selector(client:partecipantLeft:)]) {
+        [self.delegate client:self partecipantLeft:peer];
+    }
+}
+
+- (void)partecipantPublished:(id)params {
+    NSError *error;
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantPublishedUserParam error:&error];
+    NBMPeer *peer;
+    if (peerId) {
+        peer = [[NBMPeer alloc] initWithId:peerId];
+        NSArray *jsonStreams = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantPublishedStreamsParam error:&error];
+        for (NSDictionary *jsonStream in jsonStreams) {
+            NSString *streamId = [NBMRoomClient element:jsonStream getStringPropertyWithName:kPartecipantPublishedStreamIdParam error:&error];
+            [peer addStream:streamId];
+        }
+        [self.mutableRoomPeers setObject:peer forKey:peerId];
+    }
+    if ([self.delegate respondsToSelector:@selector(client:partecipantPublished:)]) {
+        [self.delegate client:self partecipantPublished:peer];
+    }
+}
+
+- (void)partecipantUnpublished:(id)params {
+    NSError *error;
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantUnpublishedUserParam error:&error];
+    NBMPeer *peer = [self peerWithIdentifier:peerId];
+    if ([self.delegate respondsToSelector:@selector(client:partecipantUnpublished:)]) {
+        [self.delegate client:self partecipantUnpublished:peer];
+    }
+}
+
+- (void)iceCandidateReceived:(id)params {
+    NSError *error;
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kIceCandidateEpnameParam error:&error];
+    NBMPeer *peer = [self peerWithIdentifier:peerId];
+    NSString *sdpMid = [NBMRoomClient element:params getStringPropertyWithName:kIceCandidateSdpMidParam error:&error];
+    NSString *sdp = [NBMRoomClient element:params getStringPropertyWithName:kIceCandidateCandidateParam error:&error];
+    NSNumber *sdpMLineIndexNumber = [NBMRoomClient element:params getPropertyWithName:kIceCandidateSdpMLineIndex ofClass:[NSNumber class] error:&error];
+    RTCICECandidate *candidate;
+    if (sdpMid && sdp && sdpMLineIndexNumber) {
+        candidate = [[RTCICECandidate alloc] initWithMid:sdpMid index:sdpMLineIndexNumber.integerValue sdp:sdp];
+    }
+    if ([self.delegate respondsToSelector:@selector(client:didReceiveICECandidate:fromPartecipant:)]) {
+        [self.delegate client:self didReceiveICECandidate:candidate fromPartecipant:peer];
+    }
+}
+
+- (void)partecipantEvicted {
+    if ([self.delegate respondsToSelector:@selector(client:partecipantJoined:)]) {
+        [self.delegate client:self partecipantEvicted:self.room.localPeer];
+    }
+}
+
+- (void)roomWasClosed {
+    if ([self.delegate respondsToSelector:@selector(client:roomWasClosed:)]) {
+        [self.delegate client:self roomWasClosed:self.room];
+    }
+}
+
+- (void)mediaErrorReceived:(id)params {
+    NSError *error;
+    NSString *errorMsg = [NBMRoomClient element:params getStringPropertyWithName:kMediaErrorErrorParam error:&error];
+    NSError *mediaError = [NBMRoomError errorWithCode:NBMRoomGenericErrorRoomErrorCode message:errorMsg];
+    if ([self.delegate respondsToSelector:@selector(client:mediaErrorOccurred:)]) {
+        [self.delegate client:self mediaErrorOccurred:mediaError];
+    }
 }
 
 #pragma mark - Utility
@@ -521,6 +705,10 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 - (NSString *)mainStreamOfPeer:(NBMPeer *)peer {
     NSString *streamId = @"webcam";
     return streamId;
+}
+
++ (id)element:(id)element getStringPropertyWithName:(NSString *)name error:(NSError **)error {
+    return [self element:element getPropertyWithName:name ofClass:[NSString class] allowNil:NO error:error];
 }
 
 + (id)element:(id)element getPropertyWithName:(NSString *)name ofClass:(Class)class error:(NSError **)error {
@@ -572,13 +760,6 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     
     return nil;
 }
-
-//static inline BOOL responseHasError(NBMResponse* response) {
-//    if (!response || response.error) {
-//        return YES;
-//    }
-//    return NO;
-//}
 
 + (NSError *)errorFromResponse:(NBMResponse *)response {
     NSError *error;

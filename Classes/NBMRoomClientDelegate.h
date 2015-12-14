@@ -24,15 +24,17 @@
 @class NBMRoomClient;
 @class NBMRoom;
 @class NBMPeer;
+@class RTCICECandidate;
 
 @protocol NBMRoomClientDelegate <NSObject>
 
+//Connection
 - (void)client:(NBMRoomClient *)client isConnected:(BOOL)connected;
 - (void)client:(NBMRoomClient *)client didFailWithError:(NSError *)error;
 
+//Room API
 - (void)client:(NBMRoomClient *)client didJoinRoom:(NSError *)error;
 - (void)client:(NBMRoomClient *)client didLeaveRoom:(NSError *)error;
-- (void)client:(NBMRoomClient *)client roomWasClosed:(NBMRoom *)room;
 
 - (void)client:(NBMRoomClient *)client didPublishVideo:(NSString *)sdpAnswer loopback:(BOOL)doLoopback error:(NSError *)error;
 - (void)client:(NBMRoomClient *)client didUnPublishVideo:(NSError *)error;
@@ -45,5 +47,21 @@
 - (void)client:(NBMRoomClient *)client didSentMessage:(NSError *)error;
 
 - (void)client:(NBMRoomClient *)client didSentCustomRequest:(NSError *)error;
+
+//Room events
+
+- (void)client:(NBMRoomClient *)client partecipantJoined:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client partecipantLeft:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client partecipantEvicted:(NBMPeer *)peer;
+
+- (void)client:(NBMRoomClient *)client partecipantPublished:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client partecipantUnpublished:(NBMPeer *)peer;
+
+- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromPartecipant:(NBMPeer *)peer;
+
+- (void)client:(NBMRoomClient *)client didReceiveMessage:(NSString *)message fromPartecipant:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client mediaErrorOccurred:(NSError *)error;
+- (void)client:(NBMRoomClient *)client roomWasClosed:(NBMRoom *)room;
+
 
 @end

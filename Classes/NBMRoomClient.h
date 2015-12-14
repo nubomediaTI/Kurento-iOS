@@ -62,7 +62,9 @@
 - (void)sendICECandidate:(RTCICECandidate *)candidate completion:(void (^)(NSError *error))block;
 
 - (void)sendMessage:(NSString *)message;
+- (void)sendMessage:(NSString *)message completion:(void (^)(NSError *error))block;
 
-- (void)sendCustomRequest:(id)params;
+- (void)sendCustomRequest:(NSDictionary<NSString *, NSString *>*)params;
+- (void)sendCustomRequest:(NSDictionary <NSString *, NSString *>*)params completion:(void (^)(NSError *error))block;
 
 @end
