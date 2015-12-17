@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+
 @class NBMRoomClient;
 @class NBMRoom;
 @class NBMPeer;

@@ -1,5 +1,5 @@
 //
-//  NBMRoomConstants.m
+//  NBMRoomClientError.h
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,6 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMRoomConstants.h"
+#import "NBMError.h"
 
-NSString* const NBMRoomErrorDomain = @"eu.nubomediaTi.RoomClient";
+typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
+    NBMGenericRoomClientErrorCode = 0,
+    NBMGenericRoomClientTimeoutErrorCode
+};
+
+@interface NBMRoomClientError : NBMError
+
++ (NSError *)timeoutError;
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+// Disallow init and don't add to documentation
+- (id)init __attribute__(
+                         (unavailable("init is not a supported initializer for this class.")));
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */
+
+@end

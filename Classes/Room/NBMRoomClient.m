@@ -22,16 +22,16 @@
 
 #import "NBMRoomClient.h"
 #import "NBMRoomClientDelegate.h"
+#import "NBMRoomClientError.h"
 
 #import "NBMRequest.h"
 #import "NBMResponse.h"
-#import "NBMJSONRPCError.h"
+
 #import "NBMJSONRPCClient.h"
-#import "NBMJSONRPCConstants.h"
+#import "NBMJSONRPCClientDelegate.h"
 
 #import "NBMRoom.h"
 #import "NBMRoomError.h"
-#import "NBMRoomConstants.h"
 
 #import <libjingle_peerconnection/RTCICECandidate.h>
 
@@ -566,7 +566,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     ((void (^)())
      @{kPartecipantJoinedMethod : ^{
         [self partecipantJoined:event.parameters];
-    }, kPartecipantLeftMethod : ^ {
+    },
+       kPartecipantLeftMethod : ^ {
         [self partecipantLeft:event.parameters];
     },
        kPartecipantPublishedMethod : ^{
@@ -584,12 +585,13 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
        kPartecipantEvictedMethod : ^{
         [self partecipantEvicted];
     },
+       kPartecipantSendMessageMethod : ^{
+        
+    },
        kRoomClosedMethod : ^{
         [self roomWasClosed];
     }
-    
-    
-    }[event.method] ?:^{
+       }[event.method] ?:^{
         DDLogWarn(@"Unable to handle event with method: %@", event.method);
     })();
 }
@@ -664,6 +666,17 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 - (void)roomWasClosed {
     if ([self.delegate respondsToSelector:@selector(client:roomWasClosed:)]) {
         [self.delegate client:self roomWasClosed:self.room];
+    }
+}
+
+- (void)messageReceived:(id)params {
+    NSError *error;
+    //NSString *roomName = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageRoomParam error:&error];
+    NSString *senderId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageUserParam error:&error];
+    NBMPeer *peer = [self peerWithIdentifier:senderId];
+    NSString *msg = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageMessageParam error:&error];
+    if ([self.delegate respondsToSelector:@selector(client:didReceiveMessage:fromPartecipant:)]) {
+        [self.delegate client:self didReceiveMessage:msg fromPartecipant:peer];
     }
 }
 
@@ -756,7 +769,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     }
     
     NSString *msg = [NSString stringWithFormat:@"Param %@ with value %@ is not an instance of %@ class", name, property, NSStringFromClass(class)];
-    *error = [NBMJSONRPCError errorWithCode:NBMTransportErrorRoomErrorCode message:msg];
+    *error = [NBMRoomError errorWithCode:NBMTransportErrorRoomErrorCode message:msg];
     
     return nil;
 }
@@ -765,7 +778,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSError *error;
     //Timeout error
     if (!response) {
-        error = [NBMJSONRPCError timeoutError];
+        error = [NBMRoomClientError timeoutError];
     }
     else if (response.error) {
         //Response error -> error
@@ -784,7 +797,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 }
 
 - (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request {
-    
+    [self handleRequestEvent:request];
 }
 
 - (void)clientDidDisconnect:(NBMJSONRPCClient *)client {

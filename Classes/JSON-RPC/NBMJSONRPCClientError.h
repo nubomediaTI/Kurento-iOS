@@ -1,5 +1,5 @@
 //
-//  NBMJSONRCPConstants.h
+//  NBMJSONRPCClientError.h
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,20 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "NBMError.h"
 
-FOUNDATION_EXTERN NSString* const NBMJSONRPCErrorDomain;
+typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
+    NBMJSONRPCClientGenericErrorCode,
+    NBMJSONRPCClientInitializationErrorCode,
+};
 
-FOUNDATION_EXTERN NSString* const NBMJSONRPCKey;
-FOUNDATION_EXTERN NSString* const NBMJSONRPCVersion;
-FOUNDATION_EXTERN NSString* const NBMJSONRPCIdKey;
+@interface NBMJSONRPCClientError : NBMError
 
-FOUNDATION_EXTERN NSString* const NBMJSONRPCMethodKey;
-FOUNDATION_EXTERN NSString* const NBMJSONRPCParamsKey;
-
-FOUNDATION_EXTERN NSString* const NBMJSONRPCResultKey;
-FOUNDATION_EXTERN NSString* const NBMJSONRPCErrorKey;
-
-FOUNDATION_EXTERN NSString* const NBMJSONRPCCodeKey;
-FOUNDATION_EXTERN NSString* const NBMJSONRPCMessageKey;
-FOUNDATION_EXTERN NSString* const NBMJSONRPCDataKey;
+@end

@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <KurentoToolbox/KurentoToolbox.h>
+#import "KurentoToolbox.h"
 
 @interface KurentoToolboxTests : XCTestCase <NBMJSONRPCClientDelegate, NBMWebRTCPeerDelegate>
 

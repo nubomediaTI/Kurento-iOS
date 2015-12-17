@@ -1,5 +1,5 @@
 //
-//  NBMJSONRPCError.h
+//  NBMJSONRPCClientError.m
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,20 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMError.h"
+#import "NBMJSONRPCClientError.h"
 
-typedef NS_ENUM(NSInteger, NBMJSONRPCErrorCode) {
-    NBMTimeoutJSONRPCErrorCode = 9999
-};
+static NSString* const NBMJSONRPCClientErrorDomain = @"eu.nubomediaTI.JSON-RPCClient";
 
-@interface NBMJSONRPCError : NBMError
+@implementation NBMJSONRPCClientError
 
-+ (NSError *)timeoutError;
-
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-// Disallow init and don't add to documentation
-- (id)init __attribute__(
-                         (unavailable("init is not a supported initializer for this class.")));
-#endif /* DOXYGEN_SHOULD_SKIP_THIS */
++ (NSString *)errorDomain {
+    return NBMJSONRPCClientErrorDomain;
+}
 
 @end

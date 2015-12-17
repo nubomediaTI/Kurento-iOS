@@ -22,37 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class NBMJSONRPCClient, NBMRequest, NBMResponse, NBMResponseError;
-/**
- *  NBMJSONRPCClientDelegate is a protocol for an object that must be
- *  implemented to get messages from NBMJSONRPClient.
- */
-@protocol NBMJSONRPCClientDelegate <NSObject>
-
-/**
- *  Sent when the client has opened websocket channel and become ready to send requests.
- *
- *  @param client The client sending the message.
- */
-- (void)clientDidConnect:(NBMJSONRPCClient *)client;
-
-- (void)clientDidDisconnect:(NBMJSONRPCClient *)client;
-/**
- *  Sent when the client has received a request (usually notifications).
- *
- *  @param client  The client sending the message.
- *  @param request The `NBMRequest` received by the client.
- */
-- (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request;
-/**
- *  Sent when the client did encounter an error that forced websocket channel closing.
- *
- *  @param client The client sending the message.
- *  @param error  The error indicating how the communication failed.
- */
-- (void)client:(NBMJSONRPCClient *)client didFailWithError:(NSError *)error;
-
-@end
+@class NBMRequest, NBMResponse, NBMResponseError;
+@protocol NBMJSONRPCClientDelegate;
 
 @interface NBMJSONRPCClientConfiguration : NSObject
 

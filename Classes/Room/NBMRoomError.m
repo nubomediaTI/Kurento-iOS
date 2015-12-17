@@ -21,7 +21,8 @@
 // THE SOFTWARE.
 
 #import "NBMRoomError.h"
-#import "NBMRoomConstants.h"
+
+static NSString* const NBMRoomErrorDomain = @"org.kurento.Room";
 
 @implementation NBMRoomError
 

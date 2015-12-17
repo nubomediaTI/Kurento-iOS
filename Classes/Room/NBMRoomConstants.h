@@ -1,5 +1,5 @@
 //
-//  NBMJSONRPCError.m
+//  NBMRoomConstants.h
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,20 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMJSONRPCError.h"
-#import "NBMJSONRPCConstants.h"
+#import <Foundation/Foundation.h>
 
-@implementation NBMJSONRPCError
+//FOUNDATION_EXTERN NSString* const NBMRoomErrorDomain;
+//FOUNDATION_EXTERN NSString* const NBMRoomClientErrorDomain;
 
-+ (NSString *)errorDomain {
-    return NBMJSONRPCErrorDomain;
-}
-
-+ (NSError *)timeoutError {
-    NSString *message = @"The request goes timeout";
-    NSError *error = [self errorWithCode:NBMTimeoutJSONRPCErrorCode message:message];
-    
-    return error;
-}
-
-@end

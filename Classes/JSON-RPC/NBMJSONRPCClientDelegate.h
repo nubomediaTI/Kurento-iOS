@@ -1,5 +1,5 @@
 //
-//  Kurento.h
+//  NBMJSONRPCClientDelegate.h
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 #import <Foundation/Foundation.h>
 
-//Room
-#import "NBMRoom.h"
-#import "NBMPeer.h"
-#import "NBMRoomClient.h"
-#import "NBMRoomClientDelegate.h"
+@class NBMJSONRPCClient, NBMRequest;
 
-//Web RTC
-#import "NBMWebRTCPeer.h"
-#import "NBMPeerConnection.h"
+/**
+ *  NBMJSONRPCClientDelegate is a protocol for an object that must be
+ *  implemented to get messages from NBMJSONRPClient.
+ */
+@protocol NBMJSONRPCClientDelegate <NSObject>
 
-//JSON-RPC
-#import "NBMJSONRPCClient.h"
-#import "NBMJSONRPCClientDelegate.h"
+/**
+ *  Sent when the client has opened websocket channel and become ready to send requests.
+ *
+ *  @param client The client sending the message.
+ */
+- (void)clientDidConnect:(NBMJSONRPCClient *)client;
 
-//JSON-RPC Messages
-#import "NBMMessage.h"
-#import "NBMRequest.h"
-#import "NBMResponse.h"
+- (void)clientDidDisconnect:(NBMJSONRPCClient *)client;
+/**
+ *  Sent when the client has received a request (usually notifications).
+ *
+ *  @param client  The client sending the message.
+ *  @param request The `NBMRequest` received by the client.
+ */
+- (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request;
+/**
+ *  Sent when the client did encounter an error that forced websocket channel closing.
+ *
+ *  @param client The client sending the message.
+ *  @param error  The error indicating how the communication failed.
+ */
+- (void)client:(NBMJSONRPCClient *)client didFailWithError:(NSError *)error;
 
-//Errors
-#import "NBMError.h"
-#import "NBMJSONRPCError.h"
-#import "NBMJSONRPCClientError.h"
-#import "NBMRoomError.h"
-#import "NBMRoomClientError.h"
+@end

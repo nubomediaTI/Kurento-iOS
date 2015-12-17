@@ -1,5 +1,5 @@
 //
-//  Kurento.h
+//  NBMJSONRPCConstants.m
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import "NBMJSONRPCConstants.h"
 
-#import <Foundation/Foundation.h>
+NSString* const NBMJSONRPCKey = @"jsonrpc";
+NSString* const NBMJSONRPCVersion = @"2.0";
+NSString* const NBMJSONRPCIdKey  = @"id";
 
-//Room
-#import "NBMRoom.h"
-#import "NBMPeer.h"
-#import "NBMRoomClient.h"
-#import "NBMRoomClientDelegate.h"
+NSString* const NBMJSONRPCMethodKey = @"method";
+NSString* const NBMJSONRPCParamsKey  = @"params";
 
-//Web RTC
-#import "NBMWebRTCPeer.h"
-#import "NBMPeerConnection.h"
+NSString* const NBMJSONRPCResultKey  = @"result";
+NSString* const NBMJSONRPCErrorKey  = @"error";
 
-//JSON-RPC
-#import "NBMJSONRPCClient.h"
-#import "NBMJSONRPCClientDelegate.h"
-
-//JSON-RPC Messages
-#import "NBMMessage.h"
-#import "NBMRequest.h"
-#import "NBMResponse.h"
-
-//Errors
-#import "NBMError.h"
-#import "NBMJSONRPCError.h"
-#import "NBMJSONRPCClientError.h"
-#import "NBMRoomError.h"
-#import "NBMRoomClientError.h"
+NSString* const NBMJSONRPCCodeKey  = @"code";
+NSString* const NBMJSONRPCMessageKey  = @"message";
+NSString* const NBMJSONRPCDataKey  = @"data";

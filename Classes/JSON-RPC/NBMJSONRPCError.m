@@ -1,5 +1,5 @@
 //
-//  NBMRoomConstants.h
+//  NBMJSONRPCError.m
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,7 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "NBMJSONRPCError.h"
 
-FOUNDATION_EXTERN NSString* const NBMRoomErrorDomain;
+static NSString* const NBMJSONRPCErrorDomain = @"org.json-rpc";
 
+@implementation NBMJSONRPCError
+
++ (NSString *)errorDomain {
+    return NBMJSONRPCErrorDomain;
+}
+
+@end

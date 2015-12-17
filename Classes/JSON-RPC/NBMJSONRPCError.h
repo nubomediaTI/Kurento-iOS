@@ -1,5 +1,5 @@
 //
-//  Kurento.h
+//  NBMJSONRPCError.h
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
-#import <Foundation/Foundation.h>
-
-//Room
-#import "NBMRoom.h"
-#import "NBMPeer.h"
-#import "NBMRoomClient.h"
-#import "NBMRoomClientDelegate.h"
-
-//Web RTC
-#import "NBMWebRTCPeer.h"
-#import "NBMPeerConnection.h"
-
-//JSON-RPC
-#import "NBMJSONRPCClient.h"
-#import "NBMJSONRPCClientDelegate.h"
-
-//JSON-RPC Messages
-#import "NBMMessage.h"
-#import "NBMRequest.h"
-#import "NBMResponse.h"
-
-//Errors
 #import "NBMError.h"
-#import "NBMJSONRPCError.h"
-#import "NBMJSONRPCClientError.h"
-#import "NBMRoomError.h"
-#import "NBMRoomClientError.h"
+
+@interface NBMJSONRPCError : NBMError
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+// Disallow init and don't add to documentation
+- (id)init __attribute__(
+                         (unavailable("init is not a supported initializer for this class.")));
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */
+
+@end

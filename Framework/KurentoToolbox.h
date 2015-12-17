@@ -32,11 +32,19 @@
 
 //JSON-RPC
 #import <KurentoToolbox/NBMJSONRPCClient.h>
+#import <KurentoToolbox/NBMJSONRPCClientDelegate.h>
 
 //JSON-RPC Messages
 #import <KurentoToolbox/NBMMessage.h>
 #import <KurentoToolbox/NBMRequest.h>
 #import <KurentoToolbox/NBMResponse.h>
+
+//Errors
+#import <KurentoToolbox/NBMError.h>
+#import <KurentoToolbox/NBMJSONRPCError.h>
+#import <KurentoToolbox/NBMJSONRPCClientError.h>
+#import <KurentoToolbox/NBMRoomError.h>
+#import <KurentoToolbox/NBMRoomclientError.h>
 
 //libjingle Headers
 #import <KurentoToolbox/RTCAudioSource.h>
