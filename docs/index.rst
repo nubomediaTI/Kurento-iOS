@@ -1,9 +1,9 @@
 .. role:: obj-c(code)
    :language: obj-c
 
-=======================
+
 Kurento Toolbox for iOS
-=======================
+_______________________
 
 .. toctree::
    :glob:
