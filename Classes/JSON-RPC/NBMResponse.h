@@ -115,6 +115,10 @@ typedef NS_ENUM(NSInteger, NBMResponseErrorCode) {
  *  Additional information, which may be omitted. Its contents is entirely defined by the application.
  */
 @property (nonatomic) id data;
+/**
+ *  A `NSError` object related to the JSON-RPC 2.0 response error.
+ */
+@property (nonatomic, readonly) NSError *error;
 
 /**
  *  Creates a new JSON-RPC 2.0 error with the specified code, message and data.
@@ -128,7 +132,5 @@ typedef NS_ENUM(NSInteger, NBMResponseErrorCode) {
 + (instancetype)responseErrorWithCode:(NBMResponseErrorCode)code
                               message:(NSString *)message
                                  data:(id)data;
-
-- (NSError *)error;
 
 @end

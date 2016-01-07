@@ -22,7 +22,7 @@
 
 #import "NBMError.h"
 
-static NSString* const NBMErrorDomain = @"eu.nubomediaTI. KurentoToolbox";
+static NSString* const NBMErrorDomain = @"eu.nubomediaTI.KurentoToolbox";
 
 @implementation NBMError
 

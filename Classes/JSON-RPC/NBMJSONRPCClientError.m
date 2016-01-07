@@ -22,7 +22,7 @@
 
 #import "NBMJSONRPCClientError.h"
 
-static NSString* const NBMJSONRPCClientErrorDomain = @"eu.nubomediaTI.JSON-RPCClient";
+static NSString* const NBMJSONRPCClientErrorDomain = @"eu.nubomediaTI.JSONRPCClient";
 
 @implementation NBMJSONRPCClientError
 

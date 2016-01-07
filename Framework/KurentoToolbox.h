@@ -44,7 +44,7 @@
 #import <KurentoToolbox/NBMJSONRPCError.h>
 #import <KurentoToolbox/NBMJSONRPCClientError.h>
 #import <KurentoToolbox/NBMRoomError.h>
-#import <KurentoToolbox/NBMRoomclientError.h>
+#import <KurentoToolbox/NBMRoomClientError.h>
 
 //libjingle Headers
 #import <KurentoToolbox/RTCAudioSource.h>

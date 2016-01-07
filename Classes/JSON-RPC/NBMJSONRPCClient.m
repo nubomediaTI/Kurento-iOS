@@ -563,7 +563,7 @@ static NSTimeInterval kRequestMaxRetries = 3;
         NSString *msg = @"Failed to initialize transport channel, operation goes timeout";
         NSError *timeoutError = [NBMJSONRPCClientError errorWithCode:NBMJSONRPCClientInitializationErrorCode message:msg underlyingError:error];
         error = timeoutError;
-    }
+    } 
     if ([self.delegate respondsToSelector:@selector(client:didFailWithError:)]) {
         [self.delegate client:self didFailWithError:error];
     }

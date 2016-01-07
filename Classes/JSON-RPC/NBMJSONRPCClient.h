@@ -25,6 +25,9 @@
 @class NBMRequest, NBMResponse, NBMResponseError;
 @protocol NBMJSONRPCClientDelegate;
 
+/**
+ *  NBMJSONRPCClientConfiguration object used to configure NBJSONRPCClient.
+ */
 @interface NBMJSONRPCClientConfiguration : NSObject
 
 /**
@@ -37,6 +40,7 @@
  *  Default value is 1.
  */
 @property (nonatomic) NSUInteger requestMaxRetries;
+
 
 @property (nonatomic, assign) BOOL autoConnect;
 
@@ -65,7 +69,7 @@
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
 
 /**
- *  Creates and initializes a JSON-RPC client with the specified endpoint.
+ *  Creates and initializes a JSON-RPC client with the specified endpoint using default configuration.
  *
  *  @param url      The endpoint URL.
  *  @param delegate The delegate object for the client.
@@ -74,14 +78,23 @@
  */
 - (instancetype)initWithURL:(NSURL *)url delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 
+/**
+ *  Creates and initializes a JSON-RPC client with the specified endpoint using default configuration.
+ *
+ *  @param url           <#url description#>
+ *  @param configuration <#configuration description#>
+ *  @param delegate      <#delegate description#>
+ *
+ *  @return <#return value description#>
+ */
 - (instancetype)initWithURL:(NSURL *)url configuration:(NBMJSONRPCClientConfiguration *)configuration delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 
 /**
  *  Creates and sends a request with the specified method using websocket as transport channel.
  *
  *  @param method        The request method. Musto not be `nil`.
- *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client response serializer.
- *                       The response object may be `nil` if network (e.g timeout) or parsing error occurred.
+ *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+ *  response serializer. The response object may be `nil` if network (e.g timeout) or parsing error occurred.
  *
  *  @return The `NBMRequest` object that was sent.
  */
@@ -93,8 +106,8 @@
  *
  *  @param method        The request method. Musto not be `nil`.
  *  @param parameters    The parameters to encode into the request. Must be either an `NSDictionary` or `NSArray`.
- *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client response serializer.
- *                       The response object may be `nil` if network (e.g timeout) or parsing error occurred.
+ *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+ *  response serializer. The response object may be `nil` if network (e.g timeout) or parsing error occurred.
  *
  *  @return The `NBMRequest` object that was sent.
  */
@@ -106,8 +119,9 @@
  *  Sends a provided request using websocket as transport channel.
  *
  *  @param requestToSend The `NBMRequest` object to send.
- *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client response serializer.
- *                       The response object may be `nil` if network (e.g timeout) or parsing error occurred.
+ *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+ *  response serializer. The response object may be `nil` if network (e.g timeout) or parsing error occurred.
+ *
  */
 - (void)sendRequest:(NBMRequest *)requestToSend completion:(void (^)(NBMResponse *response))responseBlock;
 

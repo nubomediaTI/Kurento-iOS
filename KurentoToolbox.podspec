@@ -13,11 +13,6 @@ Pod::Spec.new do |s|
   s.author = { "Marco Rossi" => "marco5.rossi@guest.telecomitalia.it" }
   s.platform = :ios, "7.0"
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v0.2.1" }
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"

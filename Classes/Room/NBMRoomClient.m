@@ -306,7 +306,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 - (void)connect {
     self.closeRequested = NO;
     self.connected = NO;
-    self.joined = NO;
+//    self.joined = NO;
     return [self setupRpcClient:_timeout];
 }
 
@@ -586,13 +586,13 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
         [self partecipantEvicted];
     },
        kPartecipantSendMessageMethod : ^{
-        
+        [self messageReceived:event.parameters];
     },
        kRoomClosedMethod : ^{
         [self roomWasClosed];
     }
        }[event.method] ?:^{
-        DDLogWarn(@"Unable to handle event with method: %@", event.method);
+           DDLogWarn(@"Unable to handle event with method: %@", event.method);
     })();
 }
 

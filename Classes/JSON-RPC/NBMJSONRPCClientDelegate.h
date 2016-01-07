@@ -37,7 +37,13 @@
  */
 - (void)clientDidConnect:(NBMJSONRPCClient *)client;
 
+/**
+ *  Sent when the client has closed websocket channel.
+ *
+ *  @param client The client sending the message.
+ */
 - (void)clientDidDisconnect:(NBMJSONRPCClient *)client;
+
 /**
  *  Sent when the client has received a request (usually notifications).
  *
@@ -45,6 +51,7 @@
  *  @param request The `NBMRequest` received by the client.
  */
 - (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request;
+
 /**
  *  Sent when the client did encounter an error that forced websocket channel closing.
  *
