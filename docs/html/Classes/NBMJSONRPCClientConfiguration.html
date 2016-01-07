@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMMessage Protocol Reference</title>
+	<title>NBMJSONRPCClientConfiguration Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -54,17 +54,25 @@
 
 	
 	
-
-	
-
-	
-	<optgroup label="Instance Methods">
+	<optgroup label="Properties">
 		
-		<option value="//api/name/toJSONDictionary">- toJSONDictionary</option>
+		<option value="//api/name/autoConnect">autoConnect</option>
 		
-		<option value="//api/name/toJSONString">- toJSONString</option>
+		<option value="//api/name/requestMaxRetries">requestMaxRetries</option>
+		
+		<option value="//api/name/requestTimeout">requestTimeout</option>
 		
 	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/defaultConfiguration">+ defaultConfiguration</option>
+		
+	</optgroup>
+	
+
 	
 	
 </select>
@@ -79,16 +87,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMMessage Protocol Reference</h1>
+					<h1 class="title">NBMJSONRPCClientConfiguration Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Conforms to</th>
+	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>NBMMessage.h</td>
+	<td>NBMJSONRPCClient.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -98,8 +106,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The base protocol for JSON-RPC 2.0 requests, notifications and responses.
-Provides common method for serialisation (to JSON string / to JSON dictionary) of these three message types.</p>
+						<p>NBMJSONRPCClientConfiguration object used to configure NBJSONRPCClient.</p>
 					</div>
 					
 					
@@ -115,54 +122,8 @@ Provides common method for serialisation (to JSON string / to JSON dictionary) o
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/toJSONString" title="toJSONString"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toJSONString">&ndash;&nbsp;toJSONString</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns a JSON string representation of this JSON-RPC 2.0 message.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSString *)toJSONString</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The <code>NSString</code> representing this JSON-RPC 2.0 message.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">NBMMessage.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/toJSONDictionary" title="toJSONDictionary"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toJSONDictionary">&ndash;&nbsp;toJSONDictionary</a></code>
+	<a name="//api/name/requestTimeout" title="requestTimeout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestTimeout">&nbsp;&nbsp;requestTimeout</a></code>
 </h3>
 
 	<div class="method-info">
@@ -172,21 +133,17 @@ Provides common method for serialisation (to JSON string / to JSON dictionary) o
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a JSON dicitonary representation of this JSON-RPC 2.0 message.</p>
+				<p>The timeout interval for the new request, in seconds.
+Default value is 5.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSDictionary *)toJSONDictionary</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSTimeInterval requestTimeout</code></div>
 
 		    
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The <code>NSDictionary</code> representing this JSON-RPC 2.0 message.</p>
-			</div>
 			
 
 			
@@ -200,10 +157,84 @@ Provides common method for serialisation (to JSON string / to JSON dictionary) o
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">NBMMessage.h</code></p>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
 			</div>
 			
 			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestMaxRetries" title="requestMaxRetries"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestMaxRetries">&nbsp;&nbsp;requestMaxRetries</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The retry number for requests gone in timeout (with no response back).
+Default value is 1.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSUInteger requestMaxRetries</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/autoConnect" title="autoConnect"></a>
+	<h3 class="method-title"><code><a href="#//api/name/autoConnect">&nbsp;&nbsp;autoConnect</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL autoConnect</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultConfiguration" title="defaultConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultConfiguration">+&nbsp;defaultConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultConfiguration</code></div>
+
+		    
 		</div>
 	</div>
 </div>

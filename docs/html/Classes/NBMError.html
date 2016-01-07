@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMRoom Class Reference</title>
+	<title>NBMError Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -52,25 +52,25 @@
 
 	
 	
-	<optgroup label="Properties">
+
+	
+	<optgroup label="Class Methods">
 		
-		<option value="//api/name/localPeer">localPeer</option>
+		<option value="//api/name/errorDomain">+ errorDomain</option>
 		
-		<option value="//api/name/name">name</option>
+		<option value="//api/name/errorWithCode:message:">+ errorWithCode:message:</option>
 		
-		<option value="//api/name/peers">peers</option>
+		<option value="//api/name/errorWithCode:message:underlyingError:">+ errorWithCode:message:underlyingError:</option>
 		
-		<option value="//api/name/url">url</option>
+		<option value="//api/name/errorWithCode:message:userInfo:underlyingError:">+ errorWithCode:message:userInfo:underlyingError:</option>
 		
 	</optgroup>
 	
 
 	
-
-	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithUsername:roomName:roomURL:">- initWithUsername:roomName:roomURL:</option>
+		<option value="//api/name/init">- init</option>
 		
 	</optgroup>
 	
@@ -87,7 +87,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMRoom Class Reference</h1>
+					<h1 class="title">NBMError Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -96,7 +96,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>NBMRoom.h</td>
+	<td>NBMError.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -114,8 +114,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithUsername:roomName:roomURL:" title="initWithUsername:roomName:roomURL:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithUsername:roomName:roomURL:">&ndash;&nbsp;initWithUsername:roomName:roomURL:</a></code>
+	<a name="//api/name/errorDomain" title="errorDomain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/errorDomain">+&nbsp;errorDomain</a></code>
 </h3>
 
 	<div class="method-info">
@@ -124,14 +124,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithUsername:(NSString *)<em>username</em> roomName:(NSString *)<em>name</em> roomURL:(NSURL *)<em>url</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSString *)errorDomain</code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/name" title="name"></a>
-	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+	<a name="//api/name/errorWithCode:message:" title="errorWithCode:message:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/errorWithCode:message:">+&nbsp;errorWithCode:message:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -140,14 +140,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSString *name</code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSError *)errorWithCode:(NSInteger)<em>code</em> message:(NSString *)<em>message</em></code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/url" title="url"></a>
-	<h3 class="method-title"><code><a href="#//api/name/url">&nbsp;&nbsp;url</a></code>
+	<a name="//api/name/errorWithCode:message:underlyingError:" title="errorWithCode:message:underlyingError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/errorWithCode:message:underlyingError:">+&nbsp;errorWithCode:message:underlyingError:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -156,14 +156,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSURL *url</code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSError *)errorWithCode:(NSInteger)<em>code</em> message:(NSString *)<em>message</em> underlyingError:(NSError *)<em>underlyingError</em></code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/localPeer" title="localPeer"></a>
-	<h3 class="method-title"><code><a href="#//api/name/localPeer">&nbsp;&nbsp;localPeer</a></code>
+	<a name="//api/name/errorWithCode:message:userInfo:underlyingError:" title="errorWithCode:message:userInfo:underlyingError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/errorWithCode:message:userInfo:underlyingError:">+&nbsp;errorWithCode:message:userInfo:underlyingError:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -172,14 +172,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NBMPeer *localPeer</code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSError *)errorWithCode:(NSInteger)<em>code</em> message:(NSString *)<em>message</em> userInfo:(NSDictionary *)<em>userInfo</em> underlyingError:(NSError *)<em>underlyingError</em></code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/peers" title="peers"></a>
-	<h3 class="method-title"><code><a href="#//api/name/peers">&nbsp;&nbsp;peers</a></code>
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
 </h3>
 
 	<div class="method-info">
@@ -188,7 +188,7 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSSet *peers</code></div>
+			<div class="method-subsection method-declaration"><code>- (id)init</code></div>
 
 		    
 		</div>

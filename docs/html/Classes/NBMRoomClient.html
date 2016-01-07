@@ -54,11 +54,15 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/connected">connected</option>
+		
 		<option value="//api/name/delegate">delegate</option>
 		
 		<option value="//api/name/joined">joined</option>
 		
 		<option value="//api/name/peers">peers</option>
+		
+		<option value="//api/name/timeout">timeout</option>
 		
 	</optgroup>
 	
@@ -68,13 +72,43 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/close">- close</option>
-		
 		<option value="//api/name/initWithRoom:delegate:">- initWithRoom:delegate:</option>
+		
+		<option value="//api/name/initWithRoom:timeout:delegate:">- initWithRoom:timeout:delegate:</option>
 		
 		<option value="//api/name/joinRoom">- joinRoom</option>
 		
 		<option value="//api/name/joinRoom:">- joinRoom:</option>
+		
+		<option value="//api/name/leaveRoom">- leaveRoom</option>
+		
+		<option value="//api/name/leaveRoom:">- leaveRoom:</option>
+		
+		<option value="//api/name/peerWithIdentifier:">- peerWithIdentifier:</option>
+		
+		<option value="//api/name/publishVideo:loopback:">- publishVideo:loopback:</option>
+		
+		<option value="//api/name/publishVideo:loopback:completion:">- publishVideo:loopback:completion:</option>
+		
+		<option value="//api/name/receiveVideoFromPeer:offer:">- receiveVideoFromPeer:offer:</option>
+		
+		<option value="//api/name/receiveVideoFromPeer:offer:completion:">- receiveVideoFromPeer:offer:completion:</option>
+		
+		<option value="//api/name/sendICECandidate:">- sendICECandidate:</option>
+		
+		<option value="//api/name/sendICECandidate:completion:">- sendICECandidate:completion:</option>
+		
+		<option value="//api/name/sendMessage:">- sendMessage:</option>
+		
+		<option value="//api/name/sendMessage:completion:">- sendMessage:completion:</option>
+		
+		<option value="//api/name/unpublishVideo">- unpublishVideo</option>
+		
+		<option value="//api/name/unpublishVideo:">- unpublishVideo:</option>
+		
+		<option value="//api/name/unsubscribeVideoFromPeer:">- unsubscribeVideoFromPeer:</option>
+		
+		<option value="//api/name/unsubscribeVideoFromPeer:completion:">- unsubscribeVideoFromPeer:completion:</option>
 		
 	</optgroup>
 	
@@ -150,6 +184,38 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/timeout" title="timeout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timeout">&nbsp;&nbsp;timeout</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval timeout</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connected" title="connected"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connected">&nbsp;&nbsp;connected</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isConnected) BOOL connected</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/joined" title="joined"></a>
 	<h3 class="method-title"><code><a href="#//api/name/joined">&nbsp;&nbsp;joined</a></code>
 </h3>
@@ -161,6 +227,22 @@
 			
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isJoined) BOOL joined</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/peerWithIdentifier:" title="peerWithIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/peerWithIdentifier:">&ndash;&nbsp;peerWithIdentifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (NBMPeer *)peerWithIdentifier:(NSString *)<em>identifier</em></code></div>
 
 		    
 		</div>
@@ -182,8 +264,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/close" title="close"></a>
-	<h3 class="method-title"><code><a href="#//api/name/close">&ndash;&nbsp;close</a></code>
+	<a name="//api/name/initWithRoom:timeout:delegate:" title="initWithRoom:timeout:delegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithRoom:timeout:delegate:">&ndash;&nbsp;initWithRoom:timeout:delegate:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -192,7 +274,7 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (void)close</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithRoom:(NBMRoom *)<em>room</em> timeout:(NSTimeInterval)<em>timeout</em> delegate:(id&lt;NBMRoomClientDelegate&gt;)<em>delegate</em></code></div>
 
 		    
 		</div>
@@ -224,7 +306,231 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (void)joinRoom:(void ( ^ ) ( NSDictionary *peers , NSError *error ))<em>completionBlock</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)joinRoom:(void ( ^ ) ( NSDictionary *peers , NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/leaveRoom" title="leaveRoom"></a>
+	<h3 class="method-title"><code><a href="#//api/name/leaveRoom">&ndash;&nbsp;leaveRoom</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)leaveRoom</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/leaveRoom:" title="leaveRoom:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/leaveRoom:">&ndash;&nbsp;leaveRoom:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)leaveRoom:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publishVideo:loopback:" title="publishVideo:loopback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publishVideo:loopback:">&ndash;&nbsp;publishVideo:loopback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)publishVideo:(NSString *)<em>sdpOffer</em> loopback:(BOOL)<em>doLoopback</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publishVideo:loopback:completion:" title="publishVideo:loopback:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publishVideo:loopback:completion:">&ndash;&nbsp;publishVideo:loopback:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)publishVideo:(NSString *)<em>sdpOffer</em> loopback:(BOOL)<em>doLoopback</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unpublishVideo" title="unpublishVideo"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unpublishVideo">&ndash;&nbsp;unpublishVideo</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)unpublishVideo</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unpublishVideo:" title="unpublishVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unpublishVideo:">&ndash;&nbsp;unpublishVideo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)unpublishVideo:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/receiveVideoFromPeer:offer:" title="receiveVideoFromPeer:offer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/receiveVideoFromPeer:offer:">&ndash;&nbsp;receiveVideoFromPeer:offer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)receiveVideoFromPeer:(NBMPeer *)<em>peer</em> offer:(NSString *)<em>sdpOffer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/receiveVideoFromPeer:offer:completion:" title="receiveVideoFromPeer:offer:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/receiveVideoFromPeer:offer:completion:">&ndash;&nbsp;receiveVideoFromPeer:offer:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)receiveVideoFromPeer:(NBMPeer *)<em>peer</em> offer:(NSString *)<em>sdpOffer</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unsubscribeVideoFromPeer:" title="unsubscribeVideoFromPeer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unsubscribeVideoFromPeer:">&ndash;&nbsp;unsubscribeVideoFromPeer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)unsubscribeVideoFromPeer:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unsubscribeVideoFromPeer:completion:" title="unsubscribeVideoFromPeer:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unsubscribeVideoFromPeer:completion:">&ndash;&nbsp;unsubscribeVideoFromPeer:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)unsubscribeVideoFromPeer:(NBMPeer *)<em>peer</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendICECandidate:" title="sendICECandidate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendICECandidate:">&ndash;&nbsp;sendICECandidate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)sendICECandidate:(RTCICECandidate *)<em>candidate</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendICECandidate:completion:" title="sendICECandidate:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendICECandidate:completion:">&ndash;&nbsp;sendICECandidate:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)sendICECandidate:(RTCICECandidate *)<em>candidate</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendMessage:" title="sendMessage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendMessage:">&ndash;&nbsp;sendMessage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)sendMessage:(NSString *)<em>message</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendMessage:completion:" title="sendMessage:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendMessage:completion:">&ndash;&nbsp;sendMessage:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)sendMessage:(NSString *)<em>message</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
 
 		    
 		</div>
@@ -244,7 +550,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Nubomedia TI. All rights reserved. Updated: 2015-12-07</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-07</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

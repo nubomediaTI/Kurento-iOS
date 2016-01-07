@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMRendererDelegate Protocol Reference</title>
+	<title>NBMJSONRPCError Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -58,9 +58,7 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/renderer:streamDimensionsDidChange:">- renderer:streamDimensionsDidChange:</option>
-		
-		<option value="//api/name/rendererDidReceiveVideoData:">- rendererDidReceiveVideoData:</option>
+		<option value="//api/name/init">- init</option>
 		
 	</optgroup>
 	
@@ -77,16 +75,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMRendererDelegate Protocol Reference</h1>
+					<h1 class="title">NBMJSONRPCError Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Conforms to</th>
-	<td>NSObject</td>
+	<th>Inherits from</th>
+	<td><a href="../Classes/NBMError.html">NBMError</a> : NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>NBMRenderer.h</td>
+	<td>NBMJSONRPCError.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -104,9 +102,9 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/renderer:streamDimensionsDidChange:" title="renderer:streamDimensionsDidChange:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/renderer:streamDimensionsDidChange:">&ndash;&nbsp;renderer:streamDimensionsDidChange:</a></code>
-<span class="task-item-suffix">required method</span></h3>
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+</h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -114,23 +112,7 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (void)renderer:(id&lt;NBMRenderer&gt;)<em>renderer</em> streamDimensionsDidChange:(CGSize)<em>dimensions</em></code></div>
-
-		    
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/rendererDidReceiveVideoData:" title="rendererDidReceiveVideoData:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/rendererDidReceiveVideoData:">&ndash;&nbsp;rendererDidReceiveVideoData:</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-
-			<div class="method-subsection method-declaration"><code>- (void)rendererDidReceiveVideoData:(id&lt;NBMRenderer&gt;)<em>renderer</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (id)init</code></div>
 
 		    
 		</div>

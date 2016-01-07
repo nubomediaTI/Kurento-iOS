@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMMessage Protocol Reference</title>
+	<title>NBMRoomClientError Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -43,8 +43,6 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
 
 	
 	
@@ -56,13 +54,17 @@
 	
 
 	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/timeoutError">+ timeoutError</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/toJSONDictionary">- toJSONDictionary</option>
-		
-		<option value="//api/name/toJSONString">- toJSONString</option>
+		<option value="//api/name/init">- init</option>
 		
 	</optgroup>
 	
@@ -79,30 +81,21 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMMessage Protocol Reference</h1>
+					<h1 class="title">NBMRoomClientError Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Conforms to</th>
-	<td>NSObject</td>
+	<th>Inherits from</th>
+	<td><a href="../Classes/NBMError.html">NBMError</a> : NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>NBMMessage.h</td>
+	<td>NBMRoomClientError.h</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The base protocol for JSON-RPC 2.0 requests, notifications and responses.
-Provides common method for serialisation (to JSON string / to JSON dictionary) of these three message types.</p>
-					</div>
-					
-					
 
 					
 					
@@ -115,54 +108,8 @@ Provides common method for serialisation (to JSON string / to JSON dictionary) o
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/toJSONString" title="toJSONString"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toJSONString">&ndash;&nbsp;toJSONString</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns a JSON string representation of this JSON-RPC 2.0 message.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSString *)toJSONString</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The <code>NSString</code> representing this JSON-RPC 2.0 message.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">NBMMessage.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/toJSONDictionary" title="toJSONDictionary"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toJSONDictionary">&ndash;&nbsp;toJSONDictionary</a></code>
+	<a name="//api/name/timeoutError" title="timeoutError"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timeoutError">+&nbsp;timeoutError</a></code>
 </h3>
 
 	<div class="method-info">
@@ -170,40 +117,26 @@ Provides common method for serialisation (to JSON string / to JSON dictionary) o
 
 		<div class="method-info-container">
 			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns a JSON dicitonary representation of this JSON-RPC 2.0 message.</p>
-			</div>
-			
-		    
 
-			<div class="method-subsection method-declaration"><code>- (NSDictionary *)toJSONDictionary</code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSError *)timeoutError</code></div>
 
 		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The <code>NSDictionary</code> representing this JSON-RPC 2.0 message.</p>
-			</div>
-			
+			<div class="method-subsection method-declaration"><code>- (id)init</code></div>
 
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">NBMMessage.h</code></p>
-			</div>
-			
-			
+		    
 		</div>
 	</div>
 </div>

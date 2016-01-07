@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMCameraPosition Constants Reference</title>
+	<title>NBMRoomClientErrorCode Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMCameraPosition Constants Reference</h1>
+					<h1 class="title">NBMRoomClientErrorCode Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>NBMTypes.h</td>
+	<td>NBMRoomClientError.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,25 +75,17 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">NBMCameraPosition</h3>
+                    <h3 class="subsubtitle method-title">NBMRoomClientErrorCode</h3>
                     
-					
-					<div class="section section-overview">
-                        <p>Camera position types</p>
-					</div>
-					
-					
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSUInteger, NBMCameraPosition ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMCameraPositionAny</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">NBMGenericRoomClientErrorCode</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMCameraPositionBack</a> = 1,<br>
-                            
-                            &nbsp;&nbsp; <a href="">NBMCameraPositionFront</a> = 2,<br>
+                            &nbsp;&nbsp; <a href="">NBMGenericRoomClientTimeoutErrorCode</a>,<br>
                             
                             };</code>
                     
@@ -103,53 +95,22 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="NBMCameraPositionAny"></a><code>NBMCameraPositionAny</code></dt>
+                            <dt><a name="" title="NBMGenericRoomClientErrorCode"></a><code>NBMGenericRoomClientErrorCode</code></dt>
 <dd>
-
-
-<p>Any camera position available.</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMRoomClientError.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMCameraPositionBack"></a><code>NBMCameraPositionBack</code></dt>
+                            <dt><a name="" title="NBMGenericRoomClientTimeoutErrorCode"></a><code>NBMGenericRoomClientTimeoutErrorCode</code></dt>
 <dd>
-
-
-<p>Back camera position.</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="NBMCameraPositionFront"></a><code>NBMCameraPositionFront</code></dt>
-<dd>
-
-
-<p>Front camera position.</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMRoomClientError.h</code>.
 	</p>
 	
 </dd>
@@ -158,17 +119,6 @@
                     </div>
                     
 
-                    
-                    
-
-                    
-
-                    
-                    <div class="method-subsection declared-in-section">
-                        <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">NBMTypes.h</code></p>
-                    </div>
-                    
                     
                     
                     
