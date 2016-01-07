@@ -10,6 +10,6 @@ _______________________
    :maxdepth: 2
 
    Overview <overview>
-   Installation Guide <inst_guide>
+   Installation Guide <install_guide>
    Developer Guide <dev_guide>
    Architecture <arch>
