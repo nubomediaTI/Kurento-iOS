@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		185039AB5FB34A05A1B01176 /* libPods-KurentoToolboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B1A4AC0FB19B9BB097CE73 /* libPods-KurentoToolboxTests.a */; };
 		4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3BBFF81C0CA34E00D9887F /* NBMMediaConfiguration.h */; };
 		4A3BBFFB1C0CA34E00D9887F /* NBMMediaConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BBFF91C0CA34E00D9887F /* NBMMediaConfiguration.m */; };
 		4A46BC3B1BE3E2A1009E0FBE /* NBMPeerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,7 +87,8 @@
 		4AE4390B1BF4AC14001882E5 /* NBMTransportChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE439071BF4AC14001882E5 /* NBMTransportChannel.m */; };
 		4AE4390C1BF4AC14001882E5 /* NBMTransportChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */; };
 		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
-		DD1B525D285C89CA84A72449 /* libPods-KurentoToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC62D5BF0803F25CA18D647 /* libPods-KurentoToolbox.a */; };
+		A941BB7922237372866EA46D /* libPods-KurentoToolboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */; };
+		C7E99F0B50AF4D7919652AEF /* libPods-KurentoToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +103,7 @@
 
 /* Begin PBXFileReference section */
 		4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRPCConstants.h; sourceTree = "<group>"; };
-		4A133A4F1BE1204A0095B168 /* Kurento.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kurento.h; sourceTree = "<group>"; };
+		4A133A4F1BE1204A0095B168 /* KurentoToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KurentoToolbox.h; sourceTree = "<group>"; };
 		4A3BBFF81C0CA34E00D9887F /* NBMMediaConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMMediaConfiguration.h; sourceTree = "<group>"; };
 		4A3BBFF91C0CA34E00D9887F /* NBMMediaConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMMediaConfiguration.m; sourceTree = "<group>"; };
 		4A46BC191BE3DF61009E0FBE /* Kurento-Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Kurento-Library.xcconfig"; path = "Config/Kurento-Library.xcconfig"; sourceTree = SOURCE_ROOT; };
@@ -197,9 +197,9 @@
 		4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"; sourceTree = "<group>"; };
 		681A76F55A57A32C9616B23F /* Pods-KurentoToolbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.debug.xcconfig"; sourceTree = "<group>"; };
 		8F87FEFCFFC4293E6CE69FAF /* Pods-KurentoToolboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests.release.xcconfig"; sourceTree = "<group>"; };
-		9EC62D5BF0803F25CA18D647 /* libPods-KurentoToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E1E7060D742F7B991CD1A3 /* Pods-KurentoToolboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E7B1A4AC0FB19B9BB097CE73 /* libPods-KurentoToolboxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolboxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolboxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,9 +207,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1B525D285C89CA84A72449 /* libPods-KurentoToolbox.a in Frameworks */,
 				4A6E88DF1C105435000A8EE9 /* UIKit.framework in Frameworks */,
 				4A6E88DD1C10542D000A8EE9 /* Foundation.framework in Frameworks */,
+				C7E99F0B50AF4D7919652AEF /* libPods-KurentoToolbox.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */,
-				185039AB5FB34A05A1B01176 /* libPods-KurentoToolboxTests.a in Frameworks */,
+				A941BB7922237372866EA46D /* libPods-KurentoToolboxTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 		4A4884871BAC39A30093D90D = {
 			isa = PBXGroup;
 			children = (
-				4A4884931BAC39A30093D90D /* Kurento */,
+				4A4884931BAC39A30093D90D /* KurentoToolbox */,
 				4AF48D5D1BECEFFA004E4AD2 /* KurentoToolboxTests */,
 				4A4884921BAC39A30093D90D /* Products */,
 				30405995BEC91363E1A2AB73 /* Pods */,
@@ -279,10 +279,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4A4884931BAC39A30093D90D /* Kurento */ = {
+		4A4884931BAC39A30093D90D /* KurentoToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				4A133A4F1BE1204A0095B168 /* Kurento.h */,
+				4A133A4F1BE1204A0095B168 /* KurentoToolbox.h */,
 				4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */,
 				4A4F0D1C1C22C2DD00CD30A1 /* NBMError.m */,
 				4A6E88DA1C0F3374000A8EE9 /* Room */,
@@ -292,7 +292,7 @@
 				4ACB2C751BE929D600E8E017 /* libjingle_peerconnection headers */,
 				4A4D6F881BAC403A001DB874 /* Supporting Files */,
 			);
-			name = Kurento;
+			name = KurentoToolbox;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -431,8 +431,8 @@
 				4A4F0C8F1C158B5300CD30A1 /* CoreMedia.framework */,
 				4A6E88DE1C105435000A8EE9 /* UIKit.framework */,
 				4A6E88DC1C10542D000A8EE9 /* Foundation.framework */,
-				9EC62D5BF0803F25CA18D647 /* libPods-KurentoToolbox.a */,
-				E7B1A4AC0FB19B9BB097CE73 /* libPods-KurentoToolboxTests.a */,
+				8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */,
+				E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

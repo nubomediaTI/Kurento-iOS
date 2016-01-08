@@ -81,11 +81,11 @@
 /**
  *  Creates and initializes a JSON-RPC client with the specified endpoint using default configuration.
  *
- *  @param url           <#url description#>
- *  @param configuration <#configuration description#>
- *  @param delegate      <#delegate description#>
+ *  @param url           
+ *  @param configuration
+ *  @param delegate
  *
- *  @return <#return value description#>
+ *  @return
  */
 - (instancetype)initWithURL:(NSURL *)url configuration:(NBMJSONRPCClientConfiguration *)configuration delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 
