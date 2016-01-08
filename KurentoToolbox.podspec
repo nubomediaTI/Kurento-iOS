@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Default' do |ss|
     ss.source_files = 'Classes/*.{h,m}', 'Classes/Utils/*.{h,m}'
-    ss.private_header_files = 'Classes/Utils/*.h'
+    ss.private_header_files = 'Classes/Utils/NBMUtilities.h'
     ss.dependency 'KurentoToolbox/Connection'
     ss.dependency 'KurentoToolbox/JSON-RPC'
     ss.dependency 'KurentoToolbox/Room'
@@ -38,7 +38,6 @@ Pod::Spec.new do |s|
   s.subspec 'Room' do |ss|
       ss.source_files = 'Classes/Room/*.{h,m}'
       ss.dependency 'KurentoToolbox/JSON-RPC'
-      ss.private_header_files = 'Classes/Room/Internals/*.h'
   end
 
   s.requires_arc = true
