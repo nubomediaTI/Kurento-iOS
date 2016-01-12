@@ -22,6 +22,7 @@
     format.dimensions = (CMVideoDimensions){640, 480};
     format.frameRate = 30;
     format.pixelFormat = NBMPixelFormat420f;
+    config.receiverVideoFormat = format;
     
     config.cameraPosition = NBMCameraPositionAny;
     
