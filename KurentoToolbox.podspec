@@ -15,36 +15,45 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
 
-  s.prefix_header_contents = '#import "NBMLog.h"'
-
   s.subspec 'Default' do |ss|
-    ss.source_files = 'Classes/*.{h,m}', 'Classes/Utils/*.{h,m}'
-    ss.private_header_files = 'Classes/Utils/NBMUtilities.h'
+    ss.source_files = 'Classes/*.{h,m}'
     ss.dependency 'KurentoToolbox/Connection'
     ss.dependency 'KurentoToolbox/JSON-RPC'
     ss.dependency 'KurentoToolbox/Room'
   end
 
   s.subspec 'Connection' do |ss|
-    ss.source_files = 'Classes/Connection/**/*.{h,m}'
-    ss.private_header_files = 'Classes/Connection/Internals/*.h'
+    ss.source_files = 'Classes/Connection/**/*.{h,m}', 'Classes/Internals/**/*.{h,m}'
+    ss.public_header_files = 'Classes/Connection/*.h'
+    #ss.private_header_files = 'Classes/Connection/Internals/*.h'
+    ss.dependency 'libjingle_peerconnection', '~> 10763.2.0'
+    ss.dependency 'KurentoToolbox/Utils'
   end
 
   s.subspec 'JSON-RPC' do |ss|
-    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}'
-    ss.private_header_files = 'Classes/JSON-RPC/Internals/*.h'
+    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}', 'Classes/Internals/**/*.{h,m}'
+    ss.public_header_files = 'Classes/JSON-RPC/*.h'
+    #ss.private_header_files = 'Classes/JSON-RPC/Internals/*.h'
+    ss.dependency 'SocketRocket', '~> 0.4.1'
+    ss.dependency 'SBJson', '~> 4.0.2'
+    ss.dependency 'KurentoToolbox/Utils'
   end
   
   s.subspec 'Room' do |ss|
-      ss.source_files = 'Classes/Room/*.{h,m}'
+      ss.source_files = 'Classes/Room/**/*.{h,m}', 'Classes/Internals/**/*.{h,m}'
+      ss.public_header_files = 'Classes/Room/*.h'
+      #ss.private_header_files = 'Classes/Room/Internals/*.h'
       ss.dependency 'KurentoToolbox/JSON-RPC'
+      ss.dependency 'KurentoToolbox/Connection'
+      ss.dependency 'KurentoToolbox/Utils'
+  end
+
+  s.subspec 'Utils' do |ss|
+      ss.source_files = 'Classes/Utils/*.{h,m}'
+      ss.private_header_files = 'Classes/Utils/*.h'
+      ss.dependency 'CocoaLumberjack', '~> 2.2.0'
   end
 
   s.requires_arc = true
-
-  s.dependency "libjingle_peerconnection", "~> 10763.2.0"
-  s.dependency "SBJson", "~> 4.0.2"
-  s.dependency "SocketRocket", "~> 0.4.1"
-  s.dependency "CocoaLumberjack"
 
 end

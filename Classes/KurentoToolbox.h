@@ -43,8 +43,8 @@
 #import "NBMResponse.h"
 
 //Errors
-#import "NBMError.h"
-#import "NBMJSONRPCError.h"
-#import "NBMJSONRPCClientError.h"
-#import "NBMRoomError.h"
-#import "NBMRoomClientError.h"
+//#import "NBMError.h"
+//#import "NBMJSONRPCError.h"
+//#import "NBMJSONRPCClientError.h"
+//#import "NBMRoomError.h"
+//#import "NBMRoomClientError.h"
