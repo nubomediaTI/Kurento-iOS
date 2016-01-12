@@ -22,32 +22,6 @@
 
 #import "NBMError.h"
 
-typedef NS_ENUM(NSInteger, NBMRoomErrorCode) {
-    NBMUserGenericRoomErrorCode = 101,
-    NBMUserNotFoundRoomErrorCode = 102,
-    NBMUserClosedRoomErrorCode = 103,
-    NBMExistingUserInRoomRoomErrorCode = 104,
-    
-    NBMRoomGenericErrorRoomErrorCode = 201,
-    NBMRoomNotFoundRoomErrorCode = 202,
-    NBMRoomClosedRoomErrorCode = 203,
-    NBMRoomCannotBeCreatedRoomErrorCode = 204,
-    
-    NBMMediaGenericErrorRoomErrorCode = 301,
-    NBMMediaSdpErrorRoomErrorCode = 302,
-    NBMMediaEndpointErrorRoomErrorCode = 303,
-    NBMMediaWebRtcEndpointErrorRoomErrorCode = 304,
-    NBMMediaRtpEndpointErrorRoomErrorCode = 305,
-    NBMMediaNotAWebEndpointRoomErrorCode = 306,
-    NBMMuteErrorRoomErrorCode = 307,
-    
-    NBMTransportRequestErrorRoomErrorCode = 801,
-    NBMTransportResponseErrorRoomErrorCode = 802,
-    NBMTransportErrorRoomErrorCode = 803,
-    
-    NBMGenericErrorRoomErrorCode = 999
-};
-
 @interface NBMRoomError : NBMError
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS

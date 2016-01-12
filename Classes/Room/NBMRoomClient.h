@@ -27,6 +27,11 @@
 @class RTCICECandidate;
 @protocol NBMRoomClientDelegate;
 
+typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
+    NBMGenericRoomClientErrorCode = 0,
+    NBMGenericRoomClientTimeoutErrorCode
+};
+
 @interface NBMRoomClient : NSObject
 
 @property (nonatomic, weak) id<NBMRoomClientDelegate> delegate;

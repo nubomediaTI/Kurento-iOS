@@ -54,6 +54,11 @@
  */
 @interface NBMJSONRPCClient : NSObject
 
+typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
+    NBMJSONRPCClientGenericErrorCode,
+    NBMJSONRPCClientInitializationErrorCode,
+};
+
 /**
  *  The URL for the websocket.
  */

@@ -25,7 +25,6 @@
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
-#import "NBMLog.h"
 #endif
 
 #endif /* Kurento_Prefix_pch */

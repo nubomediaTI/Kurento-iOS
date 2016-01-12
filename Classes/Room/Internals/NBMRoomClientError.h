@@ -22,14 +22,7 @@
 
 #import "NBMError.h"
 
-typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
-    NBMGenericRoomClientErrorCode = 0,
-    NBMGenericRoomClientTimeoutErrorCode
-};
-
 @interface NBMRoomClientError : NBMError
-
-+ (NSError *)timeoutError;
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 // Disallow init and don't add to documentation

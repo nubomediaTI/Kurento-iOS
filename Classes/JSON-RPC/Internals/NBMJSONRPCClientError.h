@@ -1,5 +1,5 @@
 //
-//  NBMRoomClientError.m
+//  NBMJSONRPCClientError.h
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,22 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMRoomClientError.h"
+#import "NBMError.h"
 
-static NSString* const NBMRoomClientErrorDomain = @"eu.nubomediaTi.RoomClient";
-
-@implementation NBMRoomClientError
-
-+ (NSString *)errorDomain {
-    return NBMRoomClientErrorDomain;
-}
-
-+ (NSError *)timeoutError {
-    NSString *msg = @"Room API request goes timout";
-    NSError *timeoutError = [NBMRoomClientError errorWithCode:NBMGenericRoomClientTimeoutErrorCode message:msg];
-    
-    return timeoutError;
-}
+@interface NBMJSONRPCClientError : NBMError
 
 @end
-

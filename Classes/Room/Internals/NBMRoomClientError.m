@@ -1,5 +1,5 @@
 //
-//  NBMJSONRPCClientError.h
+//  NBMRoomClientError.m
 //  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,13 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMError.h"
+#import "NBMRoomClientError.h"
 
-typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
-    NBMJSONRPCClientGenericErrorCode,
-    NBMJSONRPCClientInitializationErrorCode,
-};
+static NSString* const NBMRoomClientErrorDomain = @"eu.nubomediaTi.RoomClient";
 
-@interface NBMJSONRPCClientError : NBMError
+@implementation NBMRoomClientError
+
++ (NSString *)errorDomain {
+    return NBMRoomClientErrorDomain;
+}
+
 
 @end
+

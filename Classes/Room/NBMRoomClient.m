@@ -780,7 +780,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSError *error;
     //Timeout error
     if (!response) {
-        error = [NBMRoomClientError timeoutError];
+        NSString *msg = @"Room API request goes timout";
+        NSError *timeoutError = [NBMRoomClientError errorWithCode:NBMGenericRoomClientTimeoutErrorCode message:msg];
+        error = timeoutError;
     }
     else if (response.error) {
         //Response error -> error

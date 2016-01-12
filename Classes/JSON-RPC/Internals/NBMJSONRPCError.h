@@ -22,9 +22,6 @@
 
 #import "NBMError.h"
 
-/**
- *
- */
 @interface NBMJSONRPCError : NBMError
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS

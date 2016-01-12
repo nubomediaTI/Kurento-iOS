@@ -22,23 +22,23 @@
 		4A46BC471BE3E2CD009E0FBE /* NBMJSONRPCClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A46BC481BE3E2D1009E0FBE /* NBMJSONRPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7113881BD4F196003AEF5C /* NBMJSONRPCClient.m */; };
 		4A46BC501BE3E2E5009E0FBE /* KurentoToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4D6F851BAC3EF9001DB874 /* KurentoToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A4F0C9B1C15C7B000CD30A1 /* NBMRoomError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0C991C15C7B000CD30A1 /* NBMRoomError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A4F0C9B1C15C7B000CD30A1 /* NBMRoomError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0C991C15C7B000CD30A1 /* NBMRoomError.h */; };
 		4A4F0C9C1C15C7B000CD30A1 /* NBMRoomError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0C9A1C15C7B000CD30A1 /* NBMRoomError.m */; };
-		4A4F0C9F1C15CF8300CD30A1 /* NBMJSONRPCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0C9D1C15CF8300CD30A1 /* NBMJSONRPCError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A4F0C9F1C15CF8300CD30A1 /* NBMJSONRPCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0C9D1C15CF8300CD30A1 /* NBMJSONRPCError.h */; };
 		4A4F0CA01C15CF8300CD30A1 /* NBMJSONRPCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0C9E1C15CF8300CD30A1 /* NBMJSONRPCError.m */; };
 		4A4F0CA31C15D08300CD30A1 /* NBMRoomConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CA11C15D08300CD30A1 /* NBMRoomConstants.h */; };
 		4A4F0CA41C15D08300CD30A1 /* NBMRoomConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0CA21C15D08300CD30A1 /* NBMRoomConstants.m */; };
 		4A4F0CA61C15D0DC00CD30A1 /* NBMJSONRPCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0CA51C15D0DC00CD30A1 /* NBMJSONRPCConstants.m */; };
 		4A4F0CA91C18384C00CD30A1 /* NBMRoomClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CA71C18384C00CD30A1 /* NBMRoomClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A4F0CAF1C201E3600CD30A1 /* NBMRoomClientError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CAD1C201E3600CD30A1 /* NBMRoomClientError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A4F0CAF1C201E3600CD30A1 /* NBMRoomClientError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CAD1C201E3600CD30A1 /* NBMRoomClientError.h */; };
 		4A4F0CB01C201E3600CD30A1 /* NBMRoomClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0CAE1C201E3600CD30A1 /* NBMRoomClientError.m */; };
-		4A4F0CB31C2025E900CD30A1 /* NBMJSONRPCClientError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CB11C2025E900CD30A1 /* NBMJSONRPCClientError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A4F0CB31C2025E900CD30A1 /* NBMJSONRPCClientError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CB11C2025E900CD30A1 /* NBMJSONRPCClientError.h */; };
 		4A4F0CB41C2025E900CD30A1 /* NBMJSONRPCClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0CB21C2025E900CD30A1 /* NBMJSONRPCClientError.m */; };
 		4A4F0CB71C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CB51C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A4F0D181C22C2C300CD30A1 /* NBMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D151C22C2C300CD30A1 /* NBMLog.h */; };
-		4A4F0D191C22C2C300CD30A1 /* NBMUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D161C22C2C300CD30A1 /* NBMUtilities.h */; };
-		4A4F0D1A1C22C2C300CD30A1 /* NBMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0D171C22C2C300CD30A1 /* NBMUtilities.m */; };
-		4A4F0D1D1C22C2DD00CD30A1 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A4F0D191C22C2C300CD30A1 /* NBMJSONRPCUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D161C22C2C300CD30A1 /* NBMJSONRPCUtilities.h */; };
+		4A4F0D1A1C22C2C300CD30A1 /* NBMJSONRPCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0D171C22C2C300CD30A1 /* NBMJSONRPCUtilities.m */; };
+		4A4F0D1D1C22C2DD00CD30A1 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */; };
 		4A4F0D1E1C22C2DD00CD30A1 /* NBMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0D1C1C22C2DD00CD30A1 /* NBMError.m */; };
 		4A6E88D81C0EFC2D000A8EE9 /* NBMRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */; };
 		4A6E88DD1C10542D000A8EE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6E88DC1C10542D000A8EE9 /* Foundation.framework */; };
@@ -116,22 +116,22 @@
 		4A4F0C8F1C158B5300CD30A1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4A4F0C991C15C7B000CD30A1 /* NBMRoomError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMRoomError.h; sourceTree = "<group>"; };
 		4A4F0C9A1C15C7B000CD30A1 /* NBMRoomError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMRoomError.m; sourceTree = "<group>"; };
-		4A4F0C9D1C15CF8300CD30A1 /* NBMJSONRPCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRPCError.h; sourceTree = "<group>"; };
-		4A4F0C9E1C15CF8300CD30A1 /* NBMJSONRPCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMJSONRPCError.m; sourceTree = "<group>"; };
+		4A4F0C9D1C15CF8300CD30A1 /* NBMJSONRPCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMJSONRPCError.h; path = Internals/NBMJSONRPCError.h; sourceTree = "<group>"; };
+		4A4F0C9E1C15CF8300CD30A1 /* NBMJSONRPCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMJSONRPCError.m; path = Internals/NBMJSONRPCError.m; sourceTree = "<group>"; };
 		4A4F0CA11C15D08300CD30A1 /* NBMRoomConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMRoomConstants.h; sourceTree = "<group>"; };
 		4A4F0CA21C15D08300CD30A1 /* NBMRoomConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMRoomConstants.m; sourceTree = "<group>"; };
 		4A4F0CA51C15D0DC00CD30A1 /* NBMJSONRPCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMJSONRPCConstants.m; sourceTree = "<group>"; };
 		4A4F0CA71C18384C00CD30A1 /* NBMRoomClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMRoomClientDelegate.h; sourceTree = "<group>"; };
-		4A4F0CAD1C201E3600CD30A1 /* NBMRoomClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMRoomClientError.h; sourceTree = "<group>"; };
-		4A4F0CAE1C201E3600CD30A1 /* NBMRoomClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMRoomClientError.m; sourceTree = "<group>"; };
-		4A4F0CB11C2025E900CD30A1 /* NBMJSONRPCClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRPCClientError.h; sourceTree = "<group>"; };
-		4A4F0CB21C2025E900CD30A1 /* NBMJSONRPCClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMJSONRPCClientError.m; sourceTree = "<group>"; };
+		4A4F0CAD1C201E3600CD30A1 /* NBMRoomClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomClientError.h; path = Internals/NBMRoomClientError.h; sourceTree = "<group>"; };
+		4A4F0CAE1C201E3600CD30A1 /* NBMRoomClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomClientError.m; path = Internals/NBMRoomClientError.m; sourceTree = "<group>"; };
+		4A4F0CB11C2025E900CD30A1 /* NBMJSONRPCClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMJSONRPCClientError.h; path = Internals/NBMJSONRPCClientError.h; sourceTree = "<group>"; };
+		4A4F0CB21C2025E900CD30A1 /* NBMJSONRPCClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMJSONRPCClientError.m; path = Internals/NBMJSONRPCClientError.m; sourceTree = "<group>"; };
 		4A4F0CB51C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMJSONRPCClientDelegate.h; sourceTree = "<group>"; };
 		4A4F0D151C22C2C300CD30A1 /* NBMLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMLog.h; sourceTree = "<group>"; };
-		4A4F0D161C22C2C300CD30A1 /* NBMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMUtilities.h; sourceTree = "<group>"; };
-		4A4F0D171C22C2C300CD30A1 /* NBMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMUtilities.m; sourceTree = "<group>"; };
-		4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMError.h; sourceTree = "<group>"; };
-		4A4F0D1C1C22C2DD00CD30A1 /* NBMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMError.m; sourceTree = "<group>"; };
+		4A4F0D161C22C2C300CD30A1 /* NBMJSONRPCUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMJSONRPCUtilities.h; path = Internals/NBMJSONRPCUtilities.h; sourceTree = "<group>"; };
+		4A4F0D171C22C2C300CD30A1 /* NBMJSONRPCUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMJSONRPCUtilities.m; path = Internals/NBMJSONRPCUtilities.m; sourceTree = "<group>"; };
+		4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMError.h; path = Internals/NBMError.h; sourceTree = "<group>"; };
+		4A4F0D1C1C22C2DD00CD30A1 /* NBMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMError.m; path = Internals/NBMError.m; sourceTree = "<group>"; };
 		4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMRenderer.h; sourceTree = "<group>"; };
 		4A6E88D91C0F0068000A8EE9 /* NBMTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBMTypes.h; sourceTree = "<group>"; };
 		4A6E88DC1C10542D000A8EE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,8 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				4A4F0D151C22C2C300CD30A1 /* NBMLog.h */,
-				4A4F0D161C22C2C300CD30A1 /* NBMUtilities.h */,
-				4A4F0D171C22C2C300CD30A1 /* NBMUtilities.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,6 +355,8 @@
 				4AE439051BF4AC14001882E5 /* NBMTimeoutable.m */,
 				4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */,
 				4AE439071BF4AC14001882E5 /* NBMTransportChannel.m */,
+				4A4F0D161C22C2C300CD30A1 /* NBMJSONRPCUtilities.h */,
+				4A4F0D171C22C2C300CD30A1 /* NBMJSONRPCUtilities.m */,
 			);
 			path = "JSON-RPC";
 			sourceTree = "<group>";
@@ -490,7 +490,7 @@
 				4A4F0CB31C2025E900CD30A1 /* NBMJSONRPCClientError.h in Headers */,
 				4ACB2CC81BE92A5A00E8E017 /* RTCSessionDescriptionDelegate.h in Headers */,
 				4ACB2CC91BE92A5A00E8E017 /* RTCStatsDelegate.h in Headers */,
-				4A4F0D191C22C2C300CD30A1 /* NBMUtilities.h in Headers */,
+				4A4F0D191C22C2C300CD30A1 /* NBMJSONRPCUtilities.h in Headers */,
 				4ACB2CCA1BE92A5A00E8E017 /* RTCStatsReport.h in Headers */,
 				4AE439041BF4ABEE001882E5 /* NBMRequest+Private.h in Headers */,
 				4ACB2CCB1BE92A5A00E8E017 /* RTCTypes.h in Headers */,
@@ -709,7 +709,7 @@
 				4A4F0CB41C2025E900CD30A1 /* NBMJSONRPCClientError.m in Sources */,
 				4A46BC431BE3E2C1009E0FBE /* NBMRequest.m in Sources */,
 				4A4F0D1E1C22C2DD00CD30A1 /* NBMError.m in Sources */,
-				4A4F0D1A1C22C2C300CD30A1 /* NBMUtilities.m in Sources */,
+				4A4F0D1A1C22C2C300CD30A1 /* NBMJSONRPCUtilities.m in Sources */,
 				4A3BBFFB1C0CA34E00D9887F /* NBMMediaConfiguration.m in Sources */,
 				4A46BC481BE3E2D1009E0FBE /* NBMJSONRPCClient.m in Sources */,
 				4A6E88E71C10629F000A8EE9 /* NBMRoom.m in Sources */,

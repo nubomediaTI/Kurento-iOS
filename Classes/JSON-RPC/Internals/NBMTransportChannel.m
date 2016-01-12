@@ -11,7 +11,6 @@
 #import "NBMTransportChannel.h"
 #import "NBMJSONRPCUtilities.h"
 
-#import "RTCSessionDescription.h"
 #import "SRWebSocket.h"
 
 static NSTimeInterval kChannelTimeoutInterval = 10.0;
