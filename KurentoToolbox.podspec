@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
 
+  s.default_subspecs = 'Default'
+
   s.subspec 'Default' do |ss|
     ss.source_files = 'Classes/*.{h,m}'
     ss.dependency 'KurentoToolbox/Connection'
