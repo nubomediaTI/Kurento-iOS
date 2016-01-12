@@ -1,12 +1,12 @@
 //
-//  NBMUtilities.m
+//  NBMJSONRPCUtilities.m
 //  KurentoClient-iOS
 //
 //  Created by Marco Rossi on 18/09/15.
 //  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
 //
 
-#import "NBMUtilities.h"
+#import "NBMJSONRPCUtilities.h"
 #import "SBJson4.h"
 
 @implementation NSDictionary (NBMUtilites)

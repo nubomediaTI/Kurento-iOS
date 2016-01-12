@@ -27,9 +27,12 @@
 #import "NBMTransportChannel.h"
 #import "NBMRequest+Private.h"
 #import "NBMResponse+Private.h"
-#import "NBMUtilities.h"
+
 #import "NBMJSONRPCConstants.h"
 #import "NBMTimeoutable.h"
+
+#import "NBMLog.h"
+#import "NBMJSONRPCUtilities.h"
 
 //NBMRequestPack
 

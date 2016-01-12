@@ -7,6 +7,8 @@
 //
 
 #import "NBMWebRTCPeer.h"
+#import "NBMLog.h"
+
 #import "NBMSessionDescriptionFactory.h"
 #import "NBMMediaConfiguration.h"
 #import "NBMPeerConnection.h"

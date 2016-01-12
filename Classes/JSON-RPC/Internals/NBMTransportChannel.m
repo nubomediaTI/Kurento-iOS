@@ -6,9 +6,10 @@
 //  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+#import "NBMLog.h"
 
 #import "NBMTransportChannel.h"
-#import "NBMUtilities.h"
+#import "NBMJSONRPCUtilities.h"
 
 #import "RTCSessionDescription.h"
 #import "SRWebSocket.h"

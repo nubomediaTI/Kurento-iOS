@@ -9,7 +9,7 @@
 #import "NBMResponse+Private.h"
 
 #import "NBMJSONRPCConstants.h"
-#import "NBMUtilities.h"
+#import "NBMJSONRPCUtilities.h"
 #import "NBMJSONRPCError.h"
 
 static NSString* JSONRPCLocalizedErrorMessageForCode(NSInteger code) {

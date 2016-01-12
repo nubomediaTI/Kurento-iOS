@@ -33,6 +33,8 @@
 #import "NBMRoom.h"
 #import "NBMRoomError.h"
 
+#import "NBMLog.h"
+
 #import <libjingle_peerconnection/RTCICECandidate.h>
 
 //CLIENT REQUESTS
