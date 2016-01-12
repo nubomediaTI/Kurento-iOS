@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KurentoToolbox"
-  s.version      = "0.2.3"
+  s.version      = "0.2.4"
   s.summary      = "Kurento Toolbox for iOS"
   s.description  = <<-DESC
                    Kurento Toolbox for iOS provides a set of basic components that have been found useful during the native development of the WebRTC applications with Kurento.
@@ -25,26 +25,23 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Connection' do |ss|
-    ss.source_files = 'Classes/Connection/**/*.{h,m}', 'Classes/Internals/**/*.{h,m}'
+    ss.source_files = 'Classes/Connection/**/*.{h,m}', 'Classes/Internals/*.{h,m}'
     ss.public_header_files = 'Classes/Connection/*.h'
-    #ss.private_header_files = 'Classes/Connection/Internals/*.h'
     ss.dependency 'libjingle_peerconnection', '~> 10763.2.0'
     ss.dependency 'KurentoToolbox/Utils'
   end
 
   s.subspec 'JSON-RPC' do |ss|
-    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}', 'Classes/Internals/**/*.{h,m}'
+    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}', 'Classes/Internals/*.{h,m}'
     ss.public_header_files = 'Classes/JSON-RPC/*.h'
-    #ss.private_header_files = 'Classes/JSON-RPC/Internals/*.h'
     ss.dependency 'SocketRocket', '~> 0.4.1'
     ss.dependency 'SBJson', '~> 4.0.2'
     ss.dependency 'KurentoToolbox/Utils'
   end
   
   s.subspec 'Room' do |ss|
-      ss.source_files = 'Classes/Room/**/*.{h,m}', 'Classes/Internals/**/*.{h,m}'
+      ss.source_files = 'Classes/Room/**/*.{h,m}', 'Classes/Internals/*.{h,m}'
       ss.public_header_files = 'Classes/Room/*.h'
-      #ss.private_header_files = 'Classes/Room/Internals/*.h'
       ss.dependency 'KurentoToolbox/JSON-RPC'
       ss.dependency 'KurentoToolbox/Connection'
       ss.dependency 'KurentoToolbox/Utils'
