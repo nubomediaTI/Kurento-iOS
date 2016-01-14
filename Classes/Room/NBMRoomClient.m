@@ -168,11 +168,16 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
             timeout = kRoomClientTimeoutInterval;
         }
         _timeout = timeout;
-        NBMJSONRPCClientConfiguration *jsonRpcClientConfig = [NBMJSONRPCClientConfiguration defaultConfiguration];
-        jsonRpcClientConfig.requestTimeout = _timeout;
-        _jsonRpcClient = [[NBMJSONRPCClient alloc] initWithURL:room.url configuration:jsonRpcClientConfig delegate:self];
+
+        [self connect];
     }
     return self;
+}
+
+- (void)connect {
+    if (!self.connected) {
+        return [self setupRpcClient:_timeout];
+    }
 }
 
 #pragma mark Join room
@@ -242,7 +247,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     }];
 }
 
-- (void)receiveVideoFromPeer:(NBMPeer *)peer offer:(NSString *)sdpOffer completion:(void (^)(NSString *, NSError *))block {
+- (void)receiveVideoFromPeer:(NBMPeer *)peer offer:(NSString *)sdpOffer completion:(void (^)(NSString *sdpAnswer, NSError *error))block {
     [self nbm_receiveVideoFromPeer:peer offer:sdpOffer completion:block];
 }
 
@@ -304,13 +309,6 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 }
 
 #pragma mark - Private
-
-- (void)connect {
-    self.closeRequested = NO;
-    self.connected = NO;
-//    self.joined = NO;
-    return [self setupRpcClient:_timeout];
-}
 
 - (void)setupRpcClient:(NSTimeInterval)timeout {
     if (_room) {
@@ -811,11 +809,11 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
         [self.delegate client:self isConnected:NO];
     }
     //Autoretry
-    if (!self.closeRequested) {
-        if (!self.rpcError) {
-            [self connect];
-        }
-    }
+//    if (!self.closeRequested) {
+//        if (!self.rpcError) {
+//            [self connect];
+//        }
+//    }
 }
 
 - (void)client:(NBMJSONRPCClient *)client didFailWithError:(NSError *)error {

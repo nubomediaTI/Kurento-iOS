@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 - (instancetype)initWithRoom:(NBMRoom *)room delegate:(id<NBMRoomClientDelegate>)delegate;
 - (instancetype)initWithRoom:(NBMRoom *)room timeout:(NSTimeInterval)timeout delegate:(id<NBMRoomClientDelegate>)delegate;
 
+- (void)connect;
+
 - (void)joinRoom;
 - (void)joinRoom:(void (^)(NSDictionary *peers, NSError *error))block;
 

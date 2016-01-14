@@ -167,5 +167,7 @@
  */
 - (void)closeConnectionWithConnectionId:(NSString *)connectionId;
 
+- (void)stopLocalMedia;
+
 
 @end

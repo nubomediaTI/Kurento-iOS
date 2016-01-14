@@ -147,6 +147,7 @@
     
     [self.localStream removeAudioTrack:[self.localStream.audioTracks firstObject]];
     [self.localStream removeVideoTrack:[self.localStream.videoTracks firstObject]];
+    
     self.localStream = nil;
 }
 
@@ -214,8 +215,11 @@
 }
 
 - (void)dealloc {
-    self.localStream = nil;
-    self.peerConnectionFactory = nil;
+    
+    [_connectionMap removeAllObjects];
+    
+    _localStream = nil;
+    _peerConnectionFactory = nil;
     
     [RTCPeerConnectionFactory deinitializeSSL];
 }

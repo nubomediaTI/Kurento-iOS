@@ -86,6 +86,10 @@
 		4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE439061BF4AC14001882E5 /* NBMTimeoutable.h */; };
 		4AE4390B1BF4AC14001882E5 /* NBMTransportChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE439071BF4AC14001882E5 /* NBMTransportChannel.m */; };
 		4AE4390C1BF4AC14001882E5 /* NBMTransportChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */; };
+		4AE8C9C61C47B71200A87D8A /* NBMEAGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */; };
+		4AE8C9C71C47B71200A87D8A /* NBMEAGLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */; };
+		4AE8C9CA1C47B83700A87D8A /* NBMEAGLVideoViewContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */; };
+		4AE8C9CB1C47B83700A87D8A /* NBMEAGLVideoViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */; };
 		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
 		A941BB7922237372866EA46D /* libPods-KurentoToolboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */; };
 		C7E99F0B50AF4D7919652AEF /* libPods-KurentoToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */; };
@@ -192,6 +196,10 @@
 		4AE439061BF4AC14001882E5 /* NBMTimeoutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTimeoutable.h; path = Internals/NBMTimeoutable.h; sourceTree = "<group>"; };
 		4AE439071BF4AC14001882E5 /* NBMTransportChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTransportChannel.m; path = Internals/NBMTransportChannel.m; sourceTree = "<group>"; };
 		4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTransportChannel.h; path = Internals/NBMTransportChannel.h; sourceTree = "<group>"; };
+		4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMEAGLRenderer.h; sourceTree = "<group>"; };
+		4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMEAGLRenderer.m; sourceTree = "<group>"; };
+		4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMEAGLVideoViewContainer.h; sourceTree = "<group>"; };
+		4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMEAGLVideoViewContainer.m; sourceTree = "<group>"; };
 		4AF48D5C1BECEFFA004E4AD2 /* KurentoToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurentoToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF48D601BECEFFA004E4AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -338,6 +346,10 @@
 				4A3BBFF91C0CA34E00D9887F /* NBMMediaConfiguration.m */,
 				4AD6003F1BB43E01003124FD /* NBMWebRTCPeer.h */,
 				4AD600401BB43E01003124FD /* NBMWebRTCPeer.m */,
+				4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */,
+				4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */,
+				4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */,
+				4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -462,6 +474,7 @@
 				4ACB2CB51BE92A5900E8E017 /* RTCDataChannel.h in Headers */,
 				4ACB2CB61BE92A5900E8E017 /* RTCEAGLVideoView.h in Headers */,
 				4ACB2CB71BE92A5900E8E017 /* RTCFileLogger.h in Headers */,
+				4AE8C9CA1C47B83700A87D8A /* NBMEAGLVideoViewContainer.h in Headers */,
 				4ACB2CB81BE92A5900E8E017 /* RTCI420Frame.h in Headers */,
 				4A4F0CA31C15D08300CD30A1 /* NBMRoomConstants.h in Headers */,
 				4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */,
@@ -500,6 +513,7 @@
 				4A6E88EA1C10637B000A8EE9 /* NBMPeer.h in Headers */,
 				4ACB2CCE1BE92A5A00E8E017 /* RTCVideoSource.h in Headers */,
 				4AE439001BF4ABD1001882E5 /* NBMSessionDescriptionFactory.h in Headers */,
+				4AE8C9C61C47B71200A87D8A /* NBMEAGLRenderer.h in Headers */,
 				4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +719,7 @@
 				4AE4390B1BF4AC14001882E5 /* NBMTransportChannel.m in Sources */,
 				4A6E88E31C105657000A8EE9 /* NBMRoomClient.m in Sources */,
 				4A4F0CA01C15CF8300CD30A1 /* NBMJSONRPCError.m in Sources */,
+				4AE8C9CB1C47B83700A87D8A /* NBMEAGLVideoViewContainer.m in Sources */,
 				4A4F0CA61C15D0DC00CD30A1 /* NBMJSONRPCConstants.m in Sources */,
 				4A4F0CB41C2025E900CD30A1 /* NBMJSONRPCClientError.m in Sources */,
 				4A46BC431BE3E2C1009E0FBE /* NBMRequest.m in Sources */,
@@ -718,6 +733,7 @@
 				4A6E88EB1C10637B000A8EE9 /* NBMPeer.m in Sources */,
 				4A4F0C9C1C15C7B000CD30A1 /* NBMRoomError.m in Sources */,
 				4A46BC461BE3E2CA009E0FBE /* NBMResponse.m in Sources */,
+				4AE8C9C71C47B71200A87D8A /* NBMEAGLRenderer.m in Sources */,
 				4A4F0CA41C15D08300CD30A1 /* NBMRoomConstants.m in Sources */,
 				4AE438FF1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.m in Sources */,
 			);
