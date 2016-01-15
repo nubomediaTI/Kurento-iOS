@@ -39,13 +39,13 @@ An Offer SDP (Session Description Protocol) is metadata that describes to the ot
 When the offer is generated, the ``[webRTCPeer:didGenerateOffer:forConnection:]`` message is sent to webRTCPeer's delegate:
 
 .. code-block:: obj-c
-	
-	#pragma mark -
-	#pragma mark NBMWebRTCPeerDelegate
+
+   #pragma mark -
+   #pragma mark NBMWebRTCPeerDelegate
 
    //Handle SDP offer generation
-   - (void)webRTCPeer:(NBMWebRTCPeer *)peer didGenerateOffer:(RTCSessionDescription *)sdpOffer forConnection:(NBMPeerConnection *)connection {
-   		//TODO: Signal SDP offer for connection
+   - (void)webRTCPeer:(NBMWebRTCPeer *)peer didGenerateOffer:(RTCSessionDescription *)sdpOffer forConnection:(NBMPeerConnection*)connection {
+   //TODO: Signal SDP offer for connection
    }
 	
 SDP negotiation #2 : Process Answer
@@ -63,12 +63,12 @@ After creating the peer connection an event will be fired each time the ICE fram
 
 .. code-block:: obj-c
 
-	#pragma mark -
-	#pragma mark NBMWebRTCPeerDelegate
+   #pragma mark -
+   #pragma mark NBMWebRTCPeerDelegate
 
    //Handle the gathering of ICE candidate for connection with specified identifier
    - (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCICECandidate *)candidate forConnection:(NBMPeerConnection *)connection {
-   		//TODO: Signal ICE candidate for connection
+   //TODO: Signal ICE candidate for connection
    }
 
 Tricke ICE #2 : Set remote candidates
@@ -89,45 +89,45 @@ Initialization
 
 .. code-block:: obj-c
 	
-	//NBMRoom
+   //NBMRoom
 
-	//Local peer's identifier
-	NSString *username = ...
-	//Room name
-	NSString *roomName = ...
-	//WebSocket URI
-	NSURL *wsURI = [NSURL URLWithString:@"http://localhost:8080/room"];
-	NBMRoom *room = [[NBMRoom alloc] initWithUsername:username roomName:roomName roomURL:wsURI];
+   //Local peer's identifier
+   NSString *username = ...
+   //Room name
+   NSString *roomName = ...
+   //WebSocket URI
+   NSURL *wsURI = [NSURL URLWithString:@"http://localhost:8080/room"];
+   NBMRoom *room = [[NBMRoom alloc] initWithUsername:username roomName:roomName roomURL:wsURI];
 
-	//NBMRoomClient
+   //NBMRoomClient
 
-	//NBMRoomClient with default timeout (5 sec)
-	NBMRoomClient *roomClient = [[NBMRoomClient alloc] initWithRoom:room delegate:self];
+   //NBMRoomClient with default timeout (5 sec)
+   NBMRoomClient *roomClient = [[NBMRoomClient alloc] initWithRoom:room delegate:self];
 	
-	//Or
+   //Or
 
-	//NBMRoomClient with custom timeout (10 sec)
-	NSTimeInterval clientTimeout = 10; 
-	NBMRoomClient *roomClient = [[NBMRoomClient alloc] initWithRoom:room timeout:clientTimeout delegate:self];
+   //NBMRoomClient with custom timeout (10 sec)
+   NSTimeInterval clientTimeout = 10; 
+   NBMRoomClient *roomClient = [[NBMRoomClient alloc] initWithRoom:room timeout:clientTimeout delegate:self];
 
 Once intialized, before start calling client APIs we have to call ``[connect]`` and wait the delegate ``[client:isConnected:]`` message sent when the WebSocket connection was established successfully or key-value observe ``connected`` property:
 
 .. code-block:: obj-c
 
-	[roomClient connect];
+   [roomClient connect];
 
-	#pragma mark -
-	#pragma mark NBMRoomClientDelegate
-
-	- (void)client:(NBMRoomClient *)client isConnected:(BOOL)connected {
-		if (connected) {
-			//TODO: Start using APIs, eg. "joinRoom"
-			[client joinRoom];
-		} else {
-			//TODO: Handle client disconnection, eg. try to reconnect
-			[client connect];
-		}
-	}
+   #pragma mark -
+   #pragma mark NBMRoomClientDelegate
+	 
+   - (void)client:(NBMRoomClient *)client isConnected:(BOOL)connected {
+       if (connected) {
+           //TODO: Start using APIs, eg. "joinRoom"
+           [client joinRoom];
+       } else {
+           //TODO: Handle client disconnection, eg. try to reconnect
+           [client connect];
+       }
+   }
 
 If the WebSocket initialization failed or, in any case, when a connection error occurred, the ``[client:didFailWithError:]`` message is sent to the client's delegate.
 
@@ -139,33 +139,107 @@ The client provides two different types of signatures of its asynchronous API, t
 - the second type uses blocks as method parameters (no message is sent to delegate) 
 
 **Join Room**
-Call ``[joinRoom]`` or ``[joinRoom:]`` method to join the room:
+
+Call ``[joinRoom]`` or ``[joinRoom:]`` method to join the room, once joined you can see the list of other ``NBMPeers`` partecipants:
 
 .. code-block:: obj-c
 
-	[roomClient joinRoom]
+   [roomClient joinRoom]
 
-	#pragma mark -
-	#pragma mark NBMRoomClientDelegate
+   #pragma mark -
+   #pragma mark NBMRoomClientDelegate
 	
-	- (void)client:(NBMRoomClient *)client didJoinRoom:(NSError *)error {
-		if (!error) {
-			NSLog(@"Partecipants %@", [client.peers allKeys]);	
-		} else {
-			NSLog(@"Join room error: %@", error);
-		}
-	}
+   - (void)client:(NBMRoomClient *)client didJoinRoom:(NSError *)error {
+       if (!error) {
+           NSLog(@"Partecipants %@", [client.peers allKeys]);	
+       } else {
+           NSLog(@"Join room error: %@", error);
+       }
+   }
 
-	//Or
+   //Or
 
-	[roomClient joinRoom:^(NSDictionary *peers, NSError *error) {
-		if (!error) {
-			NSLog(@"Partecipants %@", [client.peers allKeys]);	
-		} else {
-			NSLog(@"Join room error: %@", error);
-		}    
+   [roomClient joinRoom:^(NSDictionary *peers, NSError *error) {
+       if (!error) {
+           NSLog(@"Partecipants %@", [roomClient.peers]);	
+       } else {
+           NSLog(@"Join room error: %@", error);
+       }    
    }];
 
+**Publish video**
+
+Call ``[publishVideo:loopback:]`` or ``[publishVideo:loopback:completion]`` method to start streaming local media to anyone inside the room. 
+The user should pass the SDP offer generated by ``NBMWebRTCPeer`` in response of ``[generateOffer:]`` call, obtaining the SDP answer required to display local media after having passed through the KMS server: 
+
+.. code-block:: obj-c
+
+   //Retrieve local peer identifier (username)	
+   NBMRoom *room = roomClient.room;
+   NSString *localPeerId = room.localPeer.username;
+
+   //Generate SDP offer for local peer connection
+   [webRTCPeer generateOffer:localPeerId];
+
+   #pragma mark -
+   #pragma mark NBMWebRTCDelegate
+
+   - (void)webRTCPeer:(NBMWebRTCPeer *)peer didGenerateOffer:(RTCSessionDescription *)sdpOffer forConnection:(NBMPeerConnection*)connection {
+       //Connection is related to local peer
+       if ([localPeerId isEqualToString:connection.connectionId]) {
+	       //Publish video with looback enabled
+	       [roomClient publishVideo:sdpOffer loopback:YES completion:^(NSString *sdpAnswer, NSError *error) {
+	           if (sdpAnswer) {
+	               [webRTCPeer processAnswer:sdpAnswer connectionId:connection.connectionId];
+	           } 
+	       }];
+	   }
+   }
+
+**Receive video**
+
+Call ``[receiveVideoFromPeer:offer:]`` or ``[receiveVideoFromPeer:offer:completion]`` method to receive media from peers in the room that published their media:
+
+.. code-block:: obj-c
+
+   //Retrieve a partecipant
+   NBMPeer *aPeer = [roomClient peerWithIdentifier:@"peerId"];
+
+   //Verify that peer has joined and has already published its media
+   if (aPeer.streams.count > 0) {
+       //Receive video from peer
+       NSString *sdpOffer = ... //A generated SDP Offer by NBMWebRTCPeer
+       [roomClient receiveVideoFromPeer:aPeer offer:sdpOffer];
+   }
+
+   #pragma mark -
+   #pragma mark NBMRoomClientDelegate
+
+   - (void)client:(NBMRoomClient *)client didReceiveVideoFrom:(NBMPeer *)peer sdpAnswer:(NSString *)sdpAnswer error:(NSError *)error {
+       if (sdpAnswer) {
+	       [webRTCPeer processAnswer:sdpAnswer connectionId:connection.connectionId];
+	   } 
+   }
+
+**Send ICE candidate**
+
+Call ``[sendICECandidate:forPeer]`` or ``[sendICECandidate:forPeer:completion]`` method when an ICE candidate is gathered on the client side by a peer connection:
+
+.. code-block:: obj-c
+
+   #pragma mark -
+   #pragma mark NBMWebRTCDelegate
+
+   - (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCICECandidate *)candidate forConnection:(NBMPeerConnection *)connection    {
+       //Find peer using connection's identifier
+       NBMPeer *peer = [roomClient peerWithIdentifier:connection.connectionId];
+
+       //Send ICE candidate
+       [roomClient sendICECandidate:candidate forPeer:peer completion:^(NSError *error) { 
+           if (!error) {NSLog(@"ICE candidate sent for peer: %@", peer.identifier); 
+       	   }
+       }]
+   }
 
 Documentation
 =============
