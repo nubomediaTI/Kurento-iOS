@@ -26,13 +26,18 @@ static const int ddLogLevel = DDLogLevelVerbose;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NBMRoom *roomm = [[NBMRoom alloc] initWithUsername:@"maross" roomName:@"mr5" roomURL:[NSURL URLWithString:@"http://kurento.teamlife.it:8080/room"]];
-    self.roomClient = [[NBMRoomClient alloc] initWithRoom:roomm timeout:10 delegate:self];
+    NBMMediaConfiguration *mediaConfig = [NBMMediaConfiguration defaultConfiguration];
+    NBMWebRTCPeer *web = [[NBMWebRTCPeer alloc] initWithDelegate:self configuration:nil];
+    NBMRoom *room = [[NBMRoom alloc] initWithUsername:@"maross" roomName:@"mr5" roomURL:[NSURL URLWithString:@"http://kurento.teamlife.it:8080/room"]];
+    self.roomClient = [[NBMRoomClient alloc] initWithRoom:room timeout:10 delegate:self];
     [self enableButtons:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.roomClient joinRoom:^(NSDictionary *peers, NSError *error) {
+        
+    }];
 //    if (self.roomClient.connected) {
 //        for (int i = 0; i<5; i++) {
 //            [self.roomClient joinRoom];

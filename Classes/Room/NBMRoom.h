@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, NBMRoomErrorCode) {
 - (instancetype)initWithUsername:(NSString *)username roomName:(NSString *)name roomURL:(NSURL *)url;
 
 @property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong, readonly) NSURL *url;
 @property (nonatomic, copy, readonly) NBMPeer *localPeer;
 @property (nonatomic, strong, readonly) NSSet *peers;
 

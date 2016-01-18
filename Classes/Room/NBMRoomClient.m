@@ -140,7 +140,7 @@ typedef void(^ErrorBlock)(NSError *error);
 @property (nonatomic, assign) BOOL closeRequested;
 @property (nonatomic, strong) NSError *rpcError;
 
-@property (nonatomic, strong) NBMRoom *room;
+@property (nonatomic, strong, readwrite) NBMRoom *room;
 @property (nonatomic, strong) NSMutableDictionary *mutableRoomPeers;
 @property (nonatomic, assign) BOOL joined;
 //@property (nonatomic, assign) BOOL joinRoomRequested;
@@ -178,6 +178,12 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     if (!self.connected) {
         return [self setupRpcClient:_timeout];
     }
+}
+
+#pragma mark - Properties
+
+- (NBMRoom *)room {
+    return self.room;
 }
 
 #pragma mark Join room
@@ -268,16 +274,16 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 #pragma mark Send ICE candidate
 
-- (void)sendICECandidate:(RTCICECandidate *)candidate {
-    return [self sendICECandidate:candidate completion:^(NSError *error) {
-        if ([self.delegate respondsToSelector:@selector(client:didSentICECandidate:)]) {
-            [self.delegate client:self didSentICECandidate:error];
+- (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer {
+    return [self sendICECandidate:candidate forPeer:peer completion:^(NSError *error) {
+        if ([self.delegate respondsToSelector:@selector(client:didSentICECandidate:forPeer:)]) {
+            [self.delegate client:self didSentICECandidate:error forPeer:peer];
         }
     }];
 }
 
-- (void)sendICECandidate:(RTCICECandidate *)candidate completion:(void (^)(NSError *))block {
-    [self nbm_sendICECandidate:candidate completion:block];
+- (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer completion:(void (^)(NSError *))block {
+    [self nbm_sendICECandidate:candidate forPeer:peer completion:block];
 }
 
 #pragma mark Send message
@@ -499,8 +505,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 #pragma mark Send ICE candidate
 
-- (void)nbm_sendICECandidate:(RTCICECandidate *)candidate completion:(void (^)(NSError *error))block {
-    NSDictionary *params = @{kOnIceCandidateEpnameParam: self.room.localPeer.identifier,
+- (void)nbm_sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer completion:(void (^)(NSError *error))block {
+    NSDictionary *params = @{kOnIceCandidateEpnameParam: peer.identifier,
                              kOnIceCandidateCandidateParam: candidate.sdp ?: @"",
                              kOnIceCandidateSdpMidParam: candidate.sdpMid ?: @"",
                              kOnIceCandidateSdpMLineIndexParam: @(candidate.sdpMLineIndex)};
@@ -556,8 +562,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     return peer;
 }
 
-- (NSDictionary *)peers {
-    return [self.mutableRoomPeers copy];
+- (NSSet *)peers {
+    NSArray *allPeers = [self.mutableRoomPeers allValues];
+    return [NSSet setWithArray:allPeers];
 }
 
 #pragma mark Room events

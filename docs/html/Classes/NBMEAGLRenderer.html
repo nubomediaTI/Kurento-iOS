@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMError Class Reference</title>
+	<title>NBMEAGLRenderer Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -52,25 +52,27 @@
 
 	
 	
-
-	
-	<optgroup label="Class Methods">
+	<optgroup label="Properties">
 		
-		<option value="//api/name/errorDomain">+ errorDomain</option>
+		<option value="//api/name/delegate">delegate</option>
 		
-		<option value="//api/name/errorWithCode:message:">+ errorWithCode:message:</option>
+		<option value="//api/name/hasVideoData">hasVideoData</option>
 		
-		<option value="//api/name/errorWithCode:message:underlyingError:">+ errorWithCode:message:underlyingError:</option>
+		<option value="//api/name/rendererView">rendererView</option>
 		
-		<option value="//api/name/errorWithCode:message:userInfo:underlyingError:">+ errorWithCode:message:userInfo:underlyingError:</option>
+		<option value="//api/name/videoSize">videoSize</option>
+		
+		<option value="//api/name/videoTrack">videoTrack</option>
 		
 	</optgroup>
 	
 
 	
+
+	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/init">- init</option>
+		<option value="//api/name/initWithDelegate:">- initWithDelegate:</option>
 		
 	</optgroup>
 	
@@ -87,7 +89,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMError Class Reference</h1>
+					<h1 class="title">NBMEAGLRenderer Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -95,8 +97,11 @@
 	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
+	<th>Conforms to</th>
+	<td><a href="../Protocols/NBMRenderer.html">NBMRenderer</a></td>
+</tr><tr>
 	<th>Declared in</th>
-	<td>NBMError.h</td>
+	<td>NBMEAGLRenderer.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -114,8 +119,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/errorDomain" title="errorDomain"></a>
-	<h3 class="method-title"><code><a href="#//api/name/errorDomain">+&nbsp;errorDomain</a></code>
+	<a name="//api/name/initWithDelegate:" title="initWithDelegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithDelegate:">&ndash;&nbsp;initWithDelegate:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -124,14 +129,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>+ (NSString *)errorDomain</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithDelegate:(id&lt;NBMRendererDelegate&gt;)<em>delegate</em></code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/errorWithCode:message:" title="errorWithCode:message:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/errorWithCode:message:">+&nbsp;errorWithCode:message:</a></code>
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
 </h3>
 
 	<div class="method-info">
@@ -140,14 +145,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>+ (NSError *)errorWithCode:(NSInteger)<em>code</em> message:(NSString *)<em>message</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;NBMRendererDelegate&gt; delegate</code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/errorWithCode:message:underlyingError:" title="errorWithCode:message:underlyingError:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/errorWithCode:message:underlyingError:">+&nbsp;errorWithCode:message:underlyingError:</a></code>
+	<a name="//api/name/videoTrack" title="videoTrack"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoTrack">&nbsp;&nbsp;videoTrack</a></code>
 </h3>
 
 	<div class="method-info">
@@ -156,14 +161,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>+ (NSError *)errorWithCode:(NSInteger)<em>code</em> message:(NSString *)<em>message</em> underlyingError:(NSError *)<em>underlyingError</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) RTCVideoTrack *videoTrack</code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/errorWithCode:message:userInfo:underlyingError:" title="errorWithCode:message:userInfo:underlyingError:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/errorWithCode:message:userInfo:underlyingError:">+&nbsp;errorWithCode:message:userInfo:underlyingError:</a></code>
+	<a name="//api/name/videoSize" title="videoSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoSize">&nbsp;&nbsp;videoSize</a></code>
 </h3>
 
 	<div class="method-info">
@@ -172,14 +177,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>+ (NSError *)errorWithCode:(NSInteger)<em>code</em> message:(NSString *)<em>message</em> userInfo:(NSDictionary *)<em>userInfo</em> underlyingError:(NSError *)<em>underlyingError</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) CGSize videoSize</code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/init" title="init"></a>
-	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+	<a name="//api/name/rendererView" title="rendererView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rendererView">&nbsp;&nbsp;rendererView</a></code>
 </h3>
 
 	<div class="method-info">
@@ -188,7 +193,23 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (id)init</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) UIView *rendererView</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasVideoData" title="hasVideoData"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasVideoData">&nbsp;&nbsp;hasVideoData</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (atomic, assign, readonly) BOOL hasVideoData</code></div>
 
 		    
 		</div>
@@ -208,7 +229,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-08</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-15</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

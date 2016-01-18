@@ -43,7 +43,7 @@
 - (void)client:(NBMRoomClient *)client didReceiveVideoFrom:(NBMPeer *)peer sdpAnswer:(NSString *)sdpAnswer error:(NSError *)error;
 - (void)client:(NBMRoomClient *)client didUnsubscribeVideoFrom:(NBMPeer *)peer sdpAnswer:(NSString *)sdpAnswer error:(NSError *)error;
 
-- (void)client:(NBMRoomClient *)client didSentICECandidate:(NSError *)error;
+- (void)client:(NBMRoomClient *)client didSentICECandidate:(NSError *)error forPeer:(NBMPeer *)peer;
 
 - (void)client:(NBMRoomClient *)client didSentMessage:(NSError *)error;
 

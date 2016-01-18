@@ -35,7 +35,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 @interface NBMRoomClient : NSObject
 
 @property (nonatomic, weak) id<NBMRoomClientDelegate> delegate;
-@property (nonatomic, readonly) NSDictionary *peers;
+@property (nonatomic, readonly) NSSet *peers;
+@property (nonatomic, readonly) NBMRoom *room;
 @property (nonatomic, assign, readonly) NSTimeInterval timeout;
 @property (nonatomic, assign, readonly, getter = isConnected) BOOL connected;
 @property (nonatomic, assign, readonly, getter = isJoined) BOOL joined;
@@ -65,8 +66,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 - (void)unsubscribeVideoFromPeer:(NBMPeer *)peer;
 - (void)unsubscribeVideoFromPeer:(NBMPeer *)peer completion:(void (^)(NSString *sdpAnswer, NSError *error))block;
 
-- (void)sendICECandidate:(RTCICECandidate *)candidate;
-- (void)sendICECandidate:(RTCICECandidate *)candidate completion:(void (^)(NSError *error))block;
+- (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer;
+- (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer completion:(void (^)(NSError *error))block;
 
 - (void)sendMessage:(NSString *)message;
 - (void)sendMessage:(NSString *)message completion:(void (^)(NSError *error))block;
