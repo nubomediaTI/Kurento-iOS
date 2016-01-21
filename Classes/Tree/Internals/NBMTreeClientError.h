@@ -1,5 +1,5 @@
 //
-//  NBMTreeEndpoint.m
+//  NBMTreeClientError.h
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,39 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMTreeEndpoint.h"
+#import "NBMError.h"
 
-@implementation NBMTreeEndpoint
+@interface NBMTreeClientError : NBMError
 
-- (instancetype)initWithIdentifier:(NSString *)identifier sdpAnswer:(NSString *)sdpAnswer {
-    NSParameterAssert(identifier);
-    self = [super init];
-    if (self) {
-        _identifier = identifier;
-        _sdpAnswer = sdpAnswer;
-    }
-    return self;
-}
-
-#pragma mark - NSObject
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"[%@: %@]", NSStringFromClass([self class]), self.identifier];
-}
-
-- (NSString *)debugDescription {
-    return self.description;
-}
-
-- (BOOL)isEqual:(NBMTreeEndpoint *)object {
-    if ([object isKindOfClass:[NBMTreeEndpoint class]]) {
-        return [object.identifier isEqualToString:self.identifier];
-    }
-    return NO;
-}
-
-- (NSUInteger)hash {
-    return [self.identifier hash];
-}
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+// Disallow init and don't add to documentation
+- (id)init __attribute__(
+                         (unavailable("init is not a supported initializer for this class.")));
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */
 
 @end

@@ -1,5 +1,5 @@
 //
-//  NBMTreeEndpoint.m
+//  NBMTreeClientError.m
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,39 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMTreeEndpoint.h"
+#import "NBMTreeClientError.h"
 
-@implementation NBMTreeEndpoint
+static NSString* const NBMTreeClientErrorDomain = @"eu.nubomediaTi.TreeClient";
 
-- (instancetype)initWithIdentifier:(NSString *)identifier sdpAnswer:(NSString *)sdpAnswer {
-    NSParameterAssert(identifier);
-    self = [super init];
-    if (self) {
-        _identifier = identifier;
-        _sdpAnswer = sdpAnswer;
-    }
-    return self;
-}
+@implementation NBMTreeClientError
 
-#pragma mark - NSObject
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"[%@: %@]", NSStringFromClass([self class]), self.identifier];
-}
-
-- (NSString *)debugDescription {
-    return self.description;
-}
-
-- (BOOL)isEqual:(NBMTreeEndpoint *)object {
-    if ([object isKindOfClass:[NBMTreeEndpoint class]]) {
-        return [object.identifier isEqualToString:self.identifier];
-    }
-    return NO;
-}
-
-- (NSUInteger)hash {
-    return [self.identifier hash];
++ (NSString *)errorDomain {
+    return NBMTreeClientErrorDomain;
 }
 
 @end

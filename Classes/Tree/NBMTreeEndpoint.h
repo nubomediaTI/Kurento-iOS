@@ -24,4 +24,9 @@
 
 @interface NBMTreeEndpoint : NSObject
 
+@property (nonatomic, copy) NSString *sdpAnswer;
+@property (nonatomic, copy) NSString *identifier;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier sdpAnswer:(NSString *)sdpAnswer;
+
 @end

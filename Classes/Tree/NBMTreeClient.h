@@ -24,11 +24,13 @@
 
 @class NBMJSONRPCClient;
 @class RTCICECandidate;
+@class NBMTreeEndpoint;
 @protocol NBMTreeClientDelegate;
 
 typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
     NBMTreeClientGenericErrorCode = 0,
-    NBMTreeClientTimeoutErrorCode
+    NBMTreeClientTimeoutErrorCode,
+    NBMTreeClientTransportErrorCode
 };
 
 @interface NBMTreeClient : NSObject
@@ -37,9 +39,9 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
 @property (nonatomic, readonly) NSSet *treeEndpoints;
 @property (nonatomic, assign, readonly) NSTimeInterval timeout;
 @property (nonatomic, assign, readonly, getter = isConnected) BOOL connected;
+@property (nonatomic, copy, readonly) NSString *treeId;
 
 - (instancetype)initWithURL:(NSURL *)wsURL delegate:(id<NBMTreeClientDelegate>)delegate;
-//- (instancetype)initWithJSONRPCClient:(NBMJSONRPCClient *)jsonRPCClient delegate:(id<NBMTreeClientDelegate>)delegate;
 
 - (void)connect:(NSTimeInterval)timeout;
 
@@ -49,9 +51,9 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
 - (void)setSource:(NSString *)sdpOffer tree:(NSString *)treeId completion:(void (^)(NSString *sdpAnswer, NSError *error))block;
 - (void)removeSourceOfTree:(NSString *)treeId completion:(void (^)(NSError *error))block;
 
-- (void)addSink:(NSString *)sdpOffer tree:(NSString *)treeId;
-- (void)removeSink:(NSString *)sinkId tree:(NSString *)treeId;
+- (void)addSink:(NSString *)sdpOffer tree:(NSString *)treeId completion:(void(^)(NBMTreeEndpoint *endpoint, NSError *error))block;
+- (void)removeSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block;
 
-- (void)addICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId;
+- (void)addICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block;
 
 @end

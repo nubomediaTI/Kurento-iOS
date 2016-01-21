@@ -23,11 +23,15 @@
 #import <Foundation/Foundation.h>
 
 @class NBMTreeClient;
+@class RTCICECandidate;
 
 @protocol NBMTreeClientDelegate <NSObject>
 
 //Connection
 - (void)client:(NBMTreeClient *)client isConnected:(BOOL)connected;
 - (void)client:(NBMTreeClient *)client didFailWithError:(NSError *)error;
+
+//Event
+- (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCICECandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId;
 
 @end
