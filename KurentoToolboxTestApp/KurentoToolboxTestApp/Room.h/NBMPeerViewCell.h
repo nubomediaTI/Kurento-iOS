@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NBMPeerViewCell.h
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,10 +22,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "RTCTypes.h"
 
-@property (strong, nonatomic) UIWindow *window;
+@interface NBMPeerViewCell : UICollectionViewCell
 
+@property (nonatomic, weak) UIView *videoView;
+@property (nonatomic, assign) RTCICEConnectionState connectionState;
 
 @end
-

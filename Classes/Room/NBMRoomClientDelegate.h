@@ -50,7 +50,6 @@
 - (void)client:(NBMRoomClient *)client didSentCustomRequest:(NSError *)error;
 
 //Room events
-
 - (void)client:(NBMRoomClient *)client partecipantJoined:(NBMPeer *)peer;
 - (void)client:(NBMRoomClient *)client partecipantLeft:(NBMPeer *)peer;
 - (void)client:(NBMRoomClient *)client partecipantEvicted:(NBMPeer *)peer;

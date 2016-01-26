@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "NBMPeer.h"
 
 typedef NS_ENUM(NSInteger, NBMRoomErrorCode) {
     NBMUserGenericRoomErrorCode = 101,
@@ -48,6 +47,8 @@ typedef NS_ENUM(NSInteger, NBMRoomErrorCode) {
     
     NBMGenericErrorRoomErrorCode = 999
 };
+
+@class NBMPeer;
 
 @interface NBMRoom : NSObject
 

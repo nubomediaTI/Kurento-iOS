@@ -76,6 +76,8 @@
 		
 		<option value="//api/name/cancelRequest:">- cancelRequest:</option>
 		
+		<option value="//api/name/connect">- connect</option>
+		
 		<option value="//api/name/initWithURL:configuration:delegate:">- initWithURL:configuration:delegate:</option>
 		
 		<option value="//api/name/initWithURL:delegate:">- initWithURL:delegate:</option>
@@ -190,10 +192,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The client configuration object.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NBMJSONRPCClientConfiguration *configuration</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -247,10 +274,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>A boolean that indicates the websocket connection status.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, getter=isConnected) BOOL connected</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -328,7 +380,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates and initializes a JSON-RPC client with the specified endpoint using default <a href="#//api/name/configuration">configuration</a>.</p>
+				<p>Creates and initializes a JSON-RPC client with the specified endpoint using provided <a href="#//api/name/configuration">configuration</a>.</p>
 			</div>
 			
 		    
@@ -337,20 +389,75 @@
 
 		    
 			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>@param <a href="#//api/name/url">url</a>
-@param <a href="#//api/name/configuration">configuration</a>
-@param <a href="#//api/name/delegate">delegate</a></p>
-
-<p>@return</p>
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>url</code></th>
+						<td><p>The endpoint URL.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A <a href="#//api/name/configuration">configuration</a> object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the client.</p></td>
+					</tr>
+				
+				</table>
 			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized JSON-RPC client.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connect" title="connect"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connect">&ndash;&nbsp;connect</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)connect</code></div>
+
+		    
+			
+
+			
+
+			
+
 			
 
 			
@@ -393,7 +500,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>method</code></th>
-						<td><p>The request method. Musto not be <code>nil</code>.</p></td>
+						<td><p>The request method. Must not be <code>nil</code>.</p></td>
 					</tr>
 				
 					<tr>
@@ -467,7 +574,7 @@ response serializer. The response object may be <code>nil</code> if network (e.g
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>responseBlock</code></th>
-						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client.
 response serializer. The response object may be <code>nil</code> if network (e.g timeout) or parsing error occurred.</p></td>
 					</tr>
 				
@@ -788,7 +895,7 @@ response serializer. The response object may be <code>nil</code> if network (e.g
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-15</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-26</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

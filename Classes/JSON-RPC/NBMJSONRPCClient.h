@@ -41,9 +41,17 @@
  */
 @property (nonatomic) NSUInteger requestMaxRetries;
 
-
+/**
+ *  A boolean that determines whether the client needs to connect automatically after initialization.
+ *  Default value is YES.
+ */
 @property (nonatomic, assign) BOOL autoConnect;
 
+/**
+ *  A configuration object with deafult values used to configure NBJSONRPCClient.
+ *
+ *  @return A newly initialized NBMJSONRPCClientConfiguration object.
+ */
 + (instancetype)defaultConfiguration;
 
 @end
@@ -64,6 +72,9 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
  */
 @property (nonatomic) NSURL *url;
 
+/**
+ *  The client configuration object.
+ */
 @property (nonatomic, readonly) NBMJSONRPCClientConfiguration *configuration;
 
 /**
@@ -71,6 +82,9 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
  */
 @property (nonatomic, weak) id<NBMJSONRPCClientDelegate>delegate;
 
+/**
+ * A boolean that indicates the websocket connection status.
+ */
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
 
 /**
@@ -84,20 +98,25 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
 - (instancetype)initWithURL:(NSURL *)url delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 
 /**
- *  Creates and initializes a JSON-RPC client with the specified endpoint using default configuration.
+ *  Creates and initializes a JSON-RPC client with the specified endpoint using provided configuration.
  *
- *  @param url           
- *  @param configuration
- *  @param delegate
+ *  @param url The endpoint URL.
+ *  @param configuration  A configuration object.
+ *  @param delegate The delegate object for the client.
  *
- *  @return
+ *  @return An initialized JSON-RPC client.
  */
 - (instancetype)initWithURL:(NSURL *)url configuration:(NBMJSONRPCClientConfiguration *)configuration delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 
 /**
+ *
+ */
+- (void)connect;
+
+/**
  *  Creates and sends a request with the specified method using websocket as transport channel.
  *
- *  @param method        The request method. Musto not be `nil`.
+ *  @param method        The request method. Must not be `nil`.
  *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
  *  response serializer. The response object may be `nil` if network (e.g timeout) or parsing error occurred.
  *
@@ -111,7 +130,7 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
  *
  *  @param method        The request method. Musto not be `nil`.
  *  @param parameters    The parameters to encode into the request. Must be either an `NSDictionary` or `NSArray`.
- *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+ *  @param responseBlock A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client.
  *  response serializer. The response object may be `nil` if network (e.g timeout) or parsing error occurred.
  *
  *  @return The `NBMRequest` object that was sent.

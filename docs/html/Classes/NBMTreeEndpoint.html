@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMEAGLVideoViewContainer Class Reference</title>
+	<title>NBMTreeEndpoint Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -54,9 +54,9 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/videoSize">videoSize</option>
+		<option value="//api/name/identifier">identifier</option>
 		
-		<option value="//api/name/videoView">videoView</option>
+		<option value="//api/name/sdpAnswer">sdpAnswer</option>
 		
 	</optgroup>
 	
@@ -66,7 +66,7 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithView:">- initWithView:</option>
+		<option value="//api/name/initWithIdentifier:sdpAnswer:">- initWithIdentifier:sdpAnswer:</option>
 		
 	</optgroup>
 	
@@ -83,16 +83,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMEAGLVideoViewContainer Class Reference</h1>
+					<h1 class="title">NBMTreeEndpoint Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>UIView</td>
+	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>NBMEAGLVideoViewContainer.h</td>
+	<td>NBMTreeEndpoint.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -110,8 +110,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithView:" title="initWithView:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithView:">&ndash;&nbsp;initWithView:</a></code>
+	<a name="//api/name/sdpAnswer" title="sdpAnswer"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sdpAnswer">&nbsp;&nbsp;sdpAnswer</a></code>
 </h3>
 
 	<div class="method-info">
@@ -120,14 +120,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithView:(RTCEAGLVideoView *)<em>view</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *sdpAnswer</code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/videoSize" title="videoSize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/videoSize">&nbsp;&nbsp;videoSize</a></code>
+	<a name="//api/name/identifier" title="identifier"></a>
+	<h3 class="method-title"><code><a href="#//api/name/identifier">&nbsp;&nbsp;identifier</a></code>
 </h3>
 
 	<div class="method-info">
@@ -136,14 +136,14 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGSize videoSize</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *identifier</code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/videoView" title="videoView"></a>
-	<h3 class="method-title"><code><a href="#//api/name/videoView">&nbsp;&nbsp;videoView</a></code>
+	<a name="//api/name/initWithIdentifier:sdpAnswer:" title="initWithIdentifier:sdpAnswer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithIdentifier:sdpAnswer:">&ndash;&nbsp;initWithIdentifier:sdpAnswer:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -152,7 +152,7 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) RTCEAGLVideoView *videoView</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithIdentifier:(NSString *)<em>identifier</em> sdpAnswer:(NSString *)<em>sdpAnswer</em></code></div>
 
 		    
 		</div>

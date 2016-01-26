@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NBMRoomVideoViewController.h
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,10 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface NBMRoomVideoViewController : UIViewController
 
 @end
-

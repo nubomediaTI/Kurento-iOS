@@ -99,12 +99,16 @@
  */
 @interface NBMWebRTCPeer : NSObject
 
+/**
+ *  The media configuration object.
+ */
 @property (nonatomic, strong, readonly) NBMMediaConfiguration *mediaConfiguration;
 
 /**
  *  The local stream.
  */
 @property (nonatomic, strong, readonly) RTCMediaStream *localStream;
+
 /**
  *  The delegate object for the peer.
  */
@@ -114,7 +118,7 @@
  *  Initializes a new Web RTC peer manager.
  *
  *  @param delegate The delegate object for the peer manager.
- *  @param configuration A media configuration
+ *  @param configuration A media configuration object.
  *
  *  @return An initialized Web RTC peer manager.
  */
@@ -167,6 +171,9 @@
  */
 - (void)closeConnectionWithConnectionId:(NSString *)connectionId;
 
+/**
+ *  Terminates all media of active connections, removing the local stream.
+ */
 - (void)stopLocalMedia;
 
 

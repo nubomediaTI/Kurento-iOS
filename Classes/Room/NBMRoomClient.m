@@ -31,6 +31,7 @@
 #import "NBMJSONRPCClientDelegate.h"
 
 #import "NBMRoom.h"
+#import "NBMPeer.h"
 #import "NBMRoomError.h"
 
 #import "NBMLog.h"
@@ -129,7 +130,7 @@ static NSString* const kIceCandidateCandidateParam = @"candidate";
 static NSString* const kIceCandidateSdpMidParam = @"sdpMid";
 static NSString* const kIceCandidateSdpMLineIndex = @"sdpMLineIndex";
 
-typedef void(^JoinRoomBlock)(NSDictionary *peers, NSError *error);
+typedef void(^JoinRoomBlock)(NSSet *peers, NSError *error);
 typedef void(^ErrorBlock)(NSError *error);
 
 @interface NBMRoomClient () <NBMJSONRPCClientDelegate>
@@ -193,7 +194,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 }
 
 - (void)joinRoom {
-    return [self joinRoom:^(NSDictionary *peers, NSError *error) {
+    return [self joinRoom:^(NSSet *peers, NSError *error) {
         if ([self.delegate respondsToSelector:@selector(client:didJoinRoom:)]) {
             [self.delegate client:self didJoinRoom:error];
         }
@@ -327,12 +328,12 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 #pragma mark Join room
 
 - (void)nbm_joinRoom:(NSString *)roomName username:(NSString *)username completion:(JoinRoomBlock)block {
-    [self.jsonRpcClient sendRequestWithMethod:@"joinRoom"
+    [self.jsonRpcClient sendRequestWithMethod:kJoinRoomMethod
                                    parameters:@{kJoinRoomParam: roomName ?: @"",
                                                 kJoinRoomUserParam: username ?: @""}
                                    completion:^(NBMResponse *response) {
                                        NSError *error;
-                                       NSDictionary *peers = [self peersFromResponse:response error:&error];
+                                       NSSet *peers = [self peersFromResponse:response error:&error];
                                        
                                        if (!error && !self.joined) {
                                            self.joined = YES;
@@ -344,7 +345,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     }];
 }
 
-- (NSDictionary *)peersFromResponse:(NBMResponse *)response error:(NSError **)error {
+- (NSSet *)peersFromResponse:(NBMResponse *)response error:(NSError **)error {
     NSMutableDictionary *peers;
     id result = response.result;
     if (result) {
@@ -376,8 +377,10 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     else {
         *error = [NBMRoomClient errorFromResponse:response];
     }
-
-    return [peers copy];
+    
+    NSSet *peersSet = [NSSet setWithArray:[peers allValues]];
+    
+    return peersSet;
 }
 
 #pragma mark Leave room
@@ -786,7 +789,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     //Timeout error
     if (!response) {
         NSString *msg = @"Room API request goes timout";
-        NSError *timeoutError = [NBMRoomClientError errorWithCode:NBMGenericRoomClientTimeoutErrorCode message:msg];
+        NSError *timeoutError = [NBMRoomClientError errorWithCode:NBMRoomClientTimeoutErrorCode message:msg];
         error = timeoutError;
     }
     else if (response.error) {

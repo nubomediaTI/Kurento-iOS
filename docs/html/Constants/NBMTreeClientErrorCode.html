@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMRoomClientErrorCode Constants Reference</title>
+	<title>NBMTreeClientErrorCode Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMRoomClientErrorCode Constants Reference</h1>
+					<h1 class="title">NBMTreeClientErrorCode Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>NBMRoomClient.h</td>
+	<td>NBMTreeClient.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,23 +75,19 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">NBMRoomClientErrorCode</h3>
+                    <h3 class="subsubtitle method-title">NBMTreeClientErrorCode</h3>
                     
-					
-					<div class="section section-overview">
-                        <p>Room Client error types.</p>
-					</div>
-					
-					
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMRoomClientGenericErrorCode</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">NBMTreeClientGenericErrorCode</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMRoomClientTimeoutErrorCode</a>,<br>
+                            &nbsp;&nbsp; <a href="">NBMTreeClientTimeoutErrorCode</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">NBMTreeClientTransportErrorCode</a>,<br>
                             
                             };</code>
                     
@@ -101,36 +97,32 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="NBMRoomClientGenericErrorCode"></a><code>NBMRoomClientGenericErrorCode</code></dt>
+                            <dt><a name="" title="NBMTreeClientGenericErrorCode"></a><code>NBMTreeClientGenericErrorCode</code></dt>
 <dd>
-
-
-<p>Describes a generic error.</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMRoomClient.h</code>.
+		Declared In <code class="declared-in-ref">NBMTreeClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMRoomClientTimeoutErrorCode"></a><code>NBMRoomClientTimeoutErrorCode</code></dt>
+                            <dt><a name="" title="NBMTreeClientTimeoutErrorCode"></a><code>NBMTreeClientTimeoutErrorCode</code></dt>
 <dd>
-
-
-<p>An error generated when a request goes in timeout.</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMRoomClient.h</code>.
+		Declared In <code class="declared-in-ref">NBMTreeClient.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="NBMTreeClientTransportErrorCode"></a><code>NBMTreeClientTransportErrorCode</code></dt>
+<dd>
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">NBMTreeClient.h</code>.
 	</p>
 	
 </dd>
@@ -139,17 +131,6 @@
                     </div>
                     
 
-                    
-                    
-
-                    
-
-                    
-                    <div class="method-subsection declared-in-section">
-                        <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">NBMRoomClient.h</code></p>
-                    </div>
-                    
                     
                     
                     

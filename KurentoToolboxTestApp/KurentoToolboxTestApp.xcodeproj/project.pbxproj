@@ -7,28 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A4F0CAC1C184C4800CD30A1 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4F0CAB1C184C4800CD30A1 /* KurentoToolbox.framework */; };
+		4A365CF31C526EA200252EDA /* NBMRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF11C526EA200252EDA /* NBMRoomManager.m */; };
+		4A365CF61C52781800252EDA /* NBMRoomMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */; };
+		4A365CFA1C52790100252EDA /* NBMRoomLoginViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */; };
+		4A365CFD1C56351A00252EDA /* NBMRoomVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CFC1C56351A00252EDA /* NBMRoomVideoViewController.m */; };
+		4A365D001C56387A00252EDA /* NBMPeerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CFF1C56387A00252EDA /* NBMPeerViewCell.m */; };
+		4A365D031C5638C200252EDA /* NBMPeersFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365D021C5638C200252EDA /* NBMPeersFlowLayout.m */; };
 		4AE438DE1BF0DDBB001882E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438DD1BF0DDBB001882E5 /* main.m */; };
 		4AE438E11BF0DDBB001882E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438E01BF0DDBB001882E5 /* AppDelegate.m */; };
-		4AE438E41BF0DDBB001882E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438E31BF0DDBB001882E5 /* ViewController.m */; };
 		4AE438E71BF0DDBB001882E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438E51BF0DDBB001882E5 /* Main.storyboard */; };
 		4AE438E91BF0DDBB001882E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438E81BF0DDBB001882E5 /* Assets.xcassets */; };
 		4AE438EC1BF0DDBC001882E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438EA1BF0DDBC001882E5 /* LaunchScreen.storyboard */; };
+		5C14F8424851C754F43AE58E /* libPods-KurentoToolboxTestApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B09EECD4F3D4AFF81D374847 /* libPods-KurentoToolboxTestApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A4F0CAB1C184C4800CD30A1 /* KurentoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KurentoToolbox.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Kurento-iOS-ccweecbbeyxcupejoggzodkzfwzr/Build/Products/Debug-iphoneos/KurentoToolbox.framework"; sourceTree = "<group>"; };
+		4A365CF11C526EA200252EDA /* NBMRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomManager.m; path = Room.h/NBMRoomManager.m; sourceTree = "<group>"; };
+		4A365CF21C526EA200252EDA /* NBMRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomManager.h; path = Room.h/NBMRoomManager.h; sourceTree = "<group>"; };
+		4A365CF41C52781800252EDA /* NBMRoomMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomMainViewController.h; path = Room.h/NBMRoomMainViewController.h; sourceTree = "<group>"; };
+		4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomMainViewController.m; path = Room.h/NBMRoomMainViewController.m; sourceTree = "<group>"; };
+		4A365CF81C52790100252EDA /* NBMRoomLoginViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomLoginViewCell.h; path = Room.h/NBMRoomLoginViewCell.h; sourceTree = "<group>"; };
+		4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomLoginViewCell.m; path = Room.h/NBMRoomLoginViewCell.m; sourceTree = "<group>"; };
+		4A365CFB1C56351A00252EDA /* NBMRoomVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomVideoViewController.h; path = Room.h/NBMRoomVideoViewController.h; sourceTree = "<group>"; };
+		4A365CFC1C56351A00252EDA /* NBMRoomVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomVideoViewController.m; path = Room.h/NBMRoomVideoViewController.m; sourceTree = "<group>"; };
+		4A365CFE1C56387A00252EDA /* NBMPeerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMPeerViewCell.h; path = Room.h/NBMPeerViewCell.h; sourceTree = "<group>"; };
+		4A365CFF1C56387A00252EDA /* NBMPeerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMPeerViewCell.m; path = Room.h/NBMPeerViewCell.m; sourceTree = "<group>"; };
+		4A365D011C5638C100252EDA /* NBMPeersFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMPeersFlowLayout.h; path = Room.h/NBMPeersFlowLayout.h; sourceTree = "<group>"; };
+		4A365D021C5638C200252EDA /* NBMPeersFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMPeersFlowLayout.m; path = Room.h/NBMPeersFlowLayout.m; sourceTree = "<group>"; };
+		4A365D041C563B4700252EDA /* KurentoToolboxTestApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KurentoToolboxTestApp-Prefix.pch"; sourceTree = "<group>"; };
 		4AE438D91BF0DDBB001882E5 /* KurentoToolboxTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KurentoToolboxTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE438DD1BF0DDBB001882E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4AE438DF1BF0DDBB001882E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4AE438E01BF0DDBB001882E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4AE438E21BF0DDBB001882E5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4AE438E31BF0DDBB001882E5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4AE438E61BF0DDBB001882E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AE438E81BF0DDBB001882E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE438EB1BF0DDBC001882E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AE438ED1BF0DDBC001882E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AE438F91BF0DE91001882E5 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B09EECD4F3D4AFF81D374847 /* libPods-KurentoToolboxTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolboxTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7E2CED80798CD32F3821D31 /* Pods-KurentoToolboxTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTestApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-KurentoToolboxTestApp/Pods-KurentoToolboxTestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F5010C1FA85BA3A40BDB2AEA /* Pods-KurentoToolboxTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTestApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-KurentoToolboxTestApp/Pods-KurentoToolboxTestApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,20 +53,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A4F0CAC1C184C4800CD30A1 /* KurentoToolbox.framework in Frameworks */,
+				5C14F8424851C754F43AE58E /* libPods-KurentoToolboxTestApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A365CF01C526E4A00252EDA /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				4A365CF21C526EA200252EDA /* NBMRoomManager.h */,
+				4A365CF11C526EA200252EDA /* NBMRoomManager.m */,
+				4A365CF71C52788900252EDA /* Interface */,
+			);
+			name = Room;
+			sourceTree = "<group>";
+		};
+		4A365CF71C52788900252EDA /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4A365CF41C52781800252EDA /* NBMRoomMainViewController.h */,
+				4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */,
+				4A365CF81C52790100252EDA /* NBMRoomLoginViewCell.h */,
+				4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */,
+				4A365CFB1C56351A00252EDA /* NBMRoomVideoViewController.h */,
+				4A365CFC1C56351A00252EDA /* NBMRoomVideoViewController.m */,
+				4A365CFE1C56387A00252EDA /* NBMPeerViewCell.h */,
+				4A365CFF1C56387A00252EDA /* NBMPeerViewCell.m */,
+				4A365D011C5638C100252EDA /* NBMPeersFlowLayout.h */,
+				4A365D021C5638C200252EDA /* NBMPeersFlowLayout.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		4AE438D01BF0DDBB001882E5 = {
 			isa = PBXGroup;
 			children = (
-				4A4F0CAB1C184C4800CD30A1 /* KurentoToolbox.framework */,
-				4AE438F91BF0DE91001882E5 /* Config.xcconfig */,
 				4AE438DB1BF0DDBB001882E5 /* KurentoToolboxTestApp */,
 				4AE438DA1BF0DDBB001882E5 /* Products */,
+				FA948204538AC740CA9CA364 /* Pods */,
+				740FB41877DAC5EBC8BB894E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,10 +108,9 @@
 		4AE438DB1BF0DDBB001882E5 /* KurentoToolboxTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A365CF01C526E4A00252EDA /* Room */,
 				4AE438DF1BF0DDBB001882E5 /* AppDelegate.h */,
 				4AE438E01BF0DDBB001882E5 /* AppDelegate.m */,
-				4AE438E21BF0DDBB001882E5 /* ViewController.h */,
-				4AE438E31BF0DDBB001882E5 /* ViewController.m */,
 				4AE438E51BF0DDBB001882E5 /* Main.storyboard */,
 				4AE438E81BF0DDBB001882E5 /* Assets.xcassets */,
 				4AE438EA1BF0DDBC001882E5 /* LaunchScreen.storyboard */,
@@ -81,8 +124,26 @@
 			isa = PBXGroup;
 			children = (
 				4AE438DD1BF0DDBB001882E5 /* main.m */,
+				4A365D041C563B4700252EDA /* KurentoToolboxTestApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		740FB41877DAC5EBC8BB894E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B09EECD4F3D4AFF81D374847 /* libPods-KurentoToolboxTestApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA948204538AC740CA9CA364 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7E2CED80798CD32F3821D31 /* Pods-KurentoToolboxTestApp.debug.xcconfig */,
+				F5010C1FA85BA3A40BDB2AEA /* Pods-KurentoToolboxTestApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AE438F01BF0DDBC001882E5 /* Build configuration list for PBXNativeTarget "KurentoToolboxTestApp" */;
 			buildPhases = (
+				0E9260E64BB3611E78A6CD7A /* Check Pods Manifest.lock */,
 				4AE438D51BF0DDBB001882E5 /* Sources */,
 				4AE438D61BF0DDBB001882E5 /* Frameworks */,
 				4AE438D71BF0DDBB001882E5 /* Resources */,
+				29379472A856DA788EB8C5B7 /* Embed Pods Frameworks */,
+				74D34D164100C4302B620D70 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,14 +214,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E9260E64BB3611E78A6CD7A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		29379472A856DA788EB8C5B7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-KurentoToolboxTestApp/Pods-KurentoToolboxTestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74D34D164100C4302B620D70 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-KurentoToolboxTestApp/Pods-KurentoToolboxTestApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AE438D51BF0DDBB001882E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AE438E41BF0DDBB001882E5 /* ViewController.m in Sources */,
 				4AE438E11BF0DDBB001882E5 /* AppDelegate.m in Sources */,
+				4A365D031C5638C200252EDA /* NBMPeersFlowLayout.m in Sources */,
+				4A365D001C56387A00252EDA /* NBMPeerViewCell.m in Sources */,
 				4AE438DE1BF0DDBB001882E5 /* main.m in Sources */,
+				4A365CF61C52781800252EDA /* NBMRoomMainViewController.m in Sources */,
+				4A365CFA1C52790100252EDA /* NBMRoomLoginViewCell.m in Sources */,
+				4A365CF31C526EA200252EDA /* NBMRoomManager.m in Sources */,
+				4A365CFD1C56351A00252EDA /* NBMRoomVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +302,6 @@
 /* Begin XCBuildConfiguration section */
 		4AE438EE1BF0DDBC001882E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4AE438F91BF0DE91001882E5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -268,9 +384,12 @@
 		};
 		4AE438F11BF0DDBC001882E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7E2CED80798CD32F3821D31 /* Pods-KurentoToolboxTestApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxTestApp/KurentoToolboxTestApp-Prefix.pch";
 				INFOPLIST_FILE = KurentoToolboxTestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxTestApp;
@@ -280,9 +399,12 @@
 		};
 		4AE438F21BF0DDBC001882E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5010C1FA85BA3A40BDB2AEA /* Pods-KurentoToolboxTestApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxTestApp/KurentoToolboxTestApp-Prefix.pch";
 				INFOPLIST_FILE = KurentoToolboxTestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxTestApp;

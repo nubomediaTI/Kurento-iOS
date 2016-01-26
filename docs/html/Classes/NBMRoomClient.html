@@ -43,6 +43,8 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
 
 	
 	
@@ -148,6 +150,15 @@
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>It&rsquo;s actually only a wrapper over the JSON-RPC protocol used to communicate with Room Server.
+The developer of <a href="#//api/name/room">room</a> applications can use this API when implementing an iOS client.</p>
+					</div>
+					
+					
 
 					
 					
@@ -169,10 +180,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The delegate object for the client.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;NBMRoomClientDelegate&gt; delegate</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -185,10 +221,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>A list of <a href="#//api/name/connected">connected</a> <a href="../Classes/NBMPeer.html">NBMPeer</a> objects.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSSet *peers</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -201,10 +262,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The <a href="../Classes/NBMRoom.html">NBMRoom</a> instance representing the <a href="#//api/name/joined">joined</a> room.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NBMRoom *room</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -217,10 +303,36 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The timeout interval for API requests, in seconds.
+Default value is 5.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval timeout</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -233,10 +345,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>A boolean that indicates the websocket connection status.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isConnected) BOOL connected</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -249,26 +386,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>A boolean that indicates if the <a href="#//api/name/room">room</a> was joined by the local peer.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isJoined) BOOL joined</code></div>
 
 		    
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/peerWithIdentifier:" title="peerWithIdentifier:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/peerWithIdentifier:">&ndash;&nbsp;peerWithIdentifier:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (NBMPeer *)peerWithIdentifier:(NSString *)<em>identifier</em></code></div>
+			
 
-		    
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -281,10 +427,57 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and initializes a NBMRoomClient with default API <a href="#//api/name/timeout">timeout</a> interval.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (instancetype)initWithRoom:(NBMRoom *)<em>room</em> delegate:(id&lt;NBMRoomClientDelegate&gt;)<em>delegate</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>room</code></th>
+						<td><p>The <a href="#//api/name/room">room</a> to join with.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the client</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized NBMRoomClient object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -297,10 +490,62 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and initializes a NBMRoomClient with a custom API <a href="#//api/name/timeout">timeout</a> interval.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (instancetype)initWithRoom:(NBMRoom *)<em>room</em> timeout:(NSTimeInterval)<em>timeout</em> delegate:(id&lt;NBMRoomClientDelegate&gt;)<em>delegate</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>room</code></th>
+						<td><p>The <a href="#//api/name/room">room</a> to join with.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timeout</code></th>
+						<td><p>The <a href="#//api/name/timeout">timeout</a> interval for API requests, in seconds.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized NBMRoomClient object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -313,10 +558,40 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Connects client to the Room Server using WebSocket, giving access to its API when the connection is established successfully.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)connect</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> See <a href="../Protocols/NBMRoomClientDelegate.html">NBMRoomClientDelegate</a> [client:isConnected:] method.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -329,10 +604,36 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client&rsquo;s request to join a <a href="#//api/name/room">room</a>. If the <a href="#//api/name/room">room</a> does not exists, it is created.
+When the request is processed, the [client:didJoinRoom:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)joinRoom</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -345,10 +646,52 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client&rsquo;s request to join a <a href="#//api/name/room">room</a>. If the <a href="#//api/name/room">room</a> does not exists, it is created.</p>
+			</div>
+			
+		    
 
-			<div class="method-subsection method-declaration"><code>- (void)joinRoom:(void ( ^ ) ( NSDictionary *peers , NSError *error ))<em>block</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)joinRoom:(void ( ^ ) ( NSSet *peers , NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an NSSet of remote partecipants and an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -361,10 +704,36 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represent a client&rsquo;s notification that it&rsquo;s leaving the <a href="#//api/name/room">room</a>.
+When the request is processed, the [client:didLeaveRoom:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)leaveRoom</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -377,10 +746,52 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represent a client&rsquo;s notification that it&rsquo;s leaving the <a href="#//api/name/room">room</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)leaveRoom:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -393,10 +804,53 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to start streaming her local media to anyone inside the <a href="#//api/name/room">room</a>.
+When the request is processed, the [client:didPublishVideo:loopback:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)publishVideo:(NSString *)<em>sdpOffer</em> loopback:(BOOL)<em>doLoopback</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sdpOffer</code></th>
+						<td><p>A NSString representing an SDP offer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>doLoopback</code></th>
+						<td><p>A Boolean enabling media loopback.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -409,10 +863,62 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to start streaming her local media to anyone inside the <a href="#//api/name/room">room</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)publishVideo:(NSString *)<em>sdpOffer</em> loopback:(BOOL)<em>doLoopback</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sdpOffer</code></th>
+						<td><p>A NSString representing an SDP offer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>doLoopback</code></th>
+						<td><p>A Boolean enabling media loopback.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes the SDP answer sent by KMS and an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -425,10 +931,36 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to stop streaming its local media to the <a href="#//api/name/room">room</a> <a href="#//api/name/peers">peers</a>.
+When the request is processed, the [client:didUnPublishVideo:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)unpublishVideo</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -441,10 +973,52 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to stop streaming its local media to the <a href="#//api/name/room">room</a> <a href="#//api/name/peers">peers</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)unpublishVideo:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -457,10 +1031,54 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to receive media from participants in the <a href="#//api/name/room">room</a> that published their media.
+This method can also be used for loopback connections.
+When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)receiveVideoFromPeer:(NBMPeer *)<em>peer</em> offer:(NSString *)<em>sdpOffer</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>peer</code></th>
+						<td><p>A <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sdpOffer</code></th>
+						<td><p>A NSString representing an SDP offer.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -473,10 +1091,62 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to receive media from participants in the <a href="#//api/name/room">room</a> that published their media.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)receiveVideoFromPeer:(NBMPeer *)<em>peer</em> offer:(NSString *)<em>sdpOffer</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>peer</code></th>
+						<td><p>A <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sdpOffer</code></th>
+						<td><p>A NSString representing an SDP offer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes the SDP answer sent by KMS and an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -489,10 +1159,48 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to stop receiving media from a given publisher.
+When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)unsubscribeVideoFromPeer:(NBMPeer *)<em>peer</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>peer</code></th>
+						<td><p>A <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -505,10 +1213,57 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client’s request to stop receiving media from a given publisher.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)unsubscribeVideoFromPeer:(NBMPeer *)<em>peer</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>peer</code></th>
+						<td><p>The <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes the SDP answer sent by KMS and an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -521,10 +1276,53 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Request that carries info about an ICE candidate gathered on the client side. This information is required to implement the trickle ICE mechanism.
+When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)sendICECandidate:(RTCICECandidate *)<em>candidate</em> forPeer:(NBMPeer *)<em>peer</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>candidate</code></th>
+						<td><p>The RTCICECandidate object to send.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>peer</code></th>
+						<td><p>The <a href="../Classes/NBMPeer.html">NBMPeer</a> whose ICE candidate was found.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -537,10 +1335,62 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Request that carries info about an ICE candidate gathered on the client side. This information is required to implement the trickle ICE mechanism.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)sendICECandidate:(RTCICECandidate *)<em>candidate</em> forPeer:(NBMPeer *)<em>peer</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>candidate</code></th>
+						<td><p>The RTCICECandidate object to send.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>peer</code></th>
+						<td><p>The <a href="../Classes/NBMPeer.html">NBMPeer</a> whose ICE candidate was found.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -553,10 +1403,48 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client&rsquo;s request to send written message to all other partecipants in the <a href="#//api/name/room">room</a>.
+When the request is processed, the [client:didSentMessage:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)sendMessage:(NSString *)<em>message</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>message</code></th>
+						<td><p>The text message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -569,10 +1457,57 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a client&rsquo;s request to send written message to all other partecipants in the <a href="#//api/name/room">room</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)sendMessage:(NSString *)<em>message</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>message</code></th>
+						<td><p>The text message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -585,10 +1520,48 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Provides a custom envelope for requests not directly implemented by the Room server.
+When the request is processed, the [client:didSentCustomRequest:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)sendCustomRequest:(NSDictionary&lt;NSString*,NSString*&gt; *)<em>params</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>A NSDictionary of NSString key-value parameters, their specification is left to the actual implementation.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -601,10 +1574,115 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Provides a custom envelope for requests not directly implemented by the Room server.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)sendCustomRequest:(NSDictionary&lt;NSString*,NSString*&gt; *)<em>params</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>A NSDictionary of NSString key-value parameters, their specification is left to the actual implementation.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/peerWithIdentifier:" title="peerWithIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/peerWithIdentifier:">&ndash;&nbsp;peerWithIdentifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a remote <a href="../Classes/NBMPeer.html">NBMPeer</a> with specified identifier, if exists.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NBMPeer *)peerWithIdentifier:(NSString *)<em>identifier</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>identifier</code></th>
+						<td><p>A unique NSString identifier (peer&rsquo;s username).</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a <a href="../Classes/NBMPeer.html">NBMPeer</a> object with specified identifier.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMRoomClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div>
@@ -622,7 +1700,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-15</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-26</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

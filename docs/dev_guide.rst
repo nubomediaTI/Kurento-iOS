@@ -241,6 +241,11 @@ Call ``[sendICECandidate:forPeer]`` or ``[sendICECandidate:forPeer:completion]``
        }]
    }
 
+Tree API's
+**********
+
+...
+
 Documentation
 =============
 

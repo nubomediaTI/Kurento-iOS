@@ -23,15 +23,26 @@
 
 #import <Foundation/Foundation.h>
 
+//Tree
+#import "NBMTreeEndpoint.h"
+#import "NBMTreeClient.h"
+#import "NBMTreeClientDelegate.h"
+
 //Room
 #import "NBMRoom.h"
 #import "NBMPeer.h"
 #import "NBMRoomClient.h"
 #import "NBMRoomClientDelegate.h"
 
-//Web RTC
+//WebRTC
 #import "NBMWebRTCPeer.h"
+#import "NBMMediaConfiguration.h"
 #import "NBMPeerConnection.h"
+#import "NBMTypes.h"
+#import "NBMRenderer.h"
+#import "NBMEAGLRenderer.h"
+#import "NBMEAGLVideoViewContainer.h"
+
 
 //JSON-RPC
 #import "NBMJSONRPCClient.h"
@@ -41,10 +52,3 @@
 #import "NBMMessage.h"
 #import "NBMRequest.h"
 #import "NBMResponse.h"
-
-//Errors
-//#import "NBMError.h"
-//#import "NBMJSONRPCError.h"
-//#import "NBMJSONRPCClientError.h"
-//#import "NBMRoomError.h"
-//#import "NBMRoomClientError.h"

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3BBFF81C0CA34E00D9887F /* NBMMediaConfiguration.h */; };
+		4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3BBFF81C0CA34E00D9887F /* NBMMediaConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A3BBFFB1C0CA34E00D9887F /* NBMMediaConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BBFF91C0CA34E00D9887F /* NBMMediaConfiguration.m */; };
 		4A46BC3B1BE3E2A1009E0FBE /* NBMPeerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A46BC3C1BE3E2A5009E0FBE /* NBMPeerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */; };
@@ -40,7 +40,7 @@
 		4A4F0D1A1C22C2C300CD30A1 /* NBMJSONRPCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0D171C22C2C300CD30A1 /* NBMJSONRPCUtilities.m */; };
 		4A4F0D1D1C22C2DD00CD30A1 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */; };
 		4A4F0D1E1C22C2DD00CD30A1 /* NBMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0D1C1C22C2DD00CD30A1 /* NBMError.m */; };
-		4A6E88D81C0EFC2D000A8EE9 /* NBMRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */; };
+		4A6E88D81C0EFC2D000A8EE9 /* NBMRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A6E88DD1C10542D000A8EE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6E88DC1C10542D000A8EE9 /* Foundation.framework */; };
 		4A6E88DF1C105435000A8EE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6E88DE1C105435000A8EE9 /* UIKit.framework */; };
 		4A6E88E21C105657000A8EE9 /* NBMRoomClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88E01C105657000A8EE9 /* NBMRoomClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,10 +86,18 @@
 		4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE439061BF4AC14001882E5 /* NBMTimeoutable.h */; };
 		4AE4390B1BF4AC14001882E5 /* NBMTransportChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE439071BF4AC14001882E5 /* NBMTransportChannel.m */; };
 		4AE4390C1BF4AC14001882E5 /* NBMTransportChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */; };
-		4AE8C9C61C47B71200A87D8A /* NBMEAGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */; };
+		4AE8C9C61C47B71200A87D8A /* NBMEAGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE8C9C71C47B71200A87D8A /* NBMEAGLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */; };
-		4AE8C9CA1C47B83700A87D8A /* NBMEAGLVideoViewContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */; };
+		4AE8C9CA1C47B83700A87D8A /* NBMEAGLVideoViewContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE8C9CB1C47B83700A87D8A /* NBMEAGLVideoViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */; };
+		4AE8C9CF1C4E506100A87D8A /* NBMTreeClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9CD1C4E506100A87D8A /* NBMTreeClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AE8C9D01C4E506100A87D8A /* NBMTreeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9CE1C4E506100A87D8A /* NBMTreeClient.m */; };
+		4AE8C9E51C4E752900A87D8A /* NBMTreeEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9E31C4E752900A87D8A /* NBMTreeEndpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AE8C9E61C4E752900A87D8A /* NBMTreeEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9E41C4E752900A87D8A /* NBMTreeEndpoint.m */; };
+		4AE8C9E81C4E780B00A87D8A /* NBMTreeClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9E71C4E780B00A87D8A /* NBMTreeClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AE8C9EB1C4FD83300A87D8A /* NBMTreeClientError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8C9E91C4FD83200A87D8A /* NBMTreeClientError.h */; };
+		4AE8C9EC1C4FD83300A87D8A /* NBMTreeClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9EA1C4FD83200A87D8A /* NBMTreeClientError.m */; };
+		4AE8C9ED1C514DB300A87D8A /* NBMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88D91C0F0068000A8EE9 /* NBMTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
 		A941BB7922237372866EA46D /* libPods-KurentoToolboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */; };
 		C7E99F0B50AF4D7919652AEF /* libPods-KurentoToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */; };
@@ -200,6 +208,13 @@
 		4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMEAGLRenderer.m; sourceTree = "<group>"; };
 		4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMEAGLVideoViewContainer.h; sourceTree = "<group>"; };
 		4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMEAGLVideoViewContainer.m; sourceTree = "<group>"; };
+		4AE8C9CD1C4E506100A87D8A /* NBMTreeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeClient.h; path = Tree/NBMTreeClient.h; sourceTree = "<group>"; };
+		4AE8C9CE1C4E506100A87D8A /* NBMTreeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeClient.m; path = Tree/NBMTreeClient.m; sourceTree = "<group>"; };
+		4AE8C9E31C4E752900A87D8A /* NBMTreeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeEndpoint.h; path = Tree/NBMTreeEndpoint.h; sourceTree = "<group>"; };
+		4AE8C9E41C4E752900A87D8A /* NBMTreeEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeEndpoint.m; path = Tree/NBMTreeEndpoint.m; sourceTree = "<group>"; };
+		4AE8C9E71C4E780B00A87D8A /* NBMTreeClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeClientDelegate.h; path = Tree/NBMTreeClientDelegate.h; sourceTree = "<group>"; };
+		4AE8C9E91C4FD83200A87D8A /* NBMTreeClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeClientError.h; path = Tree/Internals/NBMTreeClientError.h; sourceTree = "<group>"; };
+		4AE8C9EA1C4FD83200A87D8A /* NBMTreeClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeClientError.m; path = Tree/Internals/NBMTreeClientError.m; sourceTree = "<group>"; };
 		4AF48D5C1BECEFFA004E4AD2 /* KurentoToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurentoToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF48D601BECEFFA004E4AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -291,9 +306,10 @@
 				4A133A4F1BE1204A0095B168 /* KurentoToolbox.h */,
 				4A4F0D1B1C22C2DD00CD30A1 /* NBMError.h */,
 				4A4F0D1C1C22C2DD00CD30A1 /* NBMError.m */,
-				4A6E88DA1C0F3374000A8EE9 /* Room */,
-				4A6E88DB1C0F338F000A8EE9 /* Connection */,
+				4A6E88DB1C0F338F000A8EE9 /* WebRTC */,
 				4AA5516E1BDF926C002152AB /* JSON-RPC */,
+				4A6E88DA1C0F3374000A8EE9 /* Room */,
+				4AE8C9CC1C4E502E00A87D8A /* Tree */,
 				4A133A4E1BE11CFB0095B168 /* Utils */,
 				4ACB2C751BE929D600E8E017 /* libjingle_peerconnection headers */,
 				4A4D6F881BAC403A001DB874 /* Supporting Files */,
@@ -316,9 +332,9 @@
 		4A6E88DA1C0F3374000A8EE9 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				4A4F0CA71C18384C00CD30A1 /* NBMRoomClientDelegate.h */,
 				4A6E88E01C105657000A8EE9 /* NBMRoomClient.h */,
 				4A6E88E11C105657000A8EE9 /* NBMRoomClient.m */,
-				4A4F0CA71C18384C00CD30A1 /* NBMRoomClientDelegate.h */,
 				4A4F0CAD1C201E3600CD30A1 /* NBMRoomClientError.h */,
 				4A4F0CAE1C201E3600CD30A1 /* NBMRoomClientError.m */,
 				4A6E88E41C10629F000A8EE9 /* NBMRoom.h */,
@@ -333,7 +349,7 @@
 			path = Room;
 			sourceTree = "<group>";
 		};
-		4A6E88DB1C0F338F000A8EE9 /* Connection */ = {
+		4A6E88DB1C0F338F000A8EE9 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
 				4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */,
@@ -351,7 +367,7 @@
 				4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */,
 				4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */,
 			);
-			path = Connection;
+			path = WebRTC;
 			sourceTree = "<group>";
 		};
 		4AA5516E1BDF926C002152AB /* JSON-RPC */ = {
@@ -429,6 +445,20 @@
 			name = Message;
 			sourceTree = "<group>";
 		};
+		4AE8C9CC1C4E502E00A87D8A /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				4AE8C9E91C4FD83200A87D8A /* NBMTreeClientError.h */,
+				4AE8C9EA1C4FD83200A87D8A /* NBMTreeClientError.m */,
+				4AE8C9E31C4E752900A87D8A /* NBMTreeEndpoint.h */,
+				4AE8C9E41C4E752900A87D8A /* NBMTreeEndpoint.m */,
+				4AE8C9E71C4E780B00A87D8A /* NBMTreeClientDelegate.h */,
+				4AE8C9CD1C4E506100A87D8A /* NBMTreeClient.h */,
+				4AE8C9CE1C4E506100A87D8A /* NBMTreeClient.m */,
+			);
+			name = Tree;
+			sourceTree = "<group>";
+		};
 		4AF48D5D1BECEFFA004E4AD2 /* KurentoToolboxTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,16 +501,20 @@
 				4ACB2CB31BE92A5900E8E017 /* RTCAudioTrack.h in Headers */,
 				4ACB2CB41BE92A5900E8E017 /* RTCAVFoundationVideoSource.h in Headers */,
 				4A4F0CAF1C201E3600CD30A1 /* NBMRoomClientError.h in Headers */,
+				4AE8C9E81C4E780B00A87D8A /* NBMTreeClientDelegate.h in Headers */,
 				4ACB2CB51BE92A5900E8E017 /* RTCDataChannel.h in Headers */,
 				4ACB2CB61BE92A5900E8E017 /* RTCEAGLVideoView.h in Headers */,
+				4AE8C9ED1C514DB300A87D8A /* NBMTypes.h in Headers */,
 				4ACB2CB71BE92A5900E8E017 /* RTCFileLogger.h in Headers */,
 				4AE8C9CA1C47B83700A87D8A /* NBMEAGLVideoViewContainer.h in Headers */,
 				4ACB2CB81BE92A5900E8E017 /* RTCI420Frame.h in Headers */,
 				4A4F0CA31C15D08300CD30A1 /* NBMRoomConstants.h in Headers */,
+				4AE8C9EB1C4FD83300A87D8A /* NBMTreeClientError.h in Headers */,
 				4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */,
 				4ACB2CB91BE92A5900E8E017 /* RTCICECandidate.h in Headers */,
 				4A4F0D1D1C22C2DD00CD30A1 /* NBMError.h in Headers */,
 				4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */,
+				4AE8C9E51C4E752900A87D8A /* NBMTreeEndpoint.h in Headers */,
 				4ACB2CBA1BE92A5900E8E017 /* RTCICEServer.h in Headers */,
 				4ACB2CBB1BE92A5900E8E017 /* RTCLogging.h in Headers */,
 				4AE439031BF4ABEE001882E5 /* NBMResponse+Private.h in Headers */,
@@ -513,6 +547,7 @@
 				4A6E88EA1C10637B000A8EE9 /* NBMPeer.h in Headers */,
 				4ACB2CCE1BE92A5A00E8E017 /* RTCVideoSource.h in Headers */,
 				4AE439001BF4ABD1001882E5 /* NBMSessionDescriptionFactory.h in Headers */,
+				4AE8C9CF1C4E506100A87D8A /* NBMTreeClient.h in Headers */,
 				4AE8C9C61C47B71200A87D8A /* NBMEAGLRenderer.h in Headers */,
 				4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */,
 			);
@@ -716,6 +751,7 @@
 			files = (
 				4A46BC3E1BE3E2AC009E0FBE /* NBMWebRTCPeer.m in Sources */,
 				4A4F0CB01C201E3600CD30A1 /* NBMRoomClientError.m in Sources */,
+				4AE8C9E61C4E752900A87D8A /* NBMTreeEndpoint.m in Sources */,
 				4AE4390B1BF4AC14001882E5 /* NBMTransportChannel.m in Sources */,
 				4A6E88E31C105657000A8EE9 /* NBMRoomClient.m in Sources */,
 				4A4F0CA01C15CF8300CD30A1 /* NBMJSONRPCError.m in Sources */,
@@ -723,6 +759,7 @@
 				4A4F0CA61C15D0DC00CD30A1 /* NBMJSONRPCConstants.m in Sources */,
 				4A4F0CB41C2025E900CD30A1 /* NBMJSONRPCClientError.m in Sources */,
 				4A46BC431BE3E2C1009E0FBE /* NBMRequest.m in Sources */,
+				4AE8C9D01C4E506100A87D8A /* NBMTreeClient.m in Sources */,
 				4A4F0D1E1C22C2DD00CD30A1 /* NBMError.m in Sources */,
 				4A4F0D1A1C22C2C300CD30A1 /* NBMJSONRPCUtilities.m in Sources */,
 				4A3BBFFB1C0CA34E00D9887F /* NBMMediaConfiguration.m in Sources */,
@@ -730,6 +767,7 @@
 				4A6E88E71C10629F000A8EE9 /* NBMRoom.m in Sources */,
 				4AE439091BF4AC14001882E5 /* NBMTimeoutable.m in Sources */,
 				4A46BC3C1BE3E2A5009E0FBE /* NBMPeerConnection.m in Sources */,
+				4AE8C9EC1C4FD83300A87D8A /* NBMTreeClientError.m in Sources */,
 				4A6E88EB1C10637B000A8EE9 /* NBMPeer.m in Sources */,
 				4A4F0C9C1C15C7B000CD30A1 /* NBMRoomError.m in Sources */,
 				4A46BC461BE3E2CA009E0FBE /* NBMResponse.m in Sources */,

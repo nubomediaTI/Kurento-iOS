@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMEAGLVideoViewContainer Class Reference</title>
+	<title>NBMTreeClientDelegate Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -52,21 +52,17 @@
 
 	
 	
-	<optgroup label="Properties">
-		
-		<option value="//api/name/videoSize">videoSize</option>
-		
-		<option value="//api/name/videoView">videoView</option>
-		
-	</optgroup>
-	
 
 	
 
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithView:">- initWithView:</option>
+		<option value="//api/name/client:didFailWithError:">- client:didFailWithError:</option>
+		
+		<option value="//api/name/client:iceCandidateReceived:ofSink:tree:">- client:iceCandidateReceived:ofSink:tree:</option>
+		
+		<option value="//api/name/client:isConnected:">- client:isConnected:</option>
 		
 	</optgroup>
 	
@@ -83,16 +79,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMEAGLVideoViewContainer Class Reference</h1>
+					<h1 class="title">NBMTreeClientDelegate Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Inherits from</th>
-	<td>UIView</td>
+	<th>Conforms to</th>
+	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>NBMEAGLVideoViewContainer.h</td>
+	<td>NBMTreeClientDelegate.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -110,9 +106,9 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithView:" title="initWithView:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithView:">&ndash;&nbsp;initWithView:</a></code>
-</h3>
+	<a name="//api/name/client:isConnected:" title="client:isConnected:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:isConnected:">&ndash;&nbsp;client:isConnected:</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -120,15 +116,15 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithView:(RTCEAGLVideoView *)<em>view</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMTreeClient *)<em>client</em> isConnected:(BOOL)<em>connected</em></code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/videoSize" title="videoSize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/videoSize">&nbsp;&nbsp;videoSize</a></code>
-</h3>
+	<a name="//api/name/client:didFailWithError:" title="client:didFailWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didFailWithError:">&ndash;&nbsp;client:didFailWithError:</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -136,15 +132,15 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGSize videoSize</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMTreeClient *)<em>client</em> didFailWithError:(NSError *)<em>error</em></code></div>
 
 		    
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/videoView" title="videoView"></a>
-	<h3 class="method-title"><code><a href="#//api/name/videoView">&nbsp;&nbsp;videoView</a></code>
-</h3>
+	<a name="//api/name/client:iceCandidateReceived:ofSink:tree:" title="client:iceCandidateReceived:ofSink:tree:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:iceCandidateReceived:ofSink:tree:">&ndash;&nbsp;client:iceCandidateReceived:ofSink:tree:</a></code>
+<span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -152,7 +148,7 @@
 		<div class="method-info-container">
 			
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) RTCEAGLVideoView *videoView</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMTreeClient *)<em>client</em> iceCandidateReceived:(RTCICECandidate *)<em>candidate</em> ofSink:(NSString *)<em>sinkId</em> tree:(NSString *)<em>treeId</em></code></div>
 
 		    
 		</div>

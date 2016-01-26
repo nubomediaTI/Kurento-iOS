@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NBMRoomLoginViewCell.h
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,10 +22,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface NBMRoomLoginViewCell : UITableViewCell <UITextFieldDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) IBOutlet UITextField *roomTf;
+@property (strong, nonatomic) IBOutlet UIView *roomTfBorder;
+@property (strong, nonatomic) IBOutlet UILabel *roomErrorLbl;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *roomErrorLblHConstraint;
 
+@property (strong, nonatomic) IBOutlet UITextField *userTf;
+@property (strong, nonatomic) IBOutlet UIView *userTfBorder;
+@property (strong, nonatomic) IBOutlet UILabel *userErrorLbl;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *userErrorLblHConstraint;
+
+@property (strong, nonatomic) IBOutlet UIButton *joinButton;
 
 @end
-

@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NBMRoomMainViewController.m
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,12 +20,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "NBMRoomMainViewController.h"
+#import "NBMRoomLoginViewCell.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@implementation NBMRoomMainViewController
 
-@property (strong, nonatomic) UIWindow *window;
+#pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        NBMRoomLoginViewCell *cell = (NBMRoomLoginViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RoomLoginCell" forIndexPath:indexPath];
+        //[cell setDelegate:self];
+        
+        return cell;
+    }
+    
+    return nil;
+}
 
 @end
-

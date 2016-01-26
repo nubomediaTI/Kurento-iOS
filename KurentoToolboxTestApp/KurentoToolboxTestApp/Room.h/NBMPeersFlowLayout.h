@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NBMPeersFlowLayout.h
 //  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,10 +22,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface NBMPeersFlowLayout : UICollectionViewFlowLayout
 
-@property (strong, nonatomic) UIWindow *window;
-
++ (CGRect)frameForWithNumberOfItems:(NSUInteger)numberOfItems row:(NSUInteger)row contentSize:(CGSize)contentSize;
 
 @end
-

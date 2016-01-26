@@ -206,8 +206,6 @@ static NSTimeInterval kRequestMaxRetries = 3;
 @property (nonatomic) NSMutableOrderedSet *responsesSent;
 @property (nonatomic) NSMutableOrderedSet *responsesReceived;
 
-//@property (nonatomic, getter=isConnected) BOOL connected;
-
 @end
 
 @implementation NBMJSONRPCClient
@@ -234,15 +232,23 @@ static NSTimeInterval kRequestMaxRetries = 3;
         _requestId = 0;
         _requestsSent = [NSMutableOrderedSet orderedSet]; //Requests cache (sent)
         _responsesSent = [NSMutableOrderedSet orderedSet]; //Response cache (sent)
-        _responsesReceived = [NSMutableOrderedSet orderedSet]; //Response cache (received)        
+        _responsesReceived = [NSMutableOrderedSet orderedSet]; //Response cache (received)
         
-        //Setup transport
-        _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
-        //    _transport.timeoutInterval = _requestTimeout;
-        [_transport open];
+        if (_configuration.autoConnect) {
+            [self connect];
+        }
     }
     
     return self;
+}
+
+- (void)connect {
+    //Add message logic setup here?
+    
+    //Setup transport
+    _connected = NO;
+    _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
+    [_transport open];
 }
 
 - (NBMRequest *)sendRequestWithMethod:(NSString *)method completion:(void (^)(NBMResponse *))responseBlock {
@@ -316,7 +322,6 @@ static NSTimeInterval kRequestMaxRetries = 3;
 - (void)setupTransport
 {
     _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
-//    _transport.timeoutInterval = _requestTimeout;
     [_transport open];
 }
 
