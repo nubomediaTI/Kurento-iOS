@@ -1,4 +1,6 @@
 # Kurento Toolbox for iOS
+[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/KurentoToolbox.svg)](https://img.shields.io/cocoapods/v/KurentoToolbox.svg)
+[![Platform](https://img.shields.io/cocoapods/p/KurentoToolbox.svg?style=flat)](http://cocoadocs.org/docsets/KurentoToolbox)
 
 **Kurento Toolbox for iOS** provides a set of basic components that have been found useful during the native development of WebRTC applications with Kurento.
 
