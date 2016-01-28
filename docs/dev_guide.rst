@@ -80,6 +80,31 @@ When a new remote ICE candidate is received it is necessary to process it proper
    //Set remote candidate for connection with specified identifier
    [webRTCPeer addICECandidate:candidate connectionId:@"connectionId"];
 
+JSON-RPC 
+********
+
+Initialization
+--------------
+The ``NBMJSONRPCClient`` is responsible to establish client sessions to JSON-RPC 2.0 servers, it sends JSON-RPC 2.0 requests and receives the corrisponding responses. Sending (and receiving) of JSON-RPC 2.0 notifications is also supported. Messages are transported using WebSocket connection. It must be initialized with a server URL, a delegate (``NBMJSONRPCDelegate``) and, optionally, a configuration object (``NBMJSONRPCClientConfiguration``):
+
+.. code-block:: obj-c
+
+   /* 
+   Default client configuration:
+
+   Request timeout: 5 sec.
+   Timeout request retries: 1
+   Connect after initialization: YES
+   */
+   NBMJSONRPCClientConfiguration *clientConfig = [NBMJSONRPCClientConfiguration defaultConfiguration];
+   //WebSocket URI
+   NSURL *wsURI = [NSURL URLWithString:@"http://localhost:8080/json-rpc"];
+   //If necessary modify client configuration, 'nil' configuration means default values
+   NBMJSONRPCClient *jsonRpcClient = [[NBMJSONRPCClient alloc] initWithURL:wsURI configuration:clientConfig delegate:self];
+
+Using the default configuration (``autoConnect`` property is set to YES) the client connects automatically after initialization, otherwise, before starting to send requests is necessary to call ``[connect]`` and wait the delegate ``[clientDidConnect:]`` message sent when the WebSocket connection was established successfully or key-value observe ``connected`` property.
+If the WebSocket initialization failed or, in any case, when a connection error occurred, the ``[client:didFailWithError:]`` message is sent to the client's delegate.
+
 Kurento Room
 ************
 
@@ -246,7 +271,9 @@ Kurento Tree
 
 Initialization
 --------------
-``NBMTreeClient`` is the main class that communicates with Kurento Room server using WebSocket API, the exchanged messages between server and client are JSON-RPC 2.0 requests and responses.
+``NBMTreeClient`` is the main class that communicates with Kurento Tree server using WebSocket API, the exchanged messages between server and client are JSON-RPC 2.0 requests and responses. 
+
+...
 
 Documentation
 =============

@@ -109,7 +109,8 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
 - (instancetype)initWithURL:(NSURL *)url configuration:(NBMJSONRPCClientConfiguration *)configuration delegate:(id<NBMJSONRPCClientDelegate>)delegate;
 
 /**
- *
+ * Connects client to the server using WebSocket. 
+ * @note Use this method after initialization when <autoConnect> configuration's property is set to NO or when connection goes down and <connected> property switch to NO.
  */
 - (void)connect;
 
