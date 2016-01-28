@@ -1,6 +1,6 @@
 //
 //  NBMRoomClient.h
-//  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -69,12 +69,12 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 @property (nonatomic, assign, readonly) NSTimeInterval timeout;
 
 /**
- *  A boolean that indicates the websocket connection status.
+ *  A Boolean that indicates the WebSocket connection status.
  */
 @property (nonatomic, assign, readonly, getter = isConnected) BOOL connected;
 
 /**
- *  A boolean that indicates if the room was joined by the local peer.
+ *  A Boolean that indicates if the room was joined by the local peer.
  */
 @property (nonatomic, assign, readonly, getter = isJoined) BOOL joined;
 
@@ -100,14 +100,15 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 - (instancetype)initWithRoom:(NBMRoom *)room timeout:(NSTimeInterval)timeout delegate:(id<NBMRoomClientDelegate>)delegate;
 
 /**
- *  Connects client to the Room Server using WebSocket, giving access to its API when the connection is established successfully.
- *  @note See NBMRoomClientDelegate [client:isConnected:] method.
+ *  Connects client to the Room Server using WebSocket, giving access to its API when the connection is
+ *  established successfully.
+ *  @note See [NBMRoomClientDelegate client:isConnected:] method.
  */
 - (void)connect;
 
 /**
  *  Represents a client's request to join a room. If the room does not exists, it is created.
- *  When the request is processed, the [client:didJoinRoom:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didJoinRoom:] message is sent to the client's delegate.
  */
 - (void)joinRoom;
 
@@ -121,7 +122,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Represent a client's notification that it's leaving the room.
- *  When the request is processed, the [client:didLeaveRoom:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didLeaveRoom:] message is sent to the client's delegate.
  */
 - (void)leaveRoom;
 
@@ -135,7 +136,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Represents a client’s request to start streaming her local media to anyone inside the room.
- *  When the request is processed, the [client:didPublishVideo:loopback:error:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didPublishVideo:loopback:error:] message is sent to the client's delegate.
  *
  *  @param sdpOffer   A NSString representing an SDP offer.
  *  @param doLoopback A Boolean enabling media loopback.
@@ -154,7 +155,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Represents a client’s request to stop streaming its local media to the room peers.
- *  When the request is processed, the [client:didUnPublishVideo:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didUnPublishVideo:] message is sent to the client's delegate.
  */
 - (void)unpublishVideo;
 
@@ -169,7 +170,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 /**
  *  Represents a client’s request to receive media from participants in the room that published their media. 
  *  This method can also be used for loopback connections.
- *  When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didReceiveVideoFrom:sdpAnswer:error:] message is sent to the client's delegate.
  *
  *  @param peer     A NBMPeer that is publishing media.
  *  @param sdpOffer A NSString representing an SDP offer.
@@ -188,7 +189,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Represents a client’s request to stop receiving media from a given publisher.
- *  When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client's delegate.
  *
  *  @param peer A NBMPeer that is publishing media.
  */
@@ -205,7 +206,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Request that carries info about an ICE candidate gathered on the client side. This information is required to implement the trickle ICE mechanism.
- *  When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client's delegate.
  *
  *  @param candidate The RTCICECandidate object to send.
  *  @param peer      The NBMPeer whose ICE candidate was found.
@@ -224,7 +225,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Represents a client's request to send written message to all other partecipants in the room.
- *  When the request is processed, the [client:didSentMessage:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didSentMessage:] message is sent to the client's delegate.
  *
  *  @param message The text message.
  */
@@ -241,7 +242,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 
 /**
  *  Provides a custom envelope for requests not directly implemented by the Room server.
- *  When the request is processed, the [client:didSentCustomRequest:] message is sent to the client's delegate.
+ *  When the request is processed, the [NBMRoomClientDelegate client:didSentCustomRequest:] message is sent to the client's delegate.
  *
  *  @param params A NSDictionary of NSString key-value parameters, their specification is left to the actual implementation.
  */

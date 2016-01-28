@@ -9,6 +9,11 @@ PODS:
     - CocoaLumberjack/Default
   - KurentoToolbox (0.2.5):
     - KurentoToolbox/Default (= 0.2.5)
+    - KurentoToolbox/JSON-RPC (= 0.2.5)
+    - KurentoToolbox/Room (= 0.2.5)
+    - KurentoToolbox/Tree (= 0.2.5)
+    - KurentoToolbox/Utils (= 0.2.5)
+    - KurentoToolbox/WebRTC (= 0.2.5)
   - KurentoToolbox/Default (0.2.5):
     - KurentoToolbox/JSON-RPC
     - KurentoToolbox/Room
@@ -48,7 +53,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
-  KurentoToolbox: 6ea64d6d45bb8376324f67e3ceff1658382a39e9
+  KurentoToolbox: af4c4542e8bc6e2f95a048b7413580bca6acdd98
   libjingle_peerconnection: a34c6d0fb1effe3aad3bc3d0fcab0a3db23de496
   SBJson: c18691cc18375b14664ff0fec841f8c4faef1934
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad

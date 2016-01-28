@@ -3,7 +3,7 @@
 //  Kurento-iOS
 //
 //  Created by Marco Rossi on 30/10/15.
-//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 #include "Kurento-Library.xcconfig"
 #include "../Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"

@@ -155,7 +155,7 @@
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>It&rsquo;s actually only a wrapper over the JSON-RPC protocol used to communicate with Room Server.
-The developer of <a href="#//api/name/room">room</a> applications can use this API when implementing an iOS client.</p>
+The developer of room applications can use this API when implementing an iOS client.</p>
 					</div>
 					
 					
@@ -223,7 +223,7 @@ The developer of <a href="#//api/name/room">room</a> applications can use this A
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A list of <a href="#//api/name/connected">connected</a> <a href="../Classes/NBMPeer.html">NBMPeer</a> objects.</p>
+				<p>A list of connected NBMPeer objects.</p>
 			</div>
 			
 		    
@@ -264,7 +264,7 @@ The developer of <a href="#//api/name/room">room</a> applications can use this A
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The <a href="../Classes/NBMRoom.html">NBMRoom</a> instance representing the <a href="#//api/name/joined">joined</a> room.</p>
+				<p>The NBMRoom instance representing the joined room.</p>
 			</div>
 			
 		    
@@ -347,7 +347,7 @@ Default value is 5.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A boolean that indicates the websocket connection status.</p>
+				<p>A Boolean that indicates the WebSocket connection status.</p>
 			</div>
 			
 		    
@@ -388,7 +388,7 @@ Default value is 5.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A boolean that indicates if the <a href="#//api/name/room">room</a> was joined by the local peer.</p>
+				<p>A Boolean that indicates if the room was joined by the local peer.</p>
 			</div>
 			
 		    
@@ -429,7 +429,7 @@ Default value is 5.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates and initializes a NBMRoomClient with default API <a href="#//api/name/timeout">timeout</a> interval.</p>
+				<p>Creates and initializes a NBMRoomClient with default API timeout interval.</p>
 			</div>
 			
 		    
@@ -444,12 +444,12 @@ Default value is 5.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>room</code></th>
-						<td><p>The <a href="#//api/name/room">room</a> to join with.</p></td>
+						<td><p>The room to join with.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>delegate</code></th>
-						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the client</p></td>
+						<td><p>The delegate object for the client</p></td>
 					</tr>
 				
 				</table>
@@ -492,7 +492,7 @@ Default value is 5.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates and initializes a NBMRoomClient with a custom API <a href="#//api/name/timeout">timeout</a> interval.</p>
+				<p>Creates and initializes a NBMRoomClient with a custom API timeout interval.</p>
 			</div>
 			
 		    
@@ -507,17 +507,17 @@ Default value is 5.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>room</code></th>
-						<td><p>The <a href="#//api/name/room">room</a> to join with.</p></td>
+						<td><p>The room to join with.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>timeout</code></th>
-						<td><p>The <a href="#//api/name/timeout">timeout</a> interval for API requests, in seconds.</p></td>
+						<td><p>The timeout interval for API requests, in seconds.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>delegate</code></th>
-						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the client.</p></td>
+						<td><p>The delegate object for the client.</p></td>
 					</tr>
 				
 				</table>
@@ -560,7 +560,8 @@ Default value is 5.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Connects client to the Room Server using WebSocket, giving access to its API when the connection is established successfully.</p>
+				<p>Connects client to the Room Server using WebSocket, giving access to its API when the connection is
+established successfully.</p>
 			</div>
 			
 		    
@@ -577,7 +578,7 @@ Default value is 5.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> See <a href="../Protocols/NBMRoomClientDelegate.html">NBMRoomClientDelegate</a> [client:isConnected:] method.</p></div>
+				<div class="note"><p><strong>Note:</strong> See [NBMRoomClientDelegate client:isConnected:] method.</p></div>
 			</div>
 			
 
@@ -606,8 +607,8 @@ Default value is 5.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client&rsquo;s request to join a <a href="#//api/name/room">room</a>. If the <a href="#//api/name/room">room</a> does not exists, it is created.
-When the request is processed, the [client:didJoinRoom:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+				<p>Represents a client&rsquo;s request to join a room. If the room does not exists, it is created.
+When the request is processed, the [NBMRoomClientDelegate client:didJoinRoom:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -648,7 +649,7 @@ When the request is processed, the [client:didJoinRoom:] message is sent to the 
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client&rsquo;s request to join a <a href="#//api/name/room">room</a>. If the <a href="#//api/name/room">room</a> does not exists, it is created.</p>
+				<p>Represents a client&rsquo;s request to join a room. If the room does not exists, it is created.</p>
 			</div>
 			
 		    
@@ -677,7 +678,7 @@ When the request is processed, the [client:didJoinRoom:] message is sent to the 
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -706,8 +707,8 @@ When the request is processed, the [client:didJoinRoom:] message is sent to the 
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represent a client&rsquo;s notification that it&rsquo;s leaving the <a href="#//api/name/room">room</a>.
-When the request is processed, the [client:didLeaveRoom:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+				<p>Represent a client&rsquo;s notification that it&rsquo;s leaving the room.
+When the request is processed, the [NBMRoomClientDelegate client:didLeaveRoom:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -748,7 +749,7 @@ When the request is processed, the [client:didLeaveRoom:] message is sent to the
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represent a client&rsquo;s notification that it&rsquo;s leaving the <a href="#//api/name/room">room</a>.</p>
+				<p>Represent a client&rsquo;s notification that it&rsquo;s leaving the room.</p>
 			</div>
 			
 		    
@@ -777,7 +778,7 @@ When the request is processed, the [client:didLeaveRoom:] message is sent to the
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -806,8 +807,8 @@ When the request is processed, the [client:didLeaveRoom:] message is sent to the
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client’s request to start streaming her local media to anyone inside the <a href="#//api/name/room">room</a>.
-When the request is processed, the [client:didPublishVideo:loopback:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+				<p>Represents a client’s request to start streaming her local media to anyone inside the room.
+When the request is processed, the [NBMRoomClientDelegate client:didPublishVideo:loopback:error:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -865,7 +866,7 @@ When the request is processed, the [client:didPublishVideo:loopback:error:] mess
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client’s request to start streaming her local media to anyone inside the <a href="#//api/name/room">room</a>.</p>
+				<p>Represents a client’s request to start streaming her local media to anyone inside the room.</p>
 			</div>
 			
 		    
@@ -904,7 +905,7 @@ When the request is processed, the [client:didPublishVideo:loopback:error:] mess
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -933,8 +934,8 @@ When the request is processed, the [client:didPublishVideo:loopback:error:] mess
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client’s request to stop streaming its local media to the <a href="#//api/name/room">room</a> <a href="#//api/name/peers">peers</a>.
-When the request is processed, the [client:didUnPublishVideo:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+				<p>Represents a client’s request to stop streaming its local media to the room peers.
+When the request is processed, the [NBMRoomClientDelegate client:didUnPublishVideo:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -975,7 +976,7 @@ When the request is processed, the [client:didUnPublishVideo:] message is sent t
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client’s request to stop streaming its local media to the <a href="#//api/name/room">room</a> <a href="#//api/name/peers">peers</a>.</p>
+				<p>Represents a client’s request to stop streaming its local media to the room peers.</p>
 			</div>
 			
 		    
@@ -1004,7 +1005,7 @@ When the request is processed, the [client:didUnPublishVideo:] message is sent t
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -1033,9 +1034,9 @@ When the request is processed, the [client:didUnPublishVideo:] message is sent t
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client’s request to receive media from participants in the <a href="#//api/name/room">room</a> that published their media.
+				<p>Represents a client’s request to receive media from participants in the room that published their media.
 This method can also be used for loopback connections.
-When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+When the request is processed, the [NBMRoomClientDelegate client:didReceiveVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -1050,7 +1051,7 @@ When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:]
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>peer</code></th>
-						<td><p>A <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+						<td><p>A NBMPeer that is publishing media.</p></td>
 					</tr>
 				
 					<tr>
@@ -1093,7 +1094,7 @@ When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:]
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client’s request to receive media from participants in the <a href="#//api/name/room">room</a> that published their media.</p>
+				<p>Represents a client’s request to receive media from participants in the room that published their media.</p>
 			</div>
 			
 		    
@@ -1108,7 +1109,7 @@ When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:]
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>peer</code></th>
-						<td><p>A <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+						<td><p>A NBMPeer that is publishing media.</p></td>
 					</tr>
 				
 					<tr>
@@ -1132,7 +1133,7 @@ When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:]
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -1162,7 +1163,7 @@ When the request is processed, the [client:didReceiveVideoFrom:sdpAnswer:error:]
 			
 			<div class="method-subsection brief-description">
 				<p>Represents a client’s request to stop receiving media from a given publisher.
-When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+When the request is processed, the [NBMRoomClientDelegate client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -1177,7 +1178,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>peer</code></th>
-						<td><p>A <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+						<td><p>A NBMPeer that is publishing media.</p></td>
 					</tr>
 				
 				</table>
@@ -1230,7 +1231,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>peer</code></th>
-						<td><p>The <a href="../Classes/NBMPeer.html">NBMPeer</a> that is publishing media.</p></td>
+						<td><p>The NBMPeer that is publishing media.</p></td>
 					</tr>
 				
 					<tr>
@@ -1249,7 +1250,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -1279,7 +1280,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 			
 			<div class="method-subsection brief-description">
 				<p>Request that carries info about an ICE candidate gathered on the client side. This information is required to implement the trickle ICE mechanism.
-When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+When the request is processed, the [NBMRoomClientDelegate client:didUnsubscribeVideoFrom:sdpAnswer:error:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -1299,7 +1300,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>peer</code></th>
-						<td><p>The <a href="../Classes/NBMPeer.html">NBMPeer</a> whose ICE candidate was found.</p></td>
+						<td><p>The NBMPeer whose ICE candidate was found.</p></td>
 					</tr>
 				
 				</table>
@@ -1357,7 +1358,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>peer</code></th>
-						<td><p>The <a href="../Classes/NBMPeer.html">NBMPeer</a> whose ICE candidate was found.</p></td>
+						<td><p>The NBMPeer whose ICE candidate was found.</p></td>
 					</tr>
 				
 					<tr>
@@ -1376,7 +1377,7 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -1405,8 +1406,8 @@ When the request is processed, the [client:didUnsubscribeVideoFrom:sdpAnswer:err
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client&rsquo;s request to send written message to all other partecipants in the <a href="#//api/name/room">room</a>.
-When the request is processed, the [client:didSentMessage:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+				<p>Represents a client&rsquo;s request to send written message to all other partecipants in the room.
+When the request is processed, the [NBMRoomClientDelegate client:didSentMessage:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -1459,7 +1460,7 @@ When the request is processed, the [client:didSentMessage:] message is sent to t
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a client&rsquo;s request to send written message to all other partecipants in the <a href="#//api/name/room">room</a>.</p>
+				<p>Represents a client&rsquo;s request to send written message to all other partecipants in the room.</p>
 			</div>
 			
 		    
@@ -1493,7 +1494,7 @@ When the request is processed, the [client:didSentMessage:] message is sent to t
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -1523,7 +1524,7 @@ When the request is processed, the [client:didSentMessage:] message is sent to t
 			
 			<div class="method-subsection brief-description">
 				<p>Provides a custom envelope for requests not directly implemented by the Room server.
-When the request is processed, the [client:didSentCustomRequest:] message is sent to the client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p>
+When the request is processed, the [NBMRoomClientDelegate client:didSentCustomRequest:] message is sent to the client&rsquo;s delegate.</p>
 			</div>
 			
 		    
@@ -1610,7 +1611,7 @@ When the request is processed, the [client:didSentCustomRequest:] message is sen
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s <a href="#//api/name/delegate">delegate</a>.</p></div>
+				<div class="note"><p><strong>Note:</strong> No message is sent to client&rsquo;s delegate.</p></div>
 			</div>
 			
 
@@ -1639,7 +1640,7 @@ When the request is processed, the [client:didSentCustomRequest:] message is sen
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a remote <a href="../Classes/NBMPeer.html">NBMPeer</a> with specified identifier, if exists.</p>
+				<p>Returns a remote NBMPeer with specified identifier, if exists.</p>
 			</div>
 			
 		    
@@ -1664,7 +1665,7 @@ When the request is processed, the [client:didSentCustomRequest:] message is sen
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>a <a href="../Classes/NBMPeer.html">NBMPeer</a> object with specified identifier.</p>
+				<p>a NBMPeer object with specified identifier.</p>
 			</div>
 			
 
@@ -1700,7 +1701,7 @@ When the request is processed, the [client:didSentCustomRequest:] message is sen
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-26</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-01-28</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

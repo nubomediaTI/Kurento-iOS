@@ -1,5 +1,5 @@
 //
-//  NBMResponse+Private.h
+//  WebRTC.h
 //  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,14 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMResponse.h"
-
-@interface NBMResponse ()
-
-@property (nonatomic, readwrite) NSNumber *responseId;
-@property (nonatomic, readwrite) id result;
-@property (nonatomic, readwrite) NBMResponseError *error;
-
-+ (instancetype)responseWithJSONDictionary:(NSDictionary *)json;
-
-@end
+#import "NBMWebRTCPeer.h"
+#import "NBMMediaConfiguration.h"
+#import "NBMPeerConnection.h"
+#import "NBMTypes.h"
+//Renderes
+#import "NBMRenderer.h"
+#import "NBMEAGLRenderer.h"
+#import "NBMEAGLVideoViewContainer.h"

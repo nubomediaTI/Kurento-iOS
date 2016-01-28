@@ -3,7 +3,7 @@
 //  Kurento-iOS
 //
 //  Created by Marco Rossi on 12/10/15.
-//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 
 #import "NBMPeerConnection.h"

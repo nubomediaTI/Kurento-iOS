@@ -1,6 +1,6 @@
 //
-//  NBMError.h
-//  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
+//  Tree.h
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,22 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-
-@interface NBMError : NSObject
-
-+ (NSString *)errorDomain;
-
-+ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message;
-
-+ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message underlyingError:(NSError *)underlyingError;
-
-+ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message userInfo:(NSDictionary *)userInfo underlyingError:(NSError *)underlyingError;
-
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-// Disallow init and don't add to documentation
-- (id)init __attribute__(
-                         (unavailable("init is not a supported initializer for this class.")));
-#endif /* DOXYGEN_SHOULD_SKIP_THIS */
-
-@end
+#import "NBMTreeEndpoint.h"
+#import "NBMTreeClient.h"
+#import "NBMTreeClientDelegate.h"

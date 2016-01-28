@@ -28,10 +28,20 @@
 @protocol NBMTreeClientDelegate <NSObject>
 
 //Connection
+
 - (void)client:(NBMTreeClient *)client isConnected:(BOOL)connected;
 - (void)client:(NBMTreeClient *)client didFailWithError:(NSError *)error;
 
-//Event
+//Events
+
+/**
+ *  Event sent when a new ICE candidate is received from Kurento Media Server.
+ *
+ *  @param client    The current NBMTreeClient object.
+ *  @param candidate The RTCICECandidate object received.
+ *  @param sinkId    Sink id to which belongs the candidate, 'nil' when the candidate is referred to the tree source.
+ *  @param treeId    Tree id to which belongs this candidate.
+ */
 - (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCICECandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId;
 
 @end

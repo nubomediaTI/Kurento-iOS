@@ -3,7 +3,7 @@
 //  KurentoClient-iOS
 //
 //  Created by Marco Rossi on 09/10/15.
-//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 #import <UIKit/UIKit.h>
 #import "NBMLog.h"

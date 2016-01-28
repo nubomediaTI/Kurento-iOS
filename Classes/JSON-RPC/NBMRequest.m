@@ -3,7 +3,7 @@
 //  KurentoClient-iOS
 //
 //  Created by Marco Rossi on 22/09/15.
-//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 
 #import "NBMRequest+Private.h"

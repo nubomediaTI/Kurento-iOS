@@ -1,5 +1,5 @@
 //
-//  NBMResponse+Private.h
+//  Room.h
 //  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,14 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMResponse.h"
+#import "NBMRoom.h"
+#import "NBMPeer.h"
+#import "NBMRoomClient.h"
+#import "NBMRoomClientDelegate.h"
 
-@interface NBMResponse ()
-
-@property (nonatomic, readwrite) NSNumber *responseId;
-@property (nonatomic, readwrite) id result;
-@property (nonatomic, readwrite) NBMResponseError *error;
-
-+ (instancetype)responseWithJSONDictionary:(NSDictionary *)json;
-
-@end

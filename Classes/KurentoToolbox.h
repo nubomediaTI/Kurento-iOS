@@ -1,6 +1,6 @@
 //
 //  KurentoToolbox.h
-//  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,31 +24,14 @@
 #import <Foundation/Foundation.h>
 
 //Tree
-#import "NBMTreeEndpoint.h"
-#import "NBMTreeClient.h"
-#import "NBMTreeClientDelegate.h"
+#import "Tree.h"
 
 //Room
-#import "NBMRoom.h"
-#import "NBMPeer.h"
-#import "NBMRoomClient.h"
-#import "NBMRoomClientDelegate.h"
+#import "Room.h"
 
 //WebRTC
-#import "NBMWebRTCPeer.h"
-#import "NBMMediaConfiguration.h"
-#import "NBMPeerConnection.h"
-#import "NBMTypes.h"
-#import "NBMRenderer.h"
-#import "NBMEAGLRenderer.h"
-#import "NBMEAGLVideoViewContainer.h"
-
+#import "WebRTC.h"
 
 //JSON-RPC
-#import "NBMJSONRPCClient.h"
-#import "NBMJSONRPCClientDelegate.h"
+#import "JSON-RPC.h"
 
-//JSON-RPC Messages
-#import "NBMMessage.h"
-#import "NBMRequest.h"
-#import "NBMResponse.h"

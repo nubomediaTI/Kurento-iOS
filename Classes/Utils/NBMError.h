@@ -1,5 +1,5 @@
 //
-//  NBMResponse+Private.h
+//  NBMError.h
 //  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,14 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "NBMResponse.h"
+#import <Foundation/Foundation.h>
 
-@interface NBMResponse ()
+@interface NBMError : NSObject
 
-@property (nonatomic, readwrite) NSNumber *responseId;
-@property (nonatomic, readwrite) id result;
-@property (nonatomic, readwrite) NBMResponseError *error;
++ (NSString *)errorDomain;
 
-+ (instancetype)responseWithJSONDictionary:(NSDictionary *)json;
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message;
+
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message underlyingError:(NSError *)underlyingError;
+
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message userInfo:(NSDictionary *)userInfo underlyingError:(NSError *)underlyingError;
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+// Disallow init and don't add to documentation
+- (id)init __attribute__(
+                         (unavailable("init is not a supported initializer for this class.")));
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */
 
 @end

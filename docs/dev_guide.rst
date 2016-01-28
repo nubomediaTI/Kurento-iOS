@@ -151,7 +151,7 @@ Call ``[joinRoom]`` or ``[joinRoom:]`` method to join the room, once joined you 
 	
    - (void)client:(NBMRoomClient *)client didJoinRoom:(NSError *)error {
        if (!error) {
-           NSLog(@"Partecipants %@", [client.peers allKeys]);	
+           NSLog(@"Partecipants %@", client.peers);	
        } else {
            NSLog(@"Join room error: %@", error);
        }
@@ -241,10 +241,12 @@ Call ``[sendICECandidate:forPeer]`` or ``[sendICECandidate:forPeer:completion]``
        }]
    }
 
-Tree API's
-**********
+Kurento Tree
+************
 
-...
+Initialization
+--------------
+``NBMTreeClient`` is the main class that communicates with Kurento Room server using WebSocket API, the exchanged messages between server and client are JSON-RPC 2.0 requests and responses.
 
 Documentation
 =============

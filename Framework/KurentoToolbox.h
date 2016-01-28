@@ -1,6 +1,6 @@
 //
 //  KurentoToolbox.h
-//  Copyright (c) 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,31 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+//Tree
+#import <KurentoToolbox/Tree.h>
+
 //Room
-#import <KurentoToolbox/NBMRoom.h>
-#import <KurentoToolbox/NBMPeer.h>
-#import <KurentoToolbox/NBMRoomClient.h>
-#import <KurentoToolbox/NBMRoomClientDelegate.h>
+#import <KurentoToolbox/Room.h>
 
 //Web RTC
-#import <KurentoToolbox/NBMWebRTCPeer.h>
-#import <KurentoToolbox/NBMPeerConnection.h>
+#import <KurentoToolbox/WebRTC.h>
 
 //JSON-RPC
-#import <KurentoToolbox/NBMJSONRPCClient.h>
-#import <KurentoToolbox/NBMJSONRPCClientDelegate.h>
-
-//JSON-RPC Messages
-#import <KurentoToolbox/NBMMessage.h>
-#import <KurentoToolbox/NBMRequest.h>
-#import <KurentoToolbox/NBMResponse.h>
-
-//Errors
-#import <KurentoToolbox/NBMError.h>
-#import <KurentoToolbox/NBMJSONRPCError.h>
-#import <KurentoToolbox/NBMJSONRPCClientError.h>
-#import <KurentoToolbox/NBMRoomError.h>
-#import <KurentoToolbox/NBMRoomClientError.h>
+#import <KurentoToolbox/JSON-RPC.h"
 
 //libjingle Headers
 #import <KurentoToolbox/RTCAudioSource.h>

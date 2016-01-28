@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KurentoToolbox"
-  s.version      = "0.2.5"
+  s.version      = "0.2.6"
   s.summary      = "Kurento Toolbox for iOS"
   s.description  = <<-DESC
                    Kurento Toolbox for iOS provides a set of basic components that have been found useful during the native development of the WebRTC applications with Kurento.
@@ -15,24 +15,25 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
 
-  s.default_subspecs = 'Default'
+  #s.default_subspecs = 'Default'
 
   s.subspec 'Default' do |ss|
-    ss.source_files = 'Classes/*.{h,m}'
-    ss.dependency 'KurentoToolbox/Connection'
+    ss.source_files = 'Classes/KurentoToolbox.h'
+    ss.dependency 'KurentoToolbox/WebRTC'
     ss.dependency 'KurentoToolbox/JSON-RPC'
     ss.dependency 'KurentoToolbox/Room'
+    ss.dependency 'KurentoToolbox/Tree'
   end
 
-  s.subspec 'Connection' do |ss|
-    ss.source_files = 'Classes/Connection/**/*.{h,m}', 'Classes/Internals/*.{h,m}'
-    ss.public_header_files = 'Classes/Connection/*.h'
+  s.subspec 'WebRTC' do |ss|
+    ss.source_files = 'Classes/WebRTC/**/*.{h,m}'
+    ss.public_header_files = 'Classes/WebRTC/*.h'
     ss.dependency 'libjingle_peerconnection', '~> 10763.2.0'
     ss.dependency 'KurentoToolbox/Utils'
   end
 
   s.subspec 'JSON-RPC' do |ss|
-    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}', 'Classes/Internals/*.{h,m}'
+    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}'
     ss.public_header_files = 'Classes/JSON-RPC/*.h'
     ss.dependency 'SocketRocket', '~> 0.4.1'
     ss.dependency 'SBJson', '~> 4.0.2'
@@ -40,10 +41,18 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Room' do |ss|
-      ss.source_files = 'Classes/Room/**/*.{h,m}', 'Classes/Internals/*.{h,m}'
+      ss.source_files = 'Classes/Room/**/*.{h,m}'
       ss.public_header_files = 'Classes/Room/*.h'
       ss.dependency 'KurentoToolbox/JSON-RPC'
-      ss.dependency 'KurentoToolbox/Connection'
+      ss.dependency 'KurentoToolbox/WebRTC'
+      ss.dependency 'KurentoToolbox/Utils'
+  end
+
+  s.subspec 'Tree' do |ss|
+      ss.source_files = 'Classes/Tree/**/*.{h,m}'
+      ss.public_header_files = 'Classes/Tree/*.h'
+      ss.dependency 'KurentoToolbox/JSON-RPC'
+      ss.dependency 'KurentoToolbox/WebRTC'
       ss.dependency 'KurentoToolbox/Utils'
   end
 
