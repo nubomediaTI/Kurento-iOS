@@ -85,7 +85,7 @@ JSON-RPC
 
 Initialization
 --------------
-The ``NBMJSONRPCClient`` is responsible to establish client sessions to JSON-RPC 2.0 servers, it sends JSON-RPC 2.0 requests and receives the corrisponding responses. Sending (and receiving) of JSON-RPC 2.0 notifications is also supported. Messages are transported using WebSocket connection. It must be initialized with a server URL, a delegate (``NBMJSONRPCDelegate``) and, optionally, a configuration object (``NBMJSONRPCClientConfiguration``):
+The ``NBMJSONRPCClient`` is responsible to establish client sessions to JSON-RPC 2.0 servers, it sends JSON-RPC 2.0 requests and receives the corresponding responses. Sending (and receiving) of JSON-RPC 2.0 notifications is also supported. Messages are transported using WebSocket connection. It must be initialized with a server URL, a delegate (``NBMJSONRPCDelegate``) and, optionally, a configuration object (``NBMJSONRPCClientConfiguration``):
 
 .. code-block:: obj-c
 
@@ -104,6 +104,63 @@ The ``NBMJSONRPCClient`` is responsible to establish client sessions to JSON-RPC
 
 Using the default configuration (``autoConnect`` property is set to YES) the client connects automatically after initialization, otherwise, before starting to send requests is necessary to call ``[connect]`` and wait the delegate ``[clientDidConnect:]`` message sent when the WebSocket connection was established successfully or key-value observe ``connected`` property.
 If the WebSocket initialization failed or, in any case, when a connection error occurred, the ``[client:didFailWithError:]`` message is sent to the client's delegate.
+
+Send Request message
+--------------------
+Call ``[sendRequestWithMethod:parameters:completion]`` to send a JSON-RPC 2.0 request and obtain the corresponding response:
+
+.. code-block:: obj-c
+
+   //Use NSArray for positional params
+   NSArray *positionalParams = @[@"param1", @"param2", @(1234), @YES];
+   //Use NSDictionary for named params
+   NSDictionary *namedParams = @{@"param1": @"value1", @"param2": @"value2", @"number": @(1234), @"boolean": @YES};
+   
+   NSString *method = @"methodName";
+   
+   [jsonRpcClient sendRequestWithMethod:method parameters:namedParams completion:^(NBMResponse *response) {
+       //If no response is returned, request is gone on timeout
+       if (!response) {
+           NSLog(@"Request with method %@ is gone on timeout!", method);
+       }
+       
+       //Evaluate the response
+
+       //If has a response error
+       NBMResponseError *responseError = response.error;
+       if (responseError) {
+           NSLog(@"Response error: %@", responseError);
+       } else {
+           //Response has a result
+           NSLog(@"Response result: %@", response.result);
+       }
+   }];
+
+Send Notification message
+-------------------------
+Call ``[sendNotificationWithMethod:parameters:nil]`` to send a JSON-RPC 2.0 notification (no response is returned):
+
+.. code-block:: obj-c
+
+   NSString *method = @"methodName";
+
+   //Send a notification with no parameters
+   [jsonRpcClient sendNotificationWithMethod:method parameters:nil];
+
+Receive Requests/Notification
+-----------------------------
+When a request or, usually, a notification is received by the client, the ``[client:didReceiveRequest:]`` method is called on delegate:
+
+.. code-block:: obj-c
+
+   #pragma mark -
+   #pragma mark NBMJSONRPCClientDelegate
+
+   - (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request {
+       // Handle request/notification
+       NSLog(@"Request received: %@", request);
+   }
+
 
 Kurento Room
 ************

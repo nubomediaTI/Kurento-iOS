@@ -7,33 +7,33 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
-  - KurentoToolbox (0.2.5):
-    - KurentoToolbox/Default (= 0.2.5)
-    - KurentoToolbox/JSON-RPC (= 0.2.5)
-    - KurentoToolbox/Room (= 0.2.5)
-    - KurentoToolbox/Tree (= 0.2.5)
-    - KurentoToolbox/Utils (= 0.2.5)
-    - KurentoToolbox/WebRTC (= 0.2.5)
-  - KurentoToolbox/Default (0.2.5):
+  - KurentoToolbox (0.2.6):
+    - KurentoToolbox/Default (= 0.2.6)
+    - KurentoToolbox/JSON-RPC (= 0.2.6)
+    - KurentoToolbox/Room (= 0.2.6)
+    - KurentoToolbox/Tree (= 0.2.6)
+    - KurentoToolbox/Utils (= 0.2.6)
+    - KurentoToolbox/WebRTC (= 0.2.6)
+  - KurentoToolbox/Default (0.2.6):
     - KurentoToolbox/JSON-RPC
     - KurentoToolbox/Room
     - KurentoToolbox/Tree
     - KurentoToolbox/WebRTC
-  - KurentoToolbox/JSON-RPC (0.2.5):
+  - KurentoToolbox/JSON-RPC (0.2.6):
     - KurentoToolbox/Utils
     - SBJson (~> 4.0.2)
     - SocketRocket (~> 0.4.1)
-  - KurentoToolbox/Room (0.2.5):
+  - KurentoToolbox/Room (0.2.6):
     - KurentoToolbox/JSON-RPC
     - KurentoToolbox/Utils
     - KurentoToolbox/WebRTC
-  - KurentoToolbox/Tree (0.2.5):
+  - KurentoToolbox/Tree (0.2.6):
     - KurentoToolbox/JSON-RPC
     - KurentoToolbox/Utils
     - KurentoToolbox/WebRTC
-  - KurentoToolbox/Utils (0.2.5):
+  - KurentoToolbox/Utils (0.2.6):
     - CocoaLumberjack (~> 2.2.0)
-  - KurentoToolbox/WebRTC (0.2.5):
+  - KurentoToolbox/WebRTC (0.2.6):
     - KurentoToolbox/Utils
     - libjingle_peerconnection (~> 10763.2.0)
   - libjingle_peerconnection (10763.2.0)
@@ -53,7 +53,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
-  KurentoToolbox: af4c4542e8bc6e2f95a048b7413580bca6acdd98
+  KurentoToolbox: e82349643258ce660ba6d109811670a3faef7d61
   libjingle_peerconnection: a34c6d0fb1effe3aad3bc3d0fcab0a3db23de496
   SBJson: c18691cc18375b14664ff0fec841f8c4faef1934
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad

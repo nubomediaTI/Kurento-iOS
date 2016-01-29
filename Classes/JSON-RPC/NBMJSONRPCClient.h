@@ -156,7 +156,7 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
  *  @note Notification is a `NBMRequest` object that produces no server response.
  *
  *  @param method     The notification method. Must not be `nil`.
- *  @param parameters The parameters to encode into the notification. Must be either an `NSDictionary` or `NSArray`.
+ *  @param parameters The parameters to encode into the notification. Must be either an `NSDictionary` or `NSArray`, may be 'nil'.
  *
  *  @return The `NBMRequest` object that was sent.
  */
