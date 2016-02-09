@@ -13,7 +13,7 @@
 
 #import "SRWebSocket.h"
 
-static NSTimeInterval kChannelTimeoutInterval = 10.0;
+static NSTimeInterval kChannelTimeoutInterval = 20.0;
 static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 @interface NBMTransportChannel()<SRWebSocketDelegate>
@@ -47,13 +47,18 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 {
     self = [super init];
     if (self) {
-        _processingQueue = dispatch_get_main_queue();
+//        _processingQueue = dispatch_get_main_queue();
+        _processingQueue = dispatch_queue_create("eu.nubomedia.websocket.processing", DISPATCH_QUEUE_SERIAL);
         _channelState = NBMTransportChannelStateClosed;
     }
     return self;
 }
 
 - (void)dealloc {
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    
+    //nil delegate to prevent close event be notified
+    _delegate = nil;
     [self cleanupChannel];
 }
 
@@ -150,8 +155,8 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)invalidateTimer
 {
-    [self.keepAliveTimer invalidate];
-    self.keepAliveTimer = nil;
+    [_keepAliveTimer invalidate];
+    _keepAliveTimer = nil;
 }
 
 - (void)handleTimer:(NSTimer *)timer
@@ -169,8 +174,8 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)cleanupChannel
 {
-    self.socket.delegate = nil;
-    self.socket = nil;
+    _socket.delegate = nil;
+    _socket = nil;
     self.channelState = NBMTransportChannelStateClosed;
     
     [self invalidateTimer];
@@ -206,35 +211,43 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
-    self.channelState = NBMTransportChannelStateOpen;
-    //Keep-alive
-    [self scheduleTimer];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.channelState = NBMTransportChannelStateOpen;
+        //Keep-alive
+        [self scheduleTimer];
+    });
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)messageData
 {
-    NSDictionary *messageDictionary;
-    if ([messageData isKindOfClass:[NSData class]]) {
-        messageDictionary = [NSDictionary nbm_dictionaryWithJSONData:messageData];
-    } else if ([messageData isKindOfClass:[NSString class]]) {
-        messageDictionary = [NSDictionary nbm_dictionaryWithJSONString:messageData];
-    } else {
-        DDLogWarn(@"Unknown message format: %@", messageData);
-    }
-    
-    DDLogVerbose(@"WebSocket: did receive message: %@", messageDictionary);
-    [self.delegate channel:self didReceiveMessage:messageDictionary];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDictionary *messageDictionary;
+        if ([messageData isKindOfClass:[NSData class]]) {
+            messageDictionary = [NSDictionary nbm_dictionaryWithJSONData:messageData];
+        } else if ([messageData isKindOfClass:[NSString class]]) {
+            messageDictionary = [NSDictionary nbm_dictionaryWithJSONString:messageData];
+        } else {
+            DDLogWarn(@"Unknown message format: %@", messageData);
+        }
+        
+        DDLogVerbose(@"WebSocket: did receive message: %@", messageDictionary);
+        [self.delegate channel:self didReceiveMessage:messageDictionary];
+    });
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
-    [self.delegate channel:self didEncounterError:error];
-    [self cleanupChannel];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.delegate channel:self didEncounterError:error];
+        [self cleanupChannel];
+    });
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
-    [self cleanupChannel];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self cleanupChannel];
+    });
 }
 
 @end

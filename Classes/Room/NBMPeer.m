@@ -65,7 +65,7 @@
 #pragma mark - NSObject
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"[%@: %@]", NSStringFromClass([self class]), self.identifier];
+    return [NSString stringWithFormat:@"[%@: id [%@] streams [%@]]", NSStringFromClass([self class]), self.identifier, self.streams];
 }
 
 - (NSString *)debugDescription {

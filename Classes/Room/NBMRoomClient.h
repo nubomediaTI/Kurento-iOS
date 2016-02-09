@@ -41,6 +41,17 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
     NBMRoomClientTimeoutErrorCode
 };
 
+typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
+    // State when connecting.
+    NBMRoomClientConnectionStateOpening,
+    // State when connection is established and ready for use.
+    NBMRoomClientConnectionStateOpen,
+    // State when disconnecting.
+    NBMRoomClientConnectionStateClosing,
+    // State when disconnected.
+    NBMRoomClientConnectionStateClosed
+};
+
 /**
  *  It's actually only a wrapper over the JSON-RPC protocol used to communicate with Room Server.
  *  The developer of room applications can use this API when implementing an iOS client.
@@ -55,7 +66,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
 /**
  *  A list of connected NBMPeer objects.
  */
-@property (nonatomic, readonly) NSSet *peers;
+@property (nonatomic, readonly) NSArray *peers;
 
 /**
  *  The NBMRoom instance representing the joined room.
@@ -67,6 +78,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientErrorCode) {
  *  Default value is 5.
  */
 @property (nonatomic, assign, readonly) NSTimeInterval timeout;
+
+@property (nonatomic, assign, readonly) NBMRoomClientConnectionState connectionState;
 
 /**
  *  A Boolean that indicates the WebSocket connection status.

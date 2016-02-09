@@ -125,6 +125,7 @@ typedef void(^NBMResponseBlock)(NBMResponse *response);
     self = [super init];
     if (self) {
         _ack = ack;
+        //maybe weak if timeout delegate is assigned while it's being deallocated?
         _timeoutDelegate= timeoutDelegate;
     }
     return self;
@@ -307,13 +308,20 @@ static NSTimeInterval kRequestMaxRetries = 3;
     }
 }
 
+- (NBMJSONRPCConnectionState)connectionState {
+    return (NBMJSONRPCConnectionState)self.transport.channelState;
+}
+
 - (void)dealloc
 {
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    
     //secure transport closing, is needed?
-    self.transport = nil;
-    [self cancelAllRequest];
+//    [_transport close];
+    _transport = nil;
+//    [self cancelAllRequest];
     //same as
-    self.requestsSent = nil;
+    _requestsSent = nil;
 }
 
 #pragma mark - Private
@@ -377,14 +385,15 @@ static NSTimeInterval kRequestMaxRetries = 3;
         //Request to process
         NBMRequest *request = [NBMRequest requestWithJSONDicitonary:messageDictionary];
         [self processRequest:request];
+        return;
     }
     
     //Response WITHOUT method already processed?
     if (!requestPack) {
         if ([self checkAndManageDuplicatedResponse:messageDictionary]) {
+            DDLogWarn(@"No callback was defined for this message: %@", [NSString nbm_stringFromJSONDictionary:messageDictionary]);
             return;
         }
-        DDLogWarn(@"No callback was defined for this message: %@", [NSString nbm_stringFromJSONDictionary:messageDictionary]);
     }
     //Response WITHOUT method to process
     NBMResponse *response = [NBMResponse responseWithJSONDictionary:messageDictionary];
@@ -474,12 +483,17 @@ static NSTimeInterval kRequestMaxRetries = 3;
     
     // Start duplicated responses timeout
     NBMProcessedResponse *processedResponse = [[NBMProcessedResponse alloc] initWithAck:requestPack.request.requestId timeoutDelegate:self];
-    [self storeProcessedResponse:processedResponse];
+    if (processedResponse) {
+        [self storeProcessedResponse:processedResponse];
+    }
 }
 
 - (NBMRequestPack *)getRequestPackById:(NSNumber *)requestId
 {
     __block NBMRequestPack *requestPack;
+    if (!requestId) {
+        return nil;
+    }
     [_requestsSent.set enumerateObjectsUsingBlock:^(NBMRequestPack* aRequestPack, BOOL *stop) {
         if ([aRequestPack.request.requestId isEqualToNumber:requestId]) {
             requestPack = aRequestPack;
@@ -501,6 +515,9 @@ static NSTimeInterval kRequestMaxRetries = 3;
 - (NBMProcessedResponse *)getProcessedResponseByAck:(NSNumber *)ack remove:(BOOL)remove
 {
     __block NBMProcessedResponse *processedResponse;
+    if (!ack) {
+        return nil;
+    }
     [_responsesReceived.set enumerateObjectsUsingBlock:^(NBMProcessedResponse *aProcessedResponse, BOOL *stop) {
         if ([aProcessedResponse.ack isEqualToNumber:ack]) {
             processedResponse = aProcessedResponse;
@@ -554,9 +571,6 @@ static NSTimeInterval kRequestMaxRetries = 3;
             }
             break;
         }
-        default: {
-            break;
-        }
     }
 }
 
@@ -572,25 +586,27 @@ static NSTimeInterval kRequestMaxRetries = 3;
         NSError *timeoutError = [NBMJSONRPCClientError errorWithCode:NBMJSONRPCClientInitializationErrorCode message:msg underlyingError:error];
         error = timeoutError;
     } 
-    if ([self.delegate respondsToSelector:@selector(client:didFailWithError:)]) {
-        [self.delegate client:self didFailWithError:error];
-    }
+//    if ([self.delegate respondsToSelector:@selector(client:didFailWithError:)]) {
+//        [self.delegate client:self didFailWithError:error];
+//    }
 }
 
 #pragma mark TimeoutableDelegate
 
 - (void)timeoutFired:(id)timeoutable
 {
+    __weak typeof(self) weakSelf = self;
+    
     //Timeout fired on RequestPack
     if ([timeoutable isKindOfClass:[NBMRequestPack class]]) {
         NBMRequestPack *requestPack = (NBMRequestPack *)timeoutable;
         if (requestPack.retried < _configuration.requestMaxRetries) {
-            [self sendRequestPack:requestPack retried:YES];
+            [weakSelf sendRequestPack:requestPack retried:YES];
             return;
         }
     
         DDLogWarn(@"Request %@ has timed out!", requestPack.request);
-        [self processResponse:nil requestPack:requestPack];
+        [weakSelf processResponse:nil requestPack:requestPack];
     }
     //Timeout fired on processed Response
     else if ([timeoutable isKindOfClass:[NBMProcessedResponse class]]) {

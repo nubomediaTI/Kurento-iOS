@@ -82,6 +82,8 @@
 		4ACB2CCD1BE92A5A00E8E017 /* RTCVideoRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C911BE929D600E8E017 /* RTCVideoRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ACB2CCE1BE92A5A00E8E017 /* RTCVideoSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C921BE929D600E8E017 /* RTCVideoSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AD22D221C643313002C1038 /* RTCMediaStream+Configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD22D201C643313002C1038 /* RTCMediaStream+Configuration.h */; };
+		4AD22D231C643313002C1038 /* RTCMediaStream+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D211C643313002C1038 /* RTCMediaStream+Configuration.m */; };
 		4AE438FF1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438FD1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.m */; };
 		4AE439001BF4ABD1001882E5 /* NBMSessionDescriptionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE438FE1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.h */; };
 		4AE439031BF4ABEE001882E5 /* NBMResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE439011BF4ABEE001882E5 /* NBMResponse+Private.h */; };
@@ -163,7 +165,7 @@
 		4A6E88E81C10637B000A8EE9 /* NBMPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMPeer.h; sourceTree = "<group>"; };
 		4A6E88E91C10637B000A8EE9 /* NBMPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMPeer.m; sourceTree = "<group>"; };
 		4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMJSONRPCClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		4A7113881BD4F196003AEF5C /* NBMJSONRPCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMJSONRPCClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4A7113881BD4F196003AEF5C /* NBMJSONRPCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMJSONRPCClient.m; sourceTree = "<group>"; };
 		4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMPeerConnection.h; sourceTree = "<group>"; };
 		4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMPeerConnection.m; sourceTree = "<group>"; };
 		4AA551731BDFD8E2002152AB /* Kurento-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "Kurento-Prefix.pch"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -197,6 +199,8 @@
 		4ACB2C911BE929D600E8E017 /* RTCVideoRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoRenderer.h; sourceTree = "<group>"; };
 		4ACB2C921BE929D600E8E017 /* RTCVideoSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoSource.h; sourceTree = "<group>"; };
 		4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoTrack.h; sourceTree = "<group>"; };
+		4AD22D201C643313002C1038 /* RTCMediaStream+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCMediaStream+Configuration.h"; sourceTree = "<group>"; };
+		4AD22D211C643313002C1038 /* RTCMediaStream+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCMediaStream+Configuration.m"; sourceTree = "<group>"; };
 		4AD6002E1BB3F54B003124FD /* NBMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMMessage.h; sourceTree = "<group>"; };
 		4AD600331BB3F79D003124FD /* NBMRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMRequest.h; sourceTree = "<group>"; };
 		4AD600341BB3F79D003124FD /* NBMRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -214,8 +218,8 @@
 		4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTransportChannel.h; path = Internals/NBMTransportChannel.h; sourceTree = "<group>"; };
 		4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMEAGLRenderer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMEAGLRenderer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMEAGLVideoViewContainer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMEAGLVideoViewContainer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMEAGLVideoViewContainer.h; sourceTree = "<group>"; };
+		4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMEAGLVideoViewContainer.m; sourceTree = "<group>"; };
 		4AE8C9CD1C4E506100A87D8A /* NBMTreeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeClient.h; path = Tree/NBMTreeClient.h; sourceTree = "<group>"; };
 		4AE8C9CE1C4E506100A87D8A /* NBMTreeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeClient.m; path = Tree/NBMTreeClient.m; sourceTree = "<group>"; };
 		4AE8C9E31C4E752900A87D8A /* NBMTreeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeEndpoint.h; path = Tree/NBMTreeEndpoint.h; sourceTree = "<group>"; };
@@ -270,6 +274,8 @@
 		4A133A4E1BE11CFB0095B168 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4AD22D201C643313002C1038 /* RTCMediaStream+Configuration.h */,
+				4AD22D211C643313002C1038 /* RTCMediaStream+Configuration.m */,
 				4A4F0D151C22C2C300CD30A1 /* NBMLog.h */,
 				4A29E1711C5A0FD70068FEE5 /* NBMError.h */,
 				4A29E1721C5A0FD70068FEE5 /* NBMError.m */,
@@ -561,6 +567,7 @@
 				4A6E88EA1C10637B000A8EE9 /* NBMPeer.h in Headers */,
 				4ACB2CCE1BE92A5A00E8E017 /* RTCVideoSource.h in Headers */,
 				4AE439001BF4ABD1001882E5 /* NBMSessionDescriptionFactory.h in Headers */,
+				4AD22D221C643313002C1038 /* RTCMediaStream+Configuration.h in Headers */,
 				4A29E1791C5A31AE0068FEE5 /* JSON-RPC.h in Headers */,
 				4A29E17D1C5A33E50068FEE5 /* Tree.h in Headers */,
 				4AE8C9CF1C4E506100A87D8A /* NBMTreeClient.h in Headers */,
@@ -782,6 +789,7 @@
 				4A6E88E71C10629F000A8EE9 /* NBMRoom.m in Sources */,
 				4AE439091BF4AC14001882E5 /* NBMTimeoutable.m in Sources */,
 				4A46BC3C1BE3E2A5009E0FBE /* NBMPeerConnection.m in Sources */,
+				4AD22D231C643313002C1038 /* RTCMediaStream+Configuration.m in Sources */,
 				4AE8C9EC1C4FD83300A87D8A /* NBMTreeClientError.m in Sources */,
 				4A29E1741C5A0FD70068FEE5 /* NBMError.m in Sources */,
 				4A6E88EB1C10637B000A8EE9 /* NBMPeer.m in Sources */,

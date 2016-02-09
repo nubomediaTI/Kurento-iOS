@@ -56,6 +56,17 @@
 
 @end
 
+typedef NS_ENUM(NSInteger, NBMJSONRPCConnectionState) {
+    // State when connecting.
+    NBMJSONRPCConnectionStateOpening,
+    // State when connection is established and ready for use.
+    NBMJSONRPCConnectionStateOpen,
+    // State when disconnecting.
+    NBMJSONRPCConnectionStateClosing,
+    // State when disconnected.
+    NBMJSONRPCConnectionStateClosed
+};
+
 /**
  *  NBMJSONRPCClient object communicates with web sockets using the JSON-RPC 2.0 protocol.
  *  @see http://www.jsonrpc.org/specification
@@ -81,6 +92,8 @@ typedef NS_ENUM(NSInteger, NBMJSONRPCClientErrorCode) {
  * The delegate object for the client.
  */
 @property (nonatomic, weak) id<NBMJSONRPCClientDelegate>delegate;
+
+@property (nonatomic, readonly) NBMJSONRPCConnectionState connectionState;
 
 /**
  * A boolean that indicates the websocket connection status.

@@ -29,6 +29,7 @@
 
 @protocol NBMRoomClientDelegate <NSObject>
 
+@optional
 //Connection
 - (void)client:(NBMRoomClient *)client isConnected:(BOOL)connected;
 - (void)client:(NBMRoomClient *)client didFailWithError:(NSError *)error;

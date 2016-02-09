@@ -8,7 +8,7 @@ workspace 'Kurento-iOS'
 def common_target_pods
     pod 'CocoaLumberjack', :configurations => ['Debug']
     pod 'SBJson', '~> 4.0.2'
-    pod 'libjingle_peerconnection', '~> 10763.2.0'
+    pod 'libjingle_peerconnection', '~> 11177.2.0'
     pod 'SocketRocket', '~> 0.4.1'
 end
 
@@ -22,9 +22,14 @@ target 'KurentoToolboxTests' do
     pod 'KurentoToolbox', :path => "."
 end
 
-target 'KurentoToolboxTestApp' do
-    xcodeproj 'KurentoToolboxTestApp/KurentoToolboxTestApp'
+target 'KurentoToolboxDemo' do
+    xcodeproj 'KurentoToolboxDemo/KurentoToolboxDemo'
+    pod 'Fabric'
+    pod 'Crashlytics'
     pod 'KurentoToolbox', :path => "."
+    pod 'MBProgressHUD', '~> 0.9.2'
+    pod 'Reachability', '~> 3.2'
+    pod 'DGActivityIndicatorView'
 end
 
 

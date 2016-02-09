@@ -7,6 +7,10 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - DGActivityIndicatorView (2.0)
+  - Fabric (1.6.5)
   - KurentoToolbox (0.2.6):
     - KurentoToolbox/Default (= 0.2.6)
     - KurentoToolbox/JSON-RPC (= 0.2.6)
@@ -35,15 +39,22 @@ PODS:
     - CocoaLumberjack (~> 2.2.0)
   - KurentoToolbox/WebRTC (0.2.6):
     - KurentoToolbox/Utils
-    - libjingle_peerconnection (~> 10763.2.0)
-  - libjingle_peerconnection (10763.2.0)
+    - libjingle_peerconnection (~> 11177.2.0)
+  - libjingle_peerconnection (11177.2.0)
+  - MBProgressHUD (0.9.2)
+  - Reachability (3.2)
   - SBJson (4.0.2)
   - SocketRocket (0.4.2)
 
 DEPENDENCIES:
   - CocoaLumberjack
+  - Crashlytics
+  - DGActivityIndicatorView
+  - Fabric
   - KurentoToolbox (from `.`)
-  - libjingle_peerconnection (~> 10763.2.0)
+  - libjingle_peerconnection (~> 11177.2.0)
+  - MBProgressHUD (~> 0.9.2)
+  - Reachability (~> 3.2)
   - SBJson (~> 4.0.2)
   - SocketRocket (~> 0.4.1)
 
@@ -53,8 +64,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
-  KurentoToolbox: e82349643258ce660ba6d109811670a3faef7d61
-  libjingle_peerconnection: a34c6d0fb1effe3aad3bc3d0fcab0a3db23de496
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  DGActivityIndicatorView: 52875b025a6ccf6a431a905285c12e2bb95eb559
+  Fabric: 338ffd3c2afcab120638907b4251189de9ad17b3
+  KurentoToolbox: ecafe59dc3de145aa948f2ce309324b1958ca745
+  libjingle_peerconnection: 3458f646ddd61f08a9f3a0c43fb01fff5c165eb8
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: c18691cc18375b14664ff0fec841f8c4faef1934
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
 

@@ -26,7 +26,7 @@
 
 + (instancetype)defaultConfiguration {
     NBMMediaConfiguration *config = [[NBMMediaConfiguration alloc] init];
-    config.rendererType = NBMRendererTypeSampleBuffer;
+    config.rendererType = NBMRendererTypeOpenGLES;
     config.audioBandwidth = 0;
     config.videoBandwidth = 0;
     config.audioCodec = NBMAudioCodecOpus;
@@ -38,7 +38,7 @@
     format.pixelFormat = NBMPixelFormat420f;
     config.receiverVideoFormat = format;
     
-    config.cameraPosition = NBMCameraPositionAny;
+    config.cameraPosition = NBMCameraPositionFront;
     
     return config;
 }

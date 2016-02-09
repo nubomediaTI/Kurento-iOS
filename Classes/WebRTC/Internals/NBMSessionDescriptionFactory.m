@@ -103,8 +103,8 @@
 
 + (NSArray *)optionalConstraints
 {
-    NSArray *optionalConstraints = @[[[RTCPair alloc] initWithKey:@"internalSctpDataChannels" value:@"true"],
-                                     [[RTCPair alloc] initWithKey:@"DtlsSrtpKeyAgreement" value:@"true"]];
+    //[[RTCPair alloc] initWithKey:@"internalSctpDataChannels" value:@"true"] ??
+    NSArray *optionalConstraints = @[[[RTCPair alloc] initWithKey:@"DtlsSrtpKeyAgreement" value:@"true"]];
     return optionalConstraints;
 }
 

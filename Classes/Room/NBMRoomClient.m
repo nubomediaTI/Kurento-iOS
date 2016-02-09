@@ -89,8 +89,8 @@ static NSString* const kCustomRequestMethod = @"customRequest";
 //SERVER RESPONSES & EVENTS
 
 //Partecipant Joined
-static NSString* const kPartecipantJoinedMethod = @"participantJoinedid";
-static NSString* const kPartecipantJoinedUserParam= @"idparticipantLeft";
+static NSString* const kPartecipantJoinedMethod = @"participantJoined";
+static NSString* const kPartecipantJoinedUserParam= @"id";
 
 //Partecipant Left
 static NSString* const kPartecipantLeftMethod = @"participantLeft";
@@ -111,7 +111,7 @@ static NSString* const kPartecipantUnpublishedUserParam = @"name";
 
 //Partecipant Send Message
 static NSString* const kPartecipantSendMessageMethod = @"sendMessage";
-static NSString* const kPartecipantSendMessageUserParam = @"userroom";
+static NSString* const kPartecipantSendMessageUserParam = @"user";
 static NSString* const kPartecipantSendMessageRoomParam = @"room";
 static NSString* const kPartecipantSendMessageMessageParam = @"message";
 
@@ -144,7 +144,6 @@ typedef void(^ErrorBlock)(NSError *error);
 @property (nonatomic, strong, readwrite) NBMRoom *room;
 @property (nonatomic, strong) NSMutableDictionary *mutableRoomPeers;
 @property (nonatomic, assign) BOOL joined;
-//@property (nonatomic, assign) BOOL joinRoomRequested;
 
 
 @end
@@ -176,15 +175,26 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 }
 
 - (void)connect {
-    if (!self.connected) {
+    if (self.connectionState == NBMRoomClientConnectionStateClosed) {
         return [self setupRpcClient:_timeout];
     }
+}
+
+- (void)dealloc {
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
 }
 
 #pragma mark - Properties
 
 - (NBMRoom *)room {
-    return self.room;
+    return _room;
+}
+
+- (NBMRoomClientConnectionState)connectionState {
+    if (!self.jsonRpcClient) {
+        return NBMRoomClientConnectionStateClosed;
+    }
+    return (NBMRoomClientConnectionState)self.jsonRpcClient.connectionState;
 }
 
 #pragma mark Join room
@@ -335,7 +345,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
                                        NSError *error;
                                        NSSet *peers = [self peersFromResponse:response error:&error];
                                        
-                                       if (!error && !self.joined) {
+                                       if (!error) {
                                            self.joined = YES;
                                        }
                                        
@@ -389,9 +399,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     [self.jsonRpcClient sendRequestWithMethod:kLeaveRoomMethod
                                    completion:^(NBMResponse *response) {
                                        NSError *error = [NBMRoomClient errorFromResponse:response];
-//                                       if (!error && self.joined) {
-//                                           self.joined = NO;
-//                                       }
+                                       if (!error) {
+                                           self.joined = NO;
+                                       }
                                        if (block) {
                                            block(error);
                                        }
@@ -409,6 +419,11 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
                                    completion:^(NBMResponse *response) {
                                        NSError *error;
                                        NSString *sdpAnswer = [self sdpAnswerFromResponse:response error:&error];
+                                       
+                                       if (!error) {
+                                           NBMPeer *localPeer = self.room.localPeer;
+                                           [localPeer addStream:[self mainStreamOfPeer:localPeer]];
+                                       }
                                        
                                        if (block) {
                                            block(sdpAnswer, error);
@@ -439,6 +454,10 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     [self.jsonRpcClient sendRequestWithMethod:kUnpublishVideoMethod
                                    completion:^(NBMResponse *response) {
                                        NSError *error = [NBMRoomClient errorFromResponse:response];
+                                       if (!error) {
+                                           NBMPeer *localPeer = self.room.localPeer;
+                                           [localPeer removeStream:[self mainStreamOfPeer:localPeer]];
+                                       }
                                        if (block) {
                                            block(error);
                                        }
@@ -460,20 +479,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
                                        NSString *sdpAnswer = [self sdpAnswerFromResponse:response error:&error];
                                        if (!error) {
                                            //Add peer with (updated?) stream
-                                           if (peer) {
-                                               [peer addStream:[self mainStreamOfPeer:peer]];
-                                               [self.mutableRoomPeers setObject:peer forKey:peer.identifier];
-                                           }
-//                                           NSString *peerId, *streamId;
-//                                           NSRange rng = [sender rangeOfString:@"_"];
-//                                           if (rng.location != NSNotFound) {
-//                                               peerId = [sender substringToIndex:rng.location];
-//                                               streamId = [sender substringFromIndex:rng.location + 1];
-//                                               NBMPeer* peer = [self peerWithIdentifier:peerId];
-//                                               [peer addStream:streamId];
-//                                               if (peer) {
-//                                                   [self.mutableRoomPeers setObject:peer forKey:peerId];
-//                                               }
+//                                           if (peer) {
+//                                               [peer addStream:[self mainStreamOfPeer:peer]];
+//                                               [self.mutableRoomPeers setObject:peer forKey:peer.identifier];
 //                                           }
                                        }
                                        if (block) {
@@ -495,10 +503,10 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
                                        NSString *sdpAnswer = [self sdpAnswerFromResponse:response error:&error];
                                        if (!error) {
                                            //Add peer with (removed?) stream
-                                           if (peer) {
-                                               [peer removeStream:[self mainStreamOfPeer:peer]];
-                                               [self.mutableRoomPeers setObject:peer forKey:peer.identifier];
-                                           }
+//                                           if (peer) {
+//                                               [peer removeStream:[self mainStreamOfPeer:peer]];
+//                                               [self.mutableRoomPeers setObject:peer forKey:peer.identifier];
+//                                           }
                                        }
                                        if (block) {
                                            block(sdpAnswer, error);
@@ -561,13 +569,17 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
         return nil;
     }
     NBMPeer *peer = [self.mutableRoomPeers objectForKey:identifier];
+    if (!peer) {
+        peer = self.room.localPeer;
+    }
     
     return peer;
 }
 
-- (NSSet *)peers {
+- (NSArray *)peers {
     NSArray *allPeers = [self.mutableRoomPeers allValues];
-    return [NSSet setWithArray:allPeers];
+ 
+    return [allPeers copy];
 }
 
 #pragma mark Room events
@@ -609,7 +621,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 - (void)partecipantJoined:(id)params {
     NSError *error;
     NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantJoinedUserParam error:&error];
-    NBMPeer *peer = [self peerWithIdentifier:peerId];
+    //NBMPeer *peer = [self peerWithIdentifier:peerId];
+    NBMPeer *peer = [[NBMPeer alloc] initWithId:peerId];
+    [self.mutableRoomPeers setObject:peer forKey:peerId];
     if ([self.delegate respondsToSelector:@selector(client:partecipantJoined:)]) {
         [self.delegate client:self partecipantJoined:peer];
     }
@@ -619,6 +633,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSError *error;
     NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantLeftNameParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:peerId];
+    [self.mutableRoomPeers removeObjectForKey:peerId];
     if ([self.delegate respondsToSelector:@selector(client:partecipantLeft:)]) {
         [self.delegate client:self partecipantLeft:peer];
     }
@@ -629,13 +644,12 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantPublishedUserParam error:&error];
     NBMPeer *peer;
     if (peerId) {
-        peer = [[NBMPeer alloc] initWithId:peerId];
-        NSArray *jsonStreams = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantPublishedStreamsParam error:&error];
+        peer = [self peerWithIdentifier:peerId];
+        NSArray *jsonStreams = [NBMRoomClient element:params getPropertyWithName:kPartecipantPublishedStreamsParam ofClass:[NSArray class] error:&error];
         for (NSDictionary *jsonStream in jsonStreams) {
             NSString *streamId = [NBMRoomClient element:jsonStream getStringPropertyWithName:kPartecipantPublishedStreamIdParam error:&error];
             [peer addStream:streamId];
         }
-        [self.mutableRoomPeers setObject:peer forKey:peerId];
     }
     if ([self.delegate respondsToSelector:@selector(client:partecipantPublished:)]) {
         [self.delegate client:self partecipantPublished:peer];
@@ -646,6 +660,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSError *error;
     NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantUnpublishedUserParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:peerId];
+    if (peer) {
+        [peer removeStream:@"webcam"];
+    }
     if ([self.delegate respondsToSelector:@selector(client:partecipantUnpublished:)]) {
         [self.delegate client:self partecipantUnpublished:peer];
     }
@@ -814,7 +831,6 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 - (void)clientDidDisconnect:(NBMJSONRPCClient *)client {
     self.connected = NO;
-    self.joined = NO;
     if ([self.delegate respondsToSelector:@selector(client:isConnected:)]) {
         [self.delegate client:self isConnected:NO];
     }

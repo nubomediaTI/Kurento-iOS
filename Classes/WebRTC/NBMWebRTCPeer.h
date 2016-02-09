@@ -23,6 +23,7 @@
 #import <Foundation/Foundation.h>
 
 #import "RTCTypes.h"
+#import "NBMTypes.h"
 
 @class NBMWebRTCPeer;
 @class NBMMediaConfiguration;
@@ -109,6 +110,8 @@
  */
 @property (nonatomic, strong, readonly) RTCMediaStream *localStream;
 
+@property (nonatomic, assign, readonly) NBMCameraPosition cameraPosition;
+
 /**
  *  The delegate object for the peer.
  */
@@ -130,6 +133,8 @@
  *  @param connectionId The connection identifier.
  */
 - (void)generateOffer:(NSString *)connectionId;
+
+- (void)generateOffer:(NSString *)connectionId completion:(void(^)(NSString *sdpOffer, NBMPeerConnection *connection))block;
 
 /**
  *  Process a remote offer for connection with specified identifier.
@@ -171,10 +176,27 @@
  */
 - (void)closeConnectionWithConnectionId:(NSString *)connectionId;
 
+- (BOOL)startLocalMedia;
+
 /**
  *  Terminates all media of active connections, removing the local stream.
  */
 - (void)stopLocalMedia;
 
+- (NSArray *)connections;
+
+- (NSArray *)activeConnections;
+
+- (void)selectCameraPosition:(NBMCameraPosition)cameraPosition;
+
+- (BOOL)hasCameraPositionAvailable:(NBMCameraPosition)cameraPosition;
+
+- (BOOL)isVideoEnabled;
+- (void)enableVideo:(BOOL)enable;
+- (BOOL)isAudioEnabled;
+- (void)enableAudio:(BOOL)enable;
+
+- (BOOL)videoAuthorized;
+- (BOOL)audioAuthorized;
 
 @end

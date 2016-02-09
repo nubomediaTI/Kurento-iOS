@@ -39,7 +39,6 @@
  NBMAudioCodecOpus
  NBMVideoCodecVP8
  640x480 @ 30 fps, Bi-Planar Full Range
- Any camera 
  */
 + (instancetype)defaultConfiguration;
 
