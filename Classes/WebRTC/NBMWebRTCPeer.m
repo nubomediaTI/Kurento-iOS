@@ -400,7 +400,11 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 }
 
 - (void)setupLocalVideo {
-    RTCVideoTrack *videoTrack = [self localVideoTrack];
+    [self setupLocalVideoWithConstraints:nil];
+}
+
+- (void)setupLocalVideoWithConstraints:(RTCMediaConstraints *)videoConstraints {
+    RTCVideoTrack *videoTrack = [self localVideoTrackWithConstraints:videoConstraints];
     if (self.localStream && videoTrack) {
         RTCVideoTrack *oldVideoTrack = [self.localStream.videoTracks firstObject];
         if (oldVideoTrack) {
@@ -423,10 +427,6 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
     RTCVideoTrack *videoTrack = [self.peerConnectionFactory videoTrackWithID:[self videoTrackId] source:videoSource];
     
     return videoTrack;
-}
-
-- (RTCVideoTrack *)localVideoTrack {
-    return [self localVideoTrackWithConstraints:nil];
 }
 
 - (NSString *)cameraDevice:(NBMCameraPosition)cameraPosition
