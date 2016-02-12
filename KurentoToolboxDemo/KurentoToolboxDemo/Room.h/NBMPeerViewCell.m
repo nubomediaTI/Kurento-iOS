@@ -34,9 +34,9 @@
 
 @end
 
-static NSTimeInterval NBMPeerViewCellAnimationTime = 0.3;
-static CGFloat NBMPeerViewCellDampingRatio = 0.85;
-static CGFloat NBMPeerViewCellSpringVelocity = 0.25;
+//static NSTimeInterval NBMPeerViewCellAnimationTime = 0.3;
+//static CGFloat NBMPeerViewCellDampingRatio = 0.85;
+//static CGFloat NBMPeerViewCellSpringVelocity = 0.25;
 
 @implementation NBMPeerViewCell
 

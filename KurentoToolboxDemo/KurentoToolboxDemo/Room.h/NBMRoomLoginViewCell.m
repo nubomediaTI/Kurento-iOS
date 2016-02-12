@@ -28,8 +28,12 @@
 @implementation NBMRoomLoginViewCell
 
 - (void)awakeFromNib {
+    [self.serverTf setDelegate:self];
+    [self.serverTf becomeFirstResponder];
+    [self.serverErrorLblHConstraint setConstant:0.0f];
+    
     [self.roomTf setDelegate:self];
-    [self.roomTf becomeFirstResponder];
+//    [self.roomTf becomeFirstResponder];
     [self.roomErrorLblHConstraint setConstant:0.0f];
     
     [self.userTf setDelegate:self];
@@ -55,6 +59,14 @@
         }
     }
     
+    NSURL *roomURL;
+    if (textField == self.serverTf) {
+        roomURL = [NSURL URLWithString:text];
+    } else {
+        roomURL = [NSURL URLWithString:self.serverTf.text];
+    }
+    BOOL isValidURL = [self validateURL:roomURL];
+    
     BOOL isValidRoom;
     if (textField == self.roomTf) {
         isValidRoom = [self fieldIsValid:text];
@@ -69,12 +81,14 @@
         isValidUser = [self fieldIsValid:self.userTf.text];
     }
     
-    BOOL isValidForm = isValidRoom && isValidUser;
+    BOOL isValidForm = isValidURL && isValidRoom && isValidUser;
     
     [UIView animateWithDuration:0.3f animations:^{
-        if (textField == self.roomTf) {
+        if (textField == self.serverTf) {
+            [self updateServerTextfieldStatus:isValidURL];
+        } else if (textField == self.roomTf) {
             [self updateRoomTextfieldStatus:isValidRoom];
-        } else {
+        } else if (textField == self.userTf){
             [self updateUserTextfieldState:isValidUser];
         }
         [self updateJoinButtonState:isValidForm];
@@ -84,13 +98,6 @@
     return YES;
 }
 
-- (BOOL)validateLoginForm {
-    BOOL validRoom = [self fieldIsValid:self.roomTf.text];
-    BOOL validUser = [self fieldIsValid:self.userTf.text];
-    
-    return validRoom && validUser;
-}
-
 - (BOOL)fieldIsValid:(NSString *)field {
     NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
     if ([[field stringByTrimmingCharactersInSet: set] length] == 0) {
@@ -98,6 +105,16 @@
     }
     
     return YES;
+}
+
+- (void)updateServerTextfieldStatus:(BOOL)valid {
+    if (valid) {
+        [self.serverErrorLblHConstraint setConstant:0.0f];
+        [self.serverTfBorder setBackgroundColor:kValidColor];
+    } else {
+        [self.serverErrorLblHConstraint setConstant:40.0f];
+        [self.serverTfBorder setBackgroundColor:kErrorColor];
+    }
 }
 
 - (void)updateRoomTextfieldStatus:(BOOL)valid {
@@ -137,5 +154,11 @@
     [self.delegate roomTextInputViewCell:self shouldJoinRoom:room username:user];
 }
 
+- (BOOL)validateURL:(NSURL *)url {
+    if (url && [url scheme] && [url host]) {
+        return YES;
+    }
+    return NO;
+}
 
 @end

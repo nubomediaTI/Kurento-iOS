@@ -26,8 +26,9 @@
 
 #import "MBProgressHUD.h"
 
-#error : Define WS Room URI (es. wss://localhost:8443/room)
-static NSString *wsRoom = @"";
+//#error : Define WS Room URI (es. wss://localhost:8443/room)
+static NSString *defaultWsRoom = @"http://kurento.teamlife.it:8080/room";
+static  NSString* const kRoomURLString = @"RoomServerURL";
 
 @interface NBMRoomMainViewController () <NBMRoomLoginViewCellDelegate>
 
@@ -52,11 +53,31 @@ static NSString *wsRoom = @"";
     if (indexPath.row == 0) {
         NBMRoomLoginViewCell *cell = (NBMRoomLoginViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RoomLoginCell" forIndexPath:indexPath];
         [cell setDelegate:self];
+        cell.serverTf.text = [self roomServerURLString];
+        cell.serverTf.placeholder = defaultWsRoom;
         
         return cell;
     }
     
     return nil;
+}
+
+#pragma mark - Defaults
+
+- (NSString *)roomServerURLString {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *roomURLString = [defaults objectForKey:kRoomURLString];
+    if (!roomURLString) {
+        roomURLString = defaultWsRoom;
+    }
+    
+    return roomURLString;
+}
+
+- (void)saveRoomServerURLString:(NSString *)urlString {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:urlString forKey:kRoomURLString];
+    [defaults synchronize];
 }
 
 #pragma mark - Navigation
@@ -69,7 +90,9 @@ static NSString *wsRoom = @"";
 #pragma mark - ARTCRoomTextInputViewCellDelegate Methods
 
 - (void)roomTextInputViewCell:(NBMRoomLoginViewCell *)cell shouldJoinRoom:(NSString *)room username:(NSString *)username {
-    NSURL *roomURL = [NSURL URLWithString:wsRoom];
+    NSString *roomURLString = cell.serverTf.text;
+    [self saveRoomServerURLString:roomURLString];
+    NSURL *roomURL = [NSURL URLWithString:roomURLString];
     self.room = [[NBMRoom alloc] initWithUsername:username roomName:room roomURL:roomURL];
     //[self performSegueWithIdentifier:@"NBMRoomVideoViewController" sender:room];
     NBMRoomVideoViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];

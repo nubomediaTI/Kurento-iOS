@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMPixelFormat Constants Reference</title>
+	<title>NBMRoomClientConnectionState Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMPixelFormat Constants Reference</h1>
+					<h1 class="title">NBMRoomClientConnectionState Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>NBMTypes.h</td>
+	<td>NBMRoomClient.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,21 +75,21 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">NBMPixelFormat</h3>
+                    <h3 class="subsubtitle method-title">NBMRoomClientConnectionState</h3>
                     
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(OSType, NBMPixelFormat ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormat420f</a> = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,<br>
+                            &nbsp;&nbsp; <a href="">NBMRoomClientConnectionStateOpening</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormat420v</a> = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange,<br>
+                            &nbsp;&nbsp; <a href="">NBMRoomClientConnectionStateOpen</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormatBGRA</a> = kCVPixelFormatType_32BGRA,<br>
+                            &nbsp;&nbsp; <a href="">NBMRoomClientConnectionStateClosing</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormatARGB</a> = kCVPixelFormatType_32ARGB,<br>
+                            &nbsp;&nbsp; <a href="">NBMRoomClientConnectionStateClosed</a>,<br>
                             
                             };</code>
                     
@@ -99,70 +99,42 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="NBMPixelFormat420f"></a><code>NBMPixelFormat420f</code></dt>
+                            <dt><a name="" title="NBMRoomClientConnectionStateOpening"></a><code>NBMRoomClientConnectionStateOpening</code></dt>
 <dd>
-
-
-<p>Bi-Planar Component Y'CbCr 8-bit 4:2:0, full-range (luma=[0,255] chroma=[1,255]).  baseAddr points to a big-endian CVPlanarPixelBufferInfo_YCbCrBiPlanar struct</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMRoomClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMPixelFormat420v"></a><code>NBMPixelFormat420v</code></dt>
+                            <dt><a name="" title="NBMRoomClientConnectionStateOpen"></a><code>NBMRoomClientConnectionStateOpen</code></dt>
 <dd>
-
-
-<p>Bi-Planar Component Y'CbCr 8-bit 4:2:0, full-range (luma=[0,255] chroma=[1,255]).  baseAddr points to a big-endian CVPlanarPixelBufferInfo_YCbCrBiPlanar struct</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMRoomClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMPixelFormatBGRA"></a><code>NBMPixelFormatBGRA</code></dt>
+                            <dt><a name="" title="NBMRoomClientConnectionStateClosing"></a><code>NBMRoomClientConnectionStateClosing</code></dt>
 <dd>
-
-
-<p>32 bit BGRA</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMRoomClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMPixelFormatARGB"></a><code>NBMPixelFormatARGB</code></dt>
+                            <dt><a name="" title="NBMRoomClientConnectionStateClosed"></a><code>NBMRoomClientConnectionStateClosed</code></dt>
 <dd>
-
-
-<p>32 bit ARGB</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMRoomClient.h</code>.
 	</p>
 	
 </dd>

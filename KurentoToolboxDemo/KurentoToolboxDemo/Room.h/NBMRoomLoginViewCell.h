@@ -26,6 +26,11 @@
 
 @interface NBMRoomLoginViewCell : UITableViewCell <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UITextField *serverTf;
+@property (strong, nonatomic) IBOutlet UIView *serverTfBorder;
+@property (strong, nonatomic) IBOutlet UILabel *serverErrorLbl;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *serverErrorLblHConstraint;
+
 @property (strong, nonatomic) IBOutlet UITextField *roomTf;
 @property (strong, nonatomic) IBOutlet UIView *roomTfBorder;
 @property (strong, nonatomic) IBOutlet UILabel *roomErrorLbl;
@@ -38,6 +43,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *joinButton;
 @property (nonatomic, weak) id <NBMRoomLoginViewCellDelegate> delegate;
+
+- (NSURL *)roomServerURL;
 
 @end
 

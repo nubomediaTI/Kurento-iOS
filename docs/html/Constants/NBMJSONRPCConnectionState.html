@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>NBMPixelFormat Constants Reference</title>
+	<title>NBMJSONRPCConnectionState Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">NBMPixelFormat Constants Reference</h1>
+					<h1 class="title">NBMJSONRPCConnectionState Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>NBMTypes.h</td>
+	<td>NBMJSONRPCClient.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,21 +75,21 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">NBMPixelFormat</h3>
+                    <h3 class="subsubtitle method-title">NBMJSONRPCConnectionState</h3>
                     
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(OSType, NBMPixelFormat ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, NBMJSONRPCConnectionState ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormat420f</a> = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,<br>
+                            &nbsp;&nbsp; <a href="">NBMJSONRPCConnectionStateOpening</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormat420v</a> = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange,<br>
+                            &nbsp;&nbsp; <a href="">NBMJSONRPCConnectionStateOpen</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormatBGRA</a> = kCVPixelFormatType_32BGRA,<br>
+                            &nbsp;&nbsp; <a href="">NBMJSONRPCConnectionStateClosing</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">NBMPixelFormatARGB</a> = kCVPixelFormatType_32ARGB,<br>
+                            &nbsp;&nbsp; <a href="">NBMJSONRPCConnectionStateClosed</a>,<br>
                             
                             };</code>
                     
@@ -99,70 +99,42 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="NBMPixelFormat420f"></a><code>NBMPixelFormat420f</code></dt>
+                            <dt><a name="" title="NBMJSONRPCConnectionStateOpening"></a><code>NBMJSONRPCConnectionStateOpening</code></dt>
 <dd>
-
-
-<p>Bi-Planar Component Y'CbCr 8-bit 4:2:0, full-range (luma=[0,255] chroma=[1,255]).  baseAddr points to a big-endian CVPlanarPixelBufferInfo_YCbCrBiPlanar struct</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMJSONRPCClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMPixelFormat420v"></a><code>NBMPixelFormat420v</code></dt>
+                            <dt><a name="" title="NBMJSONRPCConnectionStateOpen"></a><code>NBMJSONRPCConnectionStateOpen</code></dt>
 <dd>
-
-
-<p>Bi-Planar Component Y'CbCr 8-bit 4:2:0, full-range (luma=[0,255] chroma=[1,255]).  baseAddr points to a big-endian CVPlanarPixelBufferInfo_YCbCrBiPlanar struct</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMJSONRPCClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMPixelFormatBGRA"></a><code>NBMPixelFormatBGRA</code></dt>
+                            <dt><a name="" title="NBMJSONRPCConnectionStateClosing"></a><code>NBMJSONRPCConnectionStateClosing</code></dt>
 <dd>
-
-
-<p>32 bit BGRA</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMJSONRPCClient.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="NBMPixelFormatARGB"></a><code>NBMPixelFormatARGB</code></dt>
+                            <dt><a name="" title="NBMJSONRPCConnectionStateClosed"></a><code>NBMJSONRPCConnectionStateClosed</code></dt>
 <dd>
-
-
-<p>32 bit ARGB</p>
-
-
-
-
 
     
 	<p>
-		Declared In <code class="declared-in-ref">NBMTypes.h</code>.
+		Declared In <code class="declared-in-ref">NBMJSONRPCClient.h</code>.
 	</p>
 	
 </dd>
