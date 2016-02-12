@@ -183,7 +183,7 @@
  */
 - (void)stopLocalMedia;
 
-- (NSArray *)connections;
+//- (NSArray *)connections;
 
 - (NSArray *)activeConnections;
 

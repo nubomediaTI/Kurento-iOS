@@ -557,6 +557,8 @@ static NSTimeInterval kRequestMaxRetries = 3;
 - (void)channel:(NBMTransportChannel *)channel didChangeState:(NBMTransportChannelState)channelState
 {
     switch (channelState) {
+        case NBMTransportChannelStateClosing:
+            break;
         case NBMTransportChannelStateClosed: {
             _connected = NO;
             if ([self.delegate respondsToSelector:@selector(clientDidDisconnect:)]) {
@@ -564,6 +566,8 @@ static NSTimeInterval kRequestMaxRetries = 3;
             }
             break;
         }
+        case NBMTransportChannelStateOpening:
+            break;
         case NBMTransportChannelStateOpen: {
             _connected = YES;
             if ([self.delegate respondsToSelector:@selector(clientDidConnect:)]) {
