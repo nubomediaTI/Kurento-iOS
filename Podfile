@@ -24,8 +24,6 @@ end
 
 target 'KurentoToolboxDemo' do
     xcodeproj 'KurentoToolboxDemo/KurentoToolboxDemo'
-    pod 'Fabric'
-    pod 'Crashlytics'
     pod 'KurentoToolbox', :path => "."
     pod 'MBProgressHUD', '~> 0.9.2'
     pod 'Reachability', '~> 3.2'

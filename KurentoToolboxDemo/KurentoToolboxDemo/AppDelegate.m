@@ -33,8 +33,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //Farbic
-    [Fabric with:@[[Crashlytics class]]];
     
     // Override point for customization after application launch.
     [DDLog addLogger:[DDASLLogger sharedInstance]];

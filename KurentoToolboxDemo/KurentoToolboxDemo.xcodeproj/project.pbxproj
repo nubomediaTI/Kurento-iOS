@@ -174,7 +174,6 @@
 				4AE438D71BF0DDBB001882E5 /* Resources */,
 				29379472A856DA788EB8C5B7 /* Embed Pods Frameworks */,
 				74D34D164100C4302B620D70 /* Copy Pods Resources */,
-				4A0A4A501C64F91900570CEB /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -260,20 +259,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-KurentoToolboxDemo/Pods-KurentoToolboxDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		4A0A4A501C64F91900570CEB /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 01eff00b925cfbc0b56d54c9fa3da36c960e109e ffaea50423a43c8993e44362ec59edae96f22dbc8866e571c0c046a603f9198b";
 		};
 		74D34D164100C4302B620D70 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
