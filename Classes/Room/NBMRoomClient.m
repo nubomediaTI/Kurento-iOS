@@ -624,8 +624,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     //NBMPeer *peer = [self peerWithIdentifier:peerId];
     NBMPeer *peer = [[NBMPeer alloc] initWithId:peerId];
     [self.mutableRoomPeers setObject:peer forKey:peerId];
-    if ([self.delegate respondsToSelector:@selector(client:partecipantJoined:)]) {
-        [self.delegate client:self partecipantJoined:peer];
+    if ([self.delegate respondsToSelector:@selector(client:participantJoined:)]) {
+        [self.delegate client:self participantJoined:peer];
     }
 }
 
@@ -634,8 +634,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantLeftNameParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:peerId];
     [self.mutableRoomPeers removeObjectForKey:peerId];
-    if ([self.delegate respondsToSelector:@selector(client:partecipantLeft:)]) {
-        [self.delegate client:self partecipantLeft:peer];
+    if ([self.delegate respondsToSelector:@selector(client:participantLeft:)]) {
+        [self.delegate client:self participantLeft:peer];
     }
 }
 
@@ -651,8 +651,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
             [peer addStream:streamId];
         }
     }
-    if ([self.delegate respondsToSelector:@selector(client:partecipantPublished:)]) {
-        [self.delegate client:self partecipantPublished:peer];
+    if ([self.delegate respondsToSelector:@selector(client:participantPublished:)]) {
+        [self.delegate client:self participantPublished:peer];
     }
 }
 
@@ -663,8 +663,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     if (peer) {
         [peer removeStream:@"webcam"];
     }
-    if ([self.delegate respondsToSelector:@selector(client:partecipantUnpublished:)]) {
-        [self.delegate client:self partecipantUnpublished:peer];
+    if ([self.delegate respondsToSelector:@selector(client:participantUnpublished:)]) {
+        [self.delegate client:self participantUnpublished:peer];
     }
 }
 
@@ -679,14 +679,14 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     if (sdpMid && sdp && sdpMLineIndexNumber) {
         candidate = [[RTCICECandidate alloc] initWithMid:sdpMid index:sdpMLineIndexNumber.integerValue sdp:sdp];
     }
-    if ([self.delegate respondsToSelector:@selector(client:didReceiveICECandidate:fromPartecipant:)]) {
-        [self.delegate client:self didReceiveICECandidate:candidate fromPartecipant:peer];
+    if ([self.delegate respondsToSelector:@selector(client:didReceiveICECandidate:fromParticipant:)]) {
+        [self.delegate client:self didReceiveICECandidate:candidate fromParticipant:peer];
     }
 }
 
 - (void)partecipantEvicted {
-    if ([self.delegate respondsToSelector:@selector(client:partecipantJoined:)]) {
-        [self.delegate client:self partecipantEvicted:self.room.localPeer];
+    if ([self.delegate respondsToSelector:@selector(client:participantJoined:)]) {
+        [self.delegate client:self participantEvicted:self.room.localPeer];
     }
 }
 
@@ -702,8 +702,8 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     NSString *senderId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageUserParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:senderId];
     NSString *msg = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageMessageParam error:&error];
-    if ([self.delegate respondsToSelector:@selector(client:didReceiveMessage:fromPartecipant:)]) {
-        [self.delegate client:self didReceiveMessage:msg fromPartecipant:peer];
+    if ([self.delegate respondsToSelector:@selector(client:didReceiveMessage:fromParticipant:)]) {
+        [self.delegate client:self didReceiveMessage:msg fromParticipant:peer];
     }
 }
 

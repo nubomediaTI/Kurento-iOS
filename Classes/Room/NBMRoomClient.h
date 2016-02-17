@@ -129,7 +129,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
  *  Represents a client's request to join a room. If the room does not exists, it is created.
  *  @note No message is sent to client's delegate.
  *  
- *  @param block A block object to be executed when the request is processed. This block has no return value and takes an NSSet of remote partecipants and an error if the request failed.
+ *  @param block A block object to be executed when the request is processed. This block has no return value and takes an NSSet of remote participants and an error if the request failed.
  */
 - (void)joinRoom:(void (^)(NSSet *peers, NSError *error))block;
 
@@ -237,7 +237,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
 - (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer completion:(void (^)(NSError *error))block;
 
 /**
- *  Represents a client's request to send written message to all other partecipants in the room.
+ *  Represents a client's request to send written message to all other participants in the room.
  *  When the request is processed, the [NBMRoomClientDelegate client:didSentMessage:] message is sent to the client's delegate.
  *
  *  @param message The text message.
@@ -245,7 +245,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
 - (void)sendMessage:(NSString *)message;
 
 /**
- *  Represents a client's request to send written message to all other partecipants in the room.
+ *  Represents a client's request to send written message to all other participants in the room.
  *  @note No message is sent to client's delegate.
  *
  *  @param message The text message.

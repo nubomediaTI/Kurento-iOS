@@ -51,16 +51,16 @@
 - (void)client:(NBMRoomClient *)client didSentCustomRequest:(NSError *)error;
 
 //Room events
-- (void)client:(NBMRoomClient *)client partecipantJoined:(NBMPeer *)peer;
-- (void)client:(NBMRoomClient *)client partecipantLeft:(NBMPeer *)peer;
-- (void)client:(NBMRoomClient *)client partecipantEvicted:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client participantJoined:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client participantLeft:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client participantEvicted:(NBMPeer *)peer;
 
-- (void)client:(NBMRoomClient *)client partecipantPublished:(NBMPeer *)peer;
-- (void)client:(NBMRoomClient *)client partecipantUnpublished:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client participantPublished:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client participantUnpublished:(NBMPeer *)peer;
 
-- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromPartecipant:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromParticipant:(NBMPeer *)peer;
 
-- (void)client:(NBMRoomClient *)client didReceiveMessage:(NSString *)message fromPartecipant:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client didReceiveMessage:(NSString *)message fromParticipant:(NBMPeer *)peer;
 - (void)client:(NBMRoomClient *)client mediaErrorOccurred:(NSError *)error;
 - (void)client:(NBMRoomClient *)client roomWasClosed:(NBMRoom *)room;
 
