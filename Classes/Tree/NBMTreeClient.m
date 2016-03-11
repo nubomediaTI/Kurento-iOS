@@ -32,7 +32,7 @@
 #import "NBMRequest.h"
 #import "NBMResponse.h"
 
-#import <libjingle_peerconnection/RTCICECandidate.h>
+#import "RTCICECandidate.h"
 
 static NSString* const kAddICECandidateMethod = @"addIceCandidate";
 static NSString* const kICECandidateEvent = @"iceCandidate";
