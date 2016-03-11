@@ -21,8 +21,6 @@
 // THE SOFTWARE.
 
 #import "AppDelegate.h"
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
 @interface AppDelegate ()
