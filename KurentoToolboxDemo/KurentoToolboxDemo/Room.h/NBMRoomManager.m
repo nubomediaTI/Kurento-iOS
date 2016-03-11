@@ -487,38 +487,38 @@ typedef void(^ErrorBlock)(NSError *error);
 
 //Room Events
 
-- (void)client:(NBMRoomClient *)client partecipantJoined:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client participantJoined:(NBMPeer *)peer {
     [self.delegate roomManager:self peerJoined:peer];
 }
 
-- (void)client:(NBMRoomClient *)client partecipantLeft:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client participantLeft:(NBMPeer *)peer {
     NSString *connectionId = [self connectionIdOfPeer:peer];
     [self.webRTCPeer closeConnectionWithConnectionId:connectionId];
     [self.delegate roomManager:self peerLeft:peer];
 }
 
-- (void)client:(NBMRoomClient *)client partecipantEvicted:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client participantEvicted:(NBMPeer *)peer {
     [self.delegate roomManagerPeerStatusChanged:self];
 }
 
-- (void)client:(NBMRoomClient *)client partecipantPublished:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client participantPublished:(NBMPeer *)peer {
     NBMPeerConnection *peerConnection = [self connectionOfPeer:peer];
     if (!peerConnection && peer.streams.count > 0) {
         [self generateOfferForPeer:peer];
     }
 }
 
-- (void)client:(NBMRoomClient *)client partecipantUnpublished:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client participantUnpublished:(NBMPeer *)peer {
     NSString *connectionId = [self connectionIdOfPeer:peer];
     [self.webRTCPeer closeConnectionWithConnectionId:connectionId];
 }
 
-- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromPartecipant:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromParticipant:(NBMPeer *)peer {
     NSString *connectionId =[self connectionIdOfPeer:peer];
     [self.webRTCPeer addICECandidate:candidate connectionId:connectionId];
 }
 
-- (void)client:(NBMRoomClient *)client didReceiveMessage:(NSString *)message fromPartecipant:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client didReceiveMessage:(NSString *)message fromParticipant:(NBMPeer *)peer {
     [self.delegate roomManager:self messageReceived:message ofPeer:peer];;
 }
 
