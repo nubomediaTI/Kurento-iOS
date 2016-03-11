@@ -426,7 +426,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
 				PRODUCT_NAME = KurentoDemo;
-				PROVISIONING_PROFILE = "ced55313-15bb-428e-9f5f-424c58e981f5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -456,7 +456,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
 				PRODUCT_NAME = KurentoDemo;
-				PROVISIONING_PROFILE = "ced55313-15bb-428e-9f5f-424c58e981f5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
