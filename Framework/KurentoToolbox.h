@@ -30,7 +30,7 @@
 #import <KurentoToolbox/WebRTC.h>
 
 //JSON-RPC
-#import <KurentoToolbox/JSON-RPC.h"
+#import <KurentoToolbox/JSON-RPC.h>
 
 //libjingle Headers
 #import <KurentoToolbox/RTCAudioSource.h>
