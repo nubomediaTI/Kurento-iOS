@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42E36B751C932328004438E8 /* KurentoToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A133A4F1BE1204A0095B168 /* KurentoToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A29E1731C5A0FD70068FEE5 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1711C5A0FD70068FEE5 /* NBMError.h */; };
 		4A29E1741C5A0FD70068FEE5 /* NBMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A29E1721C5A0FD70068FEE5 /* NBMError.m */; };
 		4A29E1761C5A13D30068FEE5 /* WebRTC.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1751C5A13D30068FEE5 /* WebRTC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,7 +28,6 @@
 		4A46BC461BE3E2CA009E0FBE /* NBMResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD600381BB3FDA6003124FD /* NBMResponse.m */; };
 		4A46BC471BE3E2CD009E0FBE /* NBMJSONRPCClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A46BC481BE3E2D1009E0FBE /* NBMJSONRPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7113881BD4F196003AEF5C /* NBMJSONRPCClient.m */; };
-		4A46BC501BE3E2E5009E0FBE /* KurentoToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4D6F851BAC3EF9001DB874 /* KurentoToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A4F0C9B1C15C7B000CD30A1 /* NBMRoomError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0C991C15C7B000CD30A1 /* NBMRoomError.h */; };
 		4A4F0C9C1C15C7B000CD30A1 /* NBMRoomError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0C9A1C15C7B000CD30A1 /* NBMRoomError.m */; };
 		4A4F0C9F1C15CF8300CD30A1 /* NBMJSONRPCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0C9D1C15CF8300CD30A1 /* NBMJSONRPCError.h */; };
@@ -406,7 +406,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A46BC501BE3E2E5009E0FBE /* KurentoToolbox.h in Headers */,
+				42E36B751C932328004438E8 /* KurentoToolbox.h in Headers */,
 				4A46BC3F1BE3E2B2009E0FBE /* NBMJSONRPCConstants.h in Headers */,
 				4A46BC3D1BE3E2A8009E0FBE /* NBMWebRTCPeer.h in Headers */,
 				4A46BC421BE3E2BD009E0FBE /* NBMRequest.h in Headers */,
