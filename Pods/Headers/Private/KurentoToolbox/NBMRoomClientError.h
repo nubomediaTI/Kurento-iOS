@@ -1,0 +1,1 @@
+../../../../Classes/Room/Internals/NBMRoomClientError.h

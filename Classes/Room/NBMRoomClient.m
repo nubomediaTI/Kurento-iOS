@@ -36,7 +36,7 @@
 
 #import "NBMLog.h"
 
-#import <libjingle_peerconnection/RTCICECandidate.h>
+#import "RTCICECandidate.h"
 
 //CLIENT REQUESTS
 
