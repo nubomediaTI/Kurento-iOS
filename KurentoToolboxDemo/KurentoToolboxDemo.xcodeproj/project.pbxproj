@@ -408,6 +408,20 @@
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxDemo/KurentoToolboxDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/libjingle_peerconnection\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/DGActivityIndicatorView\"",
+					"\"${PODS_ROOT}/Headers/Public/KurentoToolbox\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
+					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
+					"\"${PODS_ROOT}/Headers/Public/libjingle_peerconnection\"",
+					"\"$(SRCROOT)/../Pods/libjingle_peerconnection/libjingle_peerconnection/Headers\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
@@ -424,6 +438,20 @@
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxDemo/KurentoToolboxDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/libjingle_peerconnection\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/DGActivityIndicatorView\"",
+					"\"${PODS_ROOT}/Headers/Public/KurentoToolbox\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
+					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
+					"\"${PODS_ROOT}/Headers/Public/libjingle_peerconnection\"",
+					"\"$(SRCROOT)/../Pods/libjingle_peerconnection/libjingle_peerconnection/Headers\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;

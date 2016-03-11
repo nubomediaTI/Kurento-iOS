@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E9ADBE9F2EED80166966CA38'
+               BlueprintIdentifier = '0ACA75A59CCC3E1038F7D7F5'
                BlueprintName = 'KurentoToolbox'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libKurentoToolbox.a'>
