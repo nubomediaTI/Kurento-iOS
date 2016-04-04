@@ -37,6 +37,8 @@
 - (void)showSpinner;
 - (void)hideSpinner;
 
+- (void)enableVideo:(BOOL)enabled;
+
 - (void)addSwitchCamerButton;
 - (void)removeSwitchCameraButton;
 

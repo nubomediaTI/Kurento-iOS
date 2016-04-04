@@ -60,8 +60,8 @@
                                                   target:nil
                                                   action:nil];
     for (UIButton *button in self.buttons) {
-        
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+        item.enabled = button.enabled;
         
         [items addObjectsFromArray:self.items];
         [items addObject:fs];

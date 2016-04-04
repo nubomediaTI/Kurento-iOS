@@ -119,6 +119,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
  */
 - (void)connect;
 
+- (void)close;
+
 /**
  *  Represents a client's request to join a room. If the room does not exists, it is created.
  *  When the request is processed, the [NBMRoomClientDelegate client:didJoinRoom:] message is sent to the client's delegate.

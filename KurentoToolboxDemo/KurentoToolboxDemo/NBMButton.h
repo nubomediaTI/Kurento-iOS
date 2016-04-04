@@ -28,6 +28,7 @@
 
 @property (nonatomic, assign, getter=isPushed) BOOL pushed;
 @property (nonatomic, assign) BOOL pressed;
+@property (nonatomic, assign) BOOL active;
 
 @property (nonatomic, strong) UIColor *borderColor;
 @property (nonatomic, strong) UIColor *selectedColor;

@@ -23,6 +23,7 @@
 #import "NBMPeerViewCell.h"
 
 #import "DGActivityIndicatorView.h"
+#import "Masonry.h"
 
 @interface NBMPeerViewCell ()
 
@@ -56,12 +57,14 @@
     if (!videoView) {
         [self hideCellSubview:self.videoView];
         return;
-    } else if (_videoView != videoView) {
+    }
+    if (_videoView != videoView) {
         [_videoView removeFromSuperview];
         _videoView = videoView;
-        _videoView.frame = self.bounds;
         [self.containerView insertSubview:_videoView aboveSubview:_peerLabel];
         [self showCellSubview:_videoView];
+        
+//        [self setNeedsLayout];
     }
 }
 
@@ -69,12 +72,8 @@
     if (_spinnerView.superview) {
         return;
     }
-//    CGFloat dim = MIN(self.bounds.size.width, self.bounds.size.height);
     DGActivityIndicatorView *spinner = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeLineScaleParty tintColor:[UIColor whiteColor]];
     self.spinnerView = spinner;
-//    CGRect frame = CGRectMake(0, 0, dim/2, dim/2);
-//    spinner.frame = frame;
-//    spinner.center = self.containerView.center;
     [spinner startAnimating];
     
     [self.containerView insertSubview:self.spinnerView aboveSubview:_videoView];
@@ -89,21 +88,51 @@
     [self hideCellSubview:self.spinnerView];
 }
 
+- (void)enableVideo:(BOOL)enabled {
+    if (enabled) {
+        [self removeBlur:YES];
+    } else {
+        [self addBlur:YES];
+    }
+}
+
+- (void)addBlur:(BOOL)animated {
+    
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    blurView.alpha = 0.0f;
+    blurView.tag = 1;
+    [_containerView addSubview:blurView];
+    [blurView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_containerView);
+    }];
+
+    NSTimeInterval duration = animated ? 0.3 : 0;
+    [UIView animateWithDuration:duration
+                     animations:^{
+                         blurView.alpha = 1.0f;
+                     }];
+}
+
+- (void)removeBlur:(BOOL)animated {
+    NSTimeInterval duration = animated ? 0.3 : 0;
+    [UIView transitionWithView:_containerView duration:duration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        UIView *blurView = [_containerView viewWithTag:1];
+        [blurView removeFromSuperview];
+    } completion:nil];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-//    CGFloat dim = MIN(self.bounds.size.width, self.bounds.size.height);
-//    CGRect frame = CGRectMake(0, 0, dim/2, dim/2);
-//    self.spinnerView.frame = frame;
-    self.spinnerView.center = self.containerView.center;
-    
-    if (CGRectEqualToRect(_videoView.bounds, self.bounds)) {
-        return;
-    }
+    //    if (CGRectEqualToRect(_videoView.bounds, self.bounds)) {
+    //        return;
+    //    }
+    _spinnerView.center = self.containerView.center;
+
     _videoView.frame = self.bounds;
     
     CGSize buttonSize = CGSizeMake(72 / 2.5, 54 / 2.5);
-    self.switchCameraBtn.frame = CGRectMake(self.bounds.size.width - buttonSize.width -5,
+    _switchCameraBtn.frame = CGRectMake(self.bounds.size.width - buttonSize.width -5,
                                             self.bounds.size.height - buttonSize.height - 30,
                                             buttonSize.width,
                                             buttonSize.height);
@@ -126,17 +155,11 @@
                              action:@selector(didPressSwitchCamera:)
                    forControlEvents:UIControlEventTouchUpInside];
     
-    //add set needs layout avoid duplicate code in layoutsubviews
-    CGSize buttonSize = CGSizeMake(72 / 2.5, 54 / 2.5);
-    self.switchCameraBtn.frame = CGRectMake(self.bounds.size.width - buttonSize.width -5,
-                                            self.bounds.size.height - buttonSize.height - 30,
-                                            buttonSize.width,
-                                            buttonSize.height);
     
     [self.contentView addSubview:self.switchCameraBtn];
-    
     [self showCellSubview:self.switchCameraBtn];
     
+    //[self setNeedsLayout];
 }
 
 - (void)removeSwitchCameraButton {

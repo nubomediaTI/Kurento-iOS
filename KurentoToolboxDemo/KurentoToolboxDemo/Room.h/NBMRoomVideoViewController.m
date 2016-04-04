@@ -44,6 +44,9 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 @property (nonatomic, strong) NSIndexPath *selectedItemIndexPath;
 
 @property (nonatomic, weak) IBOutlet NBMToolbar *toolbar;
+@property (nonatomic, weak) NBMButton *videoButton;
+@property (nonatomic, weak) NBMButton *audioButton;
+
 
 @property (nonatomic, strong) NBMRoomManager *roomManager;
 @property (nonatomic, strong, readonly) NSArray *allPeers;
@@ -67,9 +70,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _remoteRenderers = [NSMutableArray array];
-        _peerIdToRenderer = [NSMutableDictionary dictionary];
-        _mediaConfiguration = [NBMMediaConfiguration defaultConfiguration];
+        [self setup];
     }
     
     return self;
@@ -78,11 +79,15 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _remoteRenderers = [NSMutableArray array];
-        _peerIdToRenderer = [NSMutableDictionary dictionary];
-        _mediaConfiguration = [NBMMediaConfiguration defaultConfiguration];
+        [self setup];
     }
     return self;
+}
+
+- (void)setup {
+    _remoteRenderers = [NSMutableArray array];
+    _peerIdToRenderer = [NSMutableDictionary dictionary];
+    _mediaConfiguration = [NBMMediaConfiguration defaultConfiguration];
 }
 
 - (void)dealloc {
@@ -147,14 +152,20 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     
     __weak __typeof(self)weakSelf = self;
     
-    NBMButton *videoEnable = [NBMButtonFactory buttonWithNormalText:@"Disable video" selectedText:@"Enable video"];
+//    NBMButton *videoEnable = [NBMButtonFactory buttonWithNormalText:@"Disable video" selectedText:@"Enable video"];
+    NBMButton *videoEnable = [NBMButtonFactory videoEnable];
+    self.videoButton = videoEnable;
     [self.toolbar addButton:videoEnable action:^(UIButton *sender) {
-        [weakSelf.roomManager enableVideo:![weakSelf.roomManager isVideoEnabled]];
+        BOOL videoEnabled = [weakSelf.roomManager isVideoEnabled];
+        [weakSelf enableVideo:!videoEnabled];
     }];
     
-    NBMButton *audioEnable = [NBMButtonFactory buttonWithNormalText:@"Disable audio" selectedText:@"Enable audio"];
+//    NBMButton *audioEnable = [NBMButtonFactory buttonWithNormalText:@"Disable audio" selectedText:@"Enable audio"];
+    NBMButton *audioEnable = [NBMButtonFactory auidoEnable];
+    self.audioButton = audioEnable;
     [self.toolbar addButton:audioEnable action:^(UIButton *sender) {
-        [weakSelf.roomManager enableAudio:![weakSelf.roomManager isAudioEnabled]];
+        BOOL audioEnabled = [weakSelf.roomManager isAudioEnabled];
+        [weakSelf.roomManager enableAudio:!audioEnabled];
     }];
     
     NBMButton *streamEnable = [NBMButtonFactory buttonWithNormalText:@"Disable stream" selectedText:@"Enable stream"];
@@ -169,9 +180,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
             [weakSelf.roomManager publishVideo:^(NSError *error) {
                 weakSelf.publishing = NO;
                 if (!error) {
-                    
-                } else {
-                    
+
                 }
             } loopback:NO];
         } else {
@@ -183,15 +192,27 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
             [weakSelf.roomManager unpublishVideo:^(NSError *error) {
                 weakSelf.unpublishing = NO;
                 if (!error) {
-                    
-                } else {
-                    
+
                 }
             }];
         }
     }];
     
     [self.toolbar updateItems];
+}
+
+- (void)enableVideo:(BOOL)enable {
+    [self.roomManager enableVideo:enable];
+    [self updatePeer:self.room.localPeer block:^(NBMPeerViewCell *cell) {
+        [cell enableVideo:enable];
+    }];
+}
+
+- (void)enableStreamButtons:(BOOL)enabled {
+    self.videoButton.enabled = enabled;
+    self.videoButton.pressed = !enabled;
+    self.audioButton.enabled = enabled;
+    self.audioButton.pressed = !enabled;
 }
 
 #pragma mark - Progress HUD
@@ -310,15 +331,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 
 - (void)hideAndRemoveRenderer:(id<NBMRenderer>)renderer
 {
-//    UIView *theView = renderer.rendererView;
     renderer.videoTrack = nil;
-    
-//    CGAffineTransform finalTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.01, 0.01), theView.transform);
-//    [UIView animateWithDuration:PHViewControllerAnimationTime delay:0 usingSpringWithDamping:PHViewControllerDampingRatio initialSpringVelocity:PHViewControllerSpringVelocity options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-//        theView.transform = finalTransform;
-//    } completion:^(BOOL finished) {
-//        [theView removeFromSuperview];
-//    }];
     
     if (renderer == self.localRenderer) {
         self.localRenderer = nil;
@@ -376,7 +389,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     NSIndexPath *indexPath = [self indexPathOfPeer:peer];
     NBMPeerViewCell *cell = (id)[self.peersCollectionView cellForItemAtIndexPath:indexPath];
     block(cell);
-}
+} 
 
 #pragma mark - UICollectionViewDataSource
 
@@ -411,7 +424,8 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self.peersCollectionView performBatchUpdates:nil completion:nil];// Calling -performBatchUpdates:completion: will invalidate the layout and resize the cells with animation
+    // Calling -performBatchUpdates:completion: will invalidate the layout and resize the cells with animation
+    [self.peersCollectionView performBatchUpdates:nil completion:nil];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
@@ -500,18 +514,19 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     [self updatePeer:self.room.localPeer block:^(NBMPeerViewCell *cell) {
         [cell setVideoView:self.localRenderer.rendererView];
         [cell addSwitchCamerButton];
+        [self enableStreamButtons:YES];
     }];
 }
 
 - (void)roomManager:(NBMRoomManager *)broker didRemoveLocalStream:(RTCMediaStream *)localStream {
     [self.peerIdToRenderer removeObjectForKey:self.room.localPeer.identifier];
-    
     [self hideAndRemoveRenderer:self.localRenderer];
     
     [self updatePeer:self.room.localPeer block:^(NBMPeerViewCell *cell) {
         [cell hideSpinner];
-        [cell removeSwitchCameraButton];
         [cell setVideoView:nil];
+        [cell removeSwitchCameraButton];
+        [self enableStreamButtons:NO];
     }];
 }
 
@@ -545,10 +560,6 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 }
 
 - (void)roomManager:(NBMRoomManager *)broker didFailWithError:(NSError *)error {
-    //optimize, leave only when joined
-    if (self.roomManager.joined) {
-        [self.roomManager leaveRoom:nil];
-    }
     [self showErrorAlert:error.localizedDescription action:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];

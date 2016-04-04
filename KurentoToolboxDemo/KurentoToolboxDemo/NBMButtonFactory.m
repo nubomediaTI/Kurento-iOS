@@ -67,8 +67,8 @@ const CGRect kDefCircleDeclineRect = {0, 0, 44, 44};
                                selectedColor:kDefSelectedColor];
     button.pushed = YES;
     
-    button.iconView = [self iconViewWithNormalImage:@"camera_on_ic"
-                                      selectedImage:@"camera_off_ic"];
+    button.iconView = [self iconViewWithNormalImage:@"ic_videocam_48pt"
+                                      selectedImage:@"ic_videocam_off_white_48pt"];
     return button;
 }
 
@@ -80,8 +80,8 @@ const CGRect kDefCircleDeclineRect = {0, 0, 44, 44};
     
     button.pushed = YES;
     
-    button.iconView = [self iconViewWithNormalImage:@"mute_on_ic"
-                                      selectedImage:@"mute_off_ic"];
+    button.iconView = [self iconViewWithNormalImage:@"ic_mic_48pt"
+                                      selectedImage:@"ic_mic_off_white_48pt"];
     return button;
 }
 

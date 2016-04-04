@@ -24,7 +24,4 @@
 
 @interface NBMRoomMainViewController : UITableViewController
 
-
-
-
 @end

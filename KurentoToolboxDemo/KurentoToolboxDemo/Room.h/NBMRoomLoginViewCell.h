@@ -44,8 +44,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *joinButton;
 @property (nonatomic, weak) id <NBMRoomLoginViewCellDelegate> delegate;
 
-- (NSURL *)roomServerURL;
-
 @end
 
 @protocol NBMRoomLoginViewCellDelegate<NSObject>

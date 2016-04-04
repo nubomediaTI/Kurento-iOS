@@ -96,9 +96,9 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 - (void)generateOffer:(NSString *)connectionId {
     NSParameterAssert(connectionId);
     
-    if (!self.localStream) {
-        [self startLocalMedia];
-    }
+//    if (!self.localStream) {
+//        [self startLocalMedia];
+//    }
    
     NBMPeerConnection *connection = self.connectionMap[connectionId];
 //    if (connection) {
@@ -126,12 +126,18 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 //}
 
 - (void)processAnswer:(NSString *)sdpAnswer connectionId:(NSString *)connectionId {
+    NSParameterAssert(sdpAnswer);
+    NSParameterAssert(connectionId);
+    
     NBMPeerConnection *connection = self.connectionMap[connectionId];
     RTCSessionDescription *description = [[RTCSessionDescription alloc] initWithType:@"answer" sdp:sdpAnswer];
     [connection.peerConnection setRemoteDescriptionWithDelegate:self sessionDescription:description];
 }
 
 - (void)addICECandidate:(RTCICECandidate *)candidate connectionId:(NSString *)connectionId {
+    NSParameterAssert(candidate);
+    NSParameterAssert(connectionId);
+    
     NBMPeerConnection *connection = self.connectionMap[connectionId];
     [connection addIceCandidate:candidate];
 }
@@ -516,15 +522,16 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
  signalingStateChanged:(RTCSignalingState)stateChanged {
-    DDLogVerbose(@"Peer connection: Signaling state changed: %@", [self stringForSignalingState:stateChanged]);
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - signaling state changed: %@", connection.connectionId, [self stringForSignalingState:stateChanged]);
 }
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
            addedStream:(RTCMediaStream *)stream {
-    DDLogVerbose(@"Received %lu video tracks and %lu audio tracks of peer connection",
-                 (unsigned long)stream.videoTracks.count, (unsigned long)stream.audioTracks.count);
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - received %lu video tracks and %lu audio tracks",
+                 connection.connectionId, (unsigned long)stream.videoTracks.count, (unsigned long)stream.audioTracks.count);
     dispatch_async(dispatch_get_main_queue(), ^{
-        NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
         if (!connection) {
             return;
         }
@@ -538,9 +545,9 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
          removedStream:(RTCMediaStream *)stream {
-    DDLogVerbose(@"Peer connection stream was removed");
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - stream was removed", connection.connectionId);
     dispatch_async(dispatch_get_main_queue(), ^{
-        NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
         if (!connection) {
             return;
         }
@@ -552,14 +559,15 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 - (void)peerConnectionOnRenegotiationNeeded:
 (RTCPeerConnection *)peerConnection {
-    DDLogVerbose(@"WARNING: Renegotiation needed but unimplemented.");
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - renegotiation needed but unimplemented", connection.connectionId);
 }
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
   iceConnectionChanged:(RTCICEConnectionState)newState {
-    DDLogVerbose(@"ICE state changed: %@", [self stringForConnectionState:newState]);
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - ICE state changed: %@", connection.connectionId, [self stringForConnectionState:newState]);
     dispatch_async(dispatch_get_main_queue(), ^{
-        NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
         if (!connection) {
             return;
         }
@@ -578,12 +586,12 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
    iceGatheringChanged:(RTCICEGatheringState)newState {
-    DDLogVerbose(@"ICE gathering state changed: %@", [self stringForGatheringState:newState]);
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - ICE gathering state changed: %@", connection.connectionId, [self stringForGatheringState:newState]);
     dispatch_async(dispatch_get_main_queue(), ^{
         if (newState == RTCICEGatheringGathering) {
             //Is this check needed?
             if (peerConnection.iceGatheringState == RTCICEGatheringGathering) {
-                NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
                 [connection drainRemoteCandidates];
             }
         }
@@ -592,8 +600,9 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
        gotICECandidate:(RTCICECandidate *)candidate {
+    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
+    DDLogVerbose(@"Peer connection %@ - got ICE candidate", connection.connectionId);
     dispatch_async(dispatch_get_main_queue(), ^{
-        NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
         if (!connection) {
             return;
         }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1985BF1C7C9C4E00AE99DD /* NBMTreeMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985BE1C7C9C4E00AE99DD /* NBMTreeMainViewController.m */; };
+		4A1985C21C7C9D3B00AE99DD /* NBMTreeMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985C11C7C9D3B00AE99DD /* NBMTreeMainViewCell.m */; };
+		4A1985C51C7DFB4600AE99DD /* NBMTreeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985C41C7DFB4600AE99DD /* NBMTreeManager.m */; };
+		4A1985C91C7F6FFD00AE99DD /* NBMTreeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985C81C7F6FFD00AE99DD /* NBMTreeVideoViewController.m */; };
 		4A365CF31C526EA200252EDA /* NBMRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF11C526EA200252EDA /* NBMRoomManager.m */; };
 		4A365CF61C52781800252EDA /* NBMRoomMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */; };
 		4A365CFA1C52790100252EDA /* NBMRoomLoginViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */; };
@@ -25,6 +29,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A1985BD1C7C9C4E00AE99DD /* NBMTreeMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeMainViewController.h; path = Tree/NBMTreeMainViewController.h; sourceTree = "<group>"; };
+		4A1985BE1C7C9C4E00AE99DD /* NBMTreeMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeMainViewController.m; path = Tree/NBMTreeMainViewController.m; sourceTree = "<group>"; };
+		4A1985C01C7C9D3B00AE99DD /* NBMTreeMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeMainViewCell.h; path = Tree/NBMTreeMainViewCell.h; sourceTree = "<group>"; };
+		4A1985C11C7C9D3B00AE99DD /* NBMTreeMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeMainViewCell.m; path = Tree/NBMTreeMainViewCell.m; sourceTree = "<group>"; };
+		4A1985C31C7DFB4600AE99DD /* NBMTreeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeManager.h; path = Tree/NBMTreeManager.h; sourceTree = "<group>"; };
+		4A1985C41C7DFB4600AE99DD /* NBMTreeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeManager.m; path = Tree/NBMTreeManager.m; sourceTree = "<group>"; };
+		4A1985C71C7F6FFD00AE99DD /* NBMTreeVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeVideoViewController.h; path = Tree/NBMTreeVideoViewController.h; sourceTree = "<group>"; };
+		4A1985C81C7F6FFD00AE99DD /* NBMTreeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeVideoViewController.m; path = Tree/NBMTreeVideoViewController.m; sourceTree = "<group>"; };
 		4A365CF11C526EA200252EDA /* NBMRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomManager.m; path = Room.h/NBMRoomManager.m; sourceTree = "<group>"; };
 		4A365CF21C526EA200252EDA /* NBMRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomManager.h; path = Room.h/NBMRoomManager.h; sourceTree = "<group>"; };
 		4A365CF41C52781800252EDA /* NBMRoomMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomMainViewController.h; path = Room.h/NBMRoomMainViewController.h; sourceTree = "<group>"; };
@@ -69,6 +81,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1985BC1C7C9BED00AE99DD /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				4A1985C31C7DFB4600AE99DD /* NBMTreeManager.h */,
+				4A1985C41C7DFB4600AE99DD /* NBMTreeManager.m */,
+				4A1985C61C7DFB4C00AE99DD /* Interface */,
+			);
+			name = Tree;
+			sourceTree = "<group>";
+		};
+		4A1985C61C7DFB4C00AE99DD /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4A1985BD1C7C9C4E00AE99DD /* NBMTreeMainViewController.h */,
+				4A1985BE1C7C9C4E00AE99DD /* NBMTreeMainViewController.m */,
+				4A1985C01C7C9D3B00AE99DD /* NBMTreeMainViewCell.h */,
+				4A1985C11C7C9D3B00AE99DD /* NBMTreeMainViewCell.m */,
+				4A1985C71C7F6FFD00AE99DD /* NBMTreeVideoViewController.h */,
+				4A1985C81C7F6FFD00AE99DD /* NBMTreeVideoViewController.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		4A365CF01C526E4A00252EDA /* Room */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +158,7 @@
 		4AE438DB1BF0DDBB001882E5 /* KurentoToolboxDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4A1985BC1C7C9BED00AE99DD /* Tree */,
 				4A365CF01C526E4A00252EDA /* Room */,
 				4AE438DF1BF0DDBB001882E5 /* AppDelegate.h */,
 				4AE438E01BF0DDBB001882E5 /* AppDelegate.m */,
@@ -195,6 +231,7 @@
 				TargetAttributes = {
 					4AE438D81BF0DDBB001882E5 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = M4FQ242C7X;
 					};
 				};
 			};
@@ -287,11 +324,15 @@
 				4A874F7F1C618C50006CD671 /* NBMToolbar.m in Sources */,
 				4A365D001C56387A00252EDA /* NBMPeerViewCell.m in Sources */,
 				4AE438DE1BF0DDBB001882E5 /* main.m in Sources */,
+				4A1985C51C7DFB4600AE99DD /* NBMTreeManager.m in Sources */,
+				4A1985C91C7F6FFD00AE99DD /* NBMTreeVideoViewController.m in Sources */,
 				4AD22D191C6403CD002C1038 /* NBMButton.m in Sources */,
 				4A365CF61C52781800252EDA /* NBMRoomMainViewController.m in Sources */,
+				4A1985BF1C7C9C4E00AE99DD /* NBMTreeMainViewController.m in Sources */,
 				4AD22D1C1C64046B002C1038 /* NBMButtonFactory.m in Sources */,
 				4A365CFA1C52790100252EDA /* NBMRoomLoginViewCell.m in Sources */,
 				4A365CF31C526EA200252EDA /* NBMRoomManager.m in Sources */,
+				4A1985C21C7C9D3B00AE99DD /* NBMTreeMainViewCell.m in Sources */,
 				4A365CFD1C56351A00252EDA /* NBMRoomVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,14 +446,16 @@
 			baseConfigurationReference = F13C173A1C1EFFF77D602F55 /* Pods-KurentoToolboxDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxDemo/KurentoToolboxDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
 				PRODUCT_NAME = KurentoDemo;
-				PROVISIONING_PROFILE = "ced55313-15bb-428e-9f5f-424c58e981f5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -421,14 +464,16 @@
 			baseConfigurationReference = 6D6934503747DF5C38C8CDD8 /* Pods-KurentoToolboxDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxDemo/KurentoToolboxDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
 				PRODUCT_NAME = KurentoDemo;
-				PROVISIONING_PROFILE = "ced55313-15bb-428e-9f5f-424c58e981f5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -65,8 +65,10 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 - (void)open
 {
     if (!_socket) { // && _channelState != NBMTransportChannelStateOpen
+        //To support Sec-WebSocket-Protocol header
+        //https://github.com/square/SocketRocket/issues/24
         NSURLRequest *wsRequest = [[NSURLRequest alloc] initWithURL:_url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:_openChannelTimeout];
-        SRWebSocket *socket = [[SRWebSocket alloc] initWithURLRequest:wsRequest protocols:nil allowsUntrustedSSLCertificates:YES];
+        SRWebSocket *socket = [[SRWebSocket alloc] initWithURLRequest:wsRequest protocols:@[] allowsUntrustedSSLCertificates:YES];
         [socket setDelegateDispatchQueue:self.processingQueue];
         socket.delegate = self;
         self.socket = socket;
@@ -104,7 +106,8 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)send:(NSString *)message {
     if (message) {
-        if (self.channelState == NBMTransportChannelStateOpen) {
+        if (_channelState == NBMTransportChannelStateOpen) {
+            DDLogVerbose(@"WebSocket: did send message: %@", message);
             [self.socket send:message];
         } else {
             DDLogWarn(@"Socket is not ready to send a message!");
@@ -161,15 +164,20 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)handleTimer:(NSTimer *)timer
 {
-    if (self.channelState == NBMTransportChannelStateOpen) {
+    if (_socket) {
         [self sendPing];
         [self scheduleTimer];
+    } else {
+        [self invalidateTimer];
     }
 }
 
 - (void)sendPing
 {
-    [self.socket sendPing:nil];
+    //check for socket status
+    if (self.socket.readyState == SR_OPEN) {
+        [self.socket sendPing:nil];
+    }
 }
 
 - (void)cleanupChannel

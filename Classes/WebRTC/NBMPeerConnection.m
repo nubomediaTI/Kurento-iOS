@@ -48,6 +48,10 @@
     return NO;
 }
 
+- (void)dealloc {
+    [self close];
+}
+
 #pragma mark - Public
 
 - (void)addIceCandidate:(RTCICECandidate *)candidate

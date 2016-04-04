@@ -27,7 +27,7 @@
 #import "MBProgressHUD.h"
 
 //#error : Define WS Room URI (es. wss://localhost:8443/room)
-static NSString *defaultWsRoom = @"http://kurento.teamlife.it:8080/room";
+static NSString *defaultWsRoom = @"https://kurento.teamlife.it:8443/room";
 static  NSString* const kRoomURLString = @"RoomServerURL";
 
 @interface NBMRoomMainViewController () <NBMRoomLoginViewCellDelegate>
@@ -95,7 +95,7 @@ static  NSString* const kRoomURLString = @"RoomServerURL";
     NSURL *roomURL = [NSURL URLWithString:roomURLString];
     self.room = [[NBMRoom alloc] initWithUsername:username roomName:room roomURL:roomURL];
     //[self performSegueWithIdentifier:@"NBMRoomVideoViewController" sender:room];
-    NBMRoomVideoViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
+    NBMRoomVideoViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RoomVideoViewController"];
     videoVC.room = _room;
     videoVC.modalPresentationStyle = UIModalTransitionStyleCrossDissolve;
     [self.navigationController pushViewController:videoVC animated:YES];

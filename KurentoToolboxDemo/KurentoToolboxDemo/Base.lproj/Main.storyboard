@@ -40,17 +40,17 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="KURENTO TREE" id="gIW-mC-50a">
+                            <tableViewSection headerTitle="Kurento Tree" id="gIW-mC-50a">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="eFm-1W-tBS" style="IBUITableViewCellStyleDefault" id="Vuy-Gc-XCr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="eFm-1W-tBS" style="IBUITableViewCellStyleDefault" id="Vuy-Gc-XCr">
                                         <rect key="frame" x="0.0" y="209" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vuy-Gc-XCr" id="MOn-kE-4ZU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tree demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eFm-1W-tBS">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,6 +59,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="att-fE-KH9" kind="show" id="aTK-T7-2In"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -335,7 +338,209 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEe-5P-RAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2404" y="-537"/>
+            <point key="canvasLocation" x="2742" y="-552"/>
+        </scene>
+        <!--Tree Video View Controller-->
+        <scene sceneID="0Hm-2A-UVS">
+            <objects>
+                <viewController storyboardIdentifier="TreeVideoViewController" id="UzK-UY-Tvc" customClass="NBMTreeVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JOc-w2-fB5"/>
+                        <viewControllerLayoutGuide type="bottom" id="aWy-OF-4HN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2wb-CF-UUb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTS-lY-YVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="-544"/>
+        </scene>
+        <!--Tree Main View Controller-->
+        <scene sceneID="JZv-d7-gPT">
+            <objects>
+                <tableViewController id="att-fE-KH9" customClass="NBMTreeMainViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="295" sectionHeaderHeight="28" sectionFooterHeight="28" id="7MF-u4-4ZW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TreeMainCell" rowHeight="295" id="Vsb-cJ-aEk" customClass="NBMTreeMainViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="295"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsb-cJ-aEk" id="haa-pA-ld9">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="295"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tree server" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNa-U5-Hrg">
+                                            <rect key="frame" x="8" y="8" width="84" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="ksE-XJ-FWI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-QH-5PL" userLabel="Server Textfield">
+                                            <rect key="frame" x="40" y="37" width="512" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="TQk-LB-61H"/>
+                                            </constraints>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg8-J1-MuT" userLabel="Textfiled border">
+                                            <rect key="frame" x="40" y="75" width="512" height="2"/>
+                                            <color key="backgroundColor" red="0.25882352939999997" green="0.52156862749999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="bjR-Hf-BXx"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a valid URL" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrm-a9-9Pa" userLabel="Server Error Label">
+                                            <rect key="frame" x="40" y="77" width="512" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="HrO-GB-ySm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tree name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDQ-YK-UfS">
+                                            <rect key="frame" x="8" y="125" width="79" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="mKA-GX-9bp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wt-zZ-i15" userLabel="Room Textfield">
+                                            <rect key="frame" x="48" y="154" width="504" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="GCu-K0-jjZ"/>
+                                            </constraints>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwL-34-Vyt" userLabel="Textfiled border">
+                                            <rect key="frame" x="48" y="194" width="504" height="2"/>
+                                            <color key="backgroundColor" red="0.25882352939999997" green="0.52156862749999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="4zP-fh-bfF"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a valid tree name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoe-ab-EJT" userLabel="Room Error Label">
+                                            <rect key="frame" x="48" y="196" width="504" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="9fq-SO-KA6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKH-QT-psM">
+                                            <rect key="frame" x="48" y="246" width="100" height="40"/>
+                                            <color key="backgroundColor" red="0.074509803920000006" green="0.48627450979999998" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="3hH-zF-f9Y"/>
+                                                <constraint firstAttribute="height" constant="40" id="ix1-yx-IKu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <state key="normal" title="MASTER">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="disabled">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abk-Jc-iGg">
+                                            <rect key="frame" x="173" y="246" width="100" height="40"/>
+                                            <color key="backgroundColor" red="0.25882352939999997" green="0.52156862749999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="JkL-9U-bXr"/>
+                                                <constraint firstAttribute="width" constant="100" id="wDb-w7-qTb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <state key="normal" title="VIEWER">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="disabled">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="abk-Jc-iGg" firstAttribute="leading" secondItem="KKH-QT-psM" secondAttribute="trailing" constant="25" id="1ir-Jh-t8W"/>
+                                        <constraint firstItem="abk-Jc-iGg" firstAttribute="top" secondItem="Yoe-ab-EJT" secondAttribute="bottom" constant="10" id="2zA-Pb-UTe"/>
+                                        <constraint firstItem="Yoe-ab-EJT" firstAttribute="width" secondItem="4wt-zZ-i15" secondAttribute="width" id="5r1-OW-vCw"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="RNa-U5-Hrg" secondAttribute="leading" id="7IU-hL-KDa"/>
+                                        <constraint firstItem="NwL-34-Vyt" firstAttribute="width" secondItem="4wt-zZ-i15" secondAttribute="width" id="8C6-3l-ZKK"/>
+                                        <constraint firstItem="NwL-34-Vyt" firstAttribute="top" secondItem="4wt-zZ-i15" secondAttribute="bottom" id="98z-f1-Tj3"/>
+                                        <constraint firstAttribute="topMargin" secondItem="NDQ-YK-UfS" secondAttribute="top" constant="-100" id="Bq9-0l-yTb"/>
+                                        <constraint firstItem="4wt-zZ-i15" firstAttribute="leading" secondItem="haa-pA-ld9" secondAttribute="leadingMargin" constant="40" id="CBN-Vh-WW4"/>
+                                        <constraint firstItem="RNa-U5-Hrg" firstAttribute="top" secondItem="haa-pA-ld9" secondAttribute="top" constant="8" id="DBc-qq-GvJ"/>
+                                        <constraint firstItem="vf5-QH-5PL" firstAttribute="leading" secondItem="haa-pA-ld9" secondAttribute="leading" constant="40" id="HE0-w2-7kT"/>
+                                        <constraint firstItem="Nrm-a9-9Pa" firstAttribute="top" secondItem="Gg8-J1-MuT" secondAttribute="bottom" id="KQa-YY-2v6"/>
+                                        <constraint firstItem="Nrm-a9-9Pa" firstAttribute="centerX" secondItem="Gg8-J1-MuT" secondAttribute="centerX" id="Lg8-bf-Tjn"/>
+                                        <constraint firstItem="Yoe-ab-EJT" firstAttribute="centerX" secondItem="4wt-zZ-i15" secondAttribute="centerX" id="MM7-mi-E0B"/>
+                                        <constraint firstItem="Nrm-a9-9Pa" firstAttribute="width" secondItem="Gg8-J1-MuT" secondAttribute="width" id="PnZ-nZ-ujV"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="NDQ-YK-UfS" secondAttribute="leading" id="QAd-Wm-e9O"/>
+                                        <constraint firstItem="Gg8-J1-MuT" firstAttribute="width" secondItem="vf5-QH-5PL" secondAttribute="width" id="QiY-US-scw"/>
+                                        <constraint firstItem="vf5-QH-5PL" firstAttribute="top" secondItem="RNa-U5-Hrg" secondAttribute="bottom" constant="8" id="TXJ-13-24Z"/>
+                                        <constraint firstItem="NDQ-YK-UfS" firstAttribute="top" secondItem="Nrm-a9-9Pa" secondAttribute="bottom" constant="8" id="ULd-kg-4Zm"/>
+                                        <constraint firstItem="NwL-34-Vyt" firstAttribute="centerX" secondItem="4wt-zZ-i15" secondAttribute="centerX" id="X7D-CY-vun"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4wt-zZ-i15" secondAttribute="trailing" constant="40" id="ZoJ-IB-PNU"/>
+                                        <constraint firstItem="KKH-QT-psM" firstAttribute="top" secondItem="Yoe-ab-EJT" secondAttribute="bottom" constant="10" id="cH1-oO-M4h"/>
+                                        <constraint firstItem="Gg8-J1-MuT" firstAttribute="centerX" secondItem="vf5-QH-5PL" secondAttribute="centerX" id="dzq-TO-b1s"/>
+                                        <constraint firstItem="Gg8-J1-MuT" firstAttribute="bottom" secondItem="vf5-QH-5PL" secondAttribute="bottom" id="hni-Il-Ngn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vf5-QH-5PL" secondAttribute="trailing" constant="40" id="i4Q-fF-bxY"/>
+                                        <constraint firstItem="Yoe-ab-EJT" firstAttribute="top" secondItem="NwL-34-Vyt" secondAttribute="bottom" id="lPW-Kj-EIv"/>
+                                        <constraint firstItem="4wt-zZ-i15" firstAttribute="top" secondItem="NDQ-YK-UfS" secondAttribute="bottom" constant="8" id="mri-ec-5ed"/>
+                                        <constraint firstItem="KKH-QT-psM" firstAttribute="leading" secondItem="haa-pA-ld9" secondAttribute="leadingMargin" constant="40" id="wyj-GS-dXc"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Bq9-0l-yTb"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="masterButton" destination="KKH-QT-psM" id="ucu-gP-eG4"/>
+                                    <outlet property="treeErrorLbl" destination="Nrm-a9-9Pa" id="u5m-58-esk"/>
+                                    <outlet property="treeErrorLblHConstraint" destination="HrO-GB-ySm" id="d6L-HG-bwl"/>
+                                    <outlet property="treeIdErrorLbl" destination="Yoe-ab-EJT" id="sfg-2Q-yqX"/>
+                                    <outlet property="treeIdErrorLblHConstraint" destination="9fq-SO-KA6" id="fT2-6E-hFJ"/>
+                                    <outlet property="treeIdTf" destination="4wt-zZ-i15" id="ji8-iF-ZR3"/>
+                                    <outlet property="treeIdTfBorder" destination="NwL-34-Vyt" id="THk-VZ-rRk"/>
+                                    <outlet property="treeTf" destination="vf5-QH-5PL" id="9V7-sQ-vkC"/>
+                                    <outlet property="treeTfBorder" destination="Gg8-J1-MuT" id="xbk-O2-rJu"/>
+                                    <outlet property="viewerButton" destination="abk-Jc-iGg" id="YQY-3Q-Xf1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="att-fE-KH9" id="w9s-Oe-epV"/>
+                            <outlet property="delegate" destination="att-fE-KH9" id="8dV-Ad-sbD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvB-pk-mzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="-552"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NDs-23-59n">
@@ -356,7 +561,7 @@
         <!--Room Video View Controller-->
         <scene sceneID="YTn-We-xSH">
             <objects>
-                <viewController storyboardIdentifier="CallViewController" id="ccZ-cd-H8l" customClass="NBMRoomVideoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomVideoViewController" id="ccZ-cd-H8l" customClass="NBMRoomVideoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SHU-s0-NEr"/>
                         <viewControllerLayoutGuide type="bottom" id="hV6-wk-ICb"/>
@@ -459,7 +664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lih-MA-Zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076" y="-537"/>
+            <point key="canvasLocation" x="3560" y="-552"/>
         </scene>
     </scenes>
 </document>

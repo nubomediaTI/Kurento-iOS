@@ -84,12 +84,20 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
 }
 
 - (void)connect:(NSTimeInterval)timeout {
-    if (!self.connected) {
+    if (self.connectionState == NBMTreeClientConnectionStateClosed) {
         if (timeout <= 0) {
             timeout = kTreeClientTimeoutInterval;
         }
         [self setupJsonRpcClient:timeout];
     }
+}
+
+- (void)connect {
+    [self connect:-1];
+}
+
+- (void)dealloc {
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
 }
 
 #pragma mark - Public
@@ -100,6 +108,13 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
 
 - (NSString *)treeId {
     return _treeId;
+}
+
+- (NBMTreeClientConnectionState)connectionState {
+    if (!self.jsonRpcClient) {
+        return NBMTreeClientConnectionStateClosed;
+    }
+    return (NBMTreeClientConnectionState) self.jsonRpcClient.connectionState;
 }
    
 - (void)releaseTree:(NSString *)treeId completion:(void (^)(NSError *))block {
@@ -134,10 +149,10 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     return [self nbm_removeSink:sinkId tree:treeId completion:block];
 }
 
-- (void)addICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void (^)(NSError *))block {
+- (void)sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void (^)(NSError *))block {
     NSParameterAssert(candidate);
     NSParameterAssert(treeId);
-    return [self addICECandidate:candidate forSink:sinkId tree:treeId completion:block];
+    return [self nbm_sendICECandidate:candidate forSink:sinkId tree:treeId completion:block];
 }
 
 #pragma mark - Private
@@ -149,12 +164,20 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
 }
 
 - (void)nbm_createTree:(NSString *)treeId completion:(void (^)(NSError *))block {
+    NSDictionary *params;
+    if (treeId.length > 0) {
+        params = @{kTreeId: treeId};
+    }
     [self.jsonRpcClient sendRequestWithMethod:kCreateTreeMethod
-                                   parameters:@{kTreeId: treeId}
+                                   parameters:params
                                    completion:^(NBMResponse *response) {
-                                       NSError *error = [NBMTreeClient errorFromResponse:response];
+                                       NSError *error;
+//                                       NSString *value = [NBMTreeClient response:response getStringPropertyWithName:@"value" error:&error];
                                        if (!error) {
                                            self.treeId = treeId;
+//                                           if (value) {
+//                                               self.treeId = value;
+//                                           }
                                        }
                                        if (block) {
                                            block(error);
@@ -208,6 +231,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
                                        NSError *error;
                                        NBMTreeEndpoint *treeEndpoint = [self treeEndpointFromResponse:response error:&error];
                                        if (treeEndpoint) {
+                                           self.treeId = treeId;
                                            [self.mutableTreeEndpoints addObject:treeEndpoint];
                                        }
                                        if (block) {
@@ -255,7 +279,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
                                    }];
 }
 
-- (void)nbm_addICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block {
+- (void)nbm_sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:treeId forKey:kTreeId];
     if (sinkId.length > 0) {

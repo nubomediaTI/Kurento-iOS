@@ -33,7 +33,6 @@
     [self.serverErrorLblHConstraint setConstant:0.0f];
     
     [self.roomTf setDelegate:self];
-//    [self.roomTf becomeFirstResponder];
     [self.roomErrorLblHConstraint setConstant:0.0f];
     
     [self.userTf setDelegate:self];

@@ -45,6 +45,23 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
     NBMTreeClientTransportErrorCode
 };
 
+typedef NS_ENUM(NSInteger, NBMTreeClientConnectionState) {
+    // State when connecting.
+    NBMTreeClientConnectionStateOpening,
+    // State when connection is established and ready for use.
+    NBMTreeClientConnectionStateOpen,
+    // State when disconnecting.
+    NBMTreeClientConnectionStateClosing,
+    // State when disconnected.
+    NBMTreeClientConnectionStateClosed
+};
+
+typedef NS_ENUM(NSInteger, NBMTreeMode) {
+    NBMTreeModeNone,
+    NBMTreeModeMaster,
+    NBMTreeModeViewer
+};
+
 /**
  *  The developer of Kurento Tree applications can use this client when implementing the front-end part of a broadcasting application with Kurento Tree.
  *  It's actually only a wrapper over the JSON-RPC protocol used to communicate with Tree Server.
@@ -55,6 +72,8 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
  *  The delegate object for the client.
  */
 @property (nonatomic, weak, readonly) id<NBMTreeClientDelegate> delegate;
+
+@property (nonatomic, strong, readonly) NSURL *url;
 
 /**
  *  A list of connected NBMTreeEndpoint objects.
@@ -67,6 +86,8 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
  */
 @property (nonatomic, assign, readonly) NSTimeInterval timeout;
 
+@property (nonatomic, assign, readonly) NBMTreeClientConnectionState connectionState;
+
 /**
  *  A Boolean that indicates the WebSocket connection status.
  */
@@ -76,6 +97,8 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
  *  The identifier of current tree.
  */
 @property (nonatomic, copy, readonly) NSString *treeId;
+
+@property (nonatomic, assign) NBMTreeMode treeMode;
 
 /**
  *  Creates and initializes a NBMTreeClient instance.
@@ -95,6 +118,9 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
  *  @param timeout The timeout interval for API requests, in seconds.
  */
 - (void)connect:(NSTimeInterval)timeout;
+
+
+- (void)connect;
 
 /**
  *  Request to create a new tree in Tree server.
@@ -155,6 +181,6 @@ typedef NS_ENUM(NSInteger, NBMTreeClientErrorCode) {
  *  @param treeId    Tree id to which belongs this candidate.
  *  @param block     A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.
  */
-- (void)addICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block;
+- (void)sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block;
 
 @end

@@ -175,6 +175,16 @@ const CGFloat kAnimationLength = 0.15;
      } completion:nil];
 }
 
+- (void)setEnabled:(BOOL)enabled {
+    [super setEnabled:enabled];
+
+    if (!self.isEnabled) {
+        self.alpha = 0.75;
+    } else {
+        self.alpha = 1.0;
+    }
+}
+
 - (void)setPressed:(BOOL)pressed {
     
     _pressed = pressed;

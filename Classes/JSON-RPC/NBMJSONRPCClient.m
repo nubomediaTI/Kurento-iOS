@@ -390,7 +390,7 @@ static NSTimeInterval kRequestMaxRetries = 3;
     
     //Response WITHOUT method already processed?
     if (!requestPack) {
-        if ([self checkAndManageDuplicatedResponse:messageDictionary]) {
+        if (![self checkAndManageDuplicatedResponse:messageDictionary]) {
             DDLogWarn(@"No callback was defined for this message: %@", [NSString nbm_stringFromJSONDictionary:messageDictionary]);
             return;
         }

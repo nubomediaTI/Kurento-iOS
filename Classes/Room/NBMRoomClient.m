@@ -180,6 +180,10 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     }
 }
 
+- (void)close {
+    [self.jsonRpcClient cancelAllRequest];
+}
+
 - (void)dealloc {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
 }
