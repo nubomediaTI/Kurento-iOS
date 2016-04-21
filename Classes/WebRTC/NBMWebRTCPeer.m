@@ -346,12 +346,7 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 }
 
 - (BOOL)startLocalMedia
-{
-//    RTCMediaConstraints *videoConstraints = nil;
-//    [self setupLocalMediaWithVideoConstraints:videoConstraints];
-//    
-//    return YES;
-    
+{    
     RTCMediaStream *localMediaStream = [_peerConnectionFactory mediaStreamWithLabel:[self localStreamLabel]];
     self.localStream = localMediaStream;
     

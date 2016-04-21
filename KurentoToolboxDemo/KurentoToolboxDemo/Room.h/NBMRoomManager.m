@@ -61,10 +61,8 @@ typedef void(^ErrorBlock)(NSError *error);
 - (void)dealloc {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     [self.reachability stopNotifier];
-//    [self.roomClient close];
-    //ERROR if niling (no connection e push back vc)
-    //self.roomClient = nil;
-//    _webRTCPeer = nil;
+    //Disconnect room client (cancel all requests)
+    [self.roomClient disconnect];
 }
 
 #pragma mark - Public
@@ -77,19 +75,13 @@ typedef void(^ErrorBlock)(NSError *error);
     [self setupReachability];
     
     [self setupWebRTCSession];
-    
-//    if (!self.roomClient) {
-//        [self setupRoomClient:room];
-//    }
-//    
-//    if (!self.webRTCPeer) {
-//        [self setupWebRTCSession];
-//    }
 }
 
 - (void)leaveRoom:(void (^)(NSError *))block {
     [self.roomClient leaveRoom:^(NSError *error) {
-        
+        if (block) {
+            block(error);
+        }
     }];
 }
 
@@ -109,7 +101,9 @@ typedef void(^ErrorBlock)(NSError *error);
     }
     if (hasMediaStarted) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate roomManager:self didAddLocalStream:self.localStream];
+            if ([self.delegate respondsToSelector:@selector(roomManager:didAddLocalStream:)]) {
+                 [self.delegate roomManager:self didAddLocalStream:self.localStream];
+            }
         });
         
         NSString *connectionId = [self localConnectionId];
@@ -129,7 +123,9 @@ typedef void(^ErrorBlock)(NSError *error);
 
 - (void)unpublishVideo:(void (^)(NSError *))block {
     [self.webRTCPeer stopLocalMedia];
-    [self.delegate roomManager:self didRemoveLocalStream:self.localStream];
+    if ([self.delegate respondsToSelector:@selector(roomManager:didRemoveLocalStream:)]) {
+        [self.delegate roomManager:self didRemoveLocalStream:self.localStream];
+    }
     [self.webRTCPeer closeConnectionWithConnectionId:[self localConnectionId]];
     [self.roomClient unpublishVideo:^(NSError *error) {
         if (block) {
@@ -160,7 +156,9 @@ typedef void(^ErrorBlock)(NSError *error);
 - (void)selectCameraPosition:(NBMCameraPosition)cameraPosition {
     [self.webRTCPeer selectCameraPosition:cameraPosition];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.delegate roomManager:self didAddLocalStream:self.localStream];
+        if ([self.delegate respondsToSelector:@selector(roomManager:didAddLocalStream:)]) {
+            [self.delegate roomManager:self didAddLocalStream:self.localStream];
+        }
     });
 }
 
@@ -185,7 +183,9 @@ typedef void(^ErrorBlock)(NSError *error);
     [self teardownRoomClient];
     [self teardownWebRTCSession];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.delegate roomManagerDidFinish:self];
+        if ([self.delegate respondsToSelector:@selector(roomManagerDidFinish:)]) {
+            [self.delegate roomManagerDidFinish:self];
+        }
     });
 }
 
@@ -274,7 +274,9 @@ typedef void(^ErrorBlock)(NSError *error);
     
     if (started) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate roomManager:self didAddLocalStream:self.localStream];
+            if ([self.delegate respondsToSelector:@selector(roomManager:didAddLocalStream:)]) {
+                [self.delegate roomManager:self didAddLocalStream:self.localStream];
+            }
         });
     }
 }
@@ -499,7 +501,7 @@ typedef void(^ErrorBlock)(NSError *error);
 }
 
 - (void)client:(NBMRoomClient *)client participantEvicted:(NBMPeer *)peer {
-    [self.delegate roomManagerPeerStatusChanged:self];
+    [self.delegate roomManager:self peerEvicted:peer];
 }
 
 - (void)client:(NBMRoomClient *)client participantPublished:(NBMPeer *)peer {

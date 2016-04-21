@@ -35,7 +35,6 @@ static NSString* const kConnectionId = @"connection";
 @property (nonatomic, strong) NBMTreeEndpoint *localViewer;
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, strong) NBMWebRTCPeer *webRTCPeer;
-@property (nonatomic, strong) NSMutableArray *mutableRemoteStreams;
 @property (nonatomic, strong) NSMutableArray *mutableCandidates;
 @property (nonatomic, strong, readonly) NSString *localConnectionId;
 @property (nonatomic, assign) NSUInteger retryCount;
@@ -63,28 +62,6 @@ static NSString* const kConnectionId = @"connection";
 
 #pragma mark - Public
 
-//- (void)startMasteringTree:(NSString *)treeId completion:(void (^)(NSError *error))block {
-//    NSParameterAssert(treeId);
-//    BOOL hasMediaStarted = [self.webRTCPeer startLocalMedia];
-//    if (hasMediaStarted) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            RTCMediaStream *localStream = self.webRTCPeer.localStream;
-//            _mediaStream = localStream;
-//            [self.delegate treeManager:self didAddStream:self.mediaStream];
-//        });
-//        [self.webRTCPeer generateOffer:kConnectionId completion:^(NSString *sdpOffer, NBMPeerConnection *connection) {
-//            [self nbm_masterTree:treeId withOffer:sdpOffer completion:^(NSString *sdpAnswer, NSError *error) {
-//                if (sdpAnswer) {
-//                    [self.webRTCPeer processAnswer:sdpAnswer connectionId:connection.connectionId];
-//                }
-//                if (block) {
-//                    block(error);
-//                }
-//            }];
-//        }];
-//    }
-//}
-
 - (void)startMasteringTree:(NSString *)treeId completion:(void (^)(NSError *error))block {
     _mutableCandidates = [NSMutableArray array];
     __weak typeof(self) weakSelf = self;
@@ -93,8 +70,7 @@ static NSString* const kConnectionId = @"connection";
         if (hasMediaStarted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 RTCMediaStream *localStream = weakSelf.webRTCPeer.localStream;
-                _mediaStream = localStream;
-                //[self.delegate treeManager:self didAddStream:self.mediaStream];
+                [self.delegate treeManager:self didAddLocalStream:localStream];
             });
             [weakSelf.webRTCPeer generateOffer:kConnectionId completion:^(NSString *sdpOffer, NBMPeerConnection *connection) {
                 [weakSelf.treeClient setSource:sdpOffer tree:treeId completion:^(NSString *sdpAnswer, NSError *error) {
@@ -120,8 +96,13 @@ static NSString* const kConnectionId = @"connection";
 - (void)stopMasteringTree:(NSString *)treeId completion:(void (^)(NSError *error))block {
     NSParameterAssert(treeId);
     [self.webRTCPeer stopLocalMedia];
-    [self.delegate treeManager:self didRemoveStream:self.mediaStream];
+//    [self.delegate treeManager:self didRemoveStream:self.mediaStream];
     [self.webRTCPeer closeConnectionWithConnectionId:kConnectionId];
+    [self.treeClient releaseTree:treeId completion:^(NSError *error) {
+        if (block) {
+            block(error);
+        }
+    }];
 }
 
 - (void)startViewingTree:(NSString *)treeId completion:(void (^)(NSError *))block {
@@ -143,17 +124,35 @@ static NSString* const kConnectionId = @"connection";
 }
 
 - (void)stopViewingTree:(NSString *)treeId completion:(void (^)(NSError *))block {
-    
+    [self.webRTCPeer closeConnectionWithConnectionId:kConnectionId];
+    NSString *sinkId = self.localViewer.identifier;
+    if (sinkId) {
+        [self.treeClient removeSink:sinkId tree:treeId completion:^(NSError *error) {
+            if (block) {
+                block(error);
+            }
+        }];
+    }
+    else {
+        if (block) {
+            block(nil);
+        }
+    }
 }
 
 - (NSString *)treeId {
     return self.treeClient.treeId;
 }
 
+- (RTCMediaStream *)localStream
+{
+    return self.webRTCPeer.localStream;
+}
+
 - (void)selectCameraPosition:(NBMCameraPosition)cameraPosition {
     [self.webRTCPeer selectCameraPosition:cameraPosition];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.delegate treeManager:self didAddStream:self.mediaStream];
+        [self.delegate treeManager:self didAddLocalStream:self.webRTCPeer.localStream];
     });
 }
 
@@ -219,23 +218,6 @@ static NSString* const kConnectionId = @"connection";
     [self.reachability startNotifier];
 }
 
-//- (void)nbm_masterTree:(NSString *)treeId withOffer:(NSString *)sdpOffer completion:(void (^)(NSString *sdpAnswer, NSError *error))block {
-//    __weak typeof(self) weakSelf = self;
-//    [self.treeClient createTree:treeId completion:^(NSError *error) {
-//        if (!error) {
-//            [weakSelf.treeClient setSource:sdpOffer tree:treeId completion:^(NSString *sdpAnswer, NSError *error) {
-//                if (block) {
-//                    block(sdpAnswer, error);
-//                }
-//            }];
-//        } else {
-//            if (block) {
-//                block(nil, error);
-//            }
-//        }
-//    }];
-//}
-
 - (void)nbm_viewTree:(NSString *)treeId withOffer:(NSString *)sdpOffer completion:(void (^)(NSString *sdpAnswer, NSError *error))block {
     __weak typeof(self) weakSelf = self;
     [self.treeClient addSink:sdpOffer tree:treeId completion:^(NBMTreeEndpoint *endpoint, NSError *error) {
@@ -250,8 +232,9 @@ static NSString* const kConnectionId = @"connection";
 
 - (void)drainCandidates {
     for (RTCICECandidate *candidate in self.mutableCandidates) {
+        NSString *treeId = self.treeClient.treeId;
         NSString *sinkId = self.localViewer.identifier;
-        [self.treeClient sendICECandidate:candidate forSink:sinkId tree:[self treeId] completion:nil];
+        [self.treeClient sendICECandidate:candidate forSink:sinkId tree:treeId completion:nil];
     }
     self.mutableCandidates = nil;
 }
@@ -290,33 +273,35 @@ static NSString* const kConnectionId = @"connection";
 }
 
 - (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCICECandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId {
-//    NSString *connectionId;
-//    if (sinkId) {
-//        connectionId = viewerConnectionId;
-//    } else {
-//        connectionId = masterConnectionId;
-//    }
     [self.webRTCPeer addICECandidate:candidate connectionId:kConnectionId];
 }
 
 #pragma mark - NBMWebRTCPeer
 
 - (void)webRTCPeer:(NBMWebRTCPeer *)peer didAddStream:(RTCMediaStream *)remoteStream ofConnection:(NBMPeerConnection *)connection {
-    _mediaStream = remoteStream;
-    [self.delegate treeManager:self didAddStream:remoteStream];
+    NBMTreeMode treeMode = self.treeClient.treeMode;
+    if (treeMode == NBMTreeModeViewer) {
+        [self.delegate treeManager:self didAddStream:remoteStream];
+    }
 }
 
 - (void)webRTCPeer:(NBMWebRTCPeer *)peer didRemoveStream:(RTCMediaStream *)remoteStream ofConnection:(NBMPeerConnection *)connection {
-    _mediaStream = nil;
     [self.delegate treeManager:self didRemoveStream:remoteStream];
 }
 
 - (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCICECandidate *)candidate forConnection:(NBMPeerConnection *)connection {
-    [self.mutableCandidates addObject:candidate];
+    NSString *treeId = self.treeClient.treeId;
+    NSString *sinkId = self.localViewer.identifier;
+    if (treeId && sinkId) {
+        [self.treeClient sendICECandidate:candidate forSink:sinkId tree:treeId completion:nil];
+    }
+    else {
+        [self.mutableCandidates addObject:candidate];
+    }
 }
 
 - (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCICEConnectionState)state ofConnection:(NBMPeerConnection *)connection {
-
+    [self.delegate treeManager:self iceStatusChanged:state];
 }
 
 @end

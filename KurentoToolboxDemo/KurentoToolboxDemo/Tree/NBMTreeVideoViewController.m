@@ -10,15 +10,24 @@
 #import "NBMTreeManager.h"
 #import "NBMRenderer.h"
 
+#import "MBProgressHUD.h"
+
 #import "RTCMediaStream.h"
+
+#import "DGActivityIndicatorView.h"
+#import "Masonry.h"
 
 @interface NBMTreeVideoViewController () <NBMTreeManagerDelegate, NBMRendererDelegate>
 
 @property (nonatomic, strong) NBMTreeManager *treeManager;
 @property (nonatomic, assign) BOOL isMaster;
 @property (nonatomic, copy) NSString *treeId;
+
 @property (nonatomic, strong) NBMMediaConfiguration *mediaConfiguration;
+
 @property (nonatomic, strong) id<NBMRenderer>videoRenderer;
+@property (nonatomic, weak) UIView *videoView;
+@property (nonatomic, weak) UIView *spinnerView;
 
 @property (nonatomic, assign) UIInterfaceOrientation lastInterfaceOrientation;
 
@@ -56,6 +65,19 @@
     self.lastInterfaceOrientation = self.interfaceOrientation;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSString *existingTreeId = self.treeManager.treeId;
+    if (existingTreeId) {
+        if (_isMaster) {
+            [self.treeManager stopMasteringTree:existingTreeId completion:nil];
+        } else {
+            [self.treeManager stopViewingTree:existingTreeId completion:nil];
+        }
+    }
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -90,11 +112,17 @@
 - (void)startMasteringTree:(NSString *)treeId {
     self.isMaster = YES;
     self.treeId = treeId;
+    self.title = treeId;
+    NSString *msg = [NSString stringWithFormat:@"Mastering \"%@\" tree", self.treeId];
+    [self showProgressHUD:msg];
 }
 
 - (void)startViewingTree:(NSString *)treeId {
     self.isMaster = NO;
     self.treeId = treeId;
+    self.title = treeId;
+    NSString *msg = [NSString stringWithFormat:@"Viewing \"%@\" tree", self.treeId];
+    [self showProgressHUD:msg];
 }
 
 #pragma mark - Private
@@ -121,11 +149,24 @@
 - (void)onConnection {
     if (self.isMaster) {
         [self.treeManager startMasteringTree:self.treeId completion:^(NSError *error) {
-            
+            if (error) {
+                [self showErrorAlert:error.description action:^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+            } else {
+                [self showSuccessHUD:nil];
+            }
         }];
-    } else {
+    }
+    else {
         [self.treeManager startViewingTree:self.treeId completion:^(NSError *error) {
-            
+            if (error) {
+                [self showErrorAlert:error.description action:^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+            } else {
+                [self showSuccessHUD:nil];
+            }
         }];
     }
 }
@@ -134,28 +175,39 @@
     
 }
 
-- (void)showRenderer:(id<NBMRenderer>)renderer withTransform:(CGAffineTransform)finalTransform
-{
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
-    
-    UIView *theView = renderer.rendererView;
-    [self.view addSubview:theView];
-    
-    theView.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.01, 0.01), finalTransform);
-    
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        theView.transform = finalTransform;
-    } completion:nil];
+- (void)showRenderer:(id<NBMRenderer>)renderer {
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    [self showRenderer:self.videoRenderer withTransform:transform];
 }
 
 - (void)hideRenderer:(id<NBMRenderer>)renderer {
-    UIView *theView = renderer.rendererView;
-    CGAffineTransform finalTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.01, 0.01), theView.transform);
+    self.videoView = nil;
+    [self hideView:renderer.rendererView];
+}
+
+- (void)showRenderer:(id<NBMRenderer>)renderer withTransform:(CGAffineTransform)finalTransform
+{
+//    [self.view setNeedsLayout];
+//    [self.view layoutIfNeeded];
+    self.videoView = renderer.rendererView;
+    [self showView:_videoView withTransform:CGAffineTransformIdentity];
+}
+
+- (void)showView:(UIView *)view withTransform:(CGAffineTransform)finalTransform {
+    [self.view addSubview:view];
+    view.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.01, 0.01), finalTransform);
+    
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        theView.transform = finalTransform;
+        view.transform = finalTransform;
+    } completion:nil];
+}
+
+- (void)hideView:(UIView *)view {
+    CGAffineTransform finalTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.01, 0.01), view.transform);
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        view.transform = finalTransform;
     } completion:^(BOOL finished) {
-        [theView removeFromSuperview];
+        [view removeFromSuperview];
     }];
 }
 
@@ -176,8 +228,60 @@
     return renderer;
 }
 
+#pragma mark - Progress HUD
+
+- (void)showProgressHUD:(NSString *)msg {
+    [self hideProgressHUD:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    if (msg) {
+        hud.labelText = msg;
+    }
+}
+
+- (void)showSuccessHUD:(NSString *)string {
+    [self hideProgressHUD:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    UIImage *image = [[UIImage imageNamed:@"success"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    hud.customView = [[UIImageView alloc] initWithImage:image];
+    hud.square = YES;
+    if (string) {
+        hud.labelText = string;
+    }
+    [hud hide:YES afterDelay:1.0f];
+}
+
+- (void)showErrorHUD:(NSString *)string {
+    [self hideProgressHUD:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    UIImage *image = [[UIImage imageNamed:@"error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    hud.customView = [[UIImageView alloc] initWithImage:image];
+    hud.square = YES;
+    if (string) {
+        hud.labelText = string;
+    }
+    [hud hide:YES afterDelay:1.0f];
+}
+
+- (void)showInfoHUD:(NSString *)string {
+    [self hideProgressHUD:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    UIImage *image = [[UIImage imageNamed:@"info"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    hud.customView = [[UIImageView alloc] initWithImage:image];
+    hud.square = YES;
+    hud.labelText = string;
+    [hud hide:YES afterDelay:0.3f];
+}
+
+- (void)hideProgressHUD:(BOOL)animated {
+    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:animated];
+}
+
 - (void)showErrorAlert:(NSString *)message action:(void(^)())block {
-//    [self hideProgressHUD:NO];
+    [self hideProgressHUD:NO];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -190,18 +294,40 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - NBMTreeManager delegate
+#pragma mark - Spinner
 
-- (void)treeManager:(NBMTreeManager *)broker didAddStream:(RTCMediaStream *)stream {
-    id<NBMRenderer> renderer = [self rendererForStream:stream];
-    self.videoRenderer = renderer;
-    CGAffineTransform mirrorXTransform = CGAffineTransformMakeScale(-1.0, 1.0);
-    [self showRenderer:self.videoRenderer withTransform:mirrorXTransform];
+- (void)showSpinner {
+    if (_spinnerView.superview) {
+        return;
+    }
+    DGActivityIndicatorView *spinner = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeLineScaleParty tintColor:[UIColor whiteColor]];
+    self.spinnerView = spinner;
+    [spinner startAnimating];
+    
+    [self.view addSubview:self.spinnerView];
 }
 
-- (void)treeManager:(NBMTreeManager *)broker didRemoveStream:(RTCMediaStream *)stream {
+#pragma mark - NBMTreeManager delegate
+
+- (void)treeManager:(NBMTreeManager *)broker didAddLocalStream:(RTCMediaStream *)localStream {
+    id<NBMRenderer> renderer = [self rendererForStream:localStream];
+    self.videoRenderer = renderer;
+    [self showRenderer:renderer];
+}
+
+- (void)treeManager:(NBMTreeManager *)broker didAddStream:(RTCMediaStream *)remoteStream {
+    id<NBMRenderer> renderer = [self rendererForStream:remoteStream];
+    self.videoRenderer = renderer;
+    [self showRenderer:renderer];
+}
+
+- (void)treeManager:(NBMTreeManager *)broker didRemoveStream:(RTCMediaStream *)remoteStream {
     [self hideRenderer:self.videoRenderer];
     self.videoRenderer = nil;
+}
+
+- (void)treeManager:(NBMTreeManager *)broker iceStatusChanged:(RTCICEConnectionState)state {
+    
 }
 
 - (void)treeManager:(NBMTreeManager *)broker didFailWithError:(NSError *)error {
@@ -215,7 +341,6 @@
 - (void)renderer:(id<NBMRenderer>)renderer streamDimensionsDidChange:(CGSize)dimensions
 {
     DDLogVerbose(@"Stream dimensions did change for %@: %@", renderer, NSStringFromCGSize(dimensions));
-    
     [self.view setNeedsLayout];
 }
 

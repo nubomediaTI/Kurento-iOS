@@ -89,31 +89,31 @@ static NSString* const kCustomRequestMethod = @"customRequest";
 //SERVER RESPONSES & EVENTS
 
 //Partecipant Joined
-static NSString* const kPartecipantJoinedMethod = @"participantJoined";
-static NSString* const kPartecipantJoinedUserParam= @"id";
+static NSString* const kParticipantJoinedMethod = @"participantJoined";
+static NSString* const kParticipantJoinedUserParam= @"id";
 
 //Partecipant Left
-static NSString* const kPartecipantLeftMethod = @"participantLeft";
-static NSString* const kPartecipantLeftNameParam = @"name";
+static NSString* const kParticipantLeftMethod = @"participantLeft";
+static NSString* const kParticipantLeftNameParam = @"name";
 
 //Partecipant Evicted
-static NSString* const kPartecipantEvictedMethod = @"participantEvicted";
+static NSString* const kParticipantEvictedMethod = @"participantEvicted";
 
 //Partecipant Published
-static NSString* const kPartecipantPublishedMethod = @"participantPublished";
-static NSString* const kPartecipantPublishedUserParam = @"id";
-static NSString* const kPartecipantPublishedStreamsParam = @"streams";
-static NSString* const kPartecipantPublishedStreamIdParam = @"id";
+static NSString* const kParticipantPublishedMethod = @"participantPublished";
+static NSString* const kParticipantPublishedUserParam = @"id";
+static NSString* const kParticipantPublishedStreamsParam = @"streams";
+static NSString* const kParticipantPublishedStreamIdParam = @"id";
 
 //Partecipant Unpublished
-static NSString* const kPartecipantUnpublishedMethod = @"participantUnpublished";
-static NSString* const kPartecipantUnpublishedUserParam = @"name";
+static NSString* const kParticipantUnpublishedMethod = @"participantUnpublished";
+static NSString* const kParticipantUnpublishedUserParam = @"name";
 
 //Partecipant Send Message
-static NSString* const kPartecipantSendMessageMethod = @"sendMessage";
-static NSString* const kPartecipantSendMessageUserParam = @"user";
-static NSString* const kPartecipantSendMessageRoomParam = @"room";
-static NSString* const kPartecipantSendMessageMessageParam = @"message";
+static NSString* const kParticipantSendMessageMethod = @"sendMessage";
+static NSString* const kParticipantSendMessageUserParam = @"user";
+static NSString* const kParticipantSendMessageRoomParam = @"room";
+static NSString* const kParticipantSendMessageMessageParam = @"message";
 
 //Room Closed
 static NSString* const kRoomClosedMethod = @"roomClosed";
@@ -164,28 +164,29 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
     if (self) {
         _room = room;
         _delegate = delegate;
+        
         if (timeout <= 0) {
             timeout = kRoomClientTimeoutInterval;
         }
         _timeout = timeout;
-
-        [self connect];
+        [self setupRpcClient:_timeout];
     }
     return self;
 }
 
 - (void)connect {
     if (self.connectionState == NBMRoomClientConnectionStateClosed) {
-        return [self setupRpcClient:_timeout];
+        [self.jsonRpcClient connect];
     }
 }
 
-- (void)close {
+- (void)disconnect {
     [self.jsonRpcClient cancelAllRequest];
 }
 
 - (void)dealloc {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    [self disconnect];
 }
 
 #pragma mark - Properties
@@ -332,7 +333,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 #pragma mark - Private
 
 - (void)setupRpcClient:(NSTimeInterval)timeout {
-    if (_room) {
+    if (_room && !_jsonRpcClient) {
         NBMJSONRPCClientConfiguration *jsonRpcClientConfig = [NBMJSONRPCClientConfiguration defaultConfiguration];
         jsonRpcClientConfig.requestTimeout = timeout;
         _jsonRpcClient = [[NBMJSONRPCClient alloc] initWithURL:_room.url configuration:jsonRpcClientConfig delegate:self];
@@ -590,16 +591,16 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 - (void)handleRequestEvent:(NBMRequest *)event {
     ((void (^)())
-     @{kPartecipantJoinedMethod : ^{
+     @{kParticipantJoinedMethod : ^{
         [self partecipantJoined:event.parameters];
     },
-       kPartecipantLeftMethod : ^ {
+       kParticipantLeftMethod : ^ {
         [self partecipantLeft:event.parameters];
     },
-       kPartecipantPublishedMethod : ^{
+       kParticipantPublishedMethod : ^{
         [self partecipantPublished:event.parameters];
     },
-       kPartecipantUnpublishedMethod : ^{
+       kParticipantUnpublishedMethod : ^{
         [self partecipantUnpublished:event.parameters];
     },
        kIceCandidateMethod : ^{
@@ -608,10 +609,10 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
        kMediaErrorMethod : ^{
         [self mediaErrorReceived:event.parameters];
     },
-       kPartecipantEvictedMethod : ^{
+       kParticipantEvictedMethod : ^{
         [self partecipantEvicted];
     },
-       kPartecipantSendMessageMethod : ^{
+       kParticipantSendMessageMethod : ^{
         [self messageReceived:event.parameters];
     },
        kRoomClosedMethod : ^{
@@ -624,7 +625,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 - (void)partecipantJoined:(id)params {
     NSError *error;
-    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantJoinedUserParam error:&error];
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kParticipantJoinedUserParam error:&error];
     //NBMPeer *peer = [self peerWithIdentifier:peerId];
     NBMPeer *peer = [[NBMPeer alloc] initWithId:peerId];
     [self.mutableRoomPeers setObject:peer forKey:peerId];
@@ -635,7 +636,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 - (void)partecipantLeft:(id)params {
     NSError *error;
-    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantLeftNameParam error:&error];
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kParticipantLeftNameParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:peerId];
     [self.mutableRoomPeers removeObjectForKey:peerId];
     if ([self.delegate respondsToSelector:@selector(client:participantLeft:)]) {
@@ -645,13 +646,13 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 - (void)partecipantPublished:(id)params {
     NSError *error;
-    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantPublishedUserParam error:&error];
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kParticipantPublishedUserParam error:&error];
     NBMPeer *peer;
     if (peerId) {
         peer = [self peerWithIdentifier:peerId];
-        NSArray *jsonStreams = [NBMRoomClient element:params getPropertyWithName:kPartecipantPublishedStreamsParam ofClass:[NSArray class] error:&error];
+        NSArray *jsonStreams = [NBMRoomClient element:params getPropertyWithName:kParticipantPublishedStreamsParam ofClass:[NSArray class] error:&error];
         for (NSDictionary *jsonStream in jsonStreams) {
-            NSString *streamId = [NBMRoomClient element:jsonStream getStringPropertyWithName:kPartecipantPublishedStreamIdParam error:&error];
+            NSString *streamId = [NBMRoomClient element:jsonStream getStringPropertyWithName:kParticipantPublishedStreamIdParam error:&error];
             [peer addStream:streamId];
         }
     }
@@ -662,7 +663,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 
 - (void)partecipantUnpublished:(id)params {
     NSError *error;
-    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantUnpublishedUserParam error:&error];
+    NSString *peerId = [NBMRoomClient element:params getStringPropertyWithName:kParticipantUnpublishedUserParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:peerId];
     if (peer) {
         [peer removeStream:@"webcam"];
@@ -689,7 +690,7 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 }
 
 - (void)partecipantEvicted {
-    if ([self.delegate respondsToSelector:@selector(client:participantJoined:)]) {
+    if ([self.delegate respondsToSelector:@selector(client:participantEvicted:)]) {
         [self.delegate client:self participantEvicted:self.room.localPeer];
     }
 }
@@ -703,9 +704,9 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 - (void)messageReceived:(id)params {
     NSError *error;
     //NSString *roomName = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageRoomParam error:&error];
-    NSString *senderId = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageUserParam error:&error];
+    NSString *senderId = [NBMRoomClient element:params getStringPropertyWithName:kParticipantSendMessageUserParam error:&error];
     NBMPeer *peer = [self peerWithIdentifier:senderId];
-    NSString *msg = [NBMRoomClient element:params getStringPropertyWithName:kPartecipantSendMessageMessageParam error:&error];
+    NSString *msg = [NBMRoomClient element:params getStringPropertyWithName:kParticipantSendMessageMessageParam error:&error];
     if ([self.delegate respondsToSelector:@selector(client:didReceiveMessage:fromParticipant:)]) {
         [self.delegate client:self didReceiveMessage:msg fromParticipant:peer];
     }
@@ -721,17 +722,6 @@ static NSTimeInterval kRoomClientTimeoutInterval = 5;
 }
 
 #pragma mark - Utility
-
-//+ (id)response:(NBMResponse *)response getPropertyWithName:(NSString *)name ofClass:(Class)class error:(NSError **)error {
-//    id result = response.result;
-//    if (result && ![result isKindOfClass:[NSDictionary class]]) {
-//        NSString *msg = [NSString stringWithFormat:@"Invalid response format. The response %@ should be a JSON object", result];
-//        *error = [NBMRoomError errorWithCode:NBMTransportResponseErrorRoomErrorCode message:msg];
-//        return nil;
-//    } else {
-//        return [NBMRoomClient element:result getPropertyWithName:name ofClass:class allowNil:NO error:error];
-//    }
-//}
 
 - (NSString *)senderFromPeer:(NBMPeer *)peer {
     NSMutableString *sender = [NSMutableString string];

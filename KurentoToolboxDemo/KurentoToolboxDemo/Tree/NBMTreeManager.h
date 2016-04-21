@@ -27,9 +27,13 @@
 
 @protocol NBMTreeManagerDelegate <NSObject>
 
-- (void)treeManager:(NBMTreeManager *)broker didAddStream:(RTCMediaStream *)stream;
+- (void)treeManager:(NBMTreeManager *)broker didAddLocalStream:(RTCMediaStream *)localStream;
 
-- (void)treeManager:(NBMTreeManager *)broker didRemoveStream:(RTCMediaStream *)stream;
+- (void)treeManager:(NBMTreeManager *)broker didRemoveLocalStream:(RTCMediaStream *)localStream;
+
+- (void)treeManager:(NBMTreeManager *)broker didAddStream:(RTCMediaStream *)remoteStream;
+
+- (void)treeManager:(NBMTreeManager *)broker didRemoveStream:(RTCMediaStream *)remoteStream;
 
 - (void)treeManager:(NBMTreeManager *)broker didFailWithError:(NSError *)error;
 

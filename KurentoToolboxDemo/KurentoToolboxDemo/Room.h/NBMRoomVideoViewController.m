@@ -143,9 +143,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [self.roomManager leaveRoom:^(NSError *error) {
-        
-    }];
+    [self.roomManager leaveRoom:nil];
 }
 
 - (void)setupToolbar {
@@ -490,7 +488,6 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     }
     
     [peerViewCell.contentView.layer addAnimation:animation forKey:nil];
-//    [peerViewCell setNeedsLayout];
     [self.roomManager selectCameraPosition:newPosition];
 }
 
@@ -584,6 +581,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
         }
             break;
             
+        case RTCICEConnectionMax:
         case RTCICEConnectionChecking:
         case RTCICEConnectionNew:
         case RTCICEConnectionDisconnected:

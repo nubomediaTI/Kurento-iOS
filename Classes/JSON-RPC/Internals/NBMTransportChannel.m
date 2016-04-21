@@ -59,7 +59,7 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
     
     //nil delegate to prevent close event be notified
     _delegate = nil;
-    [self cleanupChannel];
+    [self close];
 }
 
 - (void)open
@@ -93,8 +93,6 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)close
 {
-    [self removeNotificationObservers];
-    
     if (_channelState != NBMTransportChannelStateClosed) {
         [_socket close];
         self.channelState = NBMTransportChannelStateClosing;
@@ -182,6 +180,8 @@ static NSTimeInterval kChannelKeepaliveInterval = 20.0;
 
 - (void)cleanupChannel
 {
+    [self removeNotificationObservers];
+    
     _socket.delegate = nil;
     _socket = nil;
     self.channelState = NBMTransportChannelStateClosed;

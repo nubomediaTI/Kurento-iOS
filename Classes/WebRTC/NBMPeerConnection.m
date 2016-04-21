@@ -92,7 +92,9 @@
 - (void)close
 {
     RTCMediaStream *localStream = [self.peerConnection.localStreams firstObject];
-    [self.peerConnection removeStream:localStream];
+    if (localStream) {
+        [self.peerConnection removeStream:localStream];
+    }
     [self.peerConnection close];
     
     self.remoteStream = nil;

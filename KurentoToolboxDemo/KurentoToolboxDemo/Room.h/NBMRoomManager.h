@@ -44,6 +44,8 @@
 
 - (void)roomManager:(NBMRoomManager *)broker peerLeft:(NBMPeer *)peer;
 
+- (void)roomManager:(NBMRoomManager *)broker peerEvicted:(NBMPeer *)peer;
+
 - (void)roomManager:(NBMRoomManager *)broker roomJoined:(NSError *)error;
 
 - (void)roomManager:(NBMRoomManager *)broker messageReceived:(NSString *)message ofPeer:(NBMPeer *)peer;

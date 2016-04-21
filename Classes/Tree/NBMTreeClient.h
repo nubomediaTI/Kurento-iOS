@@ -98,7 +98,10 @@ typedef NS_ENUM(NSInteger, NBMTreeMode) {
  */
 @property (nonatomic, copy, readonly) NSString *treeId;
 
-@property (nonatomic, assign) NBMTreeMode treeMode;
+/**
+ *  The tree mode (Master/Viewer). None if the client is not acting as master or viewer.
+ */
+@property (nonatomic, assign, readonly) NBMTreeMode treeMode;
 
 /**
  *  Creates and initializes a NBMTreeClient instance.

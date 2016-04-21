@@ -78,6 +78,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     if (self) {
         _wsURL = wsURL;
         _delegate = delegate;
+        _treeId = NBMTreeModeNone;
         _mutableTreeEndpoints = [NSMutableSet set];
     }
     return self;
@@ -98,6 +99,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
 
 - (void)dealloc {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    [self.jsonRpcClient cancelAllRequest];
 }
 
 #pragma mark - Public
@@ -117,26 +119,50 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     return (NBMTreeClientConnectionState) self.jsonRpcClient.connectionState;
 }
    
-- (void)releaseTree:(NSString *)treeId completion:(void (^)(NSError *))block {
+- (void)releaseTree:(NSString *)treeId completion:(void (^)(NSError *error))block {
     NSParameterAssert(treeId);
-    return [self nbm_releaseTree:treeId completion:block];
+    return [self nbm_releaseTree:treeId completion:^(NSError *error) {
+        _treeMode = NBMTreeModeNone;
+        if (block) {
+            block(error);
+        }
+    }];
 }
 
-- (void)setSource:(NSString *)sdpOffer tree:(NSString *)treeId completion:(void (^)(NSString *, NSError *))block {
+- (void)setSource:(NSString *)sdpOffer tree:(NSString *)treeId completion:(void (^)(NSString *sdpAnswer, NSError *))block {
     NSParameterAssert(sdpOffer);
     NSParameterAssert(treeId);
-    return [self nbm_setSource:sdpOffer tree:treeId completion:block];
+    return [self nbm_setSource:sdpOffer tree:treeId completion:^(NSString *sdpAnswer, NSError *error) {
+        if (sdpAnswer) {
+            _treeMode = NBMTreeModeMaster;
+            if (block) {
+                block(sdpAnswer, error);
+            }
+        }
+    }];
 }
 
 - (void)removeSourceOfTree:(NSString *)treeId completion:(void (^)(NSError *))block {
     NSParameterAssert(treeId);
-    return [self nbm_removeSourceOfTree:treeId completion:block];
+    return [self nbm_removeSourceOfTree:treeId completion:^(NSError *error) {
+        _treeMode = NBMTreeModeNone;
+        if (block) {
+            block(error);
+        }
+    }];
 }
 
-- (void)addSink:(NSString *)sdpOffer tree:(NSString *)treeId completion:(void (^)(NBMTreeEndpoint *, NSError *))block {
+- (void)addSink:(NSString *)sdpOffer tree:(NSString *)treeId completion:(void (^)(NBMTreeEndpoint *endpoint, NSError *))block {
     NSParameterAssert(sdpOffer);
     NSParameterAssert(treeId);
-    return [self nbm_addSink:sdpOffer tree:treeId completion:block];
+    return [self nbm_addSink:sdpOffer tree:treeId completion:^(NBMTreeEndpoint *endpoint, NSError *error) {
+        if (endpoint) {
+            _treeMode = NBMTreeModeViewer;
+        }
+        if (block) {
+            block(endpoint, error);
+        }
+    }];
 }
 
 - (NSSet *)treeEndpoints {
@@ -146,7 +172,12 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
 - (void)removeSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void (^)(NSError *))block {
     NSParameterAssert(sinkId);
     NSParameterAssert(treeId);
-    return [self nbm_removeSink:sinkId tree:treeId completion:block];
+    return [self nbm_removeSink:sinkId tree:treeId completion:^(NSError *error) {
+        _treeMode = NBMTreeModeNone;
+        if (block) {
+            block(error);
+        }
+    }];
 }
 
 - (void)sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void (^)(NSError *))block {
@@ -246,7 +277,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     if (result) {
         NSString *sinkId = [NBMTreeClient response:response getStringPropertyWithName:kSinkId error:error];
         NSString *sdpAnswer = [NBMTreeClient response:response getStringPropertyWithName:kAnswerSdp error:error];
-        if (!error && sinkId.length > 0) {
+        if (!*error && sinkId.length > 0) {
             treeEndpoint = [[NBMTreeEndpoint alloc] initWithIdentifier:sinkId sdpAnswer:sdpAnswer];
         }
     } else {

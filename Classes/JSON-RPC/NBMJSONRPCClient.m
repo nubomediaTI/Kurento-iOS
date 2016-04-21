@@ -235,6 +235,7 @@ static NSTimeInterval kRequestMaxRetries = 3;
         _responsesSent = [NSMutableOrderedSet orderedSet]; //Response cache (sent)
         _responsesReceived = [NSMutableOrderedSet orderedSet]; //Response cache (received)
         
+        _connected = NO;
         if (_configuration.autoConnect) {
             [self connect];
         }
@@ -244,11 +245,11 @@ static NSTimeInterval kRequestMaxRetries = 3;
 }
 
 - (void)connect {
-    //Add message logic setup here?
-    
     //Setup transport
-    _connected = NO;
-    _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
+    if (!_transport) {
+        _transport = [[NBMTransportChannel alloc] initWithURL:_url delegate:self];
+    }
+    
     [_transport open];
 }
 
@@ -317,7 +318,7 @@ static NSTimeInterval kRequestMaxRetries = 3;
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     
     //secure transport closing, is needed?
-//    [_transport close];
+    [_transport close];
     _transport = nil;
 //    [self cancelAllRequest];
     //same as
