@@ -26,6 +26,7 @@
 @class RTCICECandidate;
 @class RTCMediaStream;
 @class RTCSessionDescription;
+@class RTCDataChannel;
 
 /**
  *
@@ -50,7 +51,6 @@
 - (void)addIceCandidate:(RTCICECandidate *)candidate;
 - (void)drainRemoteCandidates;
 - (void)removeRemoteCandidates;
-
 - (void)close;
 
 @end

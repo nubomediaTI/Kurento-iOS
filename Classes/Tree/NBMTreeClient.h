@@ -23,7 +23,7 @@
 #import <Foundation/Foundation.h>
 
 @class NBMJSONRPCClient;
-@class RTCICECandidate;
+@class RTCIceCandidate;
 @class NBMTreeEndpoint;
 @protocol NBMTreeClientDelegate;
 
@@ -184,6 +184,6 @@ typedef NS_ENUM(NSInteger, NBMTreeMode) {
  *  @param treeId    Tree id to which belongs this candidate.
  *  @param block     A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.
  */
-- (void)sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block;
+- (void)sendICECandidate:(RTCIceCandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block;
 
 @end

@@ -58,7 +58,7 @@
 - (void)client:(NBMRoomClient *)client participantPublished:(NBMPeer *)peer;
 - (void)client:(NBMRoomClient *)client participantUnpublished:(NBMPeer *)peer;
 
-- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromParticipant:(NBMPeer *)peer;
+- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCIceCandidate *)candidate fromParticipant:(NBMPeer *)peer;
 
 - (void)client:(NBMRoomClient *)client didReceiveMessage:(NSString *)message fromParticipant:(NBMPeer *)peer;
 - (void)client:(NBMRoomClient *)client mediaErrorOccurred:(NSError *)error;

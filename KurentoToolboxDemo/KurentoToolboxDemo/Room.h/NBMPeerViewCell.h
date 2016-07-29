@@ -22,15 +22,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RTCTypes.h"
-
 @protocol NBMPeerViewCellDelegate;
 
 @interface NBMPeerViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) id<NBMPeerViewCellDelegate> delegate;
 @property (nonatomic, weak) UIView *videoView;
-@property (nonatomic, assign) RTCICEConnectionState connectionState;
+@property (nonatomic, assign) RTCIceConnectionState connectionState;
 
 - (void)setPeerName:(NSString *)peer;
 

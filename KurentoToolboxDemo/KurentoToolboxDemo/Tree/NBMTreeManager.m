@@ -21,8 +21,8 @@
 // THE SOFTWARE.
 
 #import "NBMTreeManager.h"
-#import "RTCPeerConnection.h"
-#import "RTCSessionDescription.h"
+#import <WebRTC/RTCPeerConnection.h>
+#import <WebRTC/RTCSessionDescription.h>
 #import "Reachability.h"
 
 static NSUInteger kConnectionMaxIceAttempts = 3;
@@ -231,7 +231,7 @@ static NSString* const kConnectionId = @"connection";
 }
 
 - (void)drainCandidates {
-    for (RTCICECandidate *candidate in self.mutableCandidates) {
+    for (RTCIceCandidate *candidate in self.mutableCandidates) {
         NSString *treeId = self.treeClient.treeId;
         NSString *sinkId = self.localViewer.identifier;
         [self.treeClient sendICECandidate:candidate forSink:sinkId tree:treeId completion:nil];
@@ -289,7 +289,7 @@ static NSString* const kConnectionId = @"connection";
     [self.delegate treeManager:self didRemoveStream:remoteStream];
 }
 
-- (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCICECandidate *)candidate forConnection:(NBMPeerConnection *)connection {
+- (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCIceCandidate *)candidate forConnection:(NBMPeerConnection *)connection {
     NSString *treeId = self.treeClient.treeId;
     NSString *sinkId = self.localViewer.identifier;
     if (treeId && sinkId) {
@@ -300,7 +300,7 @@ static NSString* const kConnectionId = @"connection";
     }
 }
 
-- (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCICEConnectionState)state ofConnection:(NBMPeerConnection *)connection {
+- (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCIceConnectionState)state ofConnection:(NBMPeerConnection *)connection {
     [self.delegate treeManager:self iceStatusChanged:state];
 }
 

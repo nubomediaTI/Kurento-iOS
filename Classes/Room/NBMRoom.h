@@ -52,11 +52,12 @@ typedef NS_ENUM(NSInteger, NBMRoomErrorCode) {
 
 @interface NBMRoom : NSObject
 
-- (instancetype)initWithUsername:(NSString *)username roomName:(NSString *)name roomURL:(NSURL *)url;
+- (instancetype)initWithUsername:(NSString *)username roomName:(NSString *)name roomURL:(NSURL *)url dataChannels:(BOOL)dataChannels;
 
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSURL *url;
 @property (nonatomic, copy, readonly) NBMPeer *localPeer;
 @property (nonatomic, strong, readonly) NSSet *peers;
+@property (nonatomic, assign, readonly) BOOL dataChannels;
 
 @end

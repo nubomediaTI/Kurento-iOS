@@ -12,7 +12,7 @@
 
 #import "MBProgressHUD.h"
 
-#import "RTCMediaStream.h"
+#import <WebRTC/RTCMediaStream.h>
 
 #import "DGActivityIndicatorView.h"
 #import "Masonry.h"
@@ -326,7 +326,7 @@
     self.videoRenderer = nil;
 }
 
-- (void)treeManager:(NBMTreeManager *)broker iceStatusChanged:(RTCICEConnectionState)state {
+- (void)treeManager:(NBMTreeManager *)broker iceStatusChanged:(RTCIceConnectionState)state {
     
 }
 

@@ -93,7 +93,7 @@ static  NSString* const kRoomURLString = @"RoomServerURL";
     NSString *roomURLString = cell.serverTf.text;
     [self saveRoomServerURLString:roomURLString];
     NSURL *roomURL = [NSURL URLWithString:roomURLString];
-    self.room = [[NBMRoom alloc] initWithUsername:username roomName:room roomURL:roomURL];
+    self.room = [[NBMRoom alloc] initWithUsername:username roomName:room roomURL:roomURL dataChannels:YES];
     //[self performSegueWithIdentifier:@"NBMRoomVideoViewController" sender:room];
     NBMRoomVideoViewController *videoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RoomVideoViewController"];
     videoVC.room = _room;

@@ -24,7 +24,7 @@
 
 @class NBMRoom;
 @class NBMPeer;
-@class RTCICECandidate;
+@class RTCIceCandidate;
 @protocol NBMRoomClientDelegate;
 
 /**
@@ -127,6 +127,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
  */
 - (void)joinRoom;
 
+- (void)joinRoomWithDataChannels:(BOOL)dataChannels;
+
 /**
  *  Represents a client's request to join a room. If the room does not exists, it is created.
  *  @note No message is sent to client's delegate.
@@ -134,6 +136,8 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
  *  @param block A block object to be executed when the request is processed. This block has no return value and takes an NSSet of remote participants and an error if the request failed.
  */
 - (void)joinRoom:(void (^)(NSSet *peers, NSError *error))block;
+
+- (void)joinRoom:(void (^)(NSSet *peers, NSError *error))completionBlock dataChannels:(BOOL)dataChannels;
 
 /**
  *  Represent a client's notification that it's leaving the room.
@@ -226,7 +230,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
  *  @param candidate The RTCICECandidate object to send.
  *  @param peer      The NBMPeer whose ICE candidate was found.
  */
-- (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer;
+- (void)sendICECandidate:(RTCIceCandidate *)candidate forPeer:(NBMPeer *)peer;
 
 /**
  *  Request that carries info about an ICE candidate gathered on the client side. This information is required to implement the trickle ICE mechanism.
@@ -236,7 +240,7 @@ typedef NS_ENUM(NSInteger, NBMRoomClientConnectionState) {
  *  @param peer      The NBMPeer whose ICE candidate was found.
  *  @param block     A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.
  */
-- (void)sendICECandidate:(RTCICECandidate *)candidate forPeer:(NBMPeer *)peer completion:(void (^)(NSError *error))block;
+- (void)sendICECandidate:(RTCIceCandidate *)candidate forPeer:(NBMPeer *)peer completion:(void (^)(NSError *error))block;
 
 /**
  *  Represents a client's request to send written message to all other participants in the room.

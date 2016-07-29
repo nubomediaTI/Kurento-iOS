@@ -21,8 +21,8 @@
 // THE SOFTWARE.
 
 #import "RTCMediaStream+Configuration.h"
-#import "RTCAudioTrack.h"
-#import "RTCVideoTrack.h"
+#import <WebRTC/RTCAudioTrack.h>
+#import <WebRTC/RTCVideoTrack.h>
 
 @implementation RTCMediaStream (Configuration)
 
@@ -35,7 +35,7 @@
 - (void)setAudioEnabled:(BOOL)audioEnabled
 {
     RTCAudioTrack *audioTrack = [self.audioTracks firstObject];
-    [audioTrack setEnabled:audioEnabled];
+    [audioTrack setIsEnabled:audioEnabled];
 }
 
 - (BOOL)isVideoEnabled
@@ -47,7 +47,7 @@
 - (void)setVideoEnabled:(BOOL)videoEnabled
 {
     RTCVideoTrack *videoTrack = [self.videoTracks firstObject];
-    [videoTrack setEnabled:videoEnabled];
+    [videoTrack setIsEnabled:videoEnabled];
 }
 
 

@@ -24,8 +24,8 @@
 #import "NBMEAGLRenderer.h"
 #import "NBMEAGLVideoViewContainer.h"
 
-#import "RTCEAGLVideoView.h"
-#import "RTCVideoTrack.h"
+#import <WebRTC/RTCEAGLVideoView.h>
+#import <WebRTC/RTCVideoTrack.h>
 
 @interface NBMEAGLRenderer() <RTCEAGLVideoViewDelegate>
 
@@ -94,7 +94,7 @@
     // Do nothing.
 }
 
-- (void)renderFrame:(RTCI420Frame *)frame
+- (void)renderFrame:(id<NSObject>)frame
 {
     // Do nothing.
 }

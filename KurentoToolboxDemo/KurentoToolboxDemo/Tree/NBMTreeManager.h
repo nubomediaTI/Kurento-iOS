@@ -37,7 +37,7 @@
 
 - (void)treeManager:(NBMTreeManager *)broker didFailWithError:(NSError *)error;
 
-- (void)treeManager:(NBMTreeManager *)broker iceStatusChanged:(RTCICEConnectionState)state;
+- (void)treeManager:(NBMTreeManager *)broker iceStatusChanged:(RTCIceConnectionState)state;
 
 @end
 

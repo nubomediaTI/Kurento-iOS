@@ -54,35 +54,6 @@
 		4A6E88E71C10629F000A8EE9 /* NBMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E88E51C10629F000A8EE9 /* NBMRoom.m */; };
 		4A6E88EA1C10637B000A8EE9 /* NBMPeer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88E81C10637B000A8EE9 /* NBMPeer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A6E88EB1C10637B000A8EE9 /* NBMPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E88E91C10637B000A8EE9 /* NBMPeer.m */; };
-		4ACB2CB21BE92A5900E8E017 /* RTCAudioSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C761BE929D600E8E017 /* RTCAudioSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB31BE92A5900E8E017 /* RTCAudioTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C771BE929D600E8E017 /* RTCAudioTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB41BE92A5900E8E017 /* RTCAVFoundationVideoSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C781BE929D600E8E017 /* RTCAVFoundationVideoSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB51BE92A5900E8E017 /* RTCDataChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C791BE929D600E8E017 /* RTCDataChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB61BE92A5900E8E017 /* RTCEAGLVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C7A1BE929D600E8E017 /* RTCEAGLVideoView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB71BE92A5900E8E017 /* RTCFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C7B1BE929D600E8E017 /* RTCFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB81BE92A5900E8E017 /* RTCI420Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C7C1BE929D600E8E017 /* RTCI420Frame.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CB91BE92A5900E8E017 /* RTCICECandidate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C7D1BE929D600E8E017 /* RTCICECandidate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CBA1BE92A5900E8E017 /* RTCICEServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C7E1BE929D600E8E017 /* RTCICEServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CBB1BE92A5900E8E017 /* RTCLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C7F1BE929D600E8E017 /* RTCLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CBC1BE92A5900E8E017 /* RTCMediaConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C801BE929D600E8E017 /* RTCMediaConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CBD1BE92A5900E8E017 /* RTCMediaSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C811BE929D600E8E017 /* RTCMediaSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CBE1BE92A5900E8E017 /* RTCMediaStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C821BE929D600E8E017 /* RTCMediaStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CBF1BE92A5A00E8E017 /* RTCMediaStreamTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C831BE929D600E8E017 /* RTCMediaStreamTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC11BE92A5A00E8E017 /* RTCOpenGLVideoRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C851BE929D600E8E017 /* RTCOpenGLVideoRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC21BE92A5A00E8E017 /* RTCPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C861BE929D600E8E017 /* RTCPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC31BE92A5A00E8E017 /* RTCPeerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C871BE929D600E8E017 /* RTCPeerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC41BE92A5A00E8E017 /* RTCPeerConnectionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C881BE929D600E8E017 /* RTCPeerConnectionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC51BE92A5A00E8E017 /* RTCPeerConnectionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C891BE929D600E8E017 /* RTCPeerConnectionFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC61BE92A5A00E8E017 /* RTCPeerConnectionInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C8A1BE929D600E8E017 /* RTCPeerConnectionInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC71BE92A5A00E8E017 /* RTCSessionDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C8B1BE929D600E8E017 /* RTCSessionDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC81BE92A5A00E8E017 /* RTCSessionDescriptionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C8C1BE929D600E8E017 /* RTCSessionDescriptionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CC91BE92A5A00E8E017 /* RTCStatsDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C8D1BE929D600E8E017 /* RTCStatsDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CCA1BE92A5A00E8E017 /* RTCStatsReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C8E1BE929D600E8E017 /* RTCStatsReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CCB1BE92A5A00E8E017 /* RTCTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C8F1BE929D600E8E017 /* RTCTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CCC1BE92A5A00E8E017 /* RTCVideoCapturer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C901BE929D600E8E017 /* RTCVideoCapturer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CCD1BE92A5A00E8E017 /* RTCVideoRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C911BE929D600E8E017 /* RTCVideoRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CCE1BE92A5A00E8E017 /* RTCVideoSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C921BE929D600E8E017 /* RTCVideoSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AD22D231C643313002C1038 /* RTCMediaStream+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D211C643313002C1038 /* RTCMediaStream+Configuration.m */; };
 		4AE438FF1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438FD1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.m */; };
 		4AE439001BF4ABD1001882E5 /* NBMSessionDescriptionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE438FE1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.h */; };
@@ -105,8 +76,9 @@
 		4AE8C9EC1C4FD83300A87D8A /* NBMTreeClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE8C9EA1C4FD83200A87D8A /* NBMTreeClientError.m */; };
 		4AE8C9ED1C514DB300A87D8A /* NBMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88D91C0F0068000A8EE9 /* NBMTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
-		7157969BBA4E9A7BF6D885D4 /* libPods-KurentoToolbox-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E064617013DF24CBF82B22 /* libPods-KurentoToolbox-Tests.a */; };
-		C61EE7FE24C3D73AE8BD51F3 /* libPods-KurentoToolbox-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E51861B84EE12E102B8F78 /* libPods-KurentoToolbox-Static.a */; };
+		564D8A0B1D18485500676AAC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0A1D18485500676AAC /* WebRTC.framework */; };
+		564D8A141D1942C300676AAC /* libPods-KurentoToolbox-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A131D1942C300676AAC /* libPods-KurentoToolbox-Static.a */; };
+		CF748A736A49BD58460593DD /* libPods-KurentoToolbox-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDE223912EC939E9DA6EBE1 /* libPods-KurentoToolbox-Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +136,7 @@
 		4A6E88E51C10629F000A8EE9 /* NBMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMRoom.m; sourceTree = "<group>"; };
 		4A6E88E81C10637B000A8EE9 /* NBMPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMPeer.h; sourceTree = "<group>"; };
 		4A6E88E91C10637B000A8EE9 /* NBMPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMPeer.m; sourceTree = "<group>"; };
-		4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMJSONRPCClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		4A7113871BD4F196003AEF5C /* NBMJSONRPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMJSONRPCClient.h; sourceTree = "<group>"; };
 		4A7113881BD4F196003AEF5C /* NBMJSONRPCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMJSONRPCClient.m; sourceTree = "<group>"; };
 		4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMPeerConnection.h; sourceTree = "<group>"; };
 		4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMPeerConnection.m; sourceTree = "<group>"; };
@@ -217,7 +189,7 @@
 		4AE439071BF4AC14001882E5 /* NBMTransportChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTransportChannel.m; path = Internals/NBMTransportChannel.m; sourceTree = "<group>"; };
 		4AE439081BF4AC14001882E5 /* NBMTransportChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTransportChannel.h; path = Internals/NBMTransportChannel.h; sourceTree = "<group>"; };
 		4AE8C9C41C47B71200A87D8A /* NBMEAGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMEAGLRenderer.h; sourceTree = "<group>"; };
-		4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMEAGLRenderer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4AE8C9C51C47B71200A87D8A /* NBMEAGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMEAGLRenderer.m; sourceTree = "<group>"; };
 		4AE8C9C81C47B83700A87D8A /* NBMEAGLVideoViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMEAGLVideoViewContainer.h; sourceTree = "<group>"; };
 		4AE8C9C91C47B83700A87D8A /* NBMEAGLVideoViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMEAGLVideoViewContainer.m; sourceTree = "<group>"; };
 		4AE8C9CD1C4E506100A87D8A /* NBMTreeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeClient.h; path = Tree/NBMTreeClient.h; sourceTree = "<group>"; };
@@ -229,16 +201,12 @@
 		4AE8C9EA1C4FD83200A87D8A /* NBMTreeClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeClientError.m; path = Tree/Internals/NBMTreeClientError.m; sourceTree = "<group>"; };
 		4AF48D5C1BECEFFA004E4AD2 /* KurentoToolbox-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KurentoToolbox-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF48D601BECEFFA004E4AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"; sourceTree = "<group>"; };
-		681A76F55A57A32C9616B23F /* Pods-KurentoToolbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.debug.xcconfig"; sourceTree = "<group>"; };
-		7C02B8A4BF17FD6B9DA3CD1F /* Pods-KurentoToolbox-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		8F87FEFCFFC4293E6CE69FAF /* Pods-KurentoToolboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests.release.xcconfig"; sourceTree = "<group>"; };
-		8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0E51861B84EE12E102B8F78 /* libPods-KurentoToolbox-Static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox-Static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2E064617013DF24CBF82B22 /* libPods-KurentoToolbox-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA6F5C03CEF3509051051CD5 /* Pods-KurentoToolbox-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D9E1E7060D742F7B991CD1A3 /* Pods-KurentoToolboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolboxTests/Pods-KurentoToolboxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolboxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		564D8A0A1D18485500676AAC /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
+		564D8A131D1942C300676AAC /* libPods-KurentoToolbox-Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KurentoToolbox-Static.a"; path = "Pods/../build/Debug-iphoneos/libPods-KurentoToolbox-Static.a"; sourceTree = "<group>"; };
+		7BDE223912EC939E9DA6EBE1 /* libPods-KurentoToolbox-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A44AD8017DB368676764B11 /* libPods-KurentoToolbox-Static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolbox-Static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0C7C1936F109C5D3E1CFA64 /* Pods-KurentoToolbox-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC0644359EAD1857DA6D37FA /* Pods-KurentoToolbox-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolbox-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,9 +214,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564D8A0B1D18485500676AAC /* WebRTC.framework in Frameworks */,
 				4A6E88DF1C105435000A8EE9 /* UIKit.framework in Frameworks */,
 				4A6E88DD1C10542D000A8EE9 /* Foundation.framework in Frameworks */,
-				C61EE7FE24C3D73AE8BD51F3 /* libPods-KurentoToolbox-Static.a in Frameworks */,
+				564D8A141D1942C300676AAC /* libPods-KurentoToolbox-Static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,26 +226,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */,
-				7157969BBA4E9A7BF6D885D4 /* libPods-KurentoToolbox-Tests.a in Frameworks */,
+				CF748A736A49BD58460593DD /* libPods-KurentoToolbox-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30405995BEC91363E1A2AB73 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				681A76F55A57A32C9616B23F /* Pods-KurentoToolbox.debug.xcconfig */,
-				4BA9F1AADA03D8D18D110C09 /* Pods-KurentoToolbox.release.xcconfig */,
-				D9E1E7060D742F7B991CD1A3 /* Pods-KurentoToolboxTests.debug.xcconfig */,
-				8F87FEFCFFC4293E6CE69FAF /* Pods-KurentoToolboxTests.release.xcconfig */,
-				BA6F5C03CEF3509051051CD5 /* Pods-KurentoToolbox-Tests.debug.xcconfig */,
-				7C02B8A4BF17FD6B9DA3CD1F /* Pods-KurentoToolbox-Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4A133A4E1BE11CFB0095B168 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,9 +261,9 @@
 				4A4884931BAC39A30093D90D /* KurentoToolbox */,
 				4AF48D5D1BECEFFA004E4AD2 /* KurentoToolboxTests */,
 				4A4884921BAC39A30093D90D /* Products */,
-				30405995BEC91363E1A2AB73 /* Pods */,
 				57E6D7257CD8864A20150082 /* Frameworks */,
 				4A46BC181BE3DF24009E0FBE /* Configurations */,
+				4B45C54B52CF91D28AD17F86 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,16 +447,25 @@
 			path = KurentoToolboxTests;
 			sourceTree = "<group>";
 		};
+		4B45C54B52CF91D28AD17F86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0C7C1936F109C5D3E1CFA64 /* Pods-KurentoToolbox-Tests.debug.xcconfig */,
+				FC0644359EAD1857DA6D37FA /* Pods-KurentoToolbox-Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		57E6D7257CD8864A20150082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				564D8A131D1942C300676AAC /* libPods-KurentoToolbox-Static.a */,
+				564D8A0A1D18485500676AAC /* WebRTC.framework */,
 				4A4F0C8F1C158B5300CD30A1 /* CoreMedia.framework */,
 				4A6E88DE1C105435000A8EE9 /* UIKit.framework */,
 				4A6E88DC1C10542D000A8EE9 /* Foundation.framework */,
-				8FBD24329034A63027FA5BB0 /* libPods-KurentoToolbox.a */,
-				E1D7F2BD7AA991EBA3D37C4B /* libPods-KurentoToolboxTests.a */,
-				A0E51861B84EE12E102B8F78 /* libPods-KurentoToolbox-Static.a */,
-				B2E064617013DF24CBF82B22 /* libPods-KurentoToolbox-Tests.a */,
+				8A44AD8017DB368676764B11 /* libPods-KurentoToolbox-Static.a */,
+				7BDE223912EC939E9DA6EBE1 /* libPods-KurentoToolbox-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -524,63 +489,34 @@
 				4A46BC471BE3E2CD009E0FBE /* NBMJSONRPCClient.h in Headers */,
 				4A6E88E61C10629F000A8EE9 /* NBMRoom.h in Headers */,
 				4A46BC3B1BE3E2A1009E0FBE /* NBMPeerConnection.h in Headers */,
-				4ACB2CB21BE92A5900E8E017 /* RTCAudioSource.h in Headers */,
-				4ACB2CB31BE92A5900E8E017 /* RTCAudioTrack.h in Headers */,
-				4ACB2CB41BE92A5900E8E017 /* RTCAVFoundationVideoSource.h in Headers */,
 				4A4F0CAF1C201E3600CD30A1 /* NBMRoomClientError.h in Headers */,
 				4AE8C9E81C4E780B00A87D8A /* NBMTreeClientDelegate.h in Headers */,
-				4ACB2CB51BE92A5900E8E017 /* RTCDataChannel.h in Headers */,
-				4ACB2CB61BE92A5900E8E017 /* RTCEAGLVideoView.h in Headers */,
 				4AE8C9ED1C514DB300A87D8A /* NBMTypes.h in Headers */,
-				4ACB2CB71BE92A5900E8E017 /* RTCFileLogger.h in Headers */,
 				4AE8C9CA1C47B83700A87D8A /* NBMEAGLVideoViewContainer.h in Headers */,
-				4ACB2CB81BE92A5900E8E017 /* RTCI420Frame.h in Headers */,
 				4A4F0CA31C15D08300CD30A1 /* NBMRoomConstants.h in Headers */,
 				4AE8C9EB1C4FD83300A87D8A /* NBMTreeClientError.h in Headers */,
 				4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */,
 				4A29E1761C5A13D30068FEE5 /* WebRTC.h in Headers */,
-				4ACB2CB91BE92A5900E8E017 /* RTCICECandidate.h in Headers */,
 				4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */,
 				4AE8C9E51C4E752900A87D8A /* NBMTreeEndpoint.h in Headers */,
-				4ACB2CBA1BE92A5900E8E017 /* RTCICEServer.h in Headers */,
-				4ACB2CBB1BE92A5900E8E017 /* RTCLogging.h in Headers */,
 				4AE439031BF4ABEE001882E5 /* NBMResponse+Private.h in Headers */,
-				4ACB2CBC1BE92A5900E8E017 /* RTCMediaConstraints.h in Headers */,
 				4AE4390C1BF4AC14001882E5 /* NBMTransportChannel.h in Headers */,
 				4A6E88D81C0EFC2D000A8EE9 /* NBMRenderer.h in Headers */,
-				4ACB2CBD1BE92A5900E8E017 /* RTCMediaSource.h in Headers */,
 				4A29E17B1C5A339D0068FEE5 /* Room.h in Headers */,
-				4ACB2CBE1BE92A5900E8E017 /* RTCMediaStream.h in Headers */,
 				4A4F0D181C22C2C300CD30A1 /* NBMLog.h in Headers */,
-				4ACB2CBF1BE92A5A00E8E017 /* RTCMediaStreamTrack.h in Headers */,
 				4A4F0C9B1C15C7B000CD30A1 /* NBMRoomError.h in Headers */,
-				4ACB2CC11BE92A5A00E8E017 /* RTCOpenGLVideoRenderer.h in Headers */,
-				4ACB2CC21BE92A5A00E8E017 /* RTCPair.h in Headers */,
-				4ACB2CC31BE92A5A00E8E017 /* RTCPeerConnection.h in Headers */,
-				4ACB2CC41BE92A5A00E8E017 /* RTCPeerConnectionDelegate.h in Headers */,
-				4ACB2CC51BE92A5A00E8E017 /* RTCPeerConnectionFactory.h in Headers */,
-				4ACB2CC61BE92A5A00E8E017 /* RTCPeerConnectionInterface.h in Headers */,
-				4ACB2CC71BE92A5A00E8E017 /* RTCSessionDescription.h in Headers */,
 				4A4F0CB71C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h in Headers */,
 				4A4F0CB31C2025E900CD30A1 /* NBMJSONRPCClientError.h in Headers */,
-				4ACB2CC81BE92A5A00E8E017 /* RTCSessionDescriptionDelegate.h in Headers */,
-				4ACB2CC91BE92A5A00E8E017 /* RTCStatsDelegate.h in Headers */,
 				4A4F0D191C22C2C300CD30A1 /* NBMJSONRPCUtilities.h in Headers */,
-				4ACB2CCA1BE92A5A00E8E017 /* RTCStatsReport.h in Headers */,
 				4AE439041BF4ABEE001882E5 /* NBMRequest+Private.h in Headers */,
-				4ACB2CCB1BE92A5A00E8E017 /* RTCTypes.h in Headers */,
 				4A4F0C9F1C15CF8300CD30A1 /* NBMJSONRPCError.h in Headers */,
-				4ACB2CCC1BE92A5A00E8E017 /* RTCVideoCapturer.h in Headers */,
-				4ACB2CCD1BE92A5A00E8E017 /* RTCVideoRenderer.h in Headers */,
 				4A6E88EA1C10637B000A8EE9 /* NBMPeer.h in Headers */,
-				4ACB2CCE1BE92A5A00E8E017 /* RTCVideoSource.h in Headers */,
 				4AE439001BF4ABD1001882E5 /* NBMSessionDescriptionFactory.h in Headers */,
 				4A2FE7281C74C25B00EF198F /* RTCMediaStream+Configuration.h in Headers */,
 				4A29E1791C5A31AE0068FEE5 /* JSON-RPC.h in Headers */,
 				4A29E17D1C5A33E50068FEE5 /* Tree.h in Headers */,
 				4AE8C9CF1C4E506100A87D8A /* NBMTreeClient.h in Headers */,
 				4AE8C9C61C47B71200A87D8A /* NBMEAGLRenderer.h in Headers */,
-				4ACB2CCF1BE92A5A00E8E017 /* RTCVideoTrack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,13 +527,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A46BC321BE3DF7A009E0FBE /* Build configuration list for PBXNativeTarget "KurentoToolbox-Static" */;
 			buildPhases = (
-				8C889D90ACB6138B8984F45A /* Check Pods Manifest.lock */,
+				D7127162DBD1234157B2592C /* [CP] Check Pods Manifest.lock */,
 				4A46BC1C1BE3DF79009E0FBE /* Sources */,
 				4A46BC1D1BE3DF79009E0FBE /* Frameworks */,
 				4A46BC1E1BE3DF79009E0FBE /* Headers */,
 				4A46BC1F1BE3DF79009E0FBE /* Resources */,
-				A5EA0125D2941913DAC69212 /* Copy Pods Resources */,
 				4AE438FC1BF49EEE001882E5 /* Appledoc */,
+				00B7B1E4654ECEB222B83919 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -612,12 +548,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AF48D641BECEFFA004E4AD2 /* Build configuration list for PBXNativeTarget "KurentoToolbox-Tests" */;
 			buildPhases = (
-				2F0ACDC4413040F8FE4A7141 /* Check Pods Manifest.lock */,
+				D51A72AC073F02FF081D9157 /* [CP] Check Pods Manifest.lock */,
 				4AF48D581BECEFFA004E4AD2 /* Sources */,
 				4AF48D591BECEFFA004E4AD2 /* Frameworks */,
 				4AF48D5A1BECEFFA004E4AD2 /* Resources */,
-				7227CF9A599841F32131091D /* Embed Pods Frameworks */,
-				3417FF753863E97721961B2C /* Copy Pods Resources */,
+				FA93102E05645A386114EAA3 /* [CP] Embed Pods Frameworks */,
+				ADD11EE09D6B269C6D8D3071 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -684,34 +620,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F0ACDC4413040F8FE4A7141 /* Check Pods Manifest.lock */ = {
+		00B7B1E4654ECEB222B83919 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3417FF753863E97721961B2C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox-Static/Pods-KurentoToolbox-Static-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4AE438FC1BF49EEE001882E5 /* Appledoc */ = {
@@ -728,29 +649,29 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ ${CONFIGURATION} == \"Release\" ]; then\nAPPLEDOC_PATH=`which appledoc`\nif [ $APPLEDOC_PATH ]; then\n$APPLEDOC_PATH \\\n--project-name ${PRODUCT_NAME} \\\n--project-company \"Nubomedia TI\" \\\n--company-id \"it.nubomedia\" \\\n--output \"docs/\" \\\n--no-create-docset \\\n--logformat xcode \\\n--docset-platform-family iphoneos \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--explicit-crossref \\\n--exit-threshold 2 \\\n--ignore \"*.m\" \\\n--ignore \"Internals\" \\\n--ignore \"Utils\" \\\n\"${PROJECT_DIR}/Classes\"\nfi;\nfi";
 		};
-		7227CF9A599841F32131091D /* Embed Pods Frameworks */ = {
+		ADD11EE09D6B269C6D8D3071 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C889D90ACB6138B8984F45A /* Check Pods Manifest.lock */ = {
+		D51A72AC073F02FF081D9157 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,19 +679,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A5EA0125D2941913DAC69212 /* Copy Pods Resources */ = {
+		D7127162DBD1234157B2592C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox-Static/Pods-KurentoToolbox-Static-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA93102E05645A386114EAA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KurentoToolbox-Tests/Pods-KurentoToolbox-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -832,16 +768,19 @@
 			baseConfigurationReference = 4A46BC511BE3E691009E0FBE /* Kurento-Library-Debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Framework/Kurento-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/libjingle_peerconnection\"",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
 					"\"${PODS_ROOT}/Headers/Public/KurentoToolbox\"",
 					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
 					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
-					"\"${PODS_ROOT}/Headers/Public/libjingle_peerconnection\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				SKIP_INSTALL = YES;
 			};
@@ -852,16 +791,19 @@
 			baseConfigurationReference = 4A46BC521BE3E6A9009E0FBE /* Kurento-Library-Release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Framework/Kurento-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/libjingle_peerconnection\"",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
 					"\"${PODS_ROOT}/Headers/Public/KurentoToolbox\"",
 					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
 					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
-					"\"${PODS_ROOT}/Headers/Public/libjingle_peerconnection\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				SKIP_INSTALL = YES;
 			};
@@ -886,8 +828,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -929,8 +873,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -948,7 +894,7 @@
 		};
 		4AF48D651BECEFFA004E4AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA6F5C03CEF3509051051CD5 /* Pods-KurentoToolbox-Tests.debug.xcconfig */;
+			baseConfigurationReference = D0C7C1936F109C5D3E1CFA64 /* Pods-KurentoToolbox-Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -961,7 +907,7 @@
 		};
 		4AF48D661BECEFFA004E4AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C02B8A4BF17FD6B9DA3CD1F /* Pods-KurentoToolbox-Tests.release.xcconfig */;
+			baseConfigurationReference = FC0644359EAD1857DA6D37FA /* Pods-KurentoToolbox-Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;

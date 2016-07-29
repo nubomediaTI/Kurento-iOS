@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <WebRTC/RTCPeerConnection.h>
 
 @class NBMRoomManager;
 @class RTCMediaStream;
@@ -54,7 +55,9 @@
 
 - (void)roomManager:(NBMRoomManager *)broker didFailWithError:(NSError *)error;
 
-- (void)roomManager:(NBMRoomManager *)broker iceStatusChanged:(RTCICEConnectionState)state ofPeer:(NBMPeer *)peer;
+- (void)roomManager:(NBMRoomManager *)broker iceStatusChanged:(RTCIceConnectionState)state ofPeer:(NBMPeer *)peer;
+
+- (void)roomManager:(NBMRoomManager *)broker didAddDataChannel:(RTCDataChannel *)dataChannel ofPeer:(NBMPeer *)remotePeer;
 
 @end
 
@@ -95,5 +98,4 @@
 - (BOOL)isAudioEnabled;
 
 - (void)enableAudio:(BOOL)enable;
-
 @end

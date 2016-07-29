@@ -31,34 +31,3 @@
 
 //JSON-RPC
 #import <KurentoToolbox/JSON-RPC.h"
-
-//libjingle Headers
-#import <KurentoToolbox/RTCAudioSource.h>
-#import <KurentoToolbox/RTCAudioTrack.h>
-#import <KurentoToolbox/RTCAVFoundationVideoSource.h>
-#import <KurentoToolbox/RTCDataChannel.h>
-#import <KurentoToolbox/RTCEAGLVideoView.h>
-#import <KurentoToolbox/RTCFileLogger.h>
-#import <KurentoToolbox/RTCI420Frame.h>
-#import <KurentoToolbox/RTCICECandidate.h>
-#import <KurentoToolbox/RTCICEServer.h>
-#import <KurentoToolbox/RTCLogging.h>
-#import <KurentoToolbox/RTCMediaConstraints.h>
-#import <KurentoToolbox/RTCMediaSource.h>
-#import <KurentoToolbox/RTCMediaStream.h>
-#import <KurentoToolbox/RTCMediaStreamTrack.h>
-#import <KurentoToolbox/RTCOpenGLVideoRenderer.h>
-#import <KurentoToolbox/RTCPair.h>
-#import <KurentoToolbox/RTCPeerConnection.h>
-#import <KurentoToolbox/RTCPeerConnectionDelegate.h>
-#import <KurentoToolbox/RTCPeerConnectionInterface.h>
-#import <KurentoToolbox/RTCPeerConnectionFactory.h>
-#import <KurentoToolbox/RTCSessionDescription.h>
-#import <KurentoToolbox/RTCSessionDescriptionDelegate.h>
-#import <KurentoToolbox/RTCStatsDelegate.h>
-#import <KurentoToolbox/RTCStatsReport.h>
-#import <KurentoToolbox/RTCTypes.h>
-#import <KurentoToolbox/RTCVideoCapturer.h>
-#import <KurentoToolbox/RTCVideoRenderer.h>
-#import <KurentoToolbox/RTCVideoSource.h>
-#import <KurentoToolbox/RTCVideoTrack.h>

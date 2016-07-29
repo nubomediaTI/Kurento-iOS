@@ -22,8 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RTCTypes.h"
 #import "NBMTypes.h"
+#import <WebRTC/RTCPeerConnection.h>
 
 @class NBMWebRTCPeer;
 @class NBMMediaConfiguration;
@@ -31,7 +31,7 @@
 @class RTCVideoTrack;
 @class RTCMediaStream;
 @class RTCSessionDescription;
-@class RTCICECandidate;
+@class RTCIceCandidate;
 
 /**
  *  NBMWebRTCPeerDelegate is a protocol for an object that must be
@@ -64,7 +64,7 @@
  *  @param candidate  The locally gathered ICE.
  *  @param connection The connection for which the ICE was gathered.
  */
-- (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCICECandidate *)candidate forConnection:(NBMPeerConnection *)connection;
+- (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCIceCandidate *)candidate forConnection:(NBMPeerConnection *)connection;
 
 /**
  *  Called any time a connection's state changes.
@@ -73,7 +73,7 @@
  *  @param state      The new notified state.
  *  @param connection The connection whose state has changed.
  */
-- (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCICEConnectionState)state ofConnection:(NBMPeerConnection *)connection;
+- (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCIceConnectionState)state ofConnection:(NBMPeerConnection *)connection;
 
 /**
  *  Called when media is received on a new stream from remote peer.
@@ -92,6 +92,8 @@
  *  @param connection   The connection related to the stream.
  */
 - (void)webRTCPeer:(NBMWebRTCPeer *)peer didRemoveStream:(RTCMediaStream *)remoteStream ofConnection:(NBMPeerConnection *)connection;
+
+- (void)webRTCPeer:(NBMWebRTCPeer *)peer didAddDataChannel:(RTCDataChannel *)dataChannel ofConnection:(NBMPeerConnection *)connection;
 
 @end
 
@@ -132,9 +134,13 @@
  *
  *  @param connectionId The connection identifier.
  */
+- (void)generateOffer:(NSString *)connectionId completion:(void(^)(NSString *sdpOffer, NBMPeerConnection *connection))block;
+
 - (void)generateOffer:(NSString *)connectionId;
 
-- (void)generateOffer:(NSString *)connectionId completion:(void(^)(NSString *sdpOffer, NBMPeerConnection *connection))block;
+- (void)generateOffer:(NSString *)connectionId withDataChannels:(BOOL)dataChannels;
+
+- (void)generateOffer:(NSString *)connectionId withDataChannels:(BOOL)dataChannels completion:(void(^)(NSString *sdpOffer, NBMPeerConnection *connection))block;
 
 /**
  *  Process a remote offer for connection with specified identifier.
@@ -158,7 +164,7 @@
  *  @param candidate    A RTCICECandidate instance.
  *  @param connectionId The connection identifier.
  */
-- (void)addICECandidate:(RTCICECandidate *)candidate connectionId:(NSString *)connectionId;
+- (void)addICECandidate:(RTCIceCandidate *)candidate connectionId:(NSString *)connectionId;
 
 /**
  *  Retrives a NBMPeerConnection instance with specified identifier.

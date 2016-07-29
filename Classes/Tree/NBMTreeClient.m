@@ -32,7 +32,7 @@
 #import "NBMRequest.h"
 #import "NBMResponse.h"
 
-#import <libjingle_peerconnection/RTCICECandidate.h>
+#import <WebRTC/RTCIceCandidate.h>
 
 static NSString* const kAddICECandidateMethod = @"addIceCandidate";
 static NSString* const kICECandidateEvent = @"iceCandidate";
@@ -180,7 +180,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     }];
 }
 
-- (void)sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void (^)(NSError *))block {
+- (void)sendICECandidate:(RTCIceCandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void (^)(NSError *))block {
     NSParameterAssert(candidate);
     NSParameterAssert(treeId);
     return [self nbm_sendICECandidate:candidate forSink:sinkId tree:treeId completion:block];
@@ -310,7 +310,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
                                    }];
 }
 
-- (void)nbm_sendICECandidate:(RTCICECandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block {
+- (void)nbm_sendICECandidate:(RTCIceCandidate *)candidate forSink:(NSString *)sinkId tree:(NSString *)treeId completion:(void(^)(NSError *error))block {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:treeId forKey:kTreeId];
     if (sinkId.length > 0) {
@@ -430,9 +430,9 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     NSString *sdp = [NBMTreeClient element:params getStringPropertyWithName:kICECandidate error:&error];
     NSString *sdpMid = [NBMTreeClient element:params getStringPropertyWithName:kICESdpMid error:&error];
     NSNumber *index = [NBMTreeClient element:params getPropertyWithName:kICESdpMLineIndex ofClass:[NSNumber class] error:&error];
-    RTCICECandidate *candidate;
+    RTCIceCandidate *candidate;
     if (!error) {
-        candidate = [[RTCICECandidate alloc] initWithMid:sdpMid index:index.integerValue sdp:sdp];
+        candidate = [[RTCIceCandidate alloc] initWithSdp:sdp sdpMLineIndex:index.integerValue sdpMid:sdpMid];
     }
     
     NSString *treeId = [NBMTreeClient element:params getStringPropertyWithName:kTreeId error:&error];

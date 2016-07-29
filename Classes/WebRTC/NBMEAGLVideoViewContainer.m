@@ -22,7 +22,7 @@
 
 
 #import "NBMEAGLVideoViewContainer.h"
-#import "RTCEAGLVideoView.h"
+#import <WebRTC/RTCEAGLVideoView.h>
 #import <AVFoundation/AVFoundation.h>
 
 @implementation NBMEAGLVideoViewContainer

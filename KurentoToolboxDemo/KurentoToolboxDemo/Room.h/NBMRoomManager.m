@@ -21,15 +21,17 @@
 // THE SOFTWARE.
 
 #import "NBMRoomManager.h"
-#import "RTCPeerConnection.h"
-#import "RTCSessionDescription.h"
+#import <WebRTC/RTCPeerConnection.h>
+#import <WebRTC/RTCSessionDescription.h>
+#import <WebRTC/RTCDataChannel.h>
+#import <WebRTC/RTCDataChannelConfiguration.h>
 #import "Reachability.h"
 
 static NSUInteger kConnectionMaxIceAttempts = 3;
 
 typedef void(^ErrorBlock)(NSError *error);
 
-@interface NBMRoomManager () <NBMWebRTCPeerDelegate, NBMRoomClientDelegate>
+@interface NBMRoomManager () <NBMWebRTCPeerDelegate, NBMRoomClientDelegate, RTCDataChannelDelegate>
 
 @property (nonatomic, strong) NBMRoomClient *roomClient;
 @property (nonatomic, strong) Reachability *reachability;
@@ -39,6 +41,7 @@ typedef void(^ErrorBlock)(NSError *error);
 @property (nonatomic, strong) NSMutableArray *mutableRemoteStreams;
 @property (nonatomic, strong, readonly) NSString *localConnectionId;
 @property (nonatomic, assign) NSUInteger retryCount;
+@property (nonatomic, assign) BOOL useDataChannels;
 
 @property (nonatomic, copy) ErrorBlock publishVideoBlock;
 @property (nonatomic, copy) ErrorBlock unpublishVideo;
@@ -54,6 +57,7 @@ typedef void(^ErrorBlock)(NSError *error);
     if (self) {
         _delegate = delegate;
         _mutableRemoteStreams = [NSMutableArray array];
+        _useDataChannels = YES;
     }
     return self;
 }
@@ -68,8 +72,6 @@ typedef void(^ErrorBlock)(NSError *error);
 #pragma mark - Public
 
 - (void)joinRoom:(NBMRoom *)room withConfiguration:(NBMMediaConfiguration *)configuration {
-    NSParameterAssert(room);
-    
     [self setupRoomClient:room];
     
     [self setupReachability];
@@ -99,6 +101,7 @@ typedef void(^ErrorBlock)(NSError *error);
     if (!hasMediaStarted) {
         hasMediaStarted = [self.webRTCPeer startLocalMedia];
     }
+    
     if (hasMediaStarted) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([self.delegate respondsToSelector:@selector(roomManager:didAddLocalStream:)]) {
@@ -107,8 +110,8 @@ typedef void(^ErrorBlock)(NSError *error);
         });
         
         NSString *connectionId = [self localConnectionId];
-        [self.webRTCPeer generateOffer:connectionId completion:^(NSString *sdpOffer, NBMPeerConnection *connection) {
-            [self.roomClient publishVideo:(sdpOffer) loopback:NO completion:^(NSString *sdpAnswer, NSError *error) {
+        [self.webRTCPeer generateOffer:connectionId withDataChannels:self.roomClient.room.dataChannels completion:^(NSString *sdpOffer, NBMPeerConnection *connection) {
+            [self.roomClient publishVideo:sdpOffer loopback:NO completion:^(NSString *sdpAnswer, NSError *error) {
                 if (block) {
                     block(error);
                 }
@@ -136,8 +139,8 @@ typedef void(^ErrorBlock)(NSError *error);
 
 - (void)receiveVideoFromPeer:(NBMPeer *)peer completion:(void (^)(NSError *error))block {
     NSString *connectionId = [self connectionIdOfPeer:peer];
-    [self.webRTCPeer generateOffer:connectionId completion:^(NSString *sdpOffer, NBMPeerConnection *connection) {
-        [self.roomClient receiveVideoFromPeer:peer offer:sdpOffer.description completion:^(NSString *sdpAnswer, NSError *error) {
+    [self.webRTCPeer generateOffer:connectionId withDataChannels:self.roomClient.room.dataChannels completion:^(NSString *sdpOffer, NBMPeerConnection *connection) {
+        [self.roomClient receiveVideoFromPeer:peer offer:sdpOffer completion:^(NSString *sdpAnswer, NSError *error) {
             [self.webRTCPeer processAnswer:sdpAnswer connectionId:connection.connectionId];
         }];
     }];
@@ -325,7 +328,7 @@ typedef void(^ErrorBlock)(NSError *error);
 }
 
 - (void)joinToRoom {
-    [self.roomClient joinRoom];
+    [self.roomClient joinRoomWithDataChannels:self.useDataChannels];
 }
 
 - (void)generateLocalOffer {
@@ -334,7 +337,7 @@ typedef void(^ErrorBlock)(NSError *error);
 
 - (void)generateOfferForPeer:(NBMPeer *)peer {
     NSString *connectionId = [self connectionIdOfPeer:peer];
-    [self.webRTCPeer generateOffer:connectionId];
+    [self.webRTCPeer generateOffer:connectionId withDataChannels:self.roomClient.room.dataChannels];
 }
 
 - (void)safeICERestartForRemotePeer:(NBMPeer *)remotePeer {
@@ -434,7 +437,7 @@ typedef void(^ErrorBlock)(NSError *error);
 
 - (BOOL)isActiveConnection:(NBMPeerConnection *)connection {
     RTCPeerConnection *rtcConnection = connection.peerConnection;
-    if (rtcConnection.signalingState == RTCSignalingStable && rtcConnection.iceConnectionState != RTCICEConnectionFailed) {
+    if (rtcConnection.signalingState == RTCSignalingStateStable && rtcConnection.iceConnectionState != RTCIceConnectionStateFailed) {
         return YES;
     }
     return NO;
@@ -488,6 +491,18 @@ typedef void(^ErrorBlock)(NSError *error);
     
 }
 
+/** The data channel state changed. */
+- (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
+    [@"a" characterAtIndex:0];
+}
+
+/** The data channel successfully received a data buffer. */
+- (void)dataChannel:(RTCDataChannel *)dataChannel
+didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
+    [@"a" characterAtIndex:0];
+}
+
+
 //Room Events
 
 - (void)client:(NBMRoomClient *)client participantJoined:(NBMPeer *)peer {
@@ -516,7 +531,7 @@ typedef void(^ErrorBlock)(NSError *error);
     [self.webRTCPeer closeConnectionWithConnectionId:connectionId];
 }
 
-- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCICECandidate *)candidate fromParticipant:(NBMPeer *)peer {
+- (void)client:(NBMRoomClient *)client didReceiveICECandidate:(RTCIceCandidate *)candidate fromParticipant:(NBMPeer *)peer {
     NSString *connectionId =[self connectionIdOfPeer:peer];
     [self.webRTCPeer addICECandidate:candidate connectionId:connectionId];
 }
@@ -542,12 +557,12 @@ typedef void(^ErrorBlock)(NSError *error);
 - (void)webRTCPeer:(NBMWebRTCPeer *)peer didGenerateOffer:(RTCSessionDescription *)sdpOffer forConnection:(NBMPeerConnection *)connection {
     NBMPeerConnection *localConnection = [self connectionOfPeer:[self localPeer]];
     if ([connection isEqual:localConnection]) {
-        [self.roomClient publishVideo:(sdpOffer.description) loopback:NO completion:^(NSString *sdpAnswer, NSError *error) {
+        [self.roomClient publishVideo:(sdpOffer.sdp) loopback:NO completion:^(NSString *sdpAnswer, NSError *error) {
             [self.webRTCPeer processAnswer:sdpAnswer connectionId:connection.connectionId];
         }];
     } else {
         NBMPeer *remotePeer = [self peerOfConnection:connection];
-        [self.roomClient receiveVideoFromPeer:remotePeer offer:sdpOffer.description completion:^(NSString *sdpAnswer, NSError *error) {
+        [self.roomClient receiveVideoFromPeer:remotePeer offer:sdpOffer.sdp completion:^(NSString *sdpAnswer, NSError *error) {
             [self.webRTCPeer processAnswer:sdpAnswer connectionId:connection.connectionId];
         }];
     }
@@ -573,25 +588,35 @@ typedef void(^ErrorBlock)(NSError *error);
     [self.delegate roomManager:self didRemoveStream:remoteStream ofPeer:remotePeer];
 }
 
-- (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCICECandidate *)candidate forConnection:(NBMPeerConnection *)connection {
+- (void)webRTCPeer:(NBMWebRTCPeer *)peer didAddDataChannel:(RTCDataChannel *)dataChannel ofConnection:(NBMPeerConnection *)connection {
+    NBMPeer *remotePeer = [self peerOfConnection:connection];
+    if (!remotePeer) {
+        //peer has left
+        return;
+    }
+
+    [self.delegate roomManager:self didAddDataChannel:dataChannel ofPeer:remotePeer];
+}
+
+- (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCIceCandidate *)candidate forConnection:(NBMPeerConnection *)connection {
     NBMPeer *remotePeer = [self peerOfConnection:connection];
     [self.roomClient sendICECandidate:candidate forPeer:remotePeer];
 }
 
-- (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCICEConnectionState)state ofConnection:(NBMPeerConnection *)connection {
+- (void)webrtcPeer:(NBMWebRTCPeer *)peer iceStatusChanged:(RTCIceConnectionState)state ofConnection:(NBMPeerConnection *)connection {
     switch (state) {
-        case RTCICEConnectionNew:
-        case RTCICEConnectionChecking:
-        case RTCICEConnectionCompleted:
-        case RTCICEConnectionConnected:
+        case RTCIceConnectionStateNew:
+        case RTCIceConnectionStateChecking:
+        case RTCIceConnectionStateCompleted:
+        case RTCIceConnectionStateConnected:
             break;
-        case RTCICEConnectionMax:
-        case RTCICEConnectionClosed:
+        case RTCIceConnectionStateCount:
+        case RTCIceConnectionStateClosed:
         {
             [self.webRTCPeer closeConnectionWithConnectionId:connection.connectionId];
             break;
         }
-        case RTCICEConnectionDisconnected:
+        case RTCIceConnectionStateDisconnected:
         {
             // We had an active connection, but we lost it.
             // Recover with an ice-restart?
@@ -603,7 +628,7 @@ typedef void(^ErrorBlock)(NSError *error);
 //
             break;
         }
-        case RTCICEConnectionFailed:
+        case RTCIceConnectionStateFailed:
         {
             // The connection failed during the ICE candidate phase.
             // While the peer is available on the signaling server we should retry with an ice-restart.

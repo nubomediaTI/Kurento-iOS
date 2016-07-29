@@ -7,7 +7,9 @@
 //
 
 #import "NBMPeerConnection.h"
-#import "RTCPeerConnection.h"
+#import <WebRTC/RTCPeerConnection.h>
+#import <WebRTC/RTCDataChannelConfiguration.h>
+#import <NBMSessionDescriptionFactory.h>
 #import "NBMLog.h"
 
 @interface NBMPeerConnection ()
@@ -54,9 +56,9 @@
 
 #pragma mark - Public
 
-- (void)addIceCandidate:(RTCICECandidate *)candidate
+- (void)addIceCandidate:(RTCIceCandidate *)candidate
 {
-    BOOL queueCandidates = self.peerConnection == nil || self.peerConnection.signalingState != RTCSignalingStable;
+    BOOL queueCandidates = self.peerConnection == nil || self.peerConnection.signalingState != RTCSignalingStateStable;
     
     if (queueCandidates) {
         if (!self.queuedRemoteCandidates) {
@@ -64,10 +66,9 @@
         }
         DDLogVerbose(@"Queued a remote ICE candidate for later.");
         [self.queuedRemoteCandidates addObject:candidate];
-    }
-    else {
+    } else {
         DDLogVerbose(@"Adding a remote ICE candidate.");
-        [self.peerConnection addICECandidate:candidate];
+        [self.peerConnection addIceCandidate:candidate];
     }
 }
 
@@ -75,8 +76,8 @@
 {
     DDLogVerbose(@"Drain %lu remote ICE candidates.", (unsigned long)[self.queuedRemoteCandidates count]);
     
-    for (RTCICECandidate *candidate in self.queuedRemoteCandidates) {
-        [self.peerConnection addICECandidate:candidate];
+    for (RTCIceCandidate *candidate in self.queuedRemoteCandidates) {
+        [self.peerConnection addIceCandidate:candidate];
     }
     self.queuedRemoteCandidates = nil;
 }
@@ -100,5 +101,4 @@
     self.remoteStream = nil;
     self.peerConnection = nil;
 }
-
 @end

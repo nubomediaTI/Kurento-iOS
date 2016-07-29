@@ -31,7 +31,7 @@
 
 @implementation NBMRoom
 
-- (instancetype)initWithUsername:(NSString *)username roomName:(NSString *)name roomURL:(NSURL *)url {
+- (instancetype)initWithUsername:(NSString *)username roomName:(NSString *)name roomURL:(NSURL *)url dataChannels:(BOOL)dataChannels {
     NSParameterAssert(username);
     NSParameterAssert(name);
     NSParameterAssert(url);
@@ -42,6 +42,7 @@
         _localPeer = [[NBMPeer alloc] initWithId:username];
         _name = name;
         _url = url;
+        _dataChannels = dataChannels;
     }
     return self;
 }

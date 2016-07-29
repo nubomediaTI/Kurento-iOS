@@ -23,7 +23,7 @@
 #import <Foundation/Foundation.h>
 
 @class NBMTreeClient;
-@class RTCICECandidate;
+@class RTCIceCandidate;
 
 @protocol NBMTreeClientDelegate <NSObject>
 
@@ -42,6 +42,6 @@
  *  @param sinkId    Sink id to which belongs the candidate, 'nil' when the candidate is referred to the tree source.
  *  @param treeId    Tree id to which belongs this candidate.
  */
-- (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCICECandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId;
+- (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCIceCandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId;
 
 @end

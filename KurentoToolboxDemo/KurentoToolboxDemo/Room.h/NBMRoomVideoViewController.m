@@ -28,7 +28,8 @@
 #import "NBMRenderer.h"
 #import "NBMPeer.h"
 
-#import "RTCMediaStream.h"
+#import <WebRTC/RTCMediaStream.h>
+#import <WebRTC/RTCDataChannel.h>
 
 #import "MBProgressHUD.h"
 #import "NBMToolbar.h"
@@ -38,7 +39,7 @@
 NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIdentifier";
 
 
-@interface NBMRoomVideoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NBMRoomManagerDelegate, NBMRendererDelegate, NBMPeerViewCellDelegate>
+@interface NBMRoomVideoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NBMRoomManagerDelegate, NBMRendererDelegate, NBMPeerViewCellDelegate, RTCDataChannelDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *peersCollectionView;
 @property (nonatomic, strong) NSIndexPath *selectedItemIndexPath;
@@ -165,7 +166,7 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
         BOOL audioEnabled = [weakSelf.roomManager isAudioEnabled];
         [weakSelf.roomManager enableAudio:!audioEnabled];
     }];
-    
+        
     NBMButton *streamEnable = [NBMButtonFactory buttonWithNormalText:@"Disable stream" selectedText:@"Enable stream"];
     [self.toolbar addButton:streamEnable action:^(UIButton *sender) {
         BOOL publish = weakSelf.roomManager.localPeer.streams.count > 0 ? NO : YES;
@@ -570,21 +571,21 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     [self.peersCollectionView reloadData];
 }
 
-- (void)roomManager:(NBMRoomManager *)broker iceStatusChanged:(RTCICEConnectionState)state ofPeer:(NBMPeer *)peer {
+- (void)roomManager:(NBMRoomManager *)broker iceStatusChanged:(RTCIceConnectionState)state ofPeer:(NBMPeer *)peer {
     switch (state) {
-        case RTCICEConnectionConnected:
-        case RTCICEConnectionCompleted:
-        case RTCICEConnectionClosed:
-        case RTCICEConnectionFailed:
+        case RTCIceConnectionStateConnected:
+        case RTCIceConnectionStateCompleted:
+        case RTCIceConnectionStateClosed:
+        case RTCIceConnectionStateFailed:
         {
             [self hideSpinnerForPeer:peer];
         }
             break;
             
-        case RTCICEConnectionMax:
-        case RTCICEConnectionChecking:
-        case RTCICEConnectionNew:
-        case RTCICEConnectionDisconnected:
+        case RTCIceConnectionStateCount:
+        case RTCIceConnectionStateChecking:
+        case RTCIceConnectionStateNew:
+        case RTCIceConnectionStateDisconnected:
         {
             [self showSpinnerForPeer:peer];
         }
@@ -600,4 +601,32 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     
 }
 
+- (void)roomManager:(NBMRoomManager *)broker didAddDataChannel:(RTCDataChannel *)dataChannel ofPeer:(NBMPeer *)remotePeer {
+    DDLogDebug(@"roomManager didAddDataChanngel %@ of peer %@", dataChannel.label, remotePeer.identifier);
+}
+
+- (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
+    switch (dataChannel.readyState) {
+        case RTCDataChannelStateConnecting:
+            break;
+        case RTCDataChannelStateOpen: {
+            RTCDataBuffer *data = [[RTCDataBuffer alloc] initWithData:[@"ciao" dataUsingEncoding:NSUTF8StringEncoding]
+                                                             isBinary:NO];
+            BOOL success = [dataChannel sendData:data];
+            break;
+        }
+        case RTCDataChannelStateClosing:
+            break;
+        case RTCDataChannelStateClosed:
+            break;
+    }
+}
+
+- (void)dataChannel:(RTCDataChannel *)dataChannel didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
+    [@"a" characterAtIndex:0];
+}
+
+- (void)dataChannel:(RTCDataChannel *)dataChannel didChangeBufferedAmount:(uint64_t)amount {
+    [@"a" characterAtIndex:0];
+}
 @end

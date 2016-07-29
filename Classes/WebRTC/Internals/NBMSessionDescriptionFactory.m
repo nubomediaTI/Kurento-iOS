@@ -8,9 +8,8 @@
 
 #import "NBMSessionDescriptionFactory.h"
 
-#import "RTCMediaConstraints.h"
-#import "RTCPair.h"
-#import "RTCSessionDescription.h"
+#import <WebRTC/RTCMediaConstraints.h>
+#import <WebRTC/RTCSessionDescription.h>
 
 @implementation NBMSessionDescriptionFactory
 
@@ -21,11 +20,10 @@
 + (RTCMediaConstraints *)offerConstraintsRestartIce:(BOOL)restartICE;
 {
     // In the AppRTC example optional offer contraints are nil
-    NSArray *optional = nil;
+    NSMutableDictionary *optional = [NSMutableDictionary dictionaryWithDictionary:[self optionalConstraints]];
     
     if (restartICE) {
-        RTCPair *icePair = [[RTCPair alloc] initWithKey:@"IceRestart" value:@"true"];
-        optional = @[icePair];
+        [optional setObject:@"true" forKey:@"IceRestart"];
     }
     
     RTCMediaConstraints *constraints = [[RTCMediaConstraints alloc] initWithMandatoryConstraints:[self mandatoryConstraints]
@@ -59,10 +57,10 @@
     // Audio
     
     if (audioCodec == NBMAudioCodecOpus) {
-        sdpString = sessionDescription.description;
+        sdpString = sessionDescription.sdp;
     }
     else {
-        sdpString = [self preferISACSimple:sessionDescription.description];
+        sdpString = [self preferISACSimple:sessionDescription.sdp];
     }
     
     // Video
@@ -83,29 +81,30 @@
 
 #pragma mark - Private
 
-+ (NSArray *)constraintsForVideoFormat:(NBMVideoFormat)format
++ (NSDictionary *)constraintsForVideoFormat:(NBMVideoFormat)format
 {
-    RTCPair *maxWidth = [[RTCPair alloc] initWithKey:@"maxWidth" value:[NSString stringWithFormat:@"%d", format.dimensions.width]];
-    RTCPair *maxHeight = [[RTCPair alloc] initWithKey:@"maxHeight" value:[NSString stringWithFormat:@"%d", format.dimensions.height]];
-    RTCPair *minWidth = [[RTCPair alloc] initWithKey:@"minWidth" value:@"240"];
-    RTCPair *minHeight = [[RTCPair alloc] initWithKey:@"minHeight" value:@"160"];
-    
-    return @[maxWidth, maxHeight, minWidth, minHeight];
+    return @{
+             @"maxWidth": [NSString stringWithFormat:@"%d", format.dimensions.width],
+             @"maxHeight": [NSString stringWithFormat:@"%d", format.dimensions.height],
+             @"minWidth": @"240",
+             @"minHeight": @"160"
+             };
 }
 
-+ (NSArray *)mandatoryConstraints
++ (NSDictionary *)mandatoryConstraints
 {
-    RTCPair *audioPair = [[RTCPair alloc] initWithKey:@"OfferToReceiveAudio" value:@"true"];
-    RTCPair *videoPair = [[RTCPair alloc] initWithKey:@"OfferToReceiveVideo" value:@"true"];
-    
-    return @[ audioPair, videoPair ];
+    return @{
+             @"OfferToReceiveAudio": @"true",
+             @"OfferToReceiveVideo": @"true"
+             };
 }
 
-+ (NSArray *)optionalConstraints
++ (NSDictionary *)optionalConstraints
 {
-    //[[RTCPair alloc] initWithKey:@"internalSctpDataChannels" value:@"true"] ??
-    NSArray *optionalConstraints = @[[[RTCPair alloc] initWithKey:@"DtlsSrtpKeyAgreement" value:@"true"]];
-    return optionalConstraints;
+    return @{
+             @"internalSctpDataChannels": @"true",
+             @"DtlsSrtpKeyAgreement": @"true"
+             };
 }
 
 + (NSString *)preferISACSimple:(NSString *)sdp

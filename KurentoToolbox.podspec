@@ -28,7 +28,6 @@ Pod::Spec.new do |s|
   s.subspec 'WebRTC' do |ss|
     ss.source_files = 'Classes/WebRTC/**/*.{h,m}'
     ss.public_header_files = 'Classes/WebRTC/*.h'
-    ss.dependency 'libjingle_peerconnection', '~> 11177.2.0'
     ss.dependency 'KurentoToolbox/Utils'
   end
 
