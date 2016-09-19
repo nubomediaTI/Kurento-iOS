@@ -25,9 +25,7 @@
 		4AE438E71BF0DDBB001882E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438E51BF0DDBB001882E5 /* Main.storyboard */; };
 		4AE438E91BF0DDBB001882E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438E81BF0DDBB001882E5 /* Assets.xcassets */; };
 		4AE438EC1BF0DDBC001882E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438EA1BF0DDBC001882E5 /* LaunchScreen.storyboard */; };
-		564D8A0D1D18486600676AAC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0C1D18486600676AAC /* WebRTC.framework */; };
-		564D8A201D19488D00676AAC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0C1D18486600676AAC /* WebRTC.framework */; };
-		564D8A211D19488D00676AAC /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0C1D18486600676AAC /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		566A7E931D80161A00283028 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0C1D18486600676AAC /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D1F711884E167D3F5CDAFF41 /* libPods-KurentoToolboxDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8427577B1A2997AC0147152 /* libPods-KurentoToolboxDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				564D8A211D19488D00676AAC /* WebRTC.framework in Embed Frameworks */,
+				566A7E931D80161A00283028 /* WebRTC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,9 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				564D8A0D1D18486600676AAC /* WebRTC.framework in Frameworks */,
 				D1F711884E167D3F5CDAFF41 /* libPods-KurentoToolboxDemo.a in Frameworks */,
-				564D8A201D19488D00676AAC /* WebRTC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

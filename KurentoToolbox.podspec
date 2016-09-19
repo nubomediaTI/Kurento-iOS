@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
     ss.dependency 'KurentoToolbox/JSON-RPC'
     ss.dependency 'KurentoToolbox/Room'
     ss.dependency 'KurentoToolbox/Tree'
+    ss.ios.vendored_frameworks = 'WebRTC.framework'
   end
 
   s.subspec 'WebRTC' do |ss|

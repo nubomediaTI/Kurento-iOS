@@ -272,7 +272,7 @@ static NSString* const kConnectionId = @"connection";
     [self.delegate treeManager:self didFailWithError:error];
 }
 
-- (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCICECandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId {
+- (void)client:(NBMTreeClient *)client iceCandidateReceived:(RTCIceCandidate *)candidate ofSink:(NSString *)sinkId tree:(NSString *)treeId {
     [self.webRTCPeer addICECandidate:candidate connectionId:kConnectionId];
 }
 
