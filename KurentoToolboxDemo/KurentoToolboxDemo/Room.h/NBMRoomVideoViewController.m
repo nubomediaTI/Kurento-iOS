@@ -601,32 +601,15 @@ NSString *const kPeerCollectionViewCellIdentifier = @"PeerCollectionViewCellIden
     
 }
 
-- (void)roomManager:(NBMRoomManager *)broker didAddDataChannel:(RTCDataChannel *)dataChannel ofPeer:(NBMPeer *)remotePeer {
-    DDLogDebug(@"roomManager didAddDataChanngel %@ of peer %@", dataChannel.label, remotePeer.identifier);
-}
-
-- (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
-    switch (dataChannel.readyState) {
-        case RTCDataChannelStateConnecting:
-            break;
-        case RTCDataChannelStateOpen: {
-            RTCDataBuffer *data = [[RTCDataBuffer alloc] initWithData:[@"ciao" dataUsingEncoding:NSUTF8StringEncoding]
-                                                             isBinary:NO];
-            BOOL success = [dataChannel sendData:data];
-            break;
-        }
-        case RTCDataChannelStateClosing:
-            break;
-        case RTCDataChannelStateClosed:
-            break;
-    }
+- (void)roomManager:(NBMRoomManager *)broker didAddDataChannel:(RTCDataChannel *)dataChannel {
+    DDLogDebug(@"roomManager didAddDataChanngel %@", dataChannel.label);
 }
 
 - (void)dataChannel:(RTCDataChannel *)dataChannel didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
-    [@"a" characterAtIndex:0];
+    
 }
 
 - (void)dataChannel:(RTCDataChannel *)dataChannel didChangeBufferedAmount:(uint64_t)amount {
-    [@"a" characterAtIndex:0];
+    
 }
 @end

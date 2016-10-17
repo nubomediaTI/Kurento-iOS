@@ -40,6 +40,7 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 @property (nonatomic, strong) RTCPeerConnectionFactory *peerConnectionFactory;
 @property (nonatomic, strong) NSMutableDictionary *connectionMap;
 @property (nonatomic, strong) NBMPeerConnection *localPeerConnection;
+@property (nonatomic, strong) RTCDataChannel *dataChannel;
 @property (nonatomic, strong) RTCMediaStream *localStream;
 @property (nonatomic, assign, readwrite) NBMCameraPosition cameraPosition;
 
@@ -123,15 +124,19 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
     }
     connection.isInitiator = YES;
     RTCMediaConstraints *constraints = [NBMSessionDescriptionFactory offerConstraints];
-    __block __weak RTCPeerConnection* peerConnection = connection.peerConnection;
+    __block RTCPeerConnection* peerConnection = connection.peerConnection;
     
-    if (dataChannels) {
-        RTCDataChannelConfiguration* config = [[RTCDataChannelConfiguration alloc] init];
-        config.channelId = 1000;
-        config.isNegotiated = NO;
-        NSString *label = @"mac_webcam_0";
-        RTCDataChannel* dataChannel = [peerConnection dataChannelForLabel:label configuration:config];
-        [dataChannel setDelegate:self];
+    BOOL isLocalPeerConnection = [[self.connectionMap allKeys] count] == 0;
+    if (!self.localPeerConnection && isLocalPeerConnection) {
+        self.localPeerConnection = connection;
+        
+        if (dataChannels) {
+            RTCDataChannelConfiguration* config = [[RTCDataChannelConfiguration alloc] init];
+            config.isNegotiated = NO;
+            NSString *label = @"webcam_0";
+            _dataChannel = [peerConnection dataChannelForLabel:label configuration:config];
+            [_dataChannel setDelegate:self];
+        }
     }
 
     [connection.peerConnection offerForConstraints:constraints completionHandler:^(RTCSessionDescription * _Nullable sdp, NSError * _Nullable error) {
@@ -139,10 +144,6 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
     }];
     //[connection.peerConnection createOfferWithDelegate:self constraints:constraints];
 
-    BOOL isLocalPeerConnection = [[self.connectionMap allKeys] count] == 0;
-    if (!self.localPeerConnection && isLocalPeerConnection) {
-        self.localPeerConnection = connection;
-    }
     self.connectionMap[connectionId] = connection;
     
     //TODO:Renegotiate active connections
@@ -150,13 +151,17 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 /** The data channel state changed. */
 - (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
-    [@"a" characterAtIndex:0];
+    DDLogVerbose(@"Data channel changed state: @%, %@", dataChannel.label, dataChannel.readyState);
+    
+    if (dataChannel.readyState == RTCDataChannelStateOpen) {
+        [self.delegate webRTCPeer:self didAddDataChannel:dataChannel];
+    }
 }
 
 /** The data channel successfully received a data buffer. */
 - (void)dataChannel:(RTCDataChannel *)dataChannel
 didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
-    [@"a" characterAtIndex:0];
+    
 }
 
 //- (void)generateOffer:(NSString *)connectionId restartICE:(BOOL)restart {
@@ -365,16 +370,6 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
     return connectionWrapper;
 }
 
-- (void)dealloc {
-    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    
-    _connectionMap = nil;
-    
-    _localPeerConnection = nil;
-    _localStream = nil;
-    _peerConnectionFactory = nil;
-}
-
 - (NSString *)localStreamLabel {
     return @"ARDAMS";
 }
@@ -555,6 +550,14 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
     }
 }
 
+- (void)dealloc {
+    _connectionMap = nil;
+    _dataChannel = nil;
+    _localPeerConnection = nil;
+    _localStream = nil;
+    _peerConnectionFactory = nil;
+}
+
 #pragma mark - RTCPeerConnectionDelegate
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
@@ -647,17 +650,7 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
     didOpenDataChannel:(RTCDataChannel *)dataChannel {
-    DDLogVerbose(@"Peer connection did open data channel: %@", dataChannel);
 
-    NBMPeerConnection *connection = [self wrapperForConnection:peerConnection];
-    DDLogVerbose(@"Peer connection %@ - got ICE candidate", connection.connectionId);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (!connection) {
-            return;
-        }
-        
-        [self.delegate webRTCPeer:self didAddDataChannel:dataChannel ofConnection:connection];
-    });
 }
 
 #pragma mark - RTCSessionDescriptionDelegate
@@ -745,4 +738,5 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
                                            username:@""
                                          credential:@""];
 }
+
 @end

@@ -491,15 +491,14 @@ typedef void(^ErrorBlock)(NSError *error);
     
 }
 
-/** The data channel state changed. */
-- (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
-    [@"a" characterAtIndex:0];
-}
-
 /** The data channel successfully received a data buffer. */
 - (void)dataChannel:(RTCDataChannel *)dataChannel
 didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
-    [@"a" characterAtIndex:0];
+    DDLogVerbose(@"Message received: %@", buffer.data);
+}
+
+- (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
+    DDLogVerbose(@"Data channel did change state: %ld", dataChannel.readyState);
 }
 
 
@@ -588,14 +587,8 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
     [self.delegate roomManager:self didRemoveStream:remoteStream ofPeer:remotePeer];
 }
 
-- (void)webRTCPeer:(NBMWebRTCPeer *)peer didAddDataChannel:(RTCDataChannel *)dataChannel ofConnection:(NBMPeerConnection *)connection {
-    NBMPeer *remotePeer = [self peerOfConnection:connection];
-    if (!remotePeer) {
-        //peer has left
-        return;
-    }
-
-    [self.delegate roomManager:self didAddDataChannel:dataChannel ofPeer:remotePeer];
+- (void)webRTCPeer:(NBMWebRTCPeer *)peer didAddDataChannel:(RTCDataChannel *)dataChannel {
+    [self.delegate roomManager:self didAddDataChannel:dataChannel];
 }
 
 - (void)webRTCPeer:(NBMWebRTCPeer *)peer hasICECandidate:(RTCIceCandidate *)candidate forConnection:(NBMPeerConnection *)connection {
