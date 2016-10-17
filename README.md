@@ -2,6 +2,8 @@
   <img src="KurentoToolbox_logo.png" height="250" alt="KurentoToolbox" title="KurentoToolbox">
 </p>
 
+Copyright © 2016 [NUBOMEDIA]. Licensed under [Apache 2.0 License].
+
 # Kurento Toolbox for iOS
 [![Build Status](https://travis-ci.org/nubomediaTI/Kurento-iOS.svg?branch=master)](https://travis-ci.org/nubomediaTI/Kurento-iOS)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KurentoToolbox.svg)](https://img.shields.io/cocoapods/v/KurentoToolbox.svg)
