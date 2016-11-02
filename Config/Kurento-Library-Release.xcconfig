@@ -3,10 +3,10 @@
 //  Kurento-iOS
 //
 //  Created by Marco Rossi on 30/10/15.
-//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 #include "Kurento-Library.xcconfig"
-#include "../Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.release.xcconfig"
+#include "../Pods/Target Support Files/Pods-KurentoToolbox-Static/Pods-KurentoToolbox-Static.release.xcconfig"
 
 ONLY_ACTIVE_ARCH = NO
 
@@ -26,4 +26,4 @@ GCC_GENERATE_DEBUGGING_SYMBOLS = NO
 // Apple LLVM
 OTHER_CFLAGS = $(inherited) -DNS_BLOCK_ASSERTIONS=1
 
-OTHER_LIBTOOLFLAGS = $(inherited) -l"SBJson" -l"SocketRocket" -l"WebRTC"
+//OTHER_LIBTOOLFLAGS = $(inherited) -l"SBJson" -l"SocketRocket" -l"WebRTC"

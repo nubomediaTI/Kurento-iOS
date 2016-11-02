@@ -56,13 +56,13 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/configuration">configuration</option>
+		
 		<option value="//api/name/connected">connected</option>
 		
+		<option value="//api/name/connectionState">connectionState</option>
+		
 		<option value="//api/name/delegate">delegate</option>
-		
-		<option value="//api/name/requestMaxRetries">requestMaxRetries</option>
-		
-		<option value="//api/name/requestTimeout">requestTimeout</option>
 		
 		<option value="//api/name/url">url</option>
 		
@@ -78,6 +78,10 @@
 		
 		<option value="//api/name/cancelRequest:">- cancelRequest:</option>
 		
+		<option value="//api/name/connect">- connect</option>
+		
+		<option value="//api/name/initWithURL:configuration:delegate:">- initWithURL:configuration:delegate:</option>
+		
 		<option value="//api/name/initWithURL:delegate:">- initWithURL:delegate:</option>
 		
 		<option value="//api/name/sendNotification:">- sendNotification:</option>
@@ -85,6 +89,8 @@
 		<option value="//api/name/sendNotificationWithMethod:parameters:">- sendNotificationWithMethod:parameters:</option>
 		
 		<option value="//api/name/sendRequest:completion:">- sendRequest:completion:</option>
+		
+		<option value="//api/name/sendRequestWithMethod:completion:">- sendRequestWithMethod:completion:</option>
 		
 		<option value="//api/name/sendRequestWithMethod:parameters:completion:">- sendRequestWithMethod:parameters:completion:</option>
 		
@@ -179,8 +185,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/requestTimeout" title="requestTimeout"></a>
-	<h3 class="method-title"><code><a href="#//api/name/requestTimeout">&nbsp;&nbsp;requestTimeout</a></code>
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
 </h3>
 
 	<div class="method-info">
@@ -190,55 +196,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The timoeut interval for the new request, in seconds.
-Default value is 5.</p>
+				<p>The client configuration object.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSTimeInterval requestTimeout</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/requestMaxRetries" title="requestMaxRetries"></a>
-	<h3 class="method-title"><code><a href="#//api/name/requestMaxRetries">&nbsp;&nbsp;requestMaxRetries</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The retry number for requests gone in timeout (with no response back).
-Default value is 1.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSUInteger requestMaxRetries</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NBMJSONRPCClientConfiguration *configuration</code></div>
 
 		    
 			
@@ -304,6 +267,22 @@ Default value is 1.</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/connectionState" title="connectionState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectionState">&nbsp;&nbsp;connectionState</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NBMJSONRPCConnectionState connectionState</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/connected" title="connected"></a>
 	<h3 class="method-title"><code><a href="#//api/name/connected">&nbsp;&nbsp;connected</a></code>
 </h3>
@@ -313,10 +292,35 @@ Default value is 1.</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>A boolean that indicates the websocket connection status.</p>
+			</div>
+			
+		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isConnected) BOOL connected</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, getter=isConnected) BOOL connected</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -331,7 +335,7 @@ Default value is 1.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates and initializes a JSON-RPC client with the specified endpoint.</p>
+				<p>Creates and initializes a JSON-RPC client with the specified endpoint using default configuration.</p>
 			</div>
 			
 		    
@@ -351,7 +355,7 @@ Default value is 1.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>delegate</code></th>
-						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the client.</p></td>
+						<td><p>The delegate object for the client.</p></td>
 					</tr>
 				
 				</table>
@@ -362,6 +366,184 @@ Default value is 1.</p>
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
 				<p>An initialized JSON-RPC client.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithURL:configuration:delegate:" title="initWithURL:configuration:delegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithURL:configuration:delegate:">&ndash;&nbsp;initWithURL:configuration:delegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and initializes a JSON-RPC client with the specified endpoint using provided configuration.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithURL:(NSURL *)<em>url</em> configuration:(NBMJSONRPCClientConfiguration *)<em>configuration</em> delegate:(id&lt;NBMJSONRPCClientDelegate&gt;)<em>delegate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>url</code></th>
+						<td><p>The endpoint URL.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>The delegate object for the client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized JSON-RPC client.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connect" title="connect"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connect">&ndash;&nbsp;connect</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Connects client to the server using WebSocket.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)connect</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> Use this method after initialization when <autoConnect> configuration&rsquo;s property is set to NO or when connection goes down and <a href="#//api/name/connected">connected</a> property switch to NO.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMJSONRPCClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendRequestWithMethod:completion:" title="sendRequestWithMethod:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendRequestWithMethod:completion:">&ndash;&nbsp;sendRequestWithMethod:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and sends a request with the specified method using websocket as transport channel.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NBMRequest *)sendRequestWithMethod:(NSString *)<em>method</em> completion:(void ( ^ ) ( NBMResponse *response ))<em>responseBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>method</code></th>
+						<td><p>The request method. Must not be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>responseBlock</code></th>
+						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+response serializer. The response object may be <code>nil</code> if network (e.g timeout) or parsing error occurred.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The <code>NBMRequest</code> object that was sent.</p>
 			</div>
 			
 
@@ -419,8 +601,8 @@ Default value is 1.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>responseBlock</code></th>
-						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client response serializer.
-The response object may be <code>nil</code> if network (e.g timeout) or parsing error occurred.</p></td>
+						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client.
+response serializer. The response object may be <code>nil</code> if network (e.g timeout) or parsing error occurred.</p></td>
 					</tr>
 				
 				</table>
@@ -430,7 +612,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The <a href="../Classes/NBMRequest.html"><code>NBMRequest</code></a> object that was sent.</p>
+				<p>The <code>NBMRequest</code> object that was sent.</p>
 			</div>
 			
 
@@ -478,13 +660,13 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>requestToSend</code></th>
-						<td><p>The <a href="../Classes/NBMRequest.html"><code>NBMRequest</code></a> object to send.</p></td>
+						<td><p>The <code>NBMRequest</code> object to send.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>responseBlock</code></th>
-						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client response serializer.
-The response object may be <code>nil</code> if network (e.g timeout) or parsing error occurred.</p></td>
+						<td><p>A block object to be executed when the request is sent. This block has no return value and takes the response object created by the client
+response serializer. The response object may be <code>nil</code> if network (e.g timeout) or parsing error occurred.</p></td>
 					</tr>
 				
 				</table>
@@ -542,7 +724,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>parameters</code></th>
-						<td><p>The parameters to encode into the notification. Must be either an <code>NSDictionary</code> or <code>NSArray</code>.</p></td>
+						<td><p>The parameters to encode into the notification. Must be either an <code>NSDictionary</code> or <code>NSArray</code>, may be &lsquo;nil&rsquo;.</p></td>
 					</tr>
 				
 				</table>
@@ -552,7 +734,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The <a href="../Classes/NBMRequest.html"><code>NBMRequest</code></a> object that was sent.</p>
+				<p>The <code>NBMRequest</code> object that was sent.</p>
 			</div>
 			
 
@@ -561,7 +743,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="note"><p><strong>Note:</strong> Notification is a <a href="../Classes/NBMRequest.html"><code>NBMRequest</code></a> object that produces no server response.</p></div>
+				<div class="note"><p><strong>Note:</strong> Notification is a <code>NBMRequest</code> object that produces no server response.</p></div>
 			</div>
 			
 
@@ -605,7 +787,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>notification</code></th>
-						<td><p>The <a href="../Classes/NBMRequest.html"><code>NBMRequest</code></a> object to send.</p></td>
+						<td><p>The <code>NBMRequest</code> object to send.</p></td>
 					</tr>
 				
 				</table>
@@ -658,7 +840,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>request</code></th>
-						<td><p>The <a href="../Classes/NBMRequest.html"><code>NBMRequest</code></a> object to cancel.</p></td>
+						<td><p>The <code>NBMRequest</code> object to cancel.</p></td>
 					</tr>
 				
 				</table>
@@ -740,7 +922,7 @@ The response object may be <code>nil</code> if network (e.g timeout) or parsing 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Nubomedia TI. All rights reserved. Updated: 2015-12-07</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-02-18</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

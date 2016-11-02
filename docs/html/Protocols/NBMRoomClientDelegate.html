@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>NBMRoomClientDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">KurentoToolbox </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Nubomedia TI</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/client:didFailWithError:">- client:didFailWithError:</option>
+		
+		<option value="//api/name/client:didJoinRoom:">- client:didJoinRoom:</option>
+		
+		<option value="//api/name/client:didLeaveRoom:">- client:didLeaveRoom:</option>
+		
+		<option value="//api/name/client:didPublishVideo:loopback:error:">- client:didPublishVideo:loopback:error:</option>
+		
+		<option value="//api/name/client:didReceiveICECandidate:fromParticipant:">- client:didReceiveICECandidate:fromParticipant:</option>
+		
+		<option value="//api/name/client:didReceiveMessage:fromParticipant:">- client:didReceiveMessage:fromParticipant:</option>
+		
+		<option value="//api/name/client:didReceiveVideoFrom:sdpAnswer:error:">- client:didReceiveVideoFrom:sdpAnswer:error:</option>
+		
+		<option value="//api/name/client:didSentCustomRequest:">- client:didSentCustomRequest:</option>
+		
+		<option value="//api/name/client:didSentICECandidate:forPeer:">- client:didSentICECandidate:forPeer:</option>
+		
+		<option value="//api/name/client:didSentMessage:">- client:didSentMessage:</option>
+		
+		<option value="//api/name/client:didUnPublishVideo:">- client:didUnPublishVideo:</option>
+		
+		<option value="//api/name/client:didUnsubscribeVideoFrom:sdpAnswer:error:">- client:didUnsubscribeVideoFrom:sdpAnswer:error:</option>
+		
+		<option value="//api/name/client:isConnected:">- client:isConnected:</option>
+		
+		<option value="//api/name/client:mediaErrorOccurred:">- client:mediaErrorOccurred:</option>
+		
+		<option value="//api/name/client:participantEvicted:">- client:participantEvicted:</option>
+		
+		<option value="//api/name/client:participantJoined:">- client:participantJoined:</option>
+		
+		<option value="//api/name/client:participantLeft:">- client:participantLeft:</option>
+		
+		<option value="//api/name/client:participantPublished:">- client:participantPublished:</option>
+		
+		<option value="//api/name/client:participantUnpublished:">- client:participantUnpublished:</option>
+		
+		<option value="//api/name/client:roomWasClosed:">- client:roomWasClosed:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">NBMRoomClientDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>NBMRoomClientDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/client:isConnected:" title="client:isConnected:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:isConnected:">&ndash;&nbsp;client:isConnected:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> isConnected:(BOOL)<em>connected</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didFailWithError:" title="client:didFailWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didFailWithError:">&ndash;&nbsp;client:didFailWithError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didFailWithError:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didJoinRoom:" title="client:didJoinRoom:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didJoinRoom:">&ndash;&nbsp;client:didJoinRoom:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didJoinRoom:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didLeaveRoom:" title="client:didLeaveRoom:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didLeaveRoom:">&ndash;&nbsp;client:didLeaveRoom:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didLeaveRoom:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didPublishVideo:loopback:error:" title="client:didPublishVideo:loopback:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didPublishVideo:loopback:error:">&ndash;&nbsp;client:didPublishVideo:loopback:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didPublishVideo:(NSString *)<em>sdpAnswer</em> loopback:(BOOL)<em>doLoopback</em> error:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didUnPublishVideo:" title="client:didUnPublishVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didUnPublishVideo:">&ndash;&nbsp;client:didUnPublishVideo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didUnPublishVideo:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didReceiveVideoFrom:sdpAnswer:error:" title="client:didReceiveVideoFrom:sdpAnswer:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didReceiveVideoFrom:sdpAnswer:error:">&ndash;&nbsp;client:didReceiveVideoFrom:sdpAnswer:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didReceiveVideoFrom:(NBMPeer *)<em>peer</em> sdpAnswer:(NSString *)<em>sdpAnswer</em> error:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didUnsubscribeVideoFrom:sdpAnswer:error:" title="client:didUnsubscribeVideoFrom:sdpAnswer:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didUnsubscribeVideoFrom:sdpAnswer:error:">&ndash;&nbsp;client:didUnsubscribeVideoFrom:sdpAnswer:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didUnsubscribeVideoFrom:(NBMPeer *)<em>peer</em> sdpAnswer:(NSString *)<em>sdpAnswer</em> error:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didSentICECandidate:forPeer:" title="client:didSentICECandidate:forPeer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didSentICECandidate:forPeer:">&ndash;&nbsp;client:didSentICECandidate:forPeer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didSentICECandidate:(NSError *)<em>error</em> forPeer:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didSentMessage:" title="client:didSentMessage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didSentMessage:">&ndash;&nbsp;client:didSentMessage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didSentMessage:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didSentCustomRequest:" title="client:didSentCustomRequest:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didSentCustomRequest:">&ndash;&nbsp;client:didSentCustomRequest:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didSentCustomRequest:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:participantJoined:" title="client:participantJoined:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:participantJoined:">&ndash;&nbsp;client:participantJoined:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> participantJoined:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:participantLeft:" title="client:participantLeft:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:participantLeft:">&ndash;&nbsp;client:participantLeft:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> participantLeft:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:participantEvicted:" title="client:participantEvicted:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:participantEvicted:">&ndash;&nbsp;client:participantEvicted:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> participantEvicted:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:participantPublished:" title="client:participantPublished:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:participantPublished:">&ndash;&nbsp;client:participantPublished:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> participantPublished:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:participantUnpublished:" title="client:participantUnpublished:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:participantUnpublished:">&ndash;&nbsp;client:participantUnpublished:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> participantUnpublished:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didReceiveICECandidate:fromParticipant:" title="client:didReceiveICECandidate:fromParticipant:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didReceiveICECandidate:fromParticipant:">&ndash;&nbsp;client:didReceiveICECandidate:fromParticipant:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didReceiveICECandidate:(RTCICECandidate *)<em>candidate</em> fromParticipant:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didReceiveMessage:fromParticipant:" title="client:didReceiveMessage:fromParticipant:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didReceiveMessage:fromParticipant:">&ndash;&nbsp;client:didReceiveMessage:fromParticipant:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> didReceiveMessage:(NSString *)<em>message</em> fromParticipant:(NBMPeer *)<em>peer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:mediaErrorOccurred:" title="client:mediaErrorOccurred:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:mediaErrorOccurred:">&ndash;&nbsp;client:mediaErrorOccurred:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> mediaErrorOccurred:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:roomWasClosed:" title="client:roomWasClosed:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:roomWasClosed:">&ndash;&nbsp;client:roomWasClosed:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMRoomClient *)<em>client</em> roomWasClosed:(NBMRoom *)<em>room</em></code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-02-18</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KurentoToolbox"
-  s.version      = "0.2"
+  s.version      = "0.3.0"
   s.summary      = "Kurento Toolbox for iOS"
   s.description  = <<-DESC
                    Kurento Toolbox for iOS provides a set of basic components that have been found useful during the native development of the WebRTC applications with Kurento.
@@ -11,26 +11,57 @@ Pod::Spec.new do |s|
   s.license      = { :type => "GNU LGPL 2.1", :file => "LICENSE" }
 
   s.author = { "Marco Rossi" => "marco5.rossi@guest.telecomitalia.it" }
-  s.platform = :ios, "7.0"
+  s.platform = :ios, "8.0"
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v0.2.1" }
+  s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
+  s.default_subspecs = 'Default'
 
-  s.public_header_files = "Classes/*.h"
-  s.private_header_files = "Classes/Internals/*.h"
-  s.prefix_header_contents = '#import "NBMLog.h"'
+  s.subspec 'Default' do |ss|
+    ss.source_files = 'Classes/KurentoToolbox.h'
+    ss.dependency 'KurentoToolbox/WebRTC'
+    ss.dependency 'KurentoToolbox/JSON-RPC'
+    ss.dependency 'KurentoToolbox/Room'
+    ss.dependency 'KurentoToolbox/Tree'
+    ss.ios.vendored_frameworks = 'WebRTC.framework'
+  end
+
+  s.subspec 'WebRTC' do |ss|
+    ss.source_files = 'Classes/WebRTC/**/*.{h,m}'
+    ss.public_header_files = 'Classes/WebRTC/*.h'
+    ss.dependency 'KurentoToolbox/Utils'
+  end
+
+  s.subspec 'JSON-RPC' do |ss|
+    ss.source_files = 'Classes/JSON-RPC/**/*.{h,m}'
+    ss.public_header_files = 'Classes/JSON-RPC/*.h'
+    ss.dependency 'SocketRocket', '~> 0.4.1'
+    ss.dependency 'SBJson', '~> 4.0.2'
+    ss.dependency 'KurentoToolbox/Utils'
+  end
+  
+  s.subspec 'Room' do |ss|
+      ss.source_files = 'Classes/Room/**/*.{h,m}'
+      ss.public_header_files = 'Classes/Room/*.h'
+      ss.dependency 'KurentoToolbox/JSON-RPC'
+      ss.dependency 'KurentoToolbox/WebRTC'
+      ss.dependency 'KurentoToolbox/Utils'
+  end
+
+  s.subspec 'Tree' do |ss|
+      ss.source_files = 'Classes/Tree/**/*.{h,m}'
+      ss.public_header_files = 'Classes/Tree/*.h'
+      ss.dependency 'KurentoToolbox/JSON-RPC'
+      ss.dependency 'KurentoToolbox/WebRTC'
+      ss.dependency 'KurentoToolbox/Utils'
+  end
+
+  s.subspec 'Utils' do |ss|
+      ss.source_files = 'Classes/Utils/*.{h,m}'
+      ss.private_header_files = 'Classes/Utils/*.h'
+      ss.dependency 'CocoaLumberjack', '~> 2.2.0'
+  end
 
   s.requires_arc = true
-
-  s.dependency "libjingle_peerconnection", "~> 10665.2.0"
-  s.dependency "SBJson", "~> 4.0.2"
-  s.dependency "SocketRocket", "~> 0.4.1"
-  s.dependency "CocoaLumberjack"
 
 end

@@ -1,0 +1,11 @@
+branches:
+  only:
+    - master
+cache:
+  - bundler
+  - cocoapods
+notifications:
+  email: false
+language: objective-c
+osx_image: xcode7.1
+script: xcodebuild -workspace Kurento-iOS.xcworkspace -scheme KurentoToolbox -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

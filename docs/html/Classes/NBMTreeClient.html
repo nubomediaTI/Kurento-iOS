@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>NBMTreeClient Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">KurentoToolbox </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Nubomedia TI</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/connected">connected</option>
+		
+		<option value="//api/name/delegate">delegate</option>
+		
+		<option value="//api/name/timeout">timeout</option>
+		
+		<option value="//api/name/treeEndpoints">treeEndpoints</option>
+		
+		<option value="//api/name/treeId">treeId</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addICECandidate:forSink:tree:completion:">- addICECandidate:forSink:tree:completion:</option>
+		
+		<option value="//api/name/addSink:tree:completion:">- addSink:tree:completion:</option>
+		
+		<option value="//api/name/connect:">- connect:</option>
+		
+		<option value="//api/name/createTree:completion:">- createTree:completion:</option>
+		
+		<option value="//api/name/initWithURL:delegate:">- initWithURL:delegate:</option>
+		
+		<option value="//api/name/releaseTree:completion:">- releaseTree:completion:</option>
+		
+		<option value="//api/name/removeSink:tree:completion:">- removeSink:tree:completion:</option>
+		
+		<option value="//api/name/removeSourceOfTree:completion:">- removeSourceOfTree:completion:</option>
+		
+		<option value="//api/name/setSource:tree:completion:">- setSource:tree:completion:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">NBMTreeClient Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>NBMTreeClient.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The developer of Kurento Tree applications can use this client when implementing the front-end part of a broadcasting application with Kurento Tree.
+It&rsquo;s actually only a wrapper over the JSON-RPC protocol used to communicate with Tree Server.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The delegate object for the client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) id&lt;NBMTreeClientDelegate&gt; delegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/treeEndpoints" title="treeEndpoints"></a>
+	<h3 class="method-title"><code><a href="#//api/name/treeEndpoints">&nbsp;&nbsp;treeEndpoints</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A list of connected NBMTreeEndpoint objects.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSSet *treeEndpoints</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/timeout" title="timeout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timeout">&nbsp;&nbsp;timeout</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The timeout interval for API requests, in seconds.
+Default value is 5.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval timeout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connected" title="connected"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connected">&nbsp;&nbsp;connected</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A Boolean that indicates the WebSocket connection status.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isConnected) BOOL connected</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/treeId" title="treeId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/treeId">&nbsp;&nbsp;treeId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The identifier of current tree.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSString *treeId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithURL:delegate:" title="initWithURL:delegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithURL:delegate:">&ndash;&nbsp;initWithURL:delegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<ul>
+<li>Creates and initializes a NBMTreeClient instance.
+*</li>
+<li>@param wsURL    The url of Tree server.</li>
+<li>@param delegate The delegate object for the client.</li>
+</ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithURL:(NSURL *)<em>wsURL</em> delegate:(id&lt;NBMTreeClientDelegate&gt;)<em>delegate</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<ul>
+<li>@return An initialized NBMTreeClient object.</li>
+</ul>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connect:" title="connect:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connect:">&ndash;&nbsp;connect:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Connects client to the Tree Server using WebSocket, giving access to its API when the connection is
+established successfully.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)connect:(NSTimeInterval)<em>timeout</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timeout</code></th>
+						<td><p>The timeout interval for API requests, in seconds.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> See [NBMTreeClientDelegate client:isConnected:] method.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createTree:completion:" title="createTree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createTree:completion:">&ndash;&nbsp;createTree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request to create a new tree in Tree server.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createTree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>The tree identifier. May be nil.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/releaseTree:completion:" title="releaseTree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/releaseTree:completion:">&ndash;&nbsp;releaseTree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request used to remove a tree.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)releaseTree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to be removed</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSource:tree:completion:" title="setSource:tree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSource:tree:completion:">&ndash;&nbsp;setSource:tree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request to configure the emitter (source) in a broadcast session (tree).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSource:(NSString *)<em>sdpOffer</em> tree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NSString *sdpAnswer , NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sdpOffer</code></th>
+						<td><p>A NSString representing an SDP offer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to configure the source.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeSourceOfTree:completion:" title="removeSourceOfTree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeSourceOfTree:completion:">&ndash;&nbsp;removeSourceOfTree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request to remove the current emitter of a tree.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeSourceOfTree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to remove the source.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addSink:tree:completion:" title="addSink:tree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addSink:tree:completion:">&ndash;&nbsp;addSink:tree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request to add a new viewer (sink) to the tree.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addSink:(NSString *)<em>sdpOffer</em> tree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NBMTreeEndpoint *endpoint , NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sdpOffer</code></th>
+						<td><p>A NSString representing an SDP offer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to add new viewer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeSink:tree:completion:" title="removeSink:tree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeSink:tree:completion:">&ndash;&nbsp;removeSink:tree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request to remove a previously connected sink (viewer).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeSink:(NSString *)<em>sinkId</em> tree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sinkId</code></th>
+						<td><p>Sink id to be removed.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to remove the sink.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addICECandidate:forSink:tree:completion:" title="addICECandidate:forSink:tree:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addICECandidate:forSink:tree:completion:">&ndash;&nbsp;addICECandidate:forSink:tree:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request used to add a new ICE candidate gathered on the client side. This information is required to implement the trickle ICE mechanism.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addICECandidate:(RTCICECandidate *)<em>candidate</em> forSink:(NSString *)<em>sinkId</em> tree:(NSString *)<em>treeId</em> completion:(void ( ^ ) ( NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>candidate</code></th>
+						<td><p>The RTCICECandidate object to send.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sinkId</code></th>
+						<td><p>Sink id to wich belongs the candidate, &lsquo;nil&rsquo; if the candidate is referred to the tree source.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to which belongs this candidate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>A block object to be executed when the request is processed. This block has no return value and takes an error if the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-02-18</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

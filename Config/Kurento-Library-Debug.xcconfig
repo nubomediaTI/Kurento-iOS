@@ -3,10 +3,10 @@
 //  Kurento-iOS
 //
 //  Created by Marco Rossi on 30/10/15.
-//  Copyright © 2015 Telecom Italia S.p.A. All rights reserved.
+//  Copyright © 2016 Telecom Italia S.p.A. All rights reserved.
 //
 #include "Kurento-Library.xcconfig"
-#include "../Pods/Target Support Files/Pods-KurentoToolbox/Pods-KurentoToolbox.debug.xcconfig"
+#include "../Pods/Target Support Files/Pods-KurentoToolbox-Static/Pods-KurentoToolbox-Static.debug.xcconfig"
 
 ONLY_ACTIVE_ARCH = YES
 
@@ -24,4 +24,4 @@ STRIP_INSTALLED_PRODUCT = NO
 
 COPY_PHASE_STRIP = NO
 
-OTHER_LIBTOOLFLAGS = $(inherited) -l"CocoaLumberjack" -l"SBJson" -l"SocketRocket" -l"WebRTC"
+//OTHER_LIBTOOLFLAGS = $(inherited) -l"CocoaLumberjack" -l"SBJson" -l"SocketRocket" -l"WebRTC"

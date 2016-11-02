@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A1985BF1C7C9C4E00AE99DD /* NBMTreeMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985BE1C7C9C4E00AE99DD /* NBMTreeMainViewController.m */; };
+		4A1985C21C7C9D3B00AE99DD /* NBMTreeMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985C11C7C9D3B00AE99DD /* NBMTreeMainViewCell.m */; };
+		4A1985C51C7DFB4600AE99DD /* NBMTreeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985C41C7DFB4600AE99DD /* NBMTreeManager.m */; };
+		4A1985C91C7F6FFD00AE99DD /* NBMTreeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1985C81C7F6FFD00AE99DD /* NBMTreeVideoViewController.m */; };
+		4A365CF31C526EA200252EDA /* NBMRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF11C526EA200252EDA /* NBMRoomManager.m */; };
+		4A365CF61C52781800252EDA /* NBMRoomMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */; };
+		4A365CFA1C52790100252EDA /* NBMRoomLoginViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */; };
+		4A365CFD1C56351A00252EDA /* NBMRoomVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CFC1C56351A00252EDA /* NBMRoomVideoViewController.m */; };
+		4A365D001C56387A00252EDA /* NBMPeerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365CFF1C56387A00252EDA /* NBMPeerViewCell.m */; };
+		4A365D031C5638C200252EDA /* NBMPeersFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A365D021C5638C200252EDA /* NBMPeersFlowLayout.m */; };
+		4A874F7F1C618C50006CD671 /* NBMToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F7E1C618C50006CD671 /* NBMToolbar.m */; };
+		4AD22D191C6403CD002C1038 /* NBMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D181C6403CD002C1038 /* NBMButton.m */; };
+		4AD22D1C1C64046B002C1038 /* NBMButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD22D1B1C64046B002C1038 /* NBMButtonFactory.m */; };
+		4AE438DE1BF0DDBB001882E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438DD1BF0DDBB001882E5 /* main.m */; };
+		4AE438E11BF0DDBB001882E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE438E01BF0DDBB001882E5 /* AppDelegate.m */; };
+		4AE438E71BF0DDBB001882E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438E51BF0DDBB001882E5 /* Main.storyboard */; };
+		4AE438E91BF0DDBB001882E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438E81BF0DDBB001882E5 /* Assets.xcassets */; };
+		4AE438EC1BF0DDBC001882E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE438EA1BF0DDBC001882E5 /* LaunchScreen.storyboard */; };
+		566A7E931D80161A00283028 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0C1D18486600676AAC /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D1F711884E167D3F5CDAFF41 /* libPods-KurentoToolboxDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8427577B1A2997AC0147152 /* libPods-KurentoToolboxDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		564D8A221D19488D00676AAC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				566A7E931D80161A00283028 /* WebRTC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4A1985BD1C7C9C4E00AE99DD /* NBMTreeMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeMainViewController.h; path = Tree/NBMTreeMainViewController.h; sourceTree = "<group>"; };
+		4A1985BE1C7C9C4E00AE99DD /* NBMTreeMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeMainViewController.m; path = Tree/NBMTreeMainViewController.m; sourceTree = "<group>"; };
+		4A1985C01C7C9D3B00AE99DD /* NBMTreeMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeMainViewCell.h; path = Tree/NBMTreeMainViewCell.h; sourceTree = "<group>"; };
+		4A1985C11C7C9D3B00AE99DD /* NBMTreeMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeMainViewCell.m; path = Tree/NBMTreeMainViewCell.m; sourceTree = "<group>"; };
+		4A1985C31C7DFB4600AE99DD /* NBMTreeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeManager.h; path = Tree/NBMTreeManager.h; sourceTree = "<group>"; };
+		4A1985C41C7DFB4600AE99DD /* NBMTreeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeManager.m; path = Tree/NBMTreeManager.m; sourceTree = "<group>"; };
+		4A1985C71C7F6FFD00AE99DD /* NBMTreeVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMTreeVideoViewController.h; path = Tree/NBMTreeVideoViewController.h; sourceTree = "<group>"; };
+		4A1985C81C7F6FFD00AE99DD /* NBMTreeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMTreeVideoViewController.m; path = Tree/NBMTreeVideoViewController.m; sourceTree = "<group>"; };
+		4A365CF11C526EA200252EDA /* NBMRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomManager.m; path = Room.h/NBMRoomManager.m; sourceTree = "<group>"; };
+		4A365CF21C526EA200252EDA /* NBMRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomManager.h; path = Room.h/NBMRoomManager.h; sourceTree = "<group>"; };
+		4A365CF41C52781800252EDA /* NBMRoomMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomMainViewController.h; path = Room.h/NBMRoomMainViewController.h; sourceTree = "<group>"; };
+		4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomMainViewController.m; path = Room.h/NBMRoomMainViewController.m; sourceTree = "<group>"; };
+		4A365CF81C52790100252EDA /* NBMRoomLoginViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomLoginViewCell.h; path = Room.h/NBMRoomLoginViewCell.h; sourceTree = "<group>"; };
+		4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomLoginViewCell.m; path = Room.h/NBMRoomLoginViewCell.m; sourceTree = "<group>"; };
+		4A365CFB1C56351A00252EDA /* NBMRoomVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMRoomVideoViewController.h; path = Room.h/NBMRoomVideoViewController.h; sourceTree = "<group>"; };
+		4A365CFC1C56351A00252EDA /* NBMRoomVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMRoomVideoViewController.m; path = Room.h/NBMRoomVideoViewController.m; sourceTree = "<group>"; };
+		4A365CFE1C56387A00252EDA /* NBMPeerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMPeerViewCell.h; path = Room.h/NBMPeerViewCell.h; sourceTree = "<group>"; };
+		4A365CFF1C56387A00252EDA /* NBMPeerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMPeerViewCell.m; path = Room.h/NBMPeerViewCell.m; sourceTree = "<group>"; };
+		4A365D011C5638C100252EDA /* NBMPeersFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBMPeersFlowLayout.h; path = Room.h/NBMPeersFlowLayout.h; sourceTree = "<group>"; };
+		4A365D021C5638C200252EDA /* NBMPeersFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBMPeersFlowLayout.m; path = Room.h/NBMPeersFlowLayout.m; sourceTree = "<group>"; };
+		4A365D041C563B4700252EDA /* KurentoToolboxDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KurentoToolboxDemo-Prefix.pch"; sourceTree = "<group>"; };
+		4A874F7D1C618C50006CD671 /* NBMToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMToolbar.h; sourceTree = "<group>"; };
+		4A874F7E1C618C50006CD671 /* NBMToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMToolbar.m; sourceTree = "<group>"; };
+		4AD22D171C6403CD002C1038 /* NBMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMButton.h; sourceTree = "<group>"; };
+		4AD22D181C6403CD002C1038 /* NBMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMButton.m; sourceTree = "<group>"; };
+		4AD22D1A1C64046B002C1038 /* NBMButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMButtonFactory.h; sourceTree = "<group>"; };
+		4AD22D1B1C64046B002C1038 /* NBMButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMButtonFactory.m; sourceTree = "<group>"; };
+		4AE438D91BF0DDBB001882E5 /* KurentoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KurentoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AE438DD1BF0DDBB001882E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4AE438DF1BF0DDBB001882E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4AE438E01BF0DDBB001882E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4AE438E61BF0DDBB001882E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AE438E81BF0DDBB001882E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AE438EB1BF0DDBC001882E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4AE438ED1BF0DDBC001882E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		564D8A0C1D18486600676AAC /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = ../WebRTC.framework; sourceTree = "<group>"; };
+		564D8A151D1942E700676AAC /* libPods-KurentoToolbox-Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KurentoToolbox-Static.a"; path = "/Users/massimo/Documents/workspace-ios/Kurento-iOS/Pods/../build/Debug-iphoneos/libPods-KurentoToolbox-Static.a"; sourceTree = "<absolute>"; };
+		564D8A171D19430A00676AAC /* KurentoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KurentoToolbox.framework; path = "../build/Debug-iphoneos/KurentoToolbox.framework"; sourceTree = "<group>"; };
+		564D8A191D19432C00676AAC /* libPods-KurentoToolbox-Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-KurentoToolbox-Static.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Kurento-iOS-dhmuxhosxcmpxgewgcbmegyptjqy/Build/Products/Debug-iphoneos/libPods-KurentoToolbox-Static.a"; sourceTree = "<group>"; };
+		564D8A1A1D19432C00676AAC /* libSBJson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSBJson.a; path = "../../../../Library/Developer/Xcode/DerivedData/Kurento-iOS-dhmuxhosxcmpxgewgcbmegyptjqy/Build/Products/Debug-iphoneos/SBJson/libSBJson.a"; sourceTree = "<group>"; };
+		6D6934503747DF5C38C8CDD8 /* Pods-KurentoToolboxDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-KurentoToolboxDemo/Pods-KurentoToolboxDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C8427577B1A2997AC0147152 /* libPods-KurentoToolboxDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KurentoToolboxDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13C173A1C1EFFF77D602F55 /* Pods-KurentoToolboxDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurentoToolboxDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-KurentoToolboxDemo/Pods-KurentoToolboxDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AE438D61BF0DDBB001882E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1F711884E167D3F5CDAFF41 /* libPods-KurentoToolboxDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A1985BC1C7C9BED00AE99DD /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				4A1985C31C7DFB4600AE99DD /* NBMTreeManager.h */,
+				4A1985C41C7DFB4600AE99DD /* NBMTreeManager.m */,
+				4A1985C61C7DFB4C00AE99DD /* Interface */,
+			);
+			name = Tree;
+			sourceTree = "<group>";
+		};
+		4A1985C61C7DFB4C00AE99DD /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4A1985BD1C7C9C4E00AE99DD /* NBMTreeMainViewController.h */,
+				4A1985BE1C7C9C4E00AE99DD /* NBMTreeMainViewController.m */,
+				4A1985C01C7C9D3B00AE99DD /* NBMTreeMainViewCell.h */,
+				4A1985C11C7C9D3B00AE99DD /* NBMTreeMainViewCell.m */,
+				4A1985C71C7F6FFD00AE99DD /* NBMTreeVideoViewController.h */,
+				4A1985C81C7F6FFD00AE99DD /* NBMTreeVideoViewController.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		4A365CF01C526E4A00252EDA /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				4A365CF21C526EA200252EDA /* NBMRoomManager.h */,
+				4A365CF11C526EA200252EDA /* NBMRoomManager.m */,
+				4A365CF71C52788900252EDA /* Interface */,
+			);
+			name = Room;
+			sourceTree = "<group>";
+		};
+		4A365CF71C52788900252EDA /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4A365CF41C52781800252EDA /* NBMRoomMainViewController.h */,
+				4A365CF51C52781800252EDA /* NBMRoomMainViewController.m */,
+				4A365CF81C52790100252EDA /* NBMRoomLoginViewCell.h */,
+				4A365CF91C52790100252EDA /* NBMRoomLoginViewCell.m */,
+				4A365CFB1C56351A00252EDA /* NBMRoomVideoViewController.h */,
+				4A365CFC1C56351A00252EDA /* NBMRoomVideoViewController.m */,
+				4A365CFE1C56387A00252EDA /* NBMPeerViewCell.h */,
+				4A365CFF1C56387A00252EDA /* NBMPeerViewCell.m */,
+				4A365D011C5638C100252EDA /* NBMPeersFlowLayout.h */,
+				4A365D021C5638C200252EDA /* NBMPeersFlowLayout.m */,
+				4A874F7D1C618C50006CD671 /* NBMToolbar.h */,
+				4A874F7E1C618C50006CD671 /* NBMToolbar.m */,
+				4AD22D171C6403CD002C1038 /* NBMButton.h */,
+				4AD22D181C6403CD002C1038 /* NBMButton.m */,
+				4AD22D1A1C64046B002C1038 /* NBMButtonFactory.h */,
+				4AD22D1B1C64046B002C1038 /* NBMButtonFactory.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		4AE438D01BF0DDBB001882E5 = {
+			isa = PBXGroup;
+			children = (
+				4AE438DB1BF0DDBB001882E5 /* KurentoToolboxDemo */,
+				4AE438DA1BF0DDBB001882E5 /* Products */,
+				FA948204538AC740CA9CA364 /* Pods */,
+				740FB41877DAC5EBC8BB894E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4AE438DA1BF0DDBB001882E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AE438D91BF0DDBB001882E5 /* KurentoDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AE438DB1BF0DDBB001882E5 /* KurentoToolboxDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4A1985BC1C7C9BED00AE99DD /* Tree */,
+				4A365CF01C526E4A00252EDA /* Room */,
+				4AE438DF1BF0DDBB001882E5 /* AppDelegate.h */,
+				4AE438E01BF0DDBB001882E5 /* AppDelegate.m */,
+				4AE438E51BF0DDBB001882E5 /* Main.storyboard */,
+				4AE438E81BF0DDBB001882E5 /* Assets.xcassets */,
+				4AE438EA1BF0DDBC001882E5 /* LaunchScreen.storyboard */,
+				4AE438ED1BF0DDBC001882E5 /* Info.plist */,
+				4AE438DC1BF0DDBB001882E5 /* Supporting Files */,
+			);
+			path = KurentoToolboxDemo;
+			sourceTree = "<group>";
+		};
+		4AE438DC1BF0DDBB001882E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AE438DD1BF0DDBB001882E5 /* main.m */,
+				4A365D041C563B4700252EDA /* KurentoToolboxDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		740FB41877DAC5EBC8BB894E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				564D8A191D19432C00676AAC /* libPods-KurentoToolbox-Static.a */,
+				564D8A1A1D19432C00676AAC /* libSBJson.a */,
+				564D8A171D19430A00676AAC /* KurentoToolbox.framework */,
+				564D8A151D1942E700676AAC /* libPods-KurentoToolbox-Static.a */,
+				564D8A0C1D18486600676AAC /* WebRTC.framework */,
+				C8427577B1A2997AC0147152 /* libPods-KurentoToolboxDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA948204538AC740CA9CA364 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F13C173A1C1EFFF77D602F55 /* Pods-KurentoToolboxDemo.debug.xcconfig */,
+				6D6934503747DF5C38C8CDD8 /* Pods-KurentoToolboxDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AE438D81BF0DDBB001882E5 /* KurentoToolboxDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AE438F01BF0DDBC001882E5 /* Build configuration list for PBXNativeTarget "KurentoToolboxDemo" */;
+			buildPhases = (
+				0E9260E64BB3611E78A6CD7A /* [CP] Check Pods Manifest.lock */,
+				4AE438D51BF0DDBB001882E5 /* Sources */,
+				4AE438D61BF0DDBB001882E5 /* Frameworks */,
+				4AE438D71BF0DDBB001882E5 /* Resources */,
+				29379472A856DA788EB8C5B7 /* [CP] Embed Pods Frameworks */,
+				74D34D164100C4302B620D70 /* [CP] Copy Pods Resources */,
+				564D8A221D19488D00676AAC /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KurentoToolboxDemo;
+			productName = KurentoToolboxTestApp;
+			productReference = 4AE438D91BF0DDBB001882E5 /* KurentoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AE438D11BF0DDBB001882E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Telecom Italia S.p.A";
+				TargetAttributes = {
+					4AE438D81BF0DDBB001882E5 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = M4FQ242C7X;
+					};
+				};
+			};
+			buildConfigurationList = 4AE438D41BF0DDBB001882E5 /* Build configuration list for PBXProject "KurentoToolboxDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AE438D01BF0DDBB001882E5;
+			productRefGroup = 4AE438DA1BF0DDBB001882E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AE438D81BF0DDBB001882E5 /* KurentoToolboxDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AE438D71BF0DDBB001882E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AE438EC1BF0DDBC001882E5 /* LaunchScreen.storyboard in Resources */,
+				4AE438E91BF0DDBB001882E5 /* Assets.xcassets in Resources */,
+				4AE438E71BF0DDBB001882E5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E9260E64BB3611E78A6CD7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		29379472A856DA788EB8C5B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-KurentoToolboxDemo/Pods-KurentoToolboxDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74D34D164100C4302B620D70 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-KurentoToolboxDemo/Pods-KurentoToolboxDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AE438D51BF0DDBB001882E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AE438E11BF0DDBB001882E5 /* AppDelegate.m in Sources */,
+				4A365D031C5638C200252EDA /* NBMPeersFlowLayout.m in Sources */,
+				4A874F7F1C618C50006CD671 /* NBMToolbar.m in Sources */,
+				4A365D001C56387A00252EDA /* NBMPeerViewCell.m in Sources */,
+				4AE438DE1BF0DDBB001882E5 /* main.m in Sources */,
+				4A1985C51C7DFB4600AE99DD /* NBMTreeManager.m in Sources */,
+				4A1985C91C7F6FFD00AE99DD /* NBMTreeVideoViewController.m in Sources */,
+				4AD22D191C6403CD002C1038 /* NBMButton.m in Sources */,
+				4A365CF61C52781800252EDA /* NBMRoomMainViewController.m in Sources */,
+				4A1985BF1C7C9C4E00AE99DD /* NBMTreeMainViewController.m in Sources */,
+				4AD22D1C1C64046B002C1038 /* NBMButtonFactory.m in Sources */,
+				4A365CFA1C52790100252EDA /* NBMRoomLoginViewCell.m in Sources */,
+				4A365CF31C526EA200252EDA /* NBMRoomManager.m in Sources */,
+				4A1985C21C7C9D3B00AE99DD /* NBMTreeMainViewCell.m in Sources */,
+				4A365CFD1C56351A00252EDA /* NBMRoomVideoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4AE438E51BF0DDBB001882E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AE438E61BF0DDBB001882E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4AE438EA1BF0DDBC001882E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AE438EB1BF0DDBC001882E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AE438EE1BF0DDBC001882E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/..";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AE438EF1BF0DDBC001882E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/..";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AE438F11BF0DDBC001882E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F13C173A1C1EFFF77D602F55 /* Pods-KurentoToolboxDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxDemo/KurentoToolboxDemo-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
+				PRODUCT_NAME = KurentoDemo;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		4AE438F21BF0DDBC001882E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D6934503747DF5C38C8CDD8 /* Pods-KurentoToolboxDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KurentoToolboxDemo/KurentoToolboxDemo-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
+				PRODUCT_NAME = KurentoDemo;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AE438D41BF0DDBB001882E5 /* Build configuration list for PBXProject "KurentoToolboxDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AE438EE1BF0DDBC001882E5 /* Debug */,
+				4AE438EF1BF0DDBC001882E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AE438F01BF0DDBC001882E5 /* Build configuration list for PBXNativeTarget "KurentoToolboxDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AE438F11BF0DDBC001882E5 /* Debug */,
+				4AE438F21BF0DDBC001882E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AE438D11BF0DDBB001882E5 /* Project object */;
+}

@@ -1,0 +1,63 @@
+//
+//  NBMJSONRPCClientDelegate.h
+//  Copyright (c) 2016 Telecom Italia S.p.A. All rights reserved.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+#import <Foundation/Foundation.h>
+
+@class NBMJSONRPCClient, NBMRequest;
+
+/**
+ *  NBMJSONRPCClientDelegate is a protocol for an object that must be
+ *  implemented to get messages from NBMJSONRPClient.
+ */
+@protocol NBMJSONRPCClientDelegate <NSObject>
+
+/**
+ *  Sent when the client has opened websocket channel and become ready to send requests.
+ *
+ *  @param client The client sending the message.
+ */
+- (void)clientDidConnect:(NBMJSONRPCClient *)client;
+
+/**
+ *  Sent when the client has closed websocket channel.
+ *
+ *  @param client The client sending the message.
+ */
+- (void)clientDidDisconnect:(NBMJSONRPCClient *)client;
+
+/**
+ *  Sent when the client has received a request (usually notifications).
+ *
+ *  @param client  The client sending the message.
+ *  @param request The `NBMRequest` received by the client.
+ */
+- (void)client:(NBMJSONRPCClient *)client didReceiveRequest:(NBMRequest *)request;
+
+/**
+ *  Sent when the client did encounter an error that forced websocket channel closing.
+ *
+ *  @param client The client sending the message.
+ *  @param error  The error indicating how the communication failed.
+ */
+- (void)client:(NBMJSONRPCClient *)client didFailWithError:(NSError *)error;
+
+@end

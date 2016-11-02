@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>NBMTreeClientDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">KurentoToolbox </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Nubomedia TI</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/client:didFailWithError:">- client:didFailWithError:</option>
+		
+		<option value="//api/name/client:iceCandidateReceived:ofSink:tree:">- client:iceCandidateReceived:ofSink:tree:</option>
+		
+		<option value="//api/name/client:isConnected:">- client:isConnected:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">NBMTreeClientDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>NBMTreeClientDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/client:isConnected:" title="client:isConnected:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:isConnected:">&ndash;&nbsp;client:isConnected:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMTreeClient *)<em>client</em> isConnected:(BOOL)<em>connected</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:didFailWithError:" title="client:didFailWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:didFailWithError:">&ndash;&nbsp;client:didFailWithError:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMTreeClient *)<em>client</em> didFailWithError:(NSError *)<em>error</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/client:iceCandidateReceived:ofSink:tree:" title="client:iceCandidateReceived:ofSink:tree:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/client:iceCandidateReceived:ofSink:tree:">&ndash;&nbsp;client:iceCandidateReceived:ofSink:tree:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Event sent when a new ICE candidate is received from Kurento Media Server.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)client:(NBMTreeClient *)<em>client</em> iceCandidateReceived:(RTCICECandidate *)<em>candidate</em> ofSink:(NSString *)<em>sinkId</em> tree:(NSString *)<em>treeId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>client</code></th>
+						<td><p>The current NBMTreeClient object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>candidate</code></th>
+						<td><p>The RTCICECandidate object received.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sinkId</code></th>
+						<td><p>Sink id to which belongs the candidate, &lsquo;nil&rsquo; when the candidate is referred to the tree source.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>treeId</code></th>
+						<td><p>Tree id to which belongs this candidate.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMTreeClientDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-02-18</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

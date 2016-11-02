@@ -56,6 +56,8 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/cameraPosition">cameraPosition</option>
+		
 		<option value="//api/name/delegate">delegate</option>
 		
 		<option value="//api/name/localStream">localStream</option>
@@ -70,19 +72,43 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/activeConnections">- activeConnections</option>
+		
 		<option value="//api/name/addICECandidate:connectionId:">- addICECandidate:connectionId:</option>
+		
+		<option value="//api/name/audioAuthorized">- audioAuthorized</option>
 		
 		<option value="//api/name/closeConnectionWithConnectionId:">- closeConnectionWithConnectionId:</option>
 		
 		<option value="//api/name/connectionWithConnectionId:">- connectionWithConnectionId:</option>
 		
+		<option value="//api/name/enableAudio:">- enableAudio:</option>
+		
+		<option value="//api/name/enableVideo:">- enableVideo:</option>
+		
 		<option value="//api/name/generateOffer:">- generateOffer:</option>
 		
+		<option value="//api/name/generateOffer:completion:">- generateOffer:completion:</option>
+		
+		<option value="//api/name/hasCameraPositionAvailable:">- hasCameraPositionAvailable:</option>
+		
 		<option value="//api/name/initWithDelegate:configuration:">- initWithDelegate:configuration:</option>
+		
+		<option value="//api/name/isAudioEnabled">- isAudioEnabled</option>
+		
+		<option value="//api/name/isVideoEnabled">- isVideoEnabled</option>
 		
 		<option value="//api/name/processAnswer:connectionId:">- processAnswer:connectionId:</option>
 		
 		<option value="//api/name/processOffer:connectionId:">- processOffer:connectionId:</option>
+		
+		<option value="//api/name/selectCameraPosition:">- selectCameraPosition:</option>
+		
+		<option value="//api/name/startLocalMedia">- startLocalMedia</option>
+		
+		<option value="//api/name/stopLocalMedia">- stopLocalMedia</option>
+		
+		<option value="//api/name/videoAuthorized">- videoAuthorized</option>
 		
 	</optgroup>
 	
@@ -137,10 +163,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The media configuration object.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NBMMediaConfiguration *mediaConfiguration</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMWebRTCPeer.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -182,6 +233,22 @@
 			</div>
 			
 			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cameraPosition" title="cameraPosition"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cameraPosition">&nbsp;&nbsp;cameraPosition</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NBMCameraPosition cameraPosition</code></div>
+
+		    
 		</div>
 	</div>
 </div><div class="section-method">
@@ -252,12 +319,12 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>delegate</code></th>
-						<td><p>The <a href="#//api/name/delegate">delegate</a> object for the peer manager.</p></td>
+						<td><p>The delegate object for the peer manager.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>configuration</code></th>
-						<td><p>A media configuration</p></td>
+						<td><p>A media configuration object.</p></td>
 					</tr>
 				
 				</table>
@@ -339,6 +406,22 @@
 			</div>
 			
 			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/generateOffer:completion:" title="generateOffer:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/generateOffer:completion:">&ndash;&nbsp;generateOffer:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)generateOffer:(NSString *)<em>connectionId</em> completion:(void ( ^ ) ( NSString *sdpOffer , NBMPeerConnection *connection ))<em>block</em></code></div>
+
+		    
 		</div>
 	</div>
 </div><div class="section-method">
@@ -527,7 +610,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Retrives a <a href="../Classes/NBMPeerConnection.html">NBMPeerConnection</a> instance with specified identifier.</p>
+				<p>Retrives a NBMPeerConnection instance with specified identifier.</p>
 			</div>
 			
 		    
@@ -552,7 +635,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A <a href="../Classes/NBMPeerConnection.html">NBMPeerConnection</a> instance, <code>nil</code> if no connection was found.</p>
+				<p>A NBMPeerConnection instance, <code>nil</code> if no connection was found.</p>
 			</div>
 			
 
@@ -585,7 +668,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Terminates all media and closes the transport of <a href="../Classes/NBMPeerConnection.html">NBMPeerConnection</a> with specified identifier.</p>
+				<p>Terminates all media and closes the transport of NBMPeerConnection with specified identifier.</p>
 			</div>
 			
 		    
@@ -626,6 +709,207 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/startLocalMedia" title="startLocalMedia"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startLocalMedia">&ndash;&nbsp;startLocalMedia</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)startLocalMedia</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopLocalMedia" title="stopLocalMedia"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopLocalMedia">&ndash;&nbsp;stopLocalMedia</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Terminates all media of active connections, removing the local stream.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopLocalMedia</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">NBMWebRTCPeer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/activeConnections" title="activeConnections"></a>
+	<h3 class="method-title"><code><a href="#//api/name/activeConnections">&ndash;&nbsp;activeConnections</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (NSArray *)activeConnections</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectCameraPosition:" title="selectCameraPosition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectCameraPosition:">&ndash;&nbsp;selectCameraPosition:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)selectCameraPosition:(NBMCameraPosition)<em>cameraPosition</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasCameraPositionAvailable:" title="hasCameraPositionAvailable:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasCameraPositionAvailable:">&ndash;&nbsp;hasCameraPositionAvailable:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)hasCameraPositionAvailable:(NBMCameraPosition)<em>cameraPosition</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isVideoEnabled" title="isVideoEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isVideoEnabled">&ndash;&nbsp;isVideoEnabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isVideoEnabled</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enableVideo:" title="enableVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableVideo:">&ndash;&nbsp;enableVideo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)enableVideo:(BOOL)<em>enable</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isAudioEnabled" title="isAudioEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isAudioEnabled">&ndash;&nbsp;isAudioEnabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isAudioEnabled</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enableAudio:" title="enableAudio:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableAudio:">&ndash;&nbsp;enableAudio:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)enableAudio:(BOOL)<em>enable</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/videoAuthorized" title="videoAuthorized"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoAuthorized">&ndash;&nbsp;videoAuthorized</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)videoAuthorized</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioAuthorized" title="audioAuthorized"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioAuthorized">&ndash;&nbsp;audioAuthorized</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)audioAuthorized</code></div>
+
+		    
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -641,7 +925,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Nubomedia TI. All rights reserved. Updated: 2015-12-07</p>
+						<p class="copyright">Copyright &copy; 2016 Nubomedia TI. All rights reserved. Updated: 2016-02-18</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
