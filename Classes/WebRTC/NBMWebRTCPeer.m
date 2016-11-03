@@ -36,7 +36,6 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 @interface NBMWebRTCPeer () <RTCPeerConnectionDelegate, RTCDataChannelDelegate>
 
-@property (nonatomic, strong) NSMutableArray *iceServers;
 @property (nonatomic, strong) RTCPeerConnectionFactory *peerConnectionFactory;
 @property (nonatomic, strong) NSMutableDictionary *connectionMap;
 @property (nonatomic, strong) NBMPeerConnection *localPeerConnection;

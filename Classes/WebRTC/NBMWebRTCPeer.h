@@ -115,6 +115,13 @@
 @property (nonatomic, assign, readonly) NBMCameraPosition cameraPosition;
 
 /**
+ * You can set an array of custom STUN and TURN servers here. Otherwise teh default Google STUN server will be used
+ * and no TURN server. If you want to support relaying (in case of firewall or symmetric NAT) you need to set up a TURN
+ * server and set it here.
+ */
+@property (nonatomic, strong) NSMutableArray *iceServers;
+    
+/**
  *  The delegate object for the peer.
  */
 @property (nonatomic, weak, readonly) id<NBMWebRTCPeerDelegate>delegate;
