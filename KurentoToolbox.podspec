@@ -16,14 +16,17 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
 
   s.default_subspecs = 'Default'
-
+	
+  s.vendored_frameworks = 'WebRTC.framework'
+  s.resource = "WebRTC.framework"
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/KurentoToolbox"' }
+	
   s.subspec 'Default' do |ss|
     ss.source_files = 'Classes/KurentoToolbox.h'
     ss.dependency 'KurentoToolbox/WebRTC'
     ss.dependency 'KurentoToolbox/JSON-RPC'
     ss.dependency 'KurentoToolbox/Room'
     ss.dependency 'KurentoToolbox/Tree'
-    ss.ios.vendored_frameworks = 'WebRTC.framework'
   end
 
   s.subspec 'WebRTC' do |ss|
@@ -59,9 +62,9 @@ Pod::Spec.new do |s|
   s.subspec 'Utils' do |ss|
       ss.source_files = 'Classes/Utils/*.{h,m}'
       ss.public_header_files = 'Classes/Utils/*.h'
-      ss.dependency 'CocoaLumberjack', '~> 2.2.0'
+	  ss.dependency 'CocoaLumberjack', '~> 2.2.0'
   end
-
+  
   s.requires_arc = true
 
 end
