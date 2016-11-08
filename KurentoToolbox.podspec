@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Utils' do |ss|
       ss.source_files = 'Classes/Utils/*.{h,m}'
-      ss.private_header_files = 'Classes/Utils/*.h'
+      ss.public_header_files = 'Classes/Utils/*.h'
       ss.dependency 'CocoaLumberjack', '~> 2.2.0'
   end
 
