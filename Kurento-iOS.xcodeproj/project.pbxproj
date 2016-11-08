@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A29E1731C5A0FD70068FEE5 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1711C5A0FD70068FEE5 /* NBMError.h */; };
+		4A29E1731C5A0FD70068FEE5 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1711C5A0FD70068FEE5 /* NBMError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A29E1741C5A0FD70068FEE5 /* NBMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A29E1721C5A0FD70068FEE5 /* NBMError.m */; };
 		4A29E1761C5A13D30068FEE5 /* WebRTC.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1751C5A13D30068FEE5 /* WebRTC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A29E1791C5A31AE0068FEE5 /* JSON-RPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1781C5A31AE0068FEE5 /* JSON-RPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,7 +42,7 @@
 		4A4F0CB31C2025E900CD30A1 /* NBMJSONRPCClientError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CB11C2025E900CD30A1 /* NBMJSONRPCClientError.h */; };
 		4A4F0CB41C2025E900CD30A1 /* NBMJSONRPCClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0CB21C2025E900CD30A1 /* NBMJSONRPCClientError.m */; };
 		4A4F0CB71C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0CB51C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A4F0D181C22C2C300CD30A1 /* NBMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D151C22C2C300CD30A1 /* NBMLog.h */; };
+		4A4F0D181C22C2C300CD30A1 /* NBMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D151C22C2C300CD30A1 /* NBMLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A4F0D191C22C2C300CD30A1 /* NBMJSONRPCUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4F0D161C22C2C300CD30A1 /* NBMJSONRPCUtilities.h */; };
 		4A4F0D1A1C22C2C300CD30A1 /* NBMJSONRPCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F0D171C22C2C300CD30A1 /* NBMJSONRPCUtilities.m */; };
 		4A6E88D81C0EFC2D000A8EE9 /* NBMRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -417,7 +417,6 @@
 				4A4F0CA91C18384C00CD30A1 /* NBMRoomClientDelegate.h in Headers */,
 				4A6E88E21C105657000A8EE9 /* NBMRoomClient.h in Headers */,
 				4A46BC451BE3E2C6009E0FBE /* NBMResponse.h in Headers */,
-				4A29E1731C5A0FD70068FEE5 /* NBMError.h in Headers */,
 				4A46BC401BE3E2B6009E0FBE /* NBMMessage.h in Headers */,
 				4A46BC471BE3E2CD009E0FBE /* NBMJSONRPCClient.h in Headers */,
 				4A6E88E61C10629F000A8EE9 /* NBMRoom.h in Headers */,
@@ -430,13 +429,14 @@
 				4AE8C9EB1C4FD83300A87D8A /* NBMTreeClientError.h in Headers */,
 				4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */,
 				4A29E1761C5A13D30068FEE5 /* WebRTC.h in Headers */,
+				4A4F0D181C22C2C300CD30A1 /* NBMLog.h in Headers */,
 				4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */,
 				4AE8C9E51C4E752900A87D8A /* NBMTreeEndpoint.h in Headers */,
+				4A29E1731C5A0FD70068FEE5 /* NBMError.h in Headers */,
 				4AE439031BF4ABEE001882E5 /* NBMResponse+Private.h in Headers */,
 				4AE4390C1BF4AC14001882E5 /* NBMTransportChannel.h in Headers */,
 				4A6E88D81C0EFC2D000A8EE9 /* NBMRenderer.h in Headers */,
 				4A29E17B1C5A339D0068FEE5 /* Room.h in Headers */,
-				4A4F0D181C22C2C300CD30A1 /* NBMLog.h in Headers */,
 				4A4F0C9B1C15C7B000CD30A1 /* NBMRoomError.h in Headers */,
 				4A4F0CB71C20327D00CD30A1 /* NBMJSONRPCClientDelegate.h in Headers */,
 				4A4F0CB31C2025E900CD30A1 /* NBMJSONRPCClientError.h in Headers */,
