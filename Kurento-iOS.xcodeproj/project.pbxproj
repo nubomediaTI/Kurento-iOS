@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A29E1731C5A0FD70068FEE5 /* NBMError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1711C5A0FD70068FEE5 /* NBMError.h */; };
 		4A29E1741C5A0FD70068FEE5 /* NBMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A29E1721C5A0FD70068FEE5 /* NBMError.m */; };
-		4A29E1761C5A13D30068FEE5 /* WebRTC.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1751C5A13D30068FEE5 /* WebRTC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A29E1791C5A31AE0068FEE5 /* JSON-RPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E1781C5A31AE0068FEE5 /* JSON-RPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A29E17B1C5A339D0068FEE5 /* Room.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E17A1C5A339D0068FEE5 /* Room.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A29E17D1C5A33E50068FEE5 /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A29E17C1C5A33E50068FEE5 /* Tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -78,6 +77,7 @@
 		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
 		564D8A0B1D18485500676AAC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0A1D18485500676AAC /* WebRTC.framework */; };
 		564D8A141D1942C300676AAC /* libPods-KurentoToolbox-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A131D1942C300676AAC /* libPods-KurentoToolbox-Static.a */; };
+		B110ED74362B15ED930E7D41 /* libPods-KurentoToolbox-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A44AD8017DB368676764B11 /* libPods-KurentoToolbox-Static.a */; };
 		CF748A736A49BD58460593DD /* libPods-KurentoToolbox-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDE223912EC939E9DA6EBE1 /* libPods-KurentoToolbox-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -93,10 +93,9 @@
 
 /* Begin PBXFileReference section */
 		4A0C9E891BD8DFCE00F4F7F0 /* NBMJSONRPCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMJSONRPCConstants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		4A133A4F1BE1204A0095B168 /* KurentoToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KurentoToolbox.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		4A133A4F1BE1204A0095B168 /* KurentoToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KurentoToolbox.h; sourceTree = "<group>"; };
 		4A29E1711C5A0FD70068FEE5 /* NBMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NBMError.h; sourceTree = "<group>"; };
 		4A29E1721C5A0FD70068FEE5 /* NBMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NBMError.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4A29E1751C5A13D30068FEE5 /* WebRTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = WebRTC.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4A29E1781C5A31AE0068FEE5 /* JSON-RPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "JSON-RPC.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4A29E17A1C5A339D0068FEE5 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		4A29E17C1C5A33E50068FEE5 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tree.h; path = Tree/Tree.h; sourceTree = "<group>"; };
@@ -141,36 +140,6 @@
 		4AA551691BDF7D0B002152AB /* NBMPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMPeerConnection.h; sourceTree = "<group>"; };
 		4AA5516A1BDF7D0B002152AB /* NBMPeerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMPeerConnection.m; sourceTree = "<group>"; };
 		4AA551731BDFD8E2002152AB /* Kurento-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "Kurento-Prefix.pch"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4ACB2C761BE929D600E8E017 /* RTCAudioSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCAudioSource.h; sourceTree = "<group>"; };
-		4ACB2C771BE929D600E8E017 /* RTCAudioTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCAudioTrack.h; sourceTree = "<group>"; };
-		4ACB2C781BE929D600E8E017 /* RTCAVFoundationVideoSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCAVFoundationVideoSource.h; sourceTree = "<group>"; };
-		4ACB2C791BE929D600E8E017 /* RTCDataChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCDataChannel.h; sourceTree = "<group>"; };
-		4ACB2C7A1BE929D600E8E017 /* RTCEAGLVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCEAGLVideoView.h; sourceTree = "<group>"; };
-		4ACB2C7B1BE929D600E8E017 /* RTCFileLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCFileLogger.h; sourceTree = "<group>"; };
-		4ACB2C7C1BE929D600E8E017 /* RTCI420Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCI420Frame.h; sourceTree = "<group>"; };
-		4ACB2C7D1BE929D600E8E017 /* RTCICECandidate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCICECandidate.h; sourceTree = "<group>"; };
-		4ACB2C7E1BE929D600E8E017 /* RTCICEServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCICEServer.h; sourceTree = "<group>"; };
-		4ACB2C7F1BE929D600E8E017 /* RTCLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCLogging.h; sourceTree = "<group>"; };
-		4ACB2C801BE929D600E8E017 /* RTCMediaConstraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCMediaConstraints.h; sourceTree = "<group>"; };
-		4ACB2C811BE929D600E8E017 /* RTCMediaSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCMediaSource.h; sourceTree = "<group>"; };
-		4ACB2C821BE929D600E8E017 /* RTCMediaStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCMediaStream.h; sourceTree = "<group>"; };
-		4ACB2C831BE929D600E8E017 /* RTCMediaStreamTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCMediaStreamTrack.h; sourceTree = "<group>"; };
-		4ACB2C841BE929D600E8E017 /* RTCNSGLVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCNSGLVideoView.h; sourceTree = "<group>"; };
-		4ACB2C851BE929D600E8E017 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
-		4ACB2C861BE929D600E8E017 /* RTCPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCPair.h; sourceTree = "<group>"; };
-		4ACB2C871BE929D600E8E017 /* RTCPeerConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnection.h; sourceTree = "<group>"; };
-		4ACB2C881BE929D600E8E017 /* RTCPeerConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionDelegate.h; sourceTree = "<group>"; };
-		4ACB2C891BE929D600E8E017 /* RTCPeerConnectionFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionFactory.h; sourceTree = "<group>"; };
-		4ACB2C8A1BE929D600E8E017 /* RTCPeerConnectionInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionInterface.h; sourceTree = "<group>"; };
-		4ACB2C8B1BE929D600E8E017 /* RTCSessionDescription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescription.h; sourceTree = "<group>"; };
-		4ACB2C8C1BE929D600E8E017 /* RTCSessionDescriptionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescriptionDelegate.h; sourceTree = "<group>"; };
-		4ACB2C8D1BE929D600E8E017 /* RTCStatsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCStatsDelegate.h; sourceTree = "<group>"; };
-		4ACB2C8E1BE929D600E8E017 /* RTCStatsReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCStatsReport.h; sourceTree = "<group>"; };
-		4ACB2C8F1BE929D600E8E017 /* RTCTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCTypes.h; sourceTree = "<group>"; };
-		4ACB2C901BE929D600E8E017 /* RTCVideoCapturer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoCapturer.h; sourceTree = "<group>"; };
-		4ACB2C911BE929D600E8E017 /* RTCVideoRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoRenderer.h; sourceTree = "<group>"; };
-		4ACB2C921BE929D600E8E017 /* RTCVideoSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoSource.h; sourceTree = "<group>"; };
-		4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCVideoTrack.h; sourceTree = "<group>"; };
 		4AD22D201C643313002C1038 /* RTCMediaStream+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RTCMediaStream+Configuration.h"; path = "Internals/RTCMediaStream+Configuration.h"; sourceTree = "<group>"; };
 		4AD22D211C643313002C1038 /* RTCMediaStream+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RTCMediaStream+Configuration.m"; path = "Internals/RTCMediaStream+Configuration.m"; sourceTree = "<group>"; };
 		4AD6002E1BB3F54B003124FD /* NBMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMMessage.h; sourceTree = "<group>"; };
@@ -218,6 +187,7 @@
 				4A6E88DF1C105435000A8EE9 /* UIKit.framework in Frameworks */,
 				4A6E88DD1C10542D000A8EE9 /* Foundation.framework in Frameworks */,
 				564D8A141D1942C300676AAC /* libPods-KurentoToolbox-Static.a in Frameworks */,
+				B110ED74362B15ED930E7D41 /* libPods-KurentoToolbox-Static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +255,6 @@
 				4A6E88DA1C0F3374000A8EE9 /* Room */,
 				4AE8C9CC1C4E502E00A87D8A /* Tree */,
 				4A133A4E1BE11CFB0095B168 /* Utils */,
-				4ACB2C751BE929D600E8E017 /* libjingle_peerconnection headers */,
 				4A4D6F881BAC403A001DB874 /* Supporting Files */,
 			);
 			name = KurentoToolbox;
@@ -327,7 +296,6 @@
 		4A6E88DB1C0F338F000A8EE9 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
-				4A29E1751C5A13D30068FEE5 /* WebRTC.h */,
 				4A6E88D71C0EFC2D000A8EE9 /* NBMRenderer.h */,
 				4A6E88D91C0F0068000A8EE9 /* NBMTypes.h */,
 				4AE438FE1BF4ABD0001882E5 /* NBMSessionDescriptionFactory.h */,
@@ -366,44 +334,6 @@
 				4A4F0D171C22C2C300CD30A1 /* NBMJSONRPCUtilities.m */,
 			);
 			path = "JSON-RPC";
-			sourceTree = "<group>";
-		};
-		4ACB2C751BE929D600E8E017 /* libjingle_peerconnection headers */ = {
-			isa = PBXGroup;
-			children = (
-				4ACB2C761BE929D600E8E017 /* RTCAudioSource.h */,
-				4ACB2C771BE929D600E8E017 /* RTCAudioTrack.h */,
-				4ACB2C781BE929D600E8E017 /* RTCAVFoundationVideoSource.h */,
-				4ACB2C791BE929D600E8E017 /* RTCDataChannel.h */,
-				4ACB2C7A1BE929D600E8E017 /* RTCEAGLVideoView.h */,
-				4ACB2C7B1BE929D600E8E017 /* RTCFileLogger.h */,
-				4ACB2C7C1BE929D600E8E017 /* RTCI420Frame.h */,
-				4ACB2C7D1BE929D600E8E017 /* RTCICECandidate.h */,
-				4ACB2C7E1BE929D600E8E017 /* RTCICEServer.h */,
-				4ACB2C7F1BE929D600E8E017 /* RTCLogging.h */,
-				4ACB2C801BE929D600E8E017 /* RTCMediaConstraints.h */,
-				4ACB2C811BE929D600E8E017 /* RTCMediaSource.h */,
-				4ACB2C821BE929D600E8E017 /* RTCMediaStream.h */,
-				4ACB2C831BE929D600E8E017 /* RTCMediaStreamTrack.h */,
-				4ACB2C841BE929D600E8E017 /* RTCNSGLVideoView.h */,
-				4ACB2C851BE929D600E8E017 /* RTCOpenGLVideoRenderer.h */,
-				4ACB2C861BE929D600E8E017 /* RTCPair.h */,
-				4ACB2C871BE929D600E8E017 /* RTCPeerConnection.h */,
-				4ACB2C881BE929D600E8E017 /* RTCPeerConnectionDelegate.h */,
-				4ACB2C891BE929D600E8E017 /* RTCPeerConnectionFactory.h */,
-				4ACB2C8A1BE929D600E8E017 /* RTCPeerConnectionInterface.h */,
-				4ACB2C8B1BE929D600E8E017 /* RTCSessionDescription.h */,
-				4ACB2C8C1BE929D600E8E017 /* RTCSessionDescriptionDelegate.h */,
-				4ACB2C8D1BE929D600E8E017 /* RTCStatsDelegate.h */,
-				4ACB2C8E1BE929D600E8E017 /* RTCStatsReport.h */,
-				4ACB2C8F1BE929D600E8E017 /* RTCTypes.h */,
-				4ACB2C901BE929D600E8E017 /* RTCVideoCapturer.h */,
-				4ACB2C911BE929D600E8E017 /* RTCVideoRenderer.h */,
-				4ACB2C921BE929D600E8E017 /* RTCVideoSource.h */,
-				4ACB2C931BE929D600E8E017 /* RTCVideoTrack.h */,
-			);
-			name = "libjingle_peerconnection headers";
-			path = ../Pods/Headers/Public/libjingle_peerconnection;
 			sourceTree = "<group>";
 		};
 		4AD600321BB3F765003124FD /* Message */ = {
@@ -496,7 +426,6 @@
 				4A4F0CA31C15D08300CD30A1 /* NBMRoomConstants.h in Headers */,
 				4AE8C9EB1C4FD83300A87D8A /* NBMTreeClientError.h in Headers */,
 				4AE4390A1BF4AC14001882E5 /* NBMTimeoutable.h in Headers */,
-				4A29E1761C5A13D30068FEE5 /* WebRTC.h in Headers */,
 				4A3BBFFA1C0CA34E00D9887F /* NBMMediaConfiguration.h in Headers */,
 				4AE8C9E51C4E752900A87D8A /* NBMTreeEndpoint.h in Headers */,
 				4AE439031BF4ABEE001882E5 /* NBMResponse+Private.h in Headers */,
@@ -676,7 +605,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D7127162DBD1234157B2592C /* [CP] Check Pods Manifest.lock */ = {
@@ -691,7 +620,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FA93102E05645A386114EAA3 /* [CP] Embed Pods Frameworks */ = {
@@ -782,6 +711,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				MACH_O_TYPE = staticlib;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -805,6 +735,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				MACH_O_TYPE = staticlib;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

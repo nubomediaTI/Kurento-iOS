@@ -257,7 +257,8 @@
 				TargetAttributes = {
 					4AE438D81BF0DDBB001882E5 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = M4FQ242C7X;
+						DevelopmentTeam = S76H73ZBR7;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -305,7 +306,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		29379472A856DA788EB8C5B7 /* [CP] Embed Pods Frameworks */ = {
@@ -479,6 +480,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = S76H73ZBR7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -486,7 +489,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ambient-innovation.kurento-demo";
 				PRODUCT_NAME = KurentoDemo;
 				PROVISIONING_PROFILE = "";
 			};
@@ -498,6 +501,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = S76H73ZBR7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -505,7 +510,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ambient-innovation.kurento-demo";
 				PRODUCT_NAME = KurentoDemo;
 				PROVISIONING_PROFILE = "";
 			};
