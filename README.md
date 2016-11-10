@@ -1,6 +1,4 @@
-<p align="center" >
-  <img src="KurentoToolbox_logo.png" height="250" alt="KurentoToolbox" title="KurentoToolbox">
-</p>
+[![][NUBOMEDIA Logo]][NUBOMEDIA]
 
 Copyright © 2016 [NUBOMEDIA]. Licensed under [Apache 2.0 License].
 
