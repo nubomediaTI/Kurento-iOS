@@ -36,7 +36,6 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 @interface NBMWebRTCPeer () <RTCPeerConnectionDelegate, RTCDataChannelDelegate>
 
-@property (nonatomic, strong) NSMutableArray *iceServers;
 @property (nonatomic, strong) RTCPeerConnectionFactory *peerConnectionFactory;
 @property (nonatomic, strong) NSMutableDictionary *connectionMap;
 @property (nonatomic, strong) NBMPeerConnection *localPeerConnection;
@@ -151,7 +150,7 @@ static NSString *kDefaultSTUNServerUrl = @"stun:stun.l.google.com:19302";
 
 /** The data channel state changed. */
 - (void)dataChannelDidChangeState:(RTCDataChannel *)dataChannel {
-    DDLogVerbose(@"Data channel changed state: @%, %@", dataChannel.label, dataChannel.readyState);
+    // DDLogVerbose(@"Data channel changed state: @% %@", dataChannel.label, dataChannel.readyState);
     
     if (dataChannel.readyState == RTCDataChannelStateOpen) {
         [self.delegate webRTCPeer:self didAddDataChannel:dataChannel];
@@ -181,7 +180,7 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
     //[connection.peerConnection setRemoteDescriptionWithDelegate:self sessionDescription:description];
 }
 
-- (void)addICECandidate:(RTCIceCandidate *)candidate connectionId:(NSString *)connectionId {
+- (void)addICECandidate:(RTCICECandidate *)candidate connectionId:(NSString *)connectionId {
     NSParameterAssert(candidate);
     NSParameterAssert(connectionId);
     
@@ -655,6 +654,11 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
 
 #pragma mark - RTCSessionDescriptionDelegate
 
+- (void) peerConnection:(RTCPeerConnection *)peerConnection didRemoveIceCandidates:(NSArray<RTCIceCandidate *> *)candidates
+{
+    // ToDo: Add some logic. Frirst of all added because of warning!
+}
+
 - (void)peerConnection:(RTCPeerConnection *)peerConnection didCreateSessionDescription:(RTCSessionDescription *)sdp error:(NSError *)error
 {
     if (error) {
@@ -664,7 +668,7 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
     
     // Send an SDP.
     dispatch_async(dispatch_get_main_queue(), ^{
-        DDLogVerbose(@"Peer connection did create %@", sdp.type);
+        // DDLogVerbose(@"Peer connection did create %@", sdp.type);
         // Set the local description.
         
         //NBMVideoFormat videoFormat = self.mediaConfiguration.receiverVideoFormat;
@@ -680,8 +684,8 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
                                                                                              audioBandwidth:maxAudioBandwidth];
 
         __block __weak RTCPeerConnection* weakPeerConnection = peerConnection;
-        [peerConnection setLocalDescription:conditionedSDP completionHandler:^(NSError * _Nullable error) {
-            [self peerConnection:weakPeerConnection didSetSessionDescriptionWithError:error];
+        [peerConnection setLocalDescription:conditionedSDP completionHandler:^(NSError * _Nullable err) {
+            [self peerConnection:weakPeerConnection didSetSessionDescriptionWithError:err];
         }];
         //[peerConnection setLocalDescriptionWithDelegate:self sessionDescription:conditionedSDP];
     });
@@ -718,8 +722,8 @@ didReceiveMessageWithBuffer:(RTCDataBuffer *)buffer {
             // If we're answering and we've just set the remote offer we need to create
             // an answer and set the local description.
             RTCMediaConstraints *answerConstraints = [NBMSessionDescriptionFactory offerConstraints];
-            [peerConnection answerForConstraints:answerConstraints completionHandler:^(RTCSessionDescription * _Nullable sdp, NSError * _Nullable error) {
-                [self peerConnection:peerConnection didSetSessionDescriptionWithError:error];
+            [peerConnection answerForConstraints:answerConstraints completionHandler:^(RTCSessionDescription * _Nullable sdp, NSError * _Nullable err) {
+                [self peerConnection:peerConnection didSetSessionDescriptionWithError:err];
             }];
             //[peerConnection createAnswerWithDelegate:self constraints:answerConstraints];
         }

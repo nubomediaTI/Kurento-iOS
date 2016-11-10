@@ -1,21 +1,25 @@
 Pod::Spec.new do |s|
 
   s.name         = "KurentoToolbox"
-  s.version      = "0.3.0"
+  s.version      = "0.5.0"
   s.summary      = "Kurento Toolbox for iOS"
   s.description  = <<-DESC
                    Kurento Toolbox for iOS provides a set of basic components that have been found useful during the native development of the WebRTC applications with Kurento.
                    DESC
-  s.homepage     = "https://github.com/nubomediaTI/Kurento-iOS"
+  s.homepage     = "https://github.com/ambient-innovation/Kurento-iOS"
 
   s.license      = { :type => "GNU LGPL 2.1", :file => "LICENSE" }
 
   s.author = { "Marco Rossi" => "marco5.rossi@guest.telecomitalia.it" }
   s.platform = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/ambient-innovation/Kurento-iOS.git", :tag => "v#{s.version}" }
 
   s.default_subspecs = 'Default'
+
+  s.dependency 'WebRTC'
+
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/KurentoToolbox"' }
 
   s.subspec 'Default' do |ss|
     ss.source_files = 'Classes/KurentoToolbox.h'
@@ -23,7 +27,6 @@ Pod::Spec.new do |s|
     ss.dependency 'KurentoToolbox/JSON-RPC'
     ss.dependency 'KurentoToolbox/Room'
     ss.dependency 'KurentoToolbox/Tree'
-    ss.ios.vendored_frameworks = 'WebRTC.framework'
   end
 
   s.subspec 'WebRTC' do |ss|
@@ -58,10 +61,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Utils' do |ss|
       ss.source_files = 'Classes/Utils/*.{h,m}'
-      ss.private_header_files = 'Classes/Utils/*.h'
-      ss.dependency 'CocoaLumberjack', '~> 2.2.0'
+      ss.public_header_files = 'Classes/Utils/*.h'
+	  ss.dependency 'CocoaLumberjack', '~> 2.2.0'
   end
-
+  
   s.requires_arc = true
 
 end

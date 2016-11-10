@@ -26,8 +26,5 @@
 //Room
 #import <KurentoToolbox/Room.h>
 
-//Web RTC
-#import <KurentoToolbox/WebRTC.h>
-
 //JSON-RPC
-#import <KurentoToolbox/JSON-RPC.h"
+#import <KurentoToolbox/JSON-RPC.h>

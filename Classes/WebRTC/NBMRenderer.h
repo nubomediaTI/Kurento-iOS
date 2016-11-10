@@ -22,7 +22,6 @@
 
 #import <WebRTC/RTCVideoRenderer.h>
 
-
 @class RTCVideoTrack;
 
 @protocol NBMRenderer;

@@ -29,9 +29,6 @@
 //Room
 #import "Room.h"
 
-//WebRTC
-#import "WebRTC.h"
-
 //JSON-RPC
 #import "JSON-RPC.h"
 
