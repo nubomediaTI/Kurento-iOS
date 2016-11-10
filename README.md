@@ -10,23 +10,11 @@ Copyright © 2016 [NUBOMEDIA]. Licensed under [Apache 2.0 License].
 [![Platform](https://img.shields.io/cocoapods/p/KurentoToolbox.svg?style=flat)](http://cocoadocs.org/docsets/KurentoToolbox)
 [![License](https://img.shields.io/cocoapods/l/KurentoToolbox.svg)](https://img.shields.io/cocoapods/l/KurentoToolbox.svg)
 
-**Kurento Toolbox for iOS** provides a set of basic components that have been found useful during the native development of WebRTC applications with Kurento.
+**Kurento Toolbox for iOS** provides a set of basic components that have been found useful during the native development of WebRTC applications with Kurento, helping in implementing iOS client for Kurento. 
 
 An Updated and more specific version of the documentation can be found on [readthedocs.org].
 
-
-Contribution policy
--------------------
-
-You can contribute to the Kurento-iOS community through bug-reports, bug-fixes, new code or new documentation. For contributing to the Kurento community, drop a post to the [Kurento-iOS Public Mailing List] providing full information about your contribution and its value. In your contributions, you must comply with the following guidelines
-
-* You must specify the specific contents of your contribution either through a detailed bug description, through a pull-request or through a patch.
-* You must specify the licensing restrictions of the code you contribute.
-* For newly created code to be incorporated in the code-base, you must accept TI to own the code copyright, so that its open source nature is guaranteed.
-* You must justify appropriately the need and value of your contribution. The Kurento-iOS project has no obligations in relation to accepting contributions from third parties.
-* The Kurento-iOS project leaders have the right of asking for further explanations, tests or validations of any code contributed to the community before it being incorporated into the code-base. You must be ready to addressing all these kind of concerns before having your code approved.
-
-The Kurento-iOS project provides community support through the [Kurento-iOS Public Mailing List].
+The Kurento-iOS project provides specific community support through the [Kurento-iOS Public Mailing List].
 [Kurento-iOS Public Mailing List]: https://groups.google.com/forum/#!forum/kurento-ios
 [readthedocs.org]: http://kurento-ios.readthedocs.org/en/latest/index.html
 
