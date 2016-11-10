@@ -6,21 +6,24 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    Kurento Toolbox for iOS provides a set of basic components that have been found useful during the native development of the WebRTC applications with Kurento.
                    DESC
-  s.homepage     = "https://github.com/nubomediaTI/Kurento-iOS"
+  s.homepage     = "https://github.com/ambient-innovation/Kurento-iOS"
 
   s.license      = { :type => "GNU LGPL 2.1", :file => "LICENSE" }
 
   s.author = { "Marco Rossi" => "marco5.rossi@guest.telecomitalia.it" }
   s.platform = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/nubomediaTI/Kurento-iOS.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/ambient-innovation/Kurento-iOS.git", :tag => "v#{s.version}" }
 
   s.default_subspecs = 'Default'
 	
-  s.vendored_frameworks = 'WebRTC.framework'
-  s.resource = "WebRTC.framework"
+# s.vendored_frameworks = 'WebRTC.framework'
+# s.resource = "WebRTC.framework"
+
+  s.dependency 'WebRTC'
+
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/KurentoToolbox"' }
-	
+
   s.subspec 'Default' do |ss|
     ss.source_files = 'Classes/KurentoToolbox.h'
     ss.dependency 'KurentoToolbox/WebRTC'
