@@ -432,7 +432,7 @@ static NSTimeInterval kTreeClientTimeoutInterval = 5;
     NSNumber *index = [NBMTreeClient element:params getPropertyWithName:kICESdpMLineIndex ofClass:[NSNumber class] error:&error];
     RTCIceCandidate *candidate;
     if (!error) {
-        candidate = [[RTCIceCandidate alloc] initWithSdp:sdp sdpMLineIndex:index.integerValue sdpMid:sdpMid];
+        candidate = [[RTCIceCandidate alloc] initWithSdp:sdp sdpMLineIndex:index.intValue sdpMid:sdpMid];
     }
     
     NSString *treeId = [NBMTreeClient element:params getStringPropertyWithName:kTreeId error:&error];

@@ -16,9 +16,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ambient-innovation/Kurento-iOS.git", :tag => "v#{s.version}" }
 
   s.default_subspecs = 'Default'
-	
-# s.vendored_frameworks = 'WebRTC.framework'
-# s.resource = "WebRTC.framework"
 
   s.dependency 'WebRTC'
 
