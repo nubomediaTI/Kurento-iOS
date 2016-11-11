@@ -36,10 +36,15 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAllowsArbitraryLoads</key>
-	<true/>
 	<key>NSAppTransportSecurity</key>
-	<dict/>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Zur Kommunikation mit dem Berater via Video</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Zur Übertragung des Tons bei dem Chat mit dem Berater</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

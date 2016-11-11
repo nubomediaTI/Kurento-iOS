@@ -78,6 +78,7 @@
 		4AF48D611BECEFFA004E4AD2 /* KurentoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A46BC211BE3DF79009E0FBE /* KurentoToolbox.framework */; };
 		564D8A0B1D18485500676AAC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A0A1D18485500676AAC /* WebRTC.framework */; };
 		564D8A141D1942C300676AAC /* libPods-KurentoToolbox-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 564D8A131D1942C300676AAC /* libPods-KurentoToolbox-Static.a */; };
+		B110ED74362B15ED930E7D41 /* libPods-KurentoToolbox-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A44AD8017DB368676764B11 /* libPods-KurentoToolbox-Static.a */; };
 		CF748A736A49BD58460593DD /* libPods-KurentoToolbox-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDE223912EC939E9DA6EBE1 /* libPods-KurentoToolbox-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +189,7 @@
 				4A6E88DF1C105435000A8EE9 /* UIKit.framework in Frameworks */,
 				4A6E88DD1C10542D000A8EE9 /* Foundation.framework in Frameworks */,
 				564D8A141D1942C300676AAC /* libPods-KurentoToolbox-Static.a in Frameworks */,
+				B110ED74362B15ED930E7D41 /* libPods-KurentoToolbox-Static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +609,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D7127162DBD1234157B2592C /* [CP] Check Pods Manifest.lock */ = {
@@ -622,7 +624,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FA93102E05645A386114EAA3 /* [CP] Embed Pods Frameworks */ = {

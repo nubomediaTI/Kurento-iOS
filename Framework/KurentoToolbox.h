@@ -25,4 +25,4 @@
 #import <KurentoToolbox/WebRTC.h>
 
 //JSON-RPC
-#import <KurentoToolbox/JSON-RPC.h"
+#import <KurentoToolbox/JSON-RPC.h>
