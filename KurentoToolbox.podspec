@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KurentoToolbox"
-  s.version      = "0.3.0"
+  s.version      = "0.6.0"
   s.summary      = "Kurento Toolbox for iOS"
   s.description  = <<-DESC
                    Kurento Toolbox for iOS provides a set of basic components that have been found useful during the native development of the WebRTC applications with Kurento.

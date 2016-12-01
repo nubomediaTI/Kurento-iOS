@@ -257,7 +257,12 @@
 				TargetAttributes = {
 					4AE438D81BF0DDBB001882E5 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = M4FQ242C7X;
+						DevelopmentTeam = 6DB9556A7S;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -402,8 +407,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Massimo Milazzo (DD85M3RUJX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Massimo Milazzo (DD85M3RUJX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
@@ -449,8 +454,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Massimo Milazzo (DD85M3RUJX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Massimo Milazzo (DD85M3RUJX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -478,7 +483,8 @@
 			baseConfigurationReference = F13C173A1C1EFFF77D602F55 /* Pods-KurentoToolboxDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Massimo Milazzo (DD85M3RUJX)";
+				DEVELOPMENT_TEAM = 6DB9556A7S;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -486,9 +492,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemostration;
 				PRODUCT_NAME = KurentoDemo;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "97a9f27d-296a-4b93-8389-c799993ff8ae";
+				PROVISIONING_PROFILE_SPECIFIER = KurentoToolbox;
 			};
 			name = Debug;
 		};
@@ -497,7 +504,8 @@
 			baseConfigurationReference = 6D6934503747DF5C38C8CDD8 /* Pods-KurentoToolboxDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mirko Rinaldini (3DSD2YKJ78)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Massimo Milazzo (DD85M3RUJX)";
+				DEVELOPMENT_TEAM = 6DB9556A7S;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -505,9 +513,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/KurentoToolboxDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = it.telecomitalia.KurentoToolboxDemostration;
 				PRODUCT_NAME = KurentoDemo;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "97a9f27d-296a-4b93-8389-c799993ff8ae";
+				PROVISIONING_PROFILE_SPECIFIER = KurentoToolbox;
 			};
 			name = Release;
 		};
